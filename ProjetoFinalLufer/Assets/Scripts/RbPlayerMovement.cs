@@ -5,9 +5,14 @@ using UnityEngine;
 public class RbPlayerMovement : MonoBehaviour
 {
     private Rigidbody rb;
-    public float speed = 6.0f;
+    private Vector3 direction;
+
+    public float speed = 0.0f;
+    //public float maxSpeed = 10.0f;
+    //public float acc = 2.5f;
     public float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
+
 
     // Start is called before the first frame update
     void Start()
@@ -18,10 +23,24 @@ public class RbPlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float h = Input.GetAxis("Horizontal");
-        float v = Input.GetAxis("Vertical");
+        float h = Input.GetAxisRaw("Horizontal");
+        float v = Input.GetAxisRaw("Vertical");
 
-        rb.velocity = new Vector3(h, 0f, v) * speed;
+        direction = new Vector3(h, 0, v);
+
+        /*if((h != 0 || v != 0) && speed < maxSpeed)
+        {
+            speed += acc * Time.deltaTime;    
+        }
+        else if(h == 0 && v == 0 && speed > 0)
+        {
+            speed -= acc * Time.deltaTime;
+        }
+
+
+        rb.velocity = new Vector3(h, rb.velocity.y, v) * speed;*/
+
+        rb.AddForce(direction * speed);
 
         if (rb.velocity.magnitude >= 0.1f)
         {
