@@ -1,4 +1,6 @@
+using UnityEngine;
+
 public interface Interactive
 {
-    void Interact();    
+    GameObject Interact(GameObject interactor);    
 }
