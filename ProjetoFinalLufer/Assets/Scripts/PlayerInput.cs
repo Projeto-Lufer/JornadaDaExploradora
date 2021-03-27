@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
+    public enum playerState {normal, lifting, dragging};
+
+    private playerState state = playerState.normal;
     [SerializeField] private InteractiveIdentifier interactiveIdentifier;
 
     // Update is called once per frame
