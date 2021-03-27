@@ -8,18 +8,43 @@ public class PlayerInput : MonoBehaviour
 
     private playerState state = playerState.normal;
     [SerializeField] private InteractiveIdentifier interactiveIdentifier;
+    [SerializeField] private ObjectManipulator objectManipulator;
 
-    // Update is called once per frame
+
+
     void Update()
     {
         if (Input.GetButtonDown("Interact"))
         {
-            Debug.Log("Trying to interact");
-            Interactive interactive = interactiveIdentifier.Getmostrelevantinteractive();
-
-            if(interactive != null)
+            if(state == playerState.lifting)
             {
-                interactive.Interact();
+                objectManipulator.ThrowObject();
+                state = playerState.normal;
+            }
+            else
+            {
+                Interactive interactive = interactiveIdentifier.PopMostrelevantinteractive();
+
+                if(interactive != null)
+                {
+                    GameObject objectInteracted = interactive.Interact(gameObject);
+
+                    // Talvez trocar depois para fazer com que o script defina a tag do objeto como "liftable" 
+                    //ou seja l� qual a intera��o ao inv�s de usar GetComponent
+                    if(objectInteracted.GetComponent<LiftableObject>() != null)
+                    {
+                        state = playerState.lifting;
+                        objectManipulator.LiftObject(objectInteracted);
+                    }
+                }
+            }
+        }
+        else if (Input.GetButtonDown("Cancel"))
+        {
+            if(state == playerState.lifting)
+            {
+                objectManipulator.DropObject();
+                state = playerState.normal;
             }
         }
     }
