@@ -29,11 +29,13 @@ public class InteractiveIdentifier : MonoBehaviour
         }
     }
 
-    public Interactive Getmostrelevantinteractive()
+    public Interactive PopMostrelevantinteractive()
     {
         if(interactivesInRange.Count > 0)
         {
-            return interactivesInRange[0];
+            Interactive interactive = interactivesInRange[0];
+            interactivesInRange.Remove(interactive);
+            return interactive;
         }
         return null;
     }
