@@ -47,5 +47,17 @@ public class PlayerInput : MonoBehaviour
                 state = playerState.normal;
             }
         }
+    private playerState GetNextState()
+    {
+        switch (state)
+        {
+            case playerState.lifting:
+                return playerState.holding;
+            case playerState.holding:
+                return playerState.normal;
+        }
+        // Caso nao ache nenhum tipo de comportamento, talvez nao devesse trocar
+        return state;
+    }
     }
 }
