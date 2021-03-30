@@ -410,3 +410,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactiveIdentifier: {fileID: 7762025946051498912}
   objectManipulator: {fileID: 7762025947470870749}
+  playerMovement: {fileID: 7762025947535230011}
+  liftingHaltDuration: 0.3
+  throwingHaltDuration: 0.6
+  droppingHaltDuration: 0.6
