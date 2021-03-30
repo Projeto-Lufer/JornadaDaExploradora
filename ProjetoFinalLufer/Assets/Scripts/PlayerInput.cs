@@ -9,6 +9,7 @@ public class PlayerInput : MonoBehaviour
     private playerState state = playerState.normal;
     [SerializeField] private InteractiveIdentifier interactiveIdentifier;
     [SerializeField] private ObjectManipulator objectManipulator;
+    [SerializeField] private PlayerMovement playerMovement;
 
     [SerializeField] private float liftingHaltDuration;
     [SerializeField] private float throwingHaltDuration;
@@ -17,6 +18,14 @@ public class PlayerInput : MonoBehaviour
 
     void Update()
     {
+        if(state == playerState.halted)
+        {
+            playerMovement.UpdateDirection(0, 0);
+            return;
+        }
+
+        playerMovement.UpdateDirection(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+
         if (Input.GetButtonDown("Interact"))
         {
             if(state == playerState.holding)
@@ -53,6 +62,12 @@ public class PlayerInput : MonoBehaviour
                 StartCoroutine(releaseTimerCoroutine(droppingHaltDuration));
             }
         }
+        else if (Input.GetKeyDown("space"))
+        {
+            playerMovement.Dash();
+        }
+    }
+
     private playerState GetNextState()
     {
         switch (state)

@@ -12,13 +12,19 @@ public class PlayerMovement : MonoBehaviour
     public float dashSpeed;
     public float dashTime;
 
+    private float horizontal;
+    private float vertical;
+    private Vector3 direction;
 
-    // Update is called once per frame
-    void Update()
+    public void UpdateDirection(float horizontal, float vertical)
     {
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical");
-        Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
+        this.horizontal = horizontal;
+        this.vertical = vertical;
+    }
+
+    void FixedUpdate()
+    {
+        direction = new Vector3(horizontal, 0f, vertical).normalized;
 
         if(direction.magnitude >= 0.1f)
         {
@@ -28,12 +34,11 @@ public class PlayerMovement : MonoBehaviour
 
             controller.Move(direction * speed * Time.deltaTime);
         }
+    }
 
-        if (Input.GetKeyDown("space"))
-        {
-            StartCoroutine(DashAction(direction));
-        }
-
+    public void Dash()
+    {
+        StartCoroutine(DashAction(direction));
     }
 
     IEnumerator DashAction(Vector3 dashDirection)
