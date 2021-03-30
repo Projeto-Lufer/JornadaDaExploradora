@@ -59,5 +59,12 @@ public class PlayerInput : MonoBehaviour
         // Caso nao ache nenhum tipo de comportamento, talvez nao devesse trocar
         return state;
     }
+
+    private IEnumerator releaseTimerCoroutine(float seconds)
+    {
+        playerState nextState = GetNextState();
+        state = playerState.halted;
+        yield return new WaitForSeconds(seconds);
+        state = nextState;
     }
 }
