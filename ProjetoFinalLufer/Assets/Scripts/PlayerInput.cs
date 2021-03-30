@@ -10,18 +10,22 @@ public class PlayerInput : MonoBehaviour
     [SerializeField] private InteractiveIdentifier interactiveIdentifier;
     [SerializeField] private ObjectManipulator objectManipulator;
 
+    [SerializeField] private float liftingHaltDuration;
+    [SerializeField] private float throwingHaltDuration;
+    [SerializeField] private float droppingHaltDuration;
 
 
     void Update()
     {
         if (Input.GetButtonDown("Interact"))
         {
-            if(state == playerState.lifting)
+            if(state == playerState.holding)
             {
                 objectManipulator.ThrowObject();
                 state = playerState.normal;
+                StartCoroutine(releaseTimerCoroutine(liftingHaltDuration));
             }
-            else
+            else if(state == playerState.normal)
             {
                 Interactive interactive = interactiveIdentifier.PopMostrelevantinteractive();
 
@@ -35,16 +39,18 @@ public class PlayerInput : MonoBehaviour
                     {
                         state = playerState.lifting;
                         objectManipulator.LiftObject(objectInteracted);
+                        StartCoroutine(releaseTimerCoroutine(throwingHaltDuration));
                     }
                 }
             }
         }
         else if (Input.GetButtonDown("Cancel"))
         {
-            if(state == playerState.lifting)
+            if(state == playerState.holding)
             {
                 objectManipulator.DropObject();
                 state = playerState.normal;
+                StartCoroutine(releaseTimerCoroutine(droppingHaltDuration));
             }
         }
     private playerState GetNextState()
