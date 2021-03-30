@@ -30,7 +30,7 @@ public class PlayerInput : MonoBehaviour
                     GameObject objectInteracted = interactive.Interact(gameObject);
 
                     // Talvez trocar depois para fazer com que o script defina a tag do objeto como "liftable" 
-                    //ou seja l� qual a intera��o ao inv�s de usar GetComponent
+                    //ou seja la qual a interacao ao inves de usar GetComponent
                     if(objectInteracted.GetComponent<LiftableObject>() != null)
                     {
                         state = playerState.lifting;
