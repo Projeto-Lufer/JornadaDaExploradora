@@ -5,11 +5,25 @@ using UnityEngine;
 public class PlayerCombat : MonoBehaviour
 {
     public Transform attackPoint;
+    public LayerMask enemyLayer;
+
+    //Variaveis relativas ao alcane e tempo de cast do ataque
     public float lungeRange;
     public float lungeWindup;
     public float sweepRange;
     public float sweepWindup;
-    public LayerMask enemyLayer;
+
+    //Variaveis para acompanhar o HP do jogador
+    public int maxHP;
+    private int curHP;
+
+    //Dano da arma equipada, caso a gente decida ter diferentes armas no jogo
+    public int weaponDamage;
+
+    private void Start()
+    {
+        curHP = maxHP;
+    }
 
     public IEnumerator Sweep()
     {
@@ -18,11 +32,14 @@ public class PlayerCombat : MonoBehaviour
 
         Collider[] enemies = Physics.OverlapSphere(attackPoint.position, sweepRange, enemyLayer);
 
-        foreach(Collider enemy in enemies)
+        //Dano
+
+        foreach (Collider enemy in enemies)
         {
             Debug.Log("Hit Sweep");
+            enemy.GetComponentInParent<EnemyCombat>().TakeDamage(weaponDamage);
         }
-        //Dano
+
     }
 
     public IEnumerator Lunge()
@@ -32,11 +49,13 @@ public class PlayerCombat : MonoBehaviour
 
         Collider[] enemies = Physics.OverlapBox(attackPoint.position, new Vector3(0.5f,0.5f,lungeRange), Quaternion.identity, enemyLayer);
        
+        //Dano 
+
         foreach(Collider enemy in enemies)
         {
             Debug.Log("Hit Lunge");
+            enemy.GetComponentInParent<EnemyCombat>().TakeDamage(weaponDamage);
         }
-        //Dano 
     }
 
     private void OnDrawGizmosSelected()
@@ -48,5 +67,15 @@ public class PlayerCombat : MonoBehaviour
 
         Gizmos.DrawWireSphere(attackPoint.position, sweepRange);
         Gizmos.DrawWireCube(attackPoint.position, new Vector3(0.5f,0.5f,lungeRange));
+    }
+
+    public void TakeDamage(int damage)
+    {
+        curHP -= damage;
+
+        if(curHP <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }

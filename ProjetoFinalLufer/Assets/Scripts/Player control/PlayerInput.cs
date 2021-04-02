@@ -70,7 +70,7 @@ public class PlayerInput : MonoBehaviour
         else if(Input.GetButtonDown("Fire1"))
         {
             //Ataque em arco
-            playerCombat.Sweep();
+            StartCoroutine(playerCombat.Sweep());
         }
         else if(Input.GetButtonDown("Fire2"))
         {

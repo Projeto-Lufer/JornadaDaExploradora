@@ -11452,6 +11452,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1809957773 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4934168771730955389, guid: e00a0b8fe38512a4ea7a88c1c4590818,
+    type: 3}
+  m_PrefabInstance: {fileID: 518623319}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1809957774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1809957773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91b5a32513ae13b4fb48b666bfafb1c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHP: 3
 --- !u!1 &1850811183
 GameObject:
   m_ObjectHideFlags: 0
@@ -11747,13 +11766,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackPoint: {fileID: 1884519513}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 8
   lungeRange: 2.5
   lungeWindup: 1
   sweepRange: 1.2
   sweepWindup: 1
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 8
+  maxHP: 3
+  weaponDamage: 1
 --- !u!43 &1969442566
 Mesh:
   m_ObjectHideFlags: 0
