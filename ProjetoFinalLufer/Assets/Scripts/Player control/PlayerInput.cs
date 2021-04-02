@@ -10,6 +10,7 @@ public class PlayerInput : MonoBehaviour
     [SerializeField] private InteractiveIdentifier interactiveIdentifier;
     [SerializeField] private ObjectManipulator objectManipulator;
     [SerializeField] private PlayerMovement playerMovement;
+    [SerializeField] private PlayerCombat playerCombat;
 
     [SerializeField] private float liftingHaltDuration;
     [SerializeField] private float throwingHaltDuration;
@@ -65,6 +66,16 @@ public class PlayerInput : MonoBehaviour
         else if (Input.GetKeyDown("space"))
         {
             playerMovement.Dash();
+        }
+        else if(Input.GetButtonDown("Fire1"))
+        {
+            //Ataque em arco
+            playerCombat.Sweep();
+        }
+        else if(Input.GetButtonDown("Fire2"))
+        {
+            //Estocada
+            StartCoroutine(playerCombat.Lunge());
         }
     }
 
