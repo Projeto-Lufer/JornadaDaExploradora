@@ -70,12 +70,20 @@ public class PlayerInput : MonoBehaviour
         else if(Input.GetButtonDown("Fire1"))
         {
             //Ataque em arco
-            StartCoroutine(playerCombat.Sweep());
+            if(Time.time >= playerCombat.nextAttack)
+            {
+                playerCombat.Sweep();
+                playerCombat.nextAttack = Time.time + 1 / playerCombat.attackRate;
+            }
         }
         else if(Input.GetButtonDown("Fire2"))
         {
             //Estocada
-            StartCoroutine(playerCombat.Lunge());
+            if(Time.time >= playerCombat.nextAttack)
+            {
+                playerCombat.Lunge();
+                playerCombat.nextAttack = Time.time + 1 / playerCombat.attackRate;
+            }
         }
     }
 

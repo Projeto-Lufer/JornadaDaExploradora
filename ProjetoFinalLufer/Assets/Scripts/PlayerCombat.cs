@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
 {
-    public Transform attackPoint;
-    public LayerMask enemyLayer;
+    [SerializeField] private Transform attackPoint;
+    [SerializeField] private LayerMask enemyLayer;
 
-    //Variaveis relativas ao alcane e tempo de cast do ataque
+    //Variaveis relativas ao alcane e tempo dos ataques
     public float lungeRange;
-    public float lungeWindup;
     public float sweepRange;
-    public float sweepWindup;
+    public float attackRate;
+    [HideInInspector] public float nextAttack;
 
     //Variaveis para acompanhar o HP do jogador
     public int maxHP;
@@ -25,10 +25,9 @@ public class PlayerCombat : MonoBehaviour
         curHP = maxHP;
     }
 
-    public IEnumerator Sweep()
+    public void Sweep()
     {
         //Detecção de inimigos
-        yield return new WaitForSeconds(sweepWindup);
 
         Collider[] enemies = Physics.OverlapSphere(attackPoint.position, sweepRange, enemyLayer);
 
@@ -42,10 +41,9 @@ public class PlayerCombat : MonoBehaviour
 
     }
 
-    public IEnumerator Lunge()
+    public void Lunge()
     {
         //Deteccao de inimigos
-        yield return new WaitForSeconds(lungeWindup);
 
         Collider[] enemies = Physics.OverlapBox(attackPoint.position, new Vector3(0.5f,0.5f,lungeRange), Quaternion.identity, enemyLayer);
        

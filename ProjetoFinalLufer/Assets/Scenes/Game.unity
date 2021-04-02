@@ -11770,9 +11770,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   lungeRange: 2.5
-  lungeWindup: 1
   sweepRange: 1.2
-  sweepWindup: 1
+  attackRate: 2
+  nextAttack: 0
   maxHP: 3
   weaponDamage: 1
 --- !u!43 &1969442566
