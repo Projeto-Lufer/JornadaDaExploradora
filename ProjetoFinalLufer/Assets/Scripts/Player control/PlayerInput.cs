@@ -76,15 +76,6 @@ public class PlayerInput : MonoBehaviour
                 playerCombat.nextAttack = Time.time + 1 / playerCombat.attackRate;
             }
         }
-        else if(Input.GetButtonDown("Fire2"))
-        {
-            //Estocada
-            if(Time.time >= playerCombat.nextAttack)
-            {
-                playerCombat.Lunge();
-                playerCombat.nextAttack = Time.time + 1 / playerCombat.attackRate;
-            }
-        }
     }
 
     private playerState GetNextState()

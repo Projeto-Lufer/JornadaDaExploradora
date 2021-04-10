@@ -8,7 +8,6 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] private LayerMask enemyLayer;
 
     //Variaveis relativas ao alcane e tempo dos ataques
-    public float lungeRange;
     public float sweepRange;
     public float attackRate;
     [HideInInspector] public float nextAttack;
@@ -41,21 +40,6 @@ public class PlayerCombat : MonoBehaviour
 
     }
 
-    public void Lunge()
-    {
-        //Deteccao de inimigos
-
-        Collider[] enemies = Physics.OverlapBox(attackPoint.position, new Vector3(0.5f,0.5f,lungeRange), Quaternion.identity, enemyLayer);
-       
-        //Dano 
-
-        foreach(Collider enemy in enemies)
-        {
-            Debug.Log("Hit Lunge");
-            enemy.GetComponentInParent<EnemyCombat>().TakeDamage(weaponDamage);
-        }
-    }
-
     private void OnDrawGizmosSelected()
     {
         if(attackPoint == null)
@@ -63,8 +47,8 @@ public class PlayerCombat : MonoBehaviour
             return;
         }
 
+        Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(attackPoint.position, sweepRange);
-        Gizmos.DrawWireCube(attackPoint.position, new Vector3(0.5f,0.5f,lungeRange));
     }
 
     public void TakeDamage(int damage)
