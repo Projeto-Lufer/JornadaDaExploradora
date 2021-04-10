@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerCombat : MonoBehaviour
 {
     [SerializeField] private Transform attackPoint;
     [SerializeField] private LayerMask enemyLayer;
+    [SerializeField] private Text healthTextUI;
 
     //Variaveis relativas ao alcane e tempo dos ataques
     public float sweepRange;
@@ -15,6 +17,7 @@ public class PlayerCombat : MonoBehaviour
     //Variaveis para acompanhar o HP do jogador
     public int maxHP;
     private int curHP;
+    private string baseText;
 
     //Dano da arma equipada, caso a gente decida ter diferentes armas no jogo
     public int weaponDamage;
@@ -22,6 +25,13 @@ public class PlayerCombat : MonoBehaviour
     private void Start()
     {
         curHP = maxHP;
+        baseText = healthTextUI.text;
+        UpdateHealthUI();
+    }
+
+    private void UpdateHealthUI()
+    {
+        healthTextUI.text = $"{baseText} {curHP}/{maxHP}";
     }
 
     public void Sweep()
@@ -54,8 +64,8 @@ public class PlayerCombat : MonoBehaviour
     public void TakeDamage(int damage)
     {
         curHP -= damage;
-
-        if(curHP <= 0)
+        UpdateHealthUI();
+        if (curHP <= 0)
         {
             Destroy(gameObject);
         }
