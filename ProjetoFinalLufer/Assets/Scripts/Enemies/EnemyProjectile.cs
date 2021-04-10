@@ -30,7 +30,7 @@ public class EnemyProjectile : MonoBehaviour
         // 1. Deal damage to what it hit
         if(collision.collider.CompareTag("Player"))
         {
-            collision.collider.GetComponentInParent<PlayerCombat>().TakeDamage((int)damage);
+            collision.collider.GetComponentInParent<HPManager>().TakeDamage((int)damage);
         }
         // 2. Play destruction VFX/animation
         // 3. Self destruct
