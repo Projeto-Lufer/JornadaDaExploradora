@@ -59,7 +59,10 @@ public class StaticRangedEnemy : MonoBehaviour
         {
             for(float timer = 0 ; timer < timeBetweenShots ; timer += Time.deltaTime)
             {
-                transform.LookAt(target.transform);
+                if(target != null)
+                {
+                    transform.LookAt(target.transform);
+                }
                 yield return null;
             }
 

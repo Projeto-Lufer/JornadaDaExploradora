@@ -11,6 +11,7 @@ public class EnemyProjectile : MonoBehaviour
 
     private float distanceTravelled;
 
+
     void Update()
     {
         float distanceToMove = speed * Time.deltaTime;
@@ -27,6 +28,10 @@ public class EnemyProjectile : MonoBehaviour
     {
         // TODO
         // 1. Deal damage to what it hit
+        if(collision.collider.CompareTag("Player"))
+        {
+            collision.collider.GetComponentInParent<PlayerCombat>().TakeDamage((int)damage);
+        }
         // 2. Play destruction VFX/animation
         // 3. Self destruct
         DestructionProcess();

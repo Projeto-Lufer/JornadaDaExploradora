@@ -11769,7 +11769,6 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 8
-  lungeRange: 2.5
   sweepRange: 1.2
   attackRate: 2
   nextAttack: 0
