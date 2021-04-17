@@ -17,6 +17,17 @@ public class PlayerInput : MonoBehaviour
     [SerializeField] private float throwingHaltDuration;
     [SerializeField] private float droppingHaltDuration;
 
+    private Dictionary<string, float> animationTimes = new Dictionary<string, float>();
+
+    private void Start()
+    {
+        AnimationClip[] clips = animator.runtimeAnimatorController.animationClips;
+        foreach (AnimationClip clip in clips)
+        {
+            Debug.Log(clip.name);
+            animationTimes[clip.name] = clip.length;
+        }
+    }
 
     void Update()
     {
@@ -71,8 +82,8 @@ public class PlayerInput : MonoBehaviour
         else if(Input.GetButtonDown("Fire1"))
         {
             animator.SetTrigger("Attack");
+            StartCoroutine(haltedTimerCoroutine(animationTimes["Attack"]));
             playerCombat.Sweep();
-            StartCoroutine(haltedTimerCoroutine(playerCombat.attackRate));
         }
     }
 
