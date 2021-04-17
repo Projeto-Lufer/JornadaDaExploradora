@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
-    public enum playerState {normal, lifting, holding, dragging, halted};
+    public enum playerState {normal, lifting, holding, dragging, halted, attacking};
 
     private playerState state = playerState.normal;
     [SerializeField] private InteractiveIdentifier interactiveIdentifier;
     [SerializeField] private ObjectManipulator objectManipulator;
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private PlayerCombat playerCombat;
+    [SerializeField] private Animator animator;
 
     [SerializeField] private float liftingHaltDuration;
     [SerializeField] private float throwingHaltDuration;
@@ -33,7 +34,7 @@ public class PlayerInput : MonoBehaviour
             {
                 objectManipulator.ThrowObject();
                 state = playerState.normal;
-                StartCoroutine(releaseTimerCoroutine(liftingHaltDuration));
+                StartCoroutine(haltedTimerCoroutine(liftingHaltDuration));
             }
             else if(state == playerState.normal)
             {
@@ -49,7 +50,7 @@ public class PlayerInput : MonoBehaviour
                     {
                         state = playerState.lifting;
                         objectManipulator.LiftObject(objectInteracted);
-                        StartCoroutine(releaseTimerCoroutine(throwingHaltDuration));
+                        StartCoroutine(haltedTimerCoroutine(throwingHaltDuration));
                     }
                 }
             }
@@ -60,7 +61,7 @@ public class PlayerInput : MonoBehaviour
             {
                 objectManipulator.DropObject();
                 state = playerState.normal;
-                StartCoroutine(releaseTimerCoroutine(droppingHaltDuration));
+                StartCoroutine(haltedTimerCoroutine(droppingHaltDuration));
             }
         }
         else if (Input.GetKeyDown("space"))
@@ -69,12 +70,9 @@ public class PlayerInput : MonoBehaviour
         }
         else if(Input.GetButtonDown("Fire1"))
         {
-            //Ataque em arco
-            if(Time.time >= playerCombat.nextAttack)
-            {
-                playerCombat.Sweep();
-                playerCombat.nextAttack = Time.time + 1 / playerCombat.attackRate;
-            }
+            animator.SetTrigger("Attack");
+            playerCombat.Sweep();
+            StartCoroutine(haltedTimerCoroutine(playerCombat.attackRate));
         }
     }
 
@@ -86,12 +84,14 @@ public class PlayerInput : MonoBehaviour
                 return playerState.holding;
             case playerState.holding:
                 return playerState.normal;
+            case playerState.attacking:
+                return playerState.normal;
         }
         // Caso nao ache nenhum tipo de comportamento, talvez nao devesse trocar
         return state;
     }
 
-    private IEnumerator releaseTimerCoroutine(float seconds)
+    private IEnumerator haltedTimerCoroutine(float seconds)
     {
         playerState nextState = GetNextState();
         state = playerState.halted;
