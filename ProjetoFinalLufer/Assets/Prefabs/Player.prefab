@@ -365,7 +365,8 @@ MonoBehaviour:
   interactiveIdentifier: {fileID: 7762025946051498912}
   objectManipulator: {fileID: 7762025947470870749}
   playerMovement: {fileID: 7762025947535230011}
-  playerCombat: {fileID: 0}
+  playerCombat: {fileID: 4766827225807830560}
+  animator: {fileID: 4974148435762435629}
   liftingHaltDuration: 0.3
   throwingHaltDuration: 0.6
   droppingHaltDuration: 0.6
@@ -399,7 +400,6 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 8
-  animator: {fileID: 4974148435762435629}
   sweepRange: 1.2
   attackRate: 0.4
   nextAttack: 0
