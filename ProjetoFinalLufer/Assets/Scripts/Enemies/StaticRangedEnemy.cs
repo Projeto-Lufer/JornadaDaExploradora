@@ -7,9 +7,6 @@ public class StaticRangedEnemy : MonoBehaviour
     [SerializeField] private float timeBetweenShots;
     [SerializeField] private float startledTime;
 
-    private enum RangedEnemyStates {idle, shooting};
-    private RangedEnemyStates state = RangedEnemyStates.idle;
-
     [SerializeField] private AreaDetector areaDetector;
     [SerializeField] private Transform projectileSpawnPoint;
     [SerializeField] private GameObject projectile;
