@@ -35,6 +35,12 @@ public class PlayerInput : MonoBehaviour
                 state = playerState.normal;
                 StartCoroutine(releaseTimerCoroutine(liftingHaltDuration));
             }
+            else if(state == playerState.dragging)
+            {
+                objectManipulator.ReleaseObject();
+                state = playerState.normal;
+                StartCoroutine(releaseTimerCoroutine(liftingHaltDuration));
+            }
             else if(state == playerState.normal)
             {
                 Interactive interactive = interactiveIdentifier.PopMostrelevantinteractive();
@@ -50,6 +56,12 @@ public class PlayerInput : MonoBehaviour
                         state = playerState.lifting;
                         objectManipulator.LiftObject(objectInteracted);
                         StartCoroutine(releaseTimerCoroutine(throwingHaltDuration));
+                    }
+                    else if(objectInteracted.GetComponent<PushableObject>() != null)
+                    {
+                        state = playerState.dragging;
+                        objectManipulator.GrabObject(objectInteracted);
+                        StartCoroutine(releaseTimerCoroutine(liftingHaltDuration));
                     }
                 }
             }
