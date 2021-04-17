@@ -24,7 +24,6 @@ public class PlayerInput : MonoBehaviour
         AnimationClip[] clips = animator.runtimeAnimatorController.animationClips;
         foreach (AnimationClip clip in clips)
         {
-            Debug.Log(clip.name);
             animationTimes[clip.name] = clip.length;
         }
     }
