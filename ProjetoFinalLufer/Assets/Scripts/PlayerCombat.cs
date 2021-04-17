@@ -6,7 +6,6 @@ public class PlayerCombat : MonoBehaviour
 {
     [SerializeField] private Transform attackPoint;
     [SerializeField] private LayerMask enemyLayer;
-    [SerializeField] private Animator animator;
 
     //Variaveis relativas ao alcane e tempo dos ataques
     public float sweepRange;
@@ -21,7 +20,6 @@ public class PlayerCombat : MonoBehaviour
         //Detecção de inimigos
 
         Collider[] enemies = Physics.OverlapSphere(attackPoint.position, sweepRange, enemyLayer);
-        animator.SetTrigger("Attack");
         //Dano
 
         foreach (Collider enemy in enemies)
