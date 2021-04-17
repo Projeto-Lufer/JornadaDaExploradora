@@ -401,7 +401,7 @@ MonoBehaviour:
     m_Bits: 8
   animator: {fileID: 4974148435762435629}
   sweepRange: 1.2
-  attackRate: 2
+  attackRate: 0.4
   nextAttack: 0
   weaponDamage: 1
 --- !u!95 &4974148435762435629
