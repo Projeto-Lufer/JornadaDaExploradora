@@ -289,7 +289,7 @@ GameObject:
   - component: {fileID: 1501699676600620397}
   - component: {fileID: 4766827225807830560}
   - component: {fileID: 4974148435762435629}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -401,8 +401,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   sweepRange: 1.2
-  attackRate: 0.4
-  nextAttack: 0
   weaponDamage: 1
 --- !u!95 &4974148435762435629
 Animator:
