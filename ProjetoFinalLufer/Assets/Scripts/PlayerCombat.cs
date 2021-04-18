@@ -7,10 +7,7 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] private Transform attackPoint;
     [SerializeField] private LayerMask enemyLayer;
 
-    //Variaveis relativas ao alcane e tempo dos ataques
     public float sweepRange;
-    public float attackRate;
-    [HideInInspector] public float nextAttack;
 
     //Dano da arma equipada, caso a gente decida ter diferentes armas no jogo
     public int weaponDamage;
@@ -25,7 +22,7 @@ public class PlayerCombat : MonoBehaviour
         foreach (Collider enemy in enemies)
         {
             Debug.Log("Hit Sweep");
-            enemy.GetComponentInParent<HPManager>().TakeDamage(weaponDamage);
+            enemy.GetComponent<HPManager>().TakeDamage(weaponDamage);
         }
 
     }

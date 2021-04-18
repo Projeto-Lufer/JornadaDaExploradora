@@ -36,7 +36,7 @@ public class HPManager : MonoBehaviour
 
         if (curHP <= 0)
         {
-            Destroy(gameObject);
+            Destroy(transform.parent.gameObject);
         }
     }
     private void UpdateHealthUI()
