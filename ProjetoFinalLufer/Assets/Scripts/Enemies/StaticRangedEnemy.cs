@@ -11,7 +11,7 @@ public class StaticRangedEnemy : MonoBehaviour
     [SerializeField] private Transform projectileSpawnPoint;
     [SerializeField] private GameObject projectile;
 
-    private GameObject target;
+    private Transform target;
     private WaitForSeconds startledTimeWFS;
     private Coroutine shootingLoop;
 
@@ -26,7 +26,7 @@ public class StaticRangedEnemy : MonoBehaviour
     {
         if(target.tag == "Player")
         {
-            this.target = target;
+            this.target = target.transform;
 
             shootingLoop = StartCoroutine(ShootingLoop());
         }
@@ -58,7 +58,7 @@ public class StaticRangedEnemy : MonoBehaviour
             {
                 if(target != null)
                 {
-                    transform.LookAt(target.transform);
+                    transform.LookAt(new Vector3(target.position.x, transform.position.y, target.position.z));
                 }
                 yield return null;
             }
