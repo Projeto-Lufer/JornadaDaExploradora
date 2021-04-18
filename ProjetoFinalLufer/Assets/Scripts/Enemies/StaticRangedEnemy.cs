@@ -32,7 +32,6 @@ public class StaticRangedEnemy : MonoBehaviour
         }
     }
 
-    // Ignore o parametro
     public void StopShooting(GameObject target)
     {
         if(target.tag == "Player")
@@ -45,11 +44,6 @@ public class StaticRangedEnemy : MonoBehaviour
 
     private IEnumerator ShootingLoop()
     {
-        // 1. Startled delay
-        // 2. Aims at player
-        // 3. Fires
-        // 4. Repeat from 2
-        Debug.Log("Saw you!");
         yield return startledTimeWFS;
 
         while (true)
