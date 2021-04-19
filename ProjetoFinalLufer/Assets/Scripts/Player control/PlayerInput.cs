@@ -120,4 +120,9 @@ public class PlayerInput : MonoBehaviour
         yield return new WaitForSeconds(seconds);
         state = nextState;
     }
+
+    public playerState GetState()
+    {
+        return state;
+    }
 }
