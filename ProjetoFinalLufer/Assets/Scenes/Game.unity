@@ -11753,15 +11753,15 @@ PrefabInstance:
       propertyPath: healthTextUI
       value: 
       objectReference: {fileID: 756167241}
+    - target: {fileID: 4078346675285778751, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7120491097240641718, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
         type: 3}
       propertyPath: m_RootOrder
       value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7762025947470870749, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
-        type: 3}
-      propertyPath: grabPosition
-      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7762025947470870750, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
         type: 3}
@@ -12320,7 +12320,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh50558
+  m_Name: pb_Mesh19842
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
