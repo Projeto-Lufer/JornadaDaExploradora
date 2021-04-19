@@ -50,7 +50,7 @@ public class PlayerInput : MonoBehaviour
             {
                 objectManipulator.ReleaseObject();
                 state = playerState.normal;
-                StartCoroutine(releaseTimerCoroutine(liftingHaltDuration));
+                StartCoroutine(haltedTimerCoroutine(liftingHaltDuration));
             }
             else if(state == playerState.normal)
             {
@@ -72,7 +72,7 @@ public class PlayerInput : MonoBehaviour
                     {
                         state = playerState.dragging;
                         objectManipulator.GrabObject(objectInteracted);
-                        StartCoroutine(releaseTimerCoroutine(liftingHaltDuration));
+                        StartCoroutine(haltedTimerCoroutine(liftingHaltDuration));
                     }
                 }
             }
