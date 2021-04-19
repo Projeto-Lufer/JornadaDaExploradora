@@ -36,7 +36,25 @@ public class PlayerInput : MonoBehaviour
             return;
         }
 
-        playerMovement.UpdateDirection(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        if(state == playerState.dragging)
+        {
+            if(Mathf.Abs(Input.GetAxisRaw("Horizontal")) > Mathf.Abs(Input.GetAxisRaw("Vertical")))
+            {
+                playerMovement.UpdateDirection(Input.GetAxisRaw("Horizontal"), 0);
+            }
+            else if(Mathf.Abs(Input.GetAxisRaw("Horizontal")) < Mathf.Abs(Input.GetAxisRaw("Vertical")))
+            {
+                playerMovement.UpdateDirection(0, Input.GetAxisRaw("Vertical"));
+            }
+            else
+            {
+                playerMovement.UpdateDirection(0, 0);
+            }
+        }
+        else
+        {
+            playerMovement.UpdateDirection(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        }
 
         if (Input.GetButtonDown("Interact"))
         {
