@@ -17,7 +17,7 @@ public class PlayerHealthPoints : HealthPoints
     {
         base.curHP -= amount;
 
-        playerHPView.UpdateHealthUI(base.curHP, base.maxHP);
+        playerHPView.ReactToDamage(base.curHP, base.maxHP);
 
         if (base.curHP <= 0)
         {

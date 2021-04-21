@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class PlayerHealthPointsView : MonoBehaviour
 {
     [SerializeField] private Text healthTextUI;
+    [SerializeField] private ParticleSystem hitParticles;
     private string baseText;
 
     void Start()
@@ -12,8 +13,19 @@ public class PlayerHealthPointsView : MonoBehaviour
         baseText = healthTextUI.text;
     }
 
+    public void ReactToDamage(int curHP, int maxHP)
+    {
+        UpdateHealthUI(curHP, maxHP);
+        PlayVisuals();
+    }
+
     public void UpdateHealthUI(int curHP, int maxHP)
     {
         healthTextUI.text = $"{baseText} {curHP}/{maxHP}";
+    }
+
+    public void PlayVisuals()
+    {
+        hitParticles.Play();
     }
 }
