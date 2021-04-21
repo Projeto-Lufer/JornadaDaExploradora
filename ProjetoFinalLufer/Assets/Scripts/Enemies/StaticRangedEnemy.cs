@@ -28,6 +28,8 @@ public class StaticRangedEnemy : MonoBehaviour
         {
             this.target = target.transform;
 
+            if (shootingLoop != null) StopCoroutine(shootingLoop);
+
             shootingLoop = StartCoroutine(ShootingLoop());
         }
     }
