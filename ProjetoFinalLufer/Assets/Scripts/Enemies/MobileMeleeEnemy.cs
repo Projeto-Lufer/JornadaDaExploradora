@@ -11,7 +11,7 @@ public class MobileMeleeEnemy : MonoBehaviour
     [SerializeField] private AreaDetector fightAreaDetector;
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private Transform[] patrolPoints;
-    [SerializeField] private MeleeEnemyAttack attack;
+    [SerializeField] private MeleeAttacks attack;
     [SerializeField] private Animator animator;
     [SerializeField] private float attackPlayerDelay;
 

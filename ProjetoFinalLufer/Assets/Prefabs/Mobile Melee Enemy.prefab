@@ -157,7 +157,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4462619697762002774}
   - component: {fileID: 7660501592992233175}
-  - component: {fileID: 4002493523999604501}
+  - component: {fileID: 8898433266695747558}
   - component: {fileID: 1973560530444295902}
   - component: {fileID: 7663653201956594723}
   - component: {fileID: 1797053154800404686}
@@ -203,10 +203,10 @@ MonoBehaviour:
   fightAreaDetector: {fileID: 998100706548847513}
   agent: {fileID: 1973560530444295902}
   patrolPoints: []
-  attack: {fileID: 4002493523999604501}
+  attack: {fileID: 8898433266695747558}
   animator: {fileID: 1797053154800404686}
   attackPlayerDelay: 2
---- !u!114 &4002493523999604501
+--- !u!114 &8898433266695747558
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -215,14 +215,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 2202740110688647472}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 042cf0359ddd60b4a913178dd7fdd4be, type: 3}
+  m_Script: {fileID: 11500000, guid: 59bfdc6546c8e654ba8039572fefbd72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   attackPoint: {fileID: 1946608633494751666}
-  playerLayer:
+  targetLayer:
     serializedVersion: 2
     m_Bits: 64
-  sweepRange: 2.27
+  sweepRange: 2.24
   weaponDamage: 1
 --- !u!195 &1973560530444295902
 NavMeshAgent:
