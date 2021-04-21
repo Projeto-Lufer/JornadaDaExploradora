@@ -460,7 +460,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackPoint: {fileID: 7120491097240641718}
-  enemyLayer:
+  targetLayer:
     serializedVersion: 2
     m_Bits: 8
   sweepRange: 1.2

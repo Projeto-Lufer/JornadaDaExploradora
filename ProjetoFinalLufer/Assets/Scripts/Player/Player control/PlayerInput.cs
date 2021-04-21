@@ -10,7 +10,7 @@ public class PlayerInput : MonoBehaviour
     [SerializeField] private InteractiveIdentifier interactiveIdentifier;
     [SerializeField] private ObjectManipulator objectManipulator;
     [SerializeField] private PlayerMovement playerMovement;
-    [SerializeField] private PlayerCombat playerCombat;
+    [SerializeField] private MeleeAttacks playerCombat;
     [SerializeField] private Animator animator;
 
     [SerializeField] private float liftingHaltDuration;

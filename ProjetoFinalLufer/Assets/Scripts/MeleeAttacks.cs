@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerCombat : MonoBehaviour
+public class MeleeAttacks : MonoBehaviour
 {
     [SerializeField] private Transform attackPoint;
-    [SerializeField] private LayerMask enemyLayer;
+    [SerializeField] private LayerMask targetLayer;
 
     public float sweepRange;
 
@@ -13,13 +13,12 @@ public class PlayerCombat : MonoBehaviour
 
     public void Sweep()
     {
-        Collider[] enemies = Physics.OverlapSphere(attackPoint.position, sweepRange, enemyLayer);
+        Collider[] targets = Physics.OverlapSphere(attackPoint.position, sweepRange, targetLayer);
 
-        foreach (Collider enemy in enemies)
+        foreach (Collider target in targets)
         {
-            enemy.GetComponent<HealthPoints>().ReduceHealth(weaponDamage);
+            target.GetComponent<HealthPoints>().ReduceHealth(weaponDamage);
         }
-
     }
 
     private void OnDrawGizmosSelected()
