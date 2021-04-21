@@ -368,6 +368,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentToDestroy: {fileID: 4934168771730955389}
   maxHP: 3
+  HPView: {fileID: 2726814560231821363}
 --- !u!114 &2726814560231821363
 MonoBehaviour:
   m_ObjectHideFlags: 0
