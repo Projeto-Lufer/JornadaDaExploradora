@@ -9,20 +9,15 @@ public class PlayerCombat : MonoBehaviour
 
     public float sweepRange;
 
-    //Dano da arma equipada, caso a gente decida ter diferentes armas no jogo
     public int weaponDamage;
 
     public void Sweep()
     {
-        //Detecção de inimigos
-
         Collider[] enemies = Physics.OverlapSphere(attackPoint.position, sweepRange, enemyLayer);
-        //Dano
 
         foreach (Collider enemy in enemies)
         {
-            Debug.Log("Hit Sweep");
-            enemy.GetComponent<HPManager>().TakeDamage(weaponDamage);
+            enemy.GetComponent<HealthPoints>().ReduceHealth(weaponDamage);
         }
 
     }
