@@ -16,7 +16,7 @@ public class PlayerHealthPointsView : MonoBehaviour
     public void ReactToDamage(int curHP, int maxHP)
     {
         UpdateHealthUI(curHP, maxHP);
-        PlayVisuals();
+        PlayDamageVisuals();
     }
 
     public void UpdateHealthUI(int curHP, int maxHP)
@@ -24,8 +24,9 @@ public class PlayerHealthPointsView : MonoBehaviour
         healthTextUI.text = $"{baseText} {curHP}/{maxHP}";
     }
 
-    private void PlayVisuals()
+    private void PlayDamageVisuals()
     {
         hitParticles.Play();
+        //TODO: Play animation
     }
 }
