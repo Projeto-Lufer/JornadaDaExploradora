@@ -121,11 +121,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2840153096320823010}
-  - component: {fileID: 3602708293186218668}
   - component: {fileID: 3952113249362397549}
+  - component: {fileID: 8381517165663716504}
+  - component: {fileID: 5891055706839819678}
   m_Layer: 6
   m_Name: Body collider
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -144,20 +145,6 @@ Transform:
   m_Father: {fileID: 7762025947535230012}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3602708293186218668
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7747576050516528420}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91b5a32513ae13b4fb48b666bfafb1c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthTextUI: {fileID: 0}
-  maxHP: 3
 --- !u!136 &3952113249362397549
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -172,6 +159,35 @@ CapsuleCollider:
   m_Height: 2.259791
   m_Direction: 1
   m_Center: {x: 0, y: 0.0890615, z: 0}
+--- !u!114 &8381517165663716504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7747576050516528420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 608df33fe242e6b4f8cc82949c3e01a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentToDestroy: {fileID: 7762025947535230013}
+  maxHP: 3
+  playerHPView: {fileID: 5891055706839819678}
+  transitionsManager: {fileID: 0}
+--- !u!114 &5891055706839819678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7747576050516528420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fa1b56212619254583e8c3515b0fed6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthTextUI: {fileID: 0}
 --- !u!1 &7762025945828408407
 GameObject:
   m_ObjectHideFlags: 0
@@ -351,7 +367,7 @@ GameObject:
   - component: {fileID: 4974148435762435629}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

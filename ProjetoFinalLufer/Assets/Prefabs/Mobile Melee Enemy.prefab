@@ -157,7 +157,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4462619697762002774}
   - component: {fileID: 7660501592992233175}
-  - component: {fileID: 5969711223045935916}
   - component: {fileID: 4002493523999604501}
   - component: {fileID: 1973560530444295902}
   - component: {fileID: 7663653201956594723}
@@ -207,20 +206,6 @@ MonoBehaviour:
   attack: {fileID: 4002493523999604501}
   animator: {fileID: 1797053154800404686}
   attackPlayerDelay: 2
---- !u!114 &5969711223045935916
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2202740110688647472}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91b5a32513ae13b4fb48b666bfafb1c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthTextUI: {fileID: 0}
-  maxHP: 3
 --- !u!114 &4002493523999604501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -582,7 +567,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3399823244903389632}
   - component: {fileID: 3359830711433006887}
-  - component: {fileID: 7119182989112156086}
+  - component: {fileID: 5829315856587164826}
   m_Layer: 3
   m_Name: Body collider
   m_TagString: Untagged
@@ -618,7 +603,7 @@ CapsuleCollider:
   m_Height: 4
   m_Direction: 1
   m_Center: {x: 0, y: 1.8543425, z: 0}
---- !u!114 &7119182989112156086
+--- !u!114 &5829315856587164826
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -627,11 +612,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6355608670794030397}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91b5a32513ae13b4fb48b666bfafb1c6, type: 3}
+  m_Script: {fileID: 11500000, guid: 1e0862bc932419c47bdc2549a4bbfe73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthTextUI: {fileID: 0}
-  maxHP: 3
+  parentToDestroy: {fileID: 2202740110688647472}
+  maxHP: 5
 --- !u!1 &6389831873221794200
 GameObject:
   m_ObjectHideFlags: 0

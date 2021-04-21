@@ -317,7 +317,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8755720972749530295}
   - component: {fileID: 3292796288340586847}
-  - component: {fileID: 2376849464309892204}
+  - component: {fileID: 2492329037526491420}
   m_Layer: 3
   m_Name: Body collider
   m_TagString: Untagged
@@ -353,7 +353,7 @@ CapsuleCollider:
   m_Height: 2.7581434
   m_Direction: 1
   m_Center: {x: 0, y: 0.22063684, z: 0}
---- !u!114 &2376849464309892204
+--- !u!114 &2492329037526491420
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -362,10 +362,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4072663038609025270}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91b5a32513ae13b4fb48b666bfafb1c6, type: 3}
+  m_Script: {fileID: 11500000, guid: 1e0862bc932419c47bdc2549a4bbfe73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthTextUI: {fileID: 0}
+  parentToDestroy: {fileID: 4934168771730955389}
   maxHP: 3
 --- !u!1 &4934168771730955389
 GameObject:
