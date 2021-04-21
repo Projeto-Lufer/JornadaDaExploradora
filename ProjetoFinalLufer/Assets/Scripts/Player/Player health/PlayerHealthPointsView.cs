@@ -24,7 +24,7 @@ public class PlayerHealthPointsView : MonoBehaviour
         healthTextUI.text = $"{baseText} {curHP}/{maxHP}";
     }
 
-    public void PlayVisuals()
+    private void PlayVisuals()
     {
         hitParticles.Play();
     }
