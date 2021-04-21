@@ -350,7 +350,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   holdingPosition: {fileID: 7762025947470870750}
-  grabPosition: {fileID: 0}
+  grabPosition: {fileID: 7120491097240641718}
 --- !u!1 &7762025947535230013
 GameObject:
   m_ObjectHideFlags: 0

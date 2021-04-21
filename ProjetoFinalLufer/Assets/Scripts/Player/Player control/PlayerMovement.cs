@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    private PlayerInput playerInput;
     public CharacterController controller;
     public float speed = 6f;
     public float turnSmoothTime = 0.1f;
@@ -15,7 +16,12 @@ public class PlayerMovement : MonoBehaviour
     private float horizontal;
     private float vertical;
     private Vector3 direction;
+    private float currSpeed;
 
+    private void Start()
+    {
+        playerInput = GetComponent<PlayerInput>();
+    }
     public void UpdateDirection(float horizontal, float vertical)
     {
         this.horizontal = horizontal;
@@ -28,11 +34,19 @@ public class PlayerMovement : MonoBehaviour
 
         if(direction.magnitude >= 0.1f)
         {
-            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
-            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
-            transform.rotation = Quaternion.Euler(0f, angle, 0f);
+            if(playerInput.GetState() != PlayerInput.playerState.dragging)
+            {
+                float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
+                float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+                transform.rotation = Quaternion.Euler(0f, angle, 0f);
+                currSpeed = speed;
+            }
+            else
+            {
+                currSpeed = speed / 2;
+            }
 
-            controller.Move(direction * speed * Time.deltaTime);
+            controller.Move(direction * currSpeed * Time.deltaTime);
         }
     }
 

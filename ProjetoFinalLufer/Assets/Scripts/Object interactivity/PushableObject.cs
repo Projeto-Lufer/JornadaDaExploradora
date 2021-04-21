@@ -15,13 +15,19 @@ public class PushableObject : MonoBehaviour, Interactive
 
     public void Grab(Transform grabPosition)
     {
+        SetColliderAndGravityEnabled(false);
         transform.SetPositionAndRotation(grabPosition.position, grabPosition.rotation);
         transform.parent = grabPosition;
     }
 
     public void Release()
     {
+        SetColliderAndGravityEnabled(true);
         transform.parent = null;
     }
-
+    private void SetColliderAndGravityEnabled(bool enabled)
+    {
+        collider.enabled = enabled;
+        rigidbody.useGravity = enabled;
+    }
 }
