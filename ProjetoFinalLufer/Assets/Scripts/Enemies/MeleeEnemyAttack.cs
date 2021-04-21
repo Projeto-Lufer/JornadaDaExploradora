@@ -20,7 +20,7 @@ public class MeleeEnemyAttack : MonoBehaviour
         //Dano
         if(player.Length > 0)
         {
-            player[0].GetComponent<HPManager>().TakeDamage(weaponDamage);
+            player[0].GetComponent<HealthPoints>().ReduceHealth(weaponDamage);
         }
     }
 
