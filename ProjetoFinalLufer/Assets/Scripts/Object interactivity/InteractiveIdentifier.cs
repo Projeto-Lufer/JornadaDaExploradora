@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InteractiveIdentifier : MonoBehaviour
 {
-    List<Interactive> interactivesInRange = new List<Interactive>();
+    private List<Interactive> interactivesInRange = new List<Interactive>();
 
     private void OnTriggerEnter(Collider other)
     {
@@ -13,8 +13,7 @@ public class InteractiveIdentifier : MonoBehaviour
         if(interactive != null)
         {
             interactivesInRange.Add(interactive);
-            Debug.Log("Added: " + interactive.ToString());
-            
+            //Debug.Log("Added: " + interactive.ToString());
         }
     }
 
@@ -25,16 +24,31 @@ public class InteractiveIdentifier : MonoBehaviour
         if (interactive != null)
         {
             interactivesInRange.Remove(interactive);
-            Debug.Log("Removed: " + interactive.ToString());
+            //Debug.Log("Removed: " + interactive.ToString());
         }
     }
 
-    public Interactive PopMostrelevantinteractive()
+    public bool GetHasInteractibleInRange()
+    {
+        return interactivesInRange.Count > 0;
+    }
+
+    public Interactive PopMostrelevantInteractive()
     {
         if(interactivesInRange.Count > 0)
         {
             Interactive interactive = interactivesInRange[0];
             interactivesInRange.Remove(interactive);
+            return interactive;
+        }
+        return null;
+    }
+
+    public Interactive PeekMostRelevantInteractive()
+    {
+        if (interactivesInRange.Count > 0)
+        {
+            Interactive interactive = interactivesInRange[0];
             return interactive;
         }
         return null;
