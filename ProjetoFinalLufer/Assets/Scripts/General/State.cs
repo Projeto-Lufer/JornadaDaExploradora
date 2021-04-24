@@ -3,21 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class State : MonoBehaviour
-{
-    private void OnValidate()
-    {
-        stateMachine = GetComponent<StateMachine>();
-    }
+{ 
+    public virtual void Enter() { }
 
-    protected StateMachine stateMachine;
+    public virtual void Enter(GameObject gameObject) { }
 
-    public abstract void Enter();
+    public virtual void HandleInput() { }
 
-    public abstract void HandleInput();
+    public virtual void PhysicsUpdate() { }
 
-    public abstract void PhysicsUpdate();
+    public virtual void LogicUpdate() { }
 
-    public abstract void LogicUpdate();
-
-    public abstract void Exit();
+    public virtual void Exit() { }
 }
