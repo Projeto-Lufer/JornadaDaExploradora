@@ -28,6 +28,6 @@ public class PlayerHealthPoints : HealthPoints
     private void Die()
     {
         transitionsManager.EndGame();
-        Destroy(parentToDestroy);
+        Destroy(base.parentToDestroy);
     }
 }
