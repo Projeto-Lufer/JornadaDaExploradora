@@ -24,7 +24,7 @@ public class ObjectManipulator : MonoBehaviour
     public void DropObject()
     {
         Vector3 droppingPosition = transform.position + (transform.forward * 1.5f);
-        currLiftableObjectScript.Drop(droppingPosition);
+        currLiftableObjectScript.PutDown(droppingPosition);
         currLiftableObjectScript = null;
     }
 

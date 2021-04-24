@@ -26,7 +26,7 @@ public class LiftableObject : MonoBehaviour, Interactive
         SetColliderAndGravityEnabled(true);
     }
 
-    public void Drop(Vector3 droppingPosition)
+    public void PutDown(Vector3 droppingPosition)
     {
         Release();
         transform.position = droppingPosition;
