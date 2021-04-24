@@ -20,14 +20,11 @@ public class PlayerMovingState : ConcurrentState
 
     public override void Enter()
     {
-        Debug.Log("Entrou no Moving");
         HandleInput();
     }
 
     public override void HandleInput()
-    {
-        base.HandleInput();
-
+    { 
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
     }
