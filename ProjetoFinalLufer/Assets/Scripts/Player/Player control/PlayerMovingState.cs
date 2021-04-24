@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovingState : State
+public class PlayerMovingState : ConcurrentState
 {
     [Header("External references")]
     [SerializeField] private CharacterController controller;
@@ -20,11 +20,14 @@ public class PlayerMovingState : State
 
     public override void Enter()
     {
+        Debug.Log("Entrou no Moving");
         HandleInput();
     }
 
     public override void HandleInput()
     {
+        base.HandleInput();
+
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
     }
@@ -42,9 +45,9 @@ public class PlayerMovingState : State
 
             controller.Move(direction * currSpeed * Time.deltaTime);
         }
+        else
+        {
+            base.stateMachine.ChangeState(typeof(PlayerIdleState));
+        }
     }
-
-    public override void LogicUpdate() { }
-
-    public override void Exit() { }
 }
