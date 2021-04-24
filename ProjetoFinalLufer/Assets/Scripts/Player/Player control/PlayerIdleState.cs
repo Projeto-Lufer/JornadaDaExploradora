@@ -2,35 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerIdleState : State
+public class PlayerIdleState : ConcurrentState
 {
-    
-    [SerializeField] private PlayerMovingState movingState;
-
-    /*
-    [SerializeField] private PlayerAttackingState attackingState;
-    [SerializeField] private PlayerDraggingState draggingState;
-    [SerializeField] private PlayerLiftingState liftingState;
-    */
-
-
     private float horizontalInput, verticalInput;
+    private bool canMove;
+
+    public override void Enter()
+    {
+        Debug.Log("Entrou no Idle");
+    }
 
     public override void HandleInput()
     {
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
-        if (horizontalInput != 0 || verticalInput != 0)
+
+        //Debug.Log("Tipo do estado: " + stateMachine.GetOtherStateMachineCurrentState().GetType());
+        canMove = stateMachine.GetOtherStateMachineCurrentState().GetType() != typeof(PlayerLiftingState);
+        //Debug.Log("CanMove: " + canMove);
+        if (canMove && (horizontalInput != 0 || verticalInput != 0))
         {
-            base.stateMachine.ChangeState(movingState);
+            base.stateMachine.ChangeState(typeof(PlayerMovingState));
         }
     }
 
-    public override void Enter() { }
-
-    public override void PhysicsUpdate() { }
-
-    public override void LogicUpdate() { }
-
-    public override void Exit() { }
+    public void SetCanMove(bool value)
+    {
+        canMove = value;
+    }
 }
