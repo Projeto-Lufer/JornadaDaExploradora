@@ -7,27 +7,20 @@ public class PlayerIdleState : ConcurrentState
     private float horizontalInput, verticalInput;
     private bool canMove;
 
-    public override void Enter()
-    {
-        Debug.Log("Entrou no Idle");
-    }
-
     public override void HandleInput()
     {
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
+        State otherSMState = stateMachine.GetOtherStateMachineCurrentState();
 
-        //Debug.Log("Tipo do estado: " + stateMachine.GetOtherStateMachineCurrentState().GetType());
-        canMove = stateMachine.GetOtherStateMachineCurrentState().GetType() != typeof(PlayerLiftingState);
-        //Debug.Log("CanMove: " + canMove);
+        Debug.Log(otherSMState.GetType());
+
+        canMove = otherSMState.GetType() != typeof(PlayerLiftingState) &&
+                    otherSMState.GetType() != typeof(PlayerAttackingState);
+
         if (canMove && (horizontalInput != 0 || verticalInput != 0))
         {
             base.stateMachine.ChangeState(typeof(PlayerMovingState));
         }
-    }
-
-    public void SetCanMove(bool value)
-    {
-        canMove = value;
     }
 }
