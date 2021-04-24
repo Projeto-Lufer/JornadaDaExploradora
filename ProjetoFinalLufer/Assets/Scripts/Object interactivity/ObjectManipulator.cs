@@ -21,10 +21,10 @@ public class ObjectManipulator : MonoBehaviour
         currLiftableObjectScript.Lift(holdingPosition);
     }
 
-    public void DropObject()
+    public void PutDownObject()
     {
-        Vector3 droppingPosition = transform.position + (transform.forward * 1.5f);
-        currLiftableObjectScript.PutDown(droppingPosition);
+        Vector3 placingPosition = transform.position + (transform.forward * 1.5f);
+        currLiftableObjectScript.PutDown(placingPosition);
         currLiftableObjectScript = null;
     }
 
