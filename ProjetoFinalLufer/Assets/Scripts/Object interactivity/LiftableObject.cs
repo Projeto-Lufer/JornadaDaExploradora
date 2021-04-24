@@ -20,7 +20,7 @@ public class LiftableObject : MonoBehaviour, Interactive
         GoToLiftedPosition(liftedPosition);
     }
 
-    private void Release()
+    public void Release()
     { 
         transform.parent = null;
         SetColliderAndGravityEnabled(true);
