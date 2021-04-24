@@ -4,17 +4,29 @@ using UnityEngine;
 
 public class StateMachine : MonoBehaviour
 {
+    [SerializeField] private State[] allStates;
+
     [SerializeField] State startingState;
     private State currentState;
 
+    private Dictionary<System.Type, State> statesDictionary;
+
     private void Start()
     {
+        InitializeDictionary();
+        allStates = null; // discarded to spare memory
         currentState = startingState;
         currentState.Enter();
     }
 
+    public State GetCurrentState()
+    {
+        return currentState;
+    }
+
     private void Update()
     {
+        //Debug.Log("Current State: " + currentState.GetType());
         currentState.HandleInput();
         currentState.LogicUpdate();
     }
@@ -24,11 +36,30 @@ public class StateMachine : MonoBehaviour
         currentState.PhysicsUpdate();
     }
 
-    public void ChangeState(State newState)
+    public void ChangeState(System.Type newState)
     {
         currentState.Exit();
 
-        currentState = newState;
+        currentState = statesDictionary[newState];
         currentState.Enter();
+    }
+
+    public void ChangeState(System.Type newState, GameObject gameObject)
+    {
+        currentState.Exit();
+
+        currentState = statesDictionary[newState];
+        Debug.LogError("Current State: " + currentState.GetType());
+        currentState.Enter(gameObject);
+    }
+
+    private void InitializeDictionary()
+    {
+        statesDictionary = new Dictionary<System.Type, State>();
+
+        foreach(State state in allStates)
+        {
+            statesDictionary[state.GetType()] = state;
+        }
     }
 }
