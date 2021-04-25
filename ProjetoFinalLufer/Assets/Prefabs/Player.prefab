@@ -109,7 +109,7 @@ MonoBehaviour:
   meleeAttack: {fileID: 4766827225807830560}
   animator: {fileID: 4974148435762435629}
   timeBetweenAttacks:
-  - 0.5
+  - 0.3
 --- !u!1 &2134347131696939373
 GameObject:
   m_ObjectHideFlags: 0
