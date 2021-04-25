@@ -13,7 +13,6 @@ public class InteractiveIdentifier : MonoBehaviour
         if(interactive != null)
         {
             interactivesInRange.Add(interactive);
-            //Debug.Log("Added: " + interactive.ToString());
         }
     }
 
@@ -24,7 +23,6 @@ public class InteractiveIdentifier : MonoBehaviour
         if (interactive != null)
         {
             interactivesInRange.Remove(interactive);
-            //Debug.Log("Removed: " + interactive.ToString());
         }
     }
 
