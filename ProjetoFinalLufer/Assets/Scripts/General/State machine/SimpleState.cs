@@ -5,7 +5,7 @@ public class SimpleState : State
 {
     protected StateMachine stateMachine;
 
-    private void OnValidate()
+    protected virtual void OnValidate()
     {
         stateMachine = GetComponent<StateMachine>();
     }

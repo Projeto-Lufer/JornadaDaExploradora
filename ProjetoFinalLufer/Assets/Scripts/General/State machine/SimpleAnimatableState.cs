@@ -6,8 +6,9 @@ public abstract class SimpleAnimatableState : SimpleState
 {
     private Animator animator;
 
-    private void OnValidate()
+    protected override void OnValidate()
     {
+        base.OnValidate();
         animator = transform.parent.GetComponent<Animator>();
     }
 
