@@ -1,5 +1,86 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &147735635811846725
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3519997323187180917}
+  - component: {fileID: 782939195644684967}
+  - component: {fileID: 7769584939354577130}
+  - component: {fileID: 7840315670782883075}
+  m_Layer: 0
+  m_Name: Static ranged enemy states
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3519997323187180917
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 147735635811846725}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6842675159693420934}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &782939195644684967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 147735635811846725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9e4c5ec473ad7f458684e22bced5be8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allStates:
+  - {fileID: 7769584939354577130}
+  - {fileID: 7840315670782883075}
+  startingState: {fileID: 7769584939354577130}
+--- !u!114 &7769584939354577130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 147735635811846725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f12716d31edeaa34eb379ae7a120bcd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  areaDetector: {fileID: 8644787328874070788}
+--- !u!114 &7840315670782883075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 147735635811846725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baa5c6f44a677454882776a6bffe75a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  areaDetector: {fileID: 8644787328874070788}
+  parentToRotate: {fileID: 6842675159693420934}
+  startledTime: 1
+  timeBetweenShots: 1.5
+  projectile: {fileID: 196786606904966206, guid: c79949b66ba601f4eae6a3f441da92ad,
+    type: 3}
+  projectileSpawnPoint: {fileID: 217276770684956222}
 --- !u!1 &481945047991422024
 GameObject:
   m_ObjectHideFlags: 0
@@ -305,7 +386,7 @@ Transform:
   - {fileID: 1479055334952020945}
   - {fileID: 4758662809171000299}
   m_Father: {fileID: 6842675159693420934}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4072663038609025270
 GameObject:
@@ -338,7 +419,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6842675159693420934}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &3292796288340586847
 CapsuleCollider:
@@ -391,7 +472,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6842675159693420934}
-  - component: {fileID: 8264154129899479030}
   m_Layer: 0
   m_Name: Static Ranged Enemy
   m_TagString: Untagged
@@ -410,6 +490,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 3519997323187180917}
   - {fileID: 1689539024176914427}
   - {fileID: 217276770684956222}
   - {fileID: 8755720972749530295}
@@ -418,24 +499,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8264154129899479030
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4934168771730955389}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b0c00a0667998644a52f614fafc37a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeBetweenShots: 1
-  startledTime: 0.5
-  areaDetector: {fileID: 8644787328874070788}
-  projectileSpawnPoint: {fileID: 217276770684956222}
-  projectile: {fileID: 196786606904966206, guid: c79949b66ba601f4eae6a3f441da92ad,
-    type: 3}
 --- !u!1 &5059292200485396731
 GameObject:
   m_ObjectHideFlags: 0
@@ -449,7 +512,7 @@ GameObject:
   - component: {fileID: 8644787328874070788}
   - component: {fileID: 3991136514231036922}
   m_Layer: 0
-  m_Name: Area collision detector
+  m_Name: Player entering area detector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -467,7 +530,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6842675159693420934}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &5113994991707926149
 SphereCollider:
@@ -540,7 +603,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6842675159693420934}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &3035162854856038303
 PrefabInstance:
@@ -557,7 +620,7 @@ PrefabInstance:
     - target: {fileID: 8041455250568798057, guid: d7da38259e25cac449161f3fb8aad296,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8041455250568798057, guid: d7da38259e25cac449161f3fb8aad296,
         type: 3}
