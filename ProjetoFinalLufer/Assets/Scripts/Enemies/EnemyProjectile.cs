@@ -11,8 +11,7 @@ public class EnemyProjectile : MonoBehaviour
 
     private float distanceTravelled;
 
-
-    void Update()
+    void FixedUpdate()
     {
         float distanceToMove = speed * Time.deltaTime;
         distanceTravelled += distanceToMove;
@@ -20,28 +19,30 @@ public class EnemyProjectile : MonoBehaviour
 
         if(distanceTravelled >= maxDistance)
         {
-            Debug.Log("Went too far");
             DestructionProcess();
         }
     }
 
+    public void SetStartingPosition(Vector3 position, Quaternion rotation)
+    {
+        transform.SetPositionAndRotation(position, rotation);
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Collided with " + collision.gameObject.name);
-        // TODO
-        // 1. Deal damage to what it hit
         if(collision.collider.CompareTag("Player"))
         {
             collision.collider.GetComponent<HealthPoints>().ReduceHealth((int)damage);
         }
-        // 2. Play destruction VFX/animation
-        // 3. Self destruct
+        
         DestructionProcess();
     }
 
     private void DestructionProcess()
     {
-        Debug.Log("Will destroy");
-        Destroy(gameObject);
+        // TODO:
+        // Play destruction VFX/animation & sound
+        distanceTravelled = 0;
+        gameObject.SetActive(false);
     }
 }
