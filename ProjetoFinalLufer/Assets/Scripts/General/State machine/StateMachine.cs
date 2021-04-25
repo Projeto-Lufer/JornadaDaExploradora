@@ -48,7 +48,6 @@ public class StateMachine : MonoBehaviour
         currentState.Exit();
 
         currentState = statesDictionary[newState];
-        Debug.LogError("Current State: " + currentState.GetType());
         currentState.Enter(gameObject);
     }
 
