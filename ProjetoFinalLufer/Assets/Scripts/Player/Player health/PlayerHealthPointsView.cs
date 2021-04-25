@@ -27,6 +27,9 @@ public class PlayerHealthPointsView : MonoBehaviour
     private void PlayDamageVisuals()
     {
         hitParticles.Play();
-        //TODO: Play animation
+        
+        //TODO: 
+        // 1. Tocar animacao
+        // 2. Receber callback para destruir objeto quando visuais terminarem
     }
 }

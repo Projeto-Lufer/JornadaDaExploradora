@@ -13,7 +13,6 @@ public class PlayerNotActingState : ConcurrentState
         if (Input.GetButtonDown("Interact"))
         {
             Interactive interactive = interactiveIdentifier.PopMostrelevantInteractive();
-            //Debug.Log("Interactive name: " + interactive.ToString());
 
             if(interactive != null)
             {
@@ -26,6 +25,7 @@ public class PlayerNotActingState : ConcurrentState
                 }
                 else if (objectInteracted.GetComponent<PushableObject>() != null)
                 {
+                    // TODO: implement dragging state
                     /*
                     state = playerState.dragging;
                     objectManipulator.GrabObject(objectInteracted);

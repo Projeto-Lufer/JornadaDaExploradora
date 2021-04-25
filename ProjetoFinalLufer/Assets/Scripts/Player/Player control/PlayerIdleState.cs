@@ -13,8 +13,6 @@ public class PlayerIdleState : ConcurrentState
         verticalInput = Input.GetAxisRaw("Vertical");
         State otherSMState = stateMachine.GetOtherStateMachineCurrentState();
 
-        Debug.Log(otherSMState.GetType());
-
         canMove = otherSMState.GetType() != typeof(PlayerLiftingState) &&
                     otherSMState.GetType() != typeof(PlayerAttackingState);
 

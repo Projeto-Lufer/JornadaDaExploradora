@@ -9,6 +9,8 @@ public class LiftableObject : MonoBehaviour, Interactive
 
     [SerializeField] private float throwingVelocity;
 
+    // Acredito que esse interact tem que ser mudado, 
+    // nao ta fazendo muito sentido ele sa retornar o game object
     public GameObject Interact(GameObject interactor)
     {
         return gameObject;

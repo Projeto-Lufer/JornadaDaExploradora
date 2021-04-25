@@ -26,7 +26,6 @@ public class StateMachine : MonoBehaviour
 
     private void Update()
     {
-        //Debug.Log("Current State: " + currentState.GetType());
         currentState.HandleInput();
         currentState.LogicUpdate();
     }
