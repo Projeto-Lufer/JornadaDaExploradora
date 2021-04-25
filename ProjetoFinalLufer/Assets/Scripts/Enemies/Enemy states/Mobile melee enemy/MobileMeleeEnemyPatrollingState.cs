@@ -15,21 +15,22 @@ public class MobileMeleeEnemyPatrollingState : SimpleAnimatableState
 
     private void Start()
     {
+        chaseAreaDetector.triggerEnterCallback = StartChasing;
         nextPatrolPointIndex = 0;
     }
 
     public override void Enter()
     {
-        chaseAreaDetector.triggerEnterCallback = StartPatrolling;
-        StartPatrolling(null);
-    }
-
-    public void StartPatrolling(GameObject _)
-    {
+        agent.isStopped = false;
         base.PlayAnimationTrigger("Walking");
         StartCoroutine(Patrol());
     }
 
+    public override void Exit()
+    {
+        StopAllCoroutines();
+    }
+    
     IEnumerator Patrol()
     {
         agent.destination = patrolPoints[nextPatrolPointIndex].position;
@@ -45,5 +46,12 @@ public class MobileMeleeEnemyPatrollingState : SimpleAnimatableState
             }
             yield return null; // Maybe make it wait for some seconds so it's not so performance intensive
         }
+    }
+
+    // ==== State trasitions
+
+    private void StartChasing(GameObject target)
+    {
+        stateMachine.ChangeState(typeof(MobileMeleeEnemyChasingState), target);
     }
 }
