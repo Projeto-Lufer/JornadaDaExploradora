@@ -12,15 +12,21 @@ public class PlayerNotActingState : ConcurrentState
     {
         if (Input.GetButtonDown("Interact"))
         {
-            Interactive interactive = interactiveIdentifier.PopMostrelevantInteractive();
+            Interactive interactive = interactiveIdentifier.PeekMostRelevantInteractive();
 
             if(interactive != null)
             {
-                interactive.Interact(gameObject);
-                if(interactive.GetType() == typeof(LiftableObject))
+                System.Type interactiveType = interactive.GetType();
+                if (interactiveType == typeof(LiftableObject))
                 {
+                    interactiveIdentifier.PopMostrelevantInteractive();
+                    interactive.Interact();
                     objectManipulator.LiftObject(interactive.gameObject);
                     base.stateMachine.ChangeState(typeof(PlayerLiftingState));
+                }
+                else if(interactiveType.IsSubclassOf(typeof(Activator)))
+                {
+                    interactive.Interact();
                 }
                 /*else if (objectInteracted.GetComponent<PushableObject>() != null)
                 {
