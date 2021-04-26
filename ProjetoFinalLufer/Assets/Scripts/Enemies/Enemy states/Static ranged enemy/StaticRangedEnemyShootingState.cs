@@ -6,7 +6,7 @@ public class StaticRangedEnemyShootingState : SimpleState
     [Header("External references")]
     [SerializeField] private AreaDetector areaDetector;
     [SerializeField] private Transform parentToRotate;
-    [SerializeField] private ObjectPool projectilePool;
+    private ObjectPool projectilePool;
 
     [Header("Gameplay tweeking fields")]
     [Tooltip("Tempo que o inimigo fica parado quando avista jogador pela primeira vez")]
@@ -18,6 +18,22 @@ public class StaticRangedEnemyShootingState : SimpleState
     // Internal attributes
     private Transform target;
     private WaitForSeconds startledTimeWFS;
+
+    protected override void OnValidate()
+    {
+        base.OnValidate();
+        if(projectilePool == null)
+        {
+            ObjectPool[] objects = FindObjectsOfType<ObjectPool>();
+            foreach(ObjectPool obj in objects)
+            {
+                if (obj.name == "Object Pool - Static Ranged Enemy")
+                {
+                    projectilePool = obj;
+                }
+            }
+        }
+    }
 
     private void Start()
     {
