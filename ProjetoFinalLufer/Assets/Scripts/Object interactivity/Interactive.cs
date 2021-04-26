@@ -1,6 +1,11 @@
 using UnityEngine;
 
-public interface Interactive
+public abstract class Interactive : MonoBehaviour
 {
-    GameObject Interact(GameObject interactor);    
+    public virtual void Interact(GameObject interactor) { }
+
+    public virtual System.Type GetClassType()
+    {
+        return this.GetType();
+    }
 }

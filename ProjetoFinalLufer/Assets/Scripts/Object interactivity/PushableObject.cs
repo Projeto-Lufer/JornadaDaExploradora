@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PushableObject : MonoBehaviour, Interactive
+public class PushableObject : Interactive
 {
 
     [SerializeField] private Collider collider;
