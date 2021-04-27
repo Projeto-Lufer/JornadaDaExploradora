@@ -16,7 +16,7 @@ public class PlayerHoldingState : ConcurrentState
         }
         else if (Input.GetButtonDown("Cancel"))
         {
-            objectManipulator.ReleaseObject();
+            objectManipulator.PutDownObject();
             base.stateMachine.ChangeState(typeof(PlayerNotActingState));
         }
     }
