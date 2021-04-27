@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class EnemyProjectile : MonoBehaviour
 {
+    [Header("External references")]
+    [SerializeField] private Rigidbody rb;
+
+    [Header("Gameplay tweeking fields")]
     [SerializeField] private float speed;
     [SerializeField] private float damage;
-    [SerializeField] private Rigidbody rb;
     [SerializeField] private float maxDistance;
 
     private float distanceTravelled;
