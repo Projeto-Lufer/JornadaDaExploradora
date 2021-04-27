@@ -197,14 +197,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 2202740110688647472}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59bfdc6546c8e654ba8039572fefbd72, type: 3}
+  m_Script: {fileID: 11500000, guid: 7012e19a829753e488ec9112e711113b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   attackPoint: {fileID: 1946608633494751666}
   targetLayer:
     serializedVersion: 2
     m_Bits: 64
-  sweepRange: 2.24
+  sweepRange: 1.88
   weaponDamage: 1
 --- !u!195 &1973560530444295902
 NavMeshAgent:
@@ -361,6 +361,7 @@ MonoBehaviour:
   meleeAttack: {fileID: 8898433266695747558}
   attackPlayerDelay: 2
   attackDuration: 1
+  turnSmoothTime: 0.1
 --- !u!1 &4545563392732611284
 GameObject:
   m_ObjectHideFlags: 0
