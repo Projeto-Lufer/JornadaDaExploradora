@@ -28,14 +28,13 @@ public class PlayerNotActingState : ConcurrentState
                 {
                     interactive.Interact();
                 }
-                /*else if (objectInteracted.GetComponent<PushableObject>() != null)
+                else if (interactiveType == typeof(PushableObject))
                 {
-                    // TODO: implement dragging state
-                    state = playerState.dragging;
-                    objectManipulator.GrabObject(objectInteracted);
-                    StartCoroutine(haltedTimerCoroutine(liftingHaltDuration));
-                    
-                }*/
+                    interactiveIdentifier.PopMostrelevantInteractive();
+                    interactive.Interact();
+                    objectManipulator.GrabObject(interactive.gameObject);
+                    base.stateMachine.ChangeState(typeof(PlayerDraggingState));                 
+                }
             }
         }
         else if (Input.GetButtonDown("Fire1"))
