@@ -48,7 +48,6 @@ public class MobileMeleeEnemyFightingState : SimpleAnimatableState
                 float angle = Mathf.SmoothDampAngle(parentToRotate.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
                 parentToRotate.rotation = Quaternion.Euler(0f, angle, 0f);
 
-                //parentToRotate.LookAt(new Vector3(target.position.x, transform.position.y, target.position.z));
                 yield return null;
             }
             PlayAnimationTrigger("Attacking");

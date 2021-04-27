@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class MobileMeleeEnemyChasingState : SimpleAnimatableState
 {
+    [Header("External references")]
     [SerializeField] private AreaDetector chaseAreaDetector;
     [SerializeField] private AreaDetector fightAreaDetector;
     [SerializeField] private NavMeshAgent agent;
