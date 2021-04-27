@@ -34,6 +34,7 @@ public class ObjectManipulator : MonoBehaviour
         currLiftableObjectScript.Throw(throwingDirection);
     }
 
+    #region nao meu
     // Bloco de funcoes referente a acao de empurrar objetos
     public void GrabObject(GameObject heldObject)
     {
@@ -48,4 +49,5 @@ public class ObjectManipulator : MonoBehaviour
         currPushableObjectScript.Release();
         currPushableObjectScript = null;
     }
+    #endregion
 }
