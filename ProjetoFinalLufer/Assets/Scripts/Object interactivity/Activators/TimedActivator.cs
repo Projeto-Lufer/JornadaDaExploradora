@@ -24,6 +24,11 @@ public class TimedActivator : Activator
             isActivated = true;
             StartCoroutine(DeactivationTimer());
         }
+        else // Resets the timer
+        {
+            StopAllCoroutines();
+            StartCoroutine(DeactivationTimer());
+        }
     }
 
     private IEnumerator DeactivationTimer()
