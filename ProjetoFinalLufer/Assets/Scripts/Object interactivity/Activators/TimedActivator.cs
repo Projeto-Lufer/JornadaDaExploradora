@@ -20,6 +20,7 @@ public class TimedActivator : Activator
         if (!isActivated)
         {
             base.Interact();
+            base.Interact(gameObject);
             isActivated = true;
             StartCoroutine(DeactivationTimer());
         }
@@ -31,5 +32,6 @@ public class TimedActivator : Activator
         isActivated = false;
         base.meshRenderer.material = base.deactivatedMaterial;
         base.objectToActivate.Deactivate();
+        base.objectToActivate.Deactivate(gameObject);
     }
 }
