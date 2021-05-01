@@ -24,7 +24,7 @@ public class PlayerNotActingState : ConcurrentState
                     objectManipulator.LiftObject(interactive.gameObject);
                     base.stateMachine.ChangeState(typeof(PlayerLiftingState));
                 }
-                else if(interactiveType.IsSubclassOf(typeof(Activator)))
+                else if(interactiveType.IsSubclassOf(typeof(Activator)) && interactiveType != typeof(GroundButton))
                 {
                     interactive.Interact();
                 }
