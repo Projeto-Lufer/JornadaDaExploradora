@@ -27,7 +27,6 @@ public class PushableObject : Interactive
     }
     private void SetColliderAndGravityEnabled(bool enabled)
     {
-        collider.enabled = enabled;
         rigidbody.useGravity = enabled;
     }
 }
