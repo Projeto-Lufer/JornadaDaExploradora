@@ -7,7 +7,8 @@ public class GroundButton : Activator
     private bool isActivated = false;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Push")
+        Debug.Log("Trigger Enter");
+        if (other.gameObject.tag == "Push" || other.gameObject.tag == "Player")
         {
             Interact();
         }
@@ -15,7 +16,7 @@ public class GroundButton : Activator
 
     private void OnTriggerExit(Collider other)
     {
-        if(other.gameObject.tag == "Push")
+        if(other.gameObject.tag == "Push" || other.gameObject.tag == "Player")
         {
             Interact();
         }
