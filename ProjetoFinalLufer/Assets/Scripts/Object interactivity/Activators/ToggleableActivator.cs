@@ -2,24 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ToggleableActivator : Activator
+public class ToggleableActivator : DeactivateableActivator
 {
-    private bool isActivated = false;
-
     public override void Interact()
     {
-        if (!isActivated)
+        if (!base.isActive)
         {
-            isActivated = true;
+            base.isActive = true;
 
             base.Interact();
         }
         else
         {
-            isActivated = false;
-            base.meshRenderer.material = base.deactivatedMaterial;
-            objectToActivate.Deactivate();
-            objectToActivate.Deactivate(gameObject);
+            base.Deactivate();
         }
     }
 }

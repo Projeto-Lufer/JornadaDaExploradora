@@ -2,12 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TimedActivator : Activator
+public class TimedActivator : DeactivateableActivator
 {
     [SerializeField] private float activatedTime = 1;
 
     private WaitForSeconds activatedTimeWFS;
-    private bool isActivated;
 
     protected override void Start()
     {
@@ -17,11 +16,11 @@ public class TimedActivator : Activator
 
     public override void Interact()
     {
-        if (!isActivated)
+        if (!base.isActive)
         {
             base.Interact();
             base.Interact(gameObject);
-            isActivated = true;
+            base.isActive = true;
             StartCoroutine(DeactivationTimer());
         }
         else // Resets the timer
@@ -31,12 +30,15 @@ public class TimedActivator : Activator
         }
     }
 
+    public override void Deactivate()
+    {
+        StopAllCoroutines();
+        base.Deactivate();
+    }
+
     private IEnumerator DeactivationTimer()
     {
         yield return activatedTimeWFS;
-        isActivated = false;
-        base.meshRenderer.material = base.deactivatedMaterial;
-        base.objectToActivate.Deactivate();
-        base.objectToActivate.Deactivate(gameObject);
+        Deactivate();
     }
 }
