@@ -10,7 +10,7 @@ public abstract class Activator : Interactive
     protected Material deactivatedMaterial;
     protected MeshRenderer meshRenderer;
 
-    private void Start()
+    protected virtual void Start()
     {
         meshRenderer = GetComponent<MeshRenderer>();
         deactivatedMaterial = meshRenderer.material;
