@@ -33,13 +33,20 @@ public class PlayerMovingState : ConcurrentState
     {
         direction = new Vector3(horizontalInput, 0f, verticalInput).normalized;
 
-        if (direction.magnitude >= 0.1f)
+        State otherSMState = stateMachine.GetOtherStateMachineCurrentState();
+
+        if (direction.magnitude >= 0.1f && otherSMState.GetType() != typeof(PlayerDraggingState))
         {
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
             float angle = Mathf.SmoothDampAngle(playerRoot.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
             playerRoot.rotation = Quaternion.Euler(0f, angle, 0f);
             currSpeed = speed;
 
+            controller.Move(direction * currSpeed * Time.deltaTime);
+        }
+        else if(otherSMState.GetType() == typeof(PlayerDraggingState))
+        {
+            currSpeed = speed / 2;
             controller.Move(direction * currSpeed * Time.deltaTime);
         }
         else
