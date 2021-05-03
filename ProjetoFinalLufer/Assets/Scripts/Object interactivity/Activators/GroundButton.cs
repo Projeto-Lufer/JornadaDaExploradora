@@ -5,17 +5,10 @@ using UnityEngine;
 public class GroundButton : Activator
 {
     private bool isActivated = false;
-
-   /* private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.collider.CompareTag("Push"))
-        {
-            Interact();
-        }
-    }*/
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Push")
+        Debug.Log("Trigger Enter");
+        if (other.gameObject.tag == "Push" || other.gameObject.tag == "Player")
         {
             Interact();
         }
@@ -23,7 +16,10 @@ public class GroundButton : Activator
 
     private void OnTriggerExit(Collider other)
     {
-        Interact();
+        if(other.gameObject.tag == "Push" || other.gameObject.tag == "Player")
+        {
+            Interact();
+        }
     }
 
     public override void Interact()
