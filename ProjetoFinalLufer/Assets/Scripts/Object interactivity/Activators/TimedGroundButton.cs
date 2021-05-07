@@ -8,7 +8,6 @@ public class TimedGroundButton : Activator
     [SerializeField] private float activatedTime;
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Trigger Enter");
         if (other.gameObject.tag == "Push" || other.gameObject.tag == "Player")
         {
             Interact();
