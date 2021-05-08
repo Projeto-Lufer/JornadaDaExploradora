@@ -23,6 +23,7 @@ public class PlayerChargingState : ConcurrentState
     public override void Enter()
     {
         speed = maxDistance / time;
+        Debug.Log(transform.forward);
         HandleInput();
     }
 
@@ -67,7 +68,7 @@ public class PlayerChargingState : ConcurrentState
         while(currDistance < maxDistance)
         {
             currPosition = transform.position;
-            charController.transform.Translate(transform.forward.normalized * Time.deltaTime * speed);
+            charController.Move(transform.forward * speed * Time.deltaTime);
             currDistance += Vector3.Distance(currPosition, transform.position);
 
             Collider[] targets = Physics.OverlapBox(attackPoint.position, damageArea, transform.rotation, targetLayer);
