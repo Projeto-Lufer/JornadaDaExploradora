@@ -18,12 +18,12 @@ public class PlayerChargingState : ConcurrentState
     public int weaponDamage;
     private bool keyDown;
     private float speed;
+    public bool canTurn = true;
 
 
     public override void Enter()
     {
         speed = maxDistance / time;
-        Debug.Log(transform.forward);
         HandleInput();
     }
 
@@ -42,7 +42,7 @@ public class PlayerChargingState : ConcurrentState
         {
             if(currChargeTime >= chargeTime)
             {
-                StartCoroutine(Charge());
+                StartCoroutine(Charge(charController.transform.rotation));
             }
             else
             {
@@ -60,15 +60,16 @@ public class PlayerChargingState : ConcurrentState
         }
     }
 
-    private IEnumerator Charge()
+    private IEnumerator Charge(Quaternion keepRotation)
     {
         float currDistance = 0;
-        Vector3 currPosition;   
+        Vector3 currPosition;
 
         while(currDistance < maxDistance)
         {
             currPosition = transform.position;
             charController.Move(transform.forward * speed * Time.deltaTime);
+            charController.transform.rotation = keepRotation;
             currDistance += Vector3.Distance(currPosition, transform.position);
 
             Collider[] targets = Physics.OverlapBox(attackPoint.position, damageArea, transform.rotation, targetLayer);
@@ -80,5 +81,6 @@ public class PlayerChargingState : ConcurrentState
 
             yield return null;
         }
+
     }
 }
