@@ -18,6 +18,8 @@ public class PlayerMovingState : ConcurrentState
     private float currSpeed;
     private float turnSmoothVelocity;
 
+    [SerializeField] PlayerChargingState pcs;
+
     public override void Enter()
     {
         HandleInput();
@@ -35,7 +37,7 @@ public class PlayerMovingState : ConcurrentState
 
         State otherSMState = stateMachine.GetOtherStateMachineCurrentState();
 
-        if (direction.magnitude >= 0.1f && otherSMState.GetType() != typeof(PlayerDraggingState))
+        if (direction.magnitude >= 0.1f && otherSMState.GetType() != typeof(PlayerDraggingState) && pcs.canTurn == true)
         {
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
             float angle = Mathf.SmoothDampAngle(playerRoot.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
