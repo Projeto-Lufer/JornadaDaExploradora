@@ -15,6 +15,7 @@ public class PlayerHealthPoints : HealthPoints
 
     public override void ReduceHealth(int amount)
     {
+        base.ReduceHealth(amount);
         base.curHP -= amount;
 
         playerHPView.ReactToDamage(base.curHP, base.maxHP);

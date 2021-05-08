@@ -8,6 +8,8 @@ public class EnemyHealthPoints : HealthPoints
 
     public override void ReduceHealth(int amount)
     {
+        base.ReduceHealth(amount);
+
         base.curHP -= amount;
 
         HPView.PlayDamageVisuals();
