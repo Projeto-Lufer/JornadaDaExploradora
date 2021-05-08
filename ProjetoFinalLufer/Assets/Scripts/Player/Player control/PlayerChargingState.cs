@@ -18,7 +18,7 @@ public class PlayerChargingState : ConcurrentState
     public int weaponDamage;
     private bool keyDown;
     private float speed;
-    public bool canTurn = true;
+    [HideInInspector] public bool canTurn = true;
 
 
     public override void Enter()
