@@ -212,6 +212,35 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 9104787}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &12233265 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 206274268144785079, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1589854012}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &12233266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 12233265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa6d625560e925e409c17728b30c90b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chargeTime: 2
+  currChargeTime: 0
+  maxDistance: 10
+  time: 0.5
+  charController: {fileID: 298436364}
+  attackPoint: {fileID: 167772456}
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  damageArea: {x: 0.25, y: 0.25, z: 1}
+  weaponDamage: 10
 --- !u!1 &16350323
 GameObject:
   m_ObjectHideFlags: 0
@@ -913,6 +942,12 @@ MonoBehaviour:
   objectToPool: {fileID: 196786606904966206, guid: c79949b66ba601f4eae6a3f441da92ad,
     type: 3}
   amountToPool: 5
+--- !u!4 &167772456 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7120491097240641718, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1589854012}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &247223416
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1065,6 +1100,12 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 1066715278}
+--- !u!143 &298436364 stripped
+CharacterController:
+  m_CorrespondingSourceObject: {fileID: 7762025947535230010, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1589854012}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &301601543
 GameObject:
   m_ObjectHideFlags: 0
@@ -1103,7 +1144,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh19880
+  m_Name: pb_Mesh19644
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5177,6 +5218,16 @@ PrefabInstance:
       propertyPath: healthTextUI
       value: 
       objectReference: {fileID: 756167241}
+    - target: {fileID: 7008044775822542438, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
+        type: 3}
+      propertyPath: allStates.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7008044775822542438, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
+        type: 3}
+      propertyPath: allStates.Array.data[5]
+      value: 
+      objectReference: {fileID: 12233266}
     - target: {fileID: 7120491097240641718, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
         type: 3}
       propertyPath: m_RootOrder
