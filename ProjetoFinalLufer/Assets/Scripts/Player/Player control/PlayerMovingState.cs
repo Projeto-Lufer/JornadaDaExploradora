@@ -40,7 +40,15 @@ public class PlayerMovingState : ConcurrentState
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
             float angle = Mathf.SmoothDampAngle(playerRoot.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
             playerRoot.rotation = Quaternion.Euler(0f, angle, 0f);
-            currSpeed = speed;
+
+            if(otherSMState.GetType() == typeof(PlayerChargingState))
+            {
+                currSpeed = speed / 2;
+            }
+            else
+            {
+                currSpeed = speed;
+            }
 
             controller.Move(direction * currSpeed * Time.deltaTime);
         }

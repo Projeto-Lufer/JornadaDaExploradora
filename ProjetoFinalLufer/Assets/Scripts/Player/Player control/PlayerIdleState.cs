@@ -14,7 +14,7 @@ public class PlayerIdleState : ConcurrentState
         State otherSMState = stateMachine.GetOtherStateMachineCurrentState();
 
         canMove = otherSMState.GetType() != typeof(PlayerLiftingState) &&
-                    otherSMState.GetType() != typeof(PlayerAttackingState) && otherSMState.GetType() != typeof(PlayerChargingState);
+                    otherSMState.GetType() != typeof(PlayerAttackingState);
 
         if (canMove && (horizontalInput != 0 || verticalInput != 0))
         {
