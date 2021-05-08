@@ -6,6 +6,8 @@ public class MeleeAttacks : MonoBehaviour
 {
     [SerializeField] private Transform attackPoint;
     [SerializeField] private LayerMask targetLayer;
+    [SerializeField] private AudioClip attackSFX;
+    [SerializeField] private AudioManager audioManager;
 
     public float sweepRange;
 
@@ -14,6 +16,8 @@ public class MeleeAttacks : MonoBehaviour
     public void Sweep()
     {
         Collider[] targets = Physics.OverlapSphere(attackPoint.position, sweepRange, targetLayer);
+
+        audioManager.PlaySFX(attackSFX, true, false);
 
         foreach (Collider target in targets)
         {
