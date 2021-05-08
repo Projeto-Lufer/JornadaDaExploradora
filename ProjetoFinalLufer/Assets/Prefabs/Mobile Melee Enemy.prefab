@@ -204,7 +204,7 @@ MonoBehaviour:
   targetLayer:
     serializedVersion: 2
     m_Bits: 64
-  sweepRange: 1.88
+  sweepRange: 2.71
   weaponDamage: 1
 --- !u!195 &1973560530444295902
 NavMeshAgent:
