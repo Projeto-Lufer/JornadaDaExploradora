@@ -555,6 +555,8 @@ MonoBehaviour:
   targetLayer:
     serializedVersion: 2
     m_Bits: 8
+  fov: 90
+  distance: 5
   sweepRange: 1.14
   weaponDamage: 1
 --- !u!95 &4974148435762435629
