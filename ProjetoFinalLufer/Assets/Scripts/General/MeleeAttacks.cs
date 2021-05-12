@@ -16,12 +16,23 @@ public class MeleeAttacks : MonoBehaviour
     public void Sweep()
     {
         Collider[] targets = Physics.OverlapSphere(attackPoint.position, sweepRange, targetLayer);
-
+        bool shield = false;
         audioManager.PlaySFX(attackSFX, true, false);
 
-        foreach (Collider target in targets)
+        foreach(Collider target in targets)
         {
-            target.GetComponent<HealthPoints>().ReduceHealth(weaponDamage);
+            if (target.tag == "Shield")
+            {
+                shield = true;
+            }
+        }
+
+        if(shield == false)
+        {
+            foreach (Collider target in targets)
+            {
+                target.GetComponent<HealthPoints>().ReduceHealth(weaponDamage);
+            }
         }
     }
 

@@ -18,7 +18,9 @@ public class PlayerMovingState : ConcurrentState
     private float currSpeed;
     private float turnSmoothVelocity;
 
+    [Header("Estados")]
     [SerializeField] PlayerChargingState pcs;
+    [SerializeField] PlayerDefendingState pds;
 
     public override void Enter()
     {
@@ -46,6 +48,10 @@ public class PlayerMovingState : ConcurrentState
             if(otherSMState.GetType() == typeof(PlayerChargingState))
             {
                 currSpeed = speed / 2;
+            }
+            else if(otherSMState.GetType() == typeof(PlayerDefendingState))
+            {
+                currSpeed = pds.defendingSpeed;
             }
             else
             {
