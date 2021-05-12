@@ -5200,6 +5200,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4115159625032260279, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
+        type: 3}
+      propertyPath: m_TagString
+      value: Shield
+      objectReference: {fileID: 0}
     - target: {fileID: 4857794338073604352, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
         type: 3}
       propertyPath: transitionsManager
@@ -6285,7 +6290,7 @@ PrefabInstance:
     - target: {fileID: 2202740110688647472, guid: 5f47ceba01721b548b7a28a0ce794610,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4462619697762002774, guid: 5f47ceba01721b548b7a28a0ce794610,
         type: 3}
