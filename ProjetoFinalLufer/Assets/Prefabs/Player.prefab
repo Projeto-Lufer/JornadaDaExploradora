@@ -174,7 +174,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2134347131696939373}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1.39}
+  m_LocalPosition: {x: 0, y: 0, z: 0.156}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2645542213764038349}
@@ -677,13 +677,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackPoint: {fileID: 7120491097240641718}
+  attackSFX: {fileID: 8300000, guid: 4e0a17fdcd2a74b8ab2d8bbe2aa9ce5d, type: 3}
+  audioManager: {fileID: 9183958328411519134}
   targetLayer:
     serializedVersion: 2
     m_Bits: 8
-  attackSFX: {fileID: 8300000, guid: 4e0a17fdcd2a74b8ab2d8bbe2aa9ce5d, type: 3}
-  audioManager: {fileID: 9183958328411519134}
-  sweepRange: 1.14
+  attackDuration: 0.3
   weaponDamage: 1
+  fov: 90
+  radius: 5
+  rayCount: 50
+  sweepRange: 1.14
+  showRays: 0
 --- !u!95 &4974148435762435629
 Animator:
   serializedVersion: 3

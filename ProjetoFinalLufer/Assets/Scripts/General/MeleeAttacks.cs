@@ -7,7 +7,7 @@ public class MeleeAttacks : MonoBehaviour
     [Header("External references")]
     [SerializeField] private Transform attackPoint;
     [SerializeField] private AudioClip attackSFX;
-    //[SerializeField] private AudioManager audioManager;
+    [SerializeField] private AudioManager audioManager;
 
     [Header("Gameplay tweeking fields")]
     [SerializeField] private LayerMask targetLayer;
