@@ -149,7 +149,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2134347131696939373}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1.39}
+  m_LocalPosition: {x: 0, y: 0, z: 0.34}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2645542213764038349}
@@ -173,7 +173,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2645542213764038349
 Transform:
   m_ObjectHideFlags: 0
@@ -182,7 +182,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4078346675285778751}
   m_LocalRotation: {x: -0, y: 0.29807305, z: -0, w: 0.9545431}
-  m_LocalPosition: {x: 0.8538, y: 0, z: -0.3976}
+  m_LocalPosition: {x: 1.04, y: 0, z: 0.85}
   m_LocalScale: {x: 0.030550001, y: 1, z: 0.27022997}
   m_Children: []
   m_Father: {fileID: 7120491097240641718}
@@ -357,7 +357,7 @@ GameObject:
   - component: {fileID: 7762025946051498913}
   - component: {fileID: 7762025946051498975}
   - component: {fileID: 7762025946051498912}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Interactive Identifier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -443,7 +443,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7762025947470870750}
   - component: {fileID: 7762025947470870749}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Object Manipulator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -555,10 +555,13 @@ MonoBehaviour:
   targetLayer:
     serializedVersion: 2
     m_Bits: 8
-  fov: 90
-  distance: 5
-  sweepRange: 1.14
+  attackDuration: 0.3
   weaponDamage: 1
+  fov: 90
+  radius: 3
+  rayCount: 50
+  sweepRange: 1.14
+  showRays: 0
 --- !u!95 &4974148435762435629
 Animator:
   serializedVersion: 3
