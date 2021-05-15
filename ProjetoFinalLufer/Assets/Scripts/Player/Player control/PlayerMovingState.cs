@@ -18,6 +18,10 @@ public class PlayerMovingState : ConcurrentState
     private float currSpeed;
     private float turnSmoothVelocity;
 
+    [Header("Estados")]
+    [SerializeField] PlayerChargingState pcs;
+    [SerializeField] PlayerDefendingState pds;
+
     public override void Enter()
     {
         HandleInput();
@@ -35,12 +39,24 @@ public class PlayerMovingState : ConcurrentState
 
         State otherSMState = stateMachine.GetOtherStateMachineCurrentState();
 
-        if (direction.magnitude >= 0.1f && otherSMState.GetType() != typeof(PlayerDraggingState))
+        if (direction.magnitude >= 0.1f && otherSMState.GetType() != typeof(PlayerDraggingState) && pcs.canTurn == true)
         {
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
             float angle = Mathf.SmoothDampAngle(playerRoot.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
             playerRoot.rotation = Quaternion.Euler(0f, angle, 0f);
-            currSpeed = speed;
+
+            if(otherSMState.GetType() == typeof(PlayerChargingState))
+            {
+                currSpeed = speed / 2;
+            }
+            else if(otherSMState.GetType() == typeof(PlayerDefendingState))
+            {
+                currSpeed = pds.defendingSpeed;
+            }
+            else
+            {
+                currSpeed = speed;
+            }
 
             controller.Move(direction * currSpeed * Time.deltaTime);
         }

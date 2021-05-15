@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GroundButton : Activator
+public class TimedGroundButton : Activator
 {
     private bool isActivated = false;
+    [SerializeField] private float activatedTime;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Push" || other.gameObject.tag == "Player")
@@ -15,9 +16,9 @@ public class GroundButton : Activator
 
     private void OnTriggerExit(Collider other)
     {
-        if(other.gameObject.tag == "Push" || other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Push" || other.gameObject.tag == "Player")
         {
-            Interact();
+            StartCoroutine(StartDeactivation());
         }
     }
 
@@ -36,5 +37,11 @@ public class GroundButton : Activator
             objectToActivate.Deactivate();
             objectToActivate.Deactivate(gameObject);
         }
+    }
+
+    private IEnumerator StartDeactivation()
+    {
+        yield return new WaitForSeconds(activatedTime);
+        Interact();
     }
 }

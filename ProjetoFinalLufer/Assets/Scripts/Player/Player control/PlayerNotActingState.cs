@@ -41,5 +41,13 @@ public class PlayerNotActingState : ConcurrentState
         {
             stateMachine.ChangeState(typeof(PlayerAttackingState));
         }
+        else if(Input.GetMouseButtonDown(1))
+        {
+            stateMachine.ChangeState(typeof(PlayerChargingState));
+        }
+        else if (Input.GetButtonDown("Fire2"))
+        {
+            stateMachine.ChangeState(typeof(PlayerDefendingState));
+        }
     }
 }

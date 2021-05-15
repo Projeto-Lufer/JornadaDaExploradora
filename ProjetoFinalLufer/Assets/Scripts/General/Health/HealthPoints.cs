@@ -6,6 +6,8 @@ using System;
 public abstract class HealthPoints : MonoBehaviour
 {    
     [SerializeField] protected GameObject parentToDestroy;
+    [SerializeField] protected AudioClip hitSFX;
+    [SerializeField] protected AudioManager audioManager;
 
     [SerializeField] protected int maxHP;
     protected int curHP;
@@ -15,5 +17,8 @@ public abstract class HealthPoints : MonoBehaviour
         curHP = maxHP;
     }
 
-    public abstract void ReduceHealth(int amount);
+    public virtual void ReduceHealth(int amount)
+    {
+        audioManager.PlaySFX(hitSFX, true);
+    }
 }

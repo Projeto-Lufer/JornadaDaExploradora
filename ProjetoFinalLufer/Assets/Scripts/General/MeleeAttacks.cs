@@ -6,6 +6,8 @@ public class MeleeAttacks : MonoBehaviour
 {
     [Header("External references")]
     [SerializeField] private Transform attackPoint;
+    [SerializeField] private AudioClip attackSFX;
+    //[SerializeField] private AudioManager audioManager;
 
     [Header("Gameplay tweeking fields")]
     [SerializeField] private LayerMask targetLayer;
@@ -20,6 +22,7 @@ public class MeleeAttacks : MonoBehaviour
     [SerializeField] private bool showRays;
 
     float angleIncrease;
+
 
     List<Collider> targetsAlreadyHit = new List<Collider>();
 
@@ -48,7 +51,9 @@ public class MeleeAttacks : MonoBehaviour
 
         targetsAlreadyHit.Clear();
         float lastTotalTime = 0;
-        
+
+        audioManager.PlaySFX(attackSFX, true, false);
+
         for (float time = 0; time <= attackDuration ; time += Time.deltaTime)
         {
             float timeIncrementPercentage = time / attackDuration - lastTotalTime;
@@ -99,17 +104,29 @@ public class MeleeAttacks : MonoBehaviour
 
     private void DoDamage(RaycastHit[] hits)
     {
+        bool shield = false;
         foreach (RaycastHit hit in hits)
         {
-            // trocar isso para algo como os alvos terem uma invulnerabilidade temporária, para evitar ter que ficar mexendo com lista
-            if (!targetsAlreadyHit.Contains(hit.collider))
+            if (hit.collider.tag == "Shield")
             {
-                HealthPoints hp = hit.collider.GetComponent<HealthPoints>();
-                if(hp != null)
+                shield = true;
+            }
+        }
+
+        if (shield == false)
+        {
+            foreach (RaycastHit hit in hits)
+            {
+                // trocar isso para algo como os alvos terem uma invulnerabilidade temporária, para evitar ter que ficar mexendo com lista
+                if (!targetsAlreadyHit.Contains(hit.collider))
                 {
-                    hp.ReduceHealth(weaponDamage);
+                    HealthPoints hp = hit.collider.GetComponent<HealthPoints>();
+                    if (hp != null)
+                    {
+                        hp.ReduceHealth(weaponDamage);
+                    }
+                    targetsAlreadyHit.Add(hit.collider);
                 }
-                targetsAlreadyHit.Add(hit.collider);
             }
         }
     }
