@@ -207,8 +207,6 @@ MonoBehaviour:
   targetLayer:
     serializedVersion: 2
     m_Bits: 64
-  attackDuration: 0.3
-  weaponDamage: 1
   fov: 90
   radius: 5
   rayCount: 50
@@ -368,7 +366,7 @@ MonoBehaviour:
   parentToRotate: {fileID: 4462619697762002774}
   meleeAttack: {fileID: 8898433266695747558}
   attackPlayerDelay: 2
-  attackDuration: 1
+  attackStats: {fileID: 11400000, guid: dd5f645cae6f02f49bbceda765b2daca, type: 2}
   turnSmoothTime: 0.1
 --- !u!1 &4545563392732611284
 GameObject:

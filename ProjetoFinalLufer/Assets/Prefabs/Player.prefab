@@ -111,8 +111,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meleeAttack: {fileID: 4766827225807830560}
   animator: {fileID: 4974148435762435629}
-  timeBetweenAttacks:
-  - 0.3
+  comboSequence:
+  - {fileID: 11400000, guid: 4f34515c4f0eec14b818925ca80ef90e, type: 2}
+  - {fileID: 11400000, guid: 5b410d7e0bed5ce4a956db12ec32949d, type: 2}
+  - {fileID: 11400000, guid: c29a483c8589e2344947db6c0cd33140, type: 2}
 --- !u!114 &3906696032279641580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -682,8 +684,6 @@ MonoBehaviour:
   targetLayer:
     serializedVersion: 2
     m_Bits: 8
-  attackDuration: 0.3
-  weaponDamage: 1
   fov: 90
   radius: 5
   rayCount: 50
