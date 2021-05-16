@@ -63,6 +63,16 @@ public class PlayerMovingState : ConcurrentState
         else if(otherSMState.GetType() == typeof(PlayerDraggingState))
         {
             currSpeed = speed / 2;
+
+            if(transform.forward.x != 0)
+            {
+                direction.z = 0f;
+            }
+            else
+            {
+                direction.x = 0f;
+            }
+
             controller.Move(direction * currSpeed * Time.deltaTime);
         }
         else

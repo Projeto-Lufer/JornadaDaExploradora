@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1720773917333692300}
   - component: {fileID: 3906696032279641580}
   - component: {fileID: 7989665054200242460}
+  - component: {fileID: 7407808896950493283}
   m_Layer: 0
   m_Name: Player action states
   m_TagString: Untagged
@@ -152,6 +153,21 @@ MonoBehaviour:
   damageArea: {x: 0.25, y: 0.25, z: 1}
   weaponDamage: 10
   canTurn: 1
+--- !u!114 &7407808896950493283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 206274268144785079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1646c15717cd61449b1e3d3a8453a93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defendingSpeed: 4
+  shield: {fileID: 4115159625032260279}
+  radius: 2
 --- !u!1 &2134347131696939373
 GameObject:
   m_ObjectHideFlags: 0
@@ -182,6 +198,36 @@ Transform:
   - {fileID: 2645542213764038349}
   m_Father: {fileID: 7762025947535230012}
   m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2607738862202962939
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8609870106646547660}
+  m_Layer: 6
+  m_Name: Grab Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8609870106646547660
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2607738862202962939}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7762025947535230012}
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4078346675285778751
 GameObject:
@@ -645,6 +691,7 @@ Transform:
   - {fileID: 7762025947470870750}
   - {fileID: 7633254837945034438}
   - {fileID: 7478852797266556192}
+  - {fileID: 8609870106646547660}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -896,15 +943,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7da38259e25cac449161f3fb8aad296, type: 3}
---- !u!4 &8846911589473277946 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8041455250568798057, guid: d7da38259e25cac449161f3fb8aad296,
-    type: 3}
-  m_PrefabInstance: {fileID: 1539799816480819347}
-  m_PrefabAsset: {fileID: 0}
 --- !u!198 &2656358179411934925 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 3567748617173218910, guid: d7da38259e25cac449161f3fb8aad296,
+    type: 3}
+  m_PrefabInstance: {fileID: 1539799816480819347}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8846911589473277946 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8041455250568798057, guid: d7da38259e25cac449161f3fb8aad296,
     type: 3}
   m_PrefabInstance: {fileID: 1539799816480819347}
   m_PrefabAsset: {fileID: 0}
