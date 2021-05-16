@@ -11,8 +11,6 @@ public class MeleeAttacks : MonoBehaviour
 
     [Header("Gameplay tweeking fields")]
     [SerializeField] private LayerMask targetLayer;
-    [SerializeField] private float attackDuration;
-    [SerializeField] private int weaponDamage;
 
     [Header("Target area parameters")]
     [SerializeField] private float fov = 90f;
@@ -23,7 +21,6 @@ public class MeleeAttacks : MonoBehaviour
 
     float angleIncrease;
 
-
     List<Collider> targetsAlreadyHit = new List<Collider>();
 
     private void Awake()
@@ -31,12 +28,12 @@ public class MeleeAttacks : MonoBehaviour
         angleIncrease = fov / rayCount;
     }
 
-    public void Sweep()
+    public void Sweep(ComboElement element)
     {
-        StartCoroutine(SweepRoutine(true));
+        StartCoroutine(SweepRoutine(element));
     }
 
-    private IEnumerator SweepRoutine(bool rightToLeft)
+    private IEnumerator SweepRoutine(ComboElement element)
     {
         float raysToCast = 0;
         float totalRaysCast = 0;
@@ -44,7 +41,7 @@ public class MeleeAttacks : MonoBehaviour
         float startingAngle = VectorToAngle(transform.forward);
 
         float currentAngle;
-        if(rightToLeft)
+        if(element.goesRightToLeft)
             currentAngle = startingAngle - fov / 2;
         else
             currentAngle = startingAngle + fov/2;
@@ -54,10 +51,10 @@ public class MeleeAttacks : MonoBehaviour
 
         audioManager.PlaySFX(attackSFX, true, false);
 
-        for (float time = 0; time <= attackDuration ; time += Time.deltaTime)
+        for (float time = 0; time <= element.duration; time += Time.deltaTime)
         {
-            float timeIncrementPercentage = time / attackDuration - lastTotalTime;
-            lastTotalTime = time / attackDuration;
+            float timeIncrementPercentage = time / element.duration - lastTotalTime;
+            lastTotalTime = time / element.duration;
 
             raysToCast += raysRemaining * timeIncrementPercentage;
 
@@ -66,8 +63,8 @@ public class MeleeAttacks : MonoBehaviour
                 int i = 0;
                 do
                 {
-                    this.DoDamage(this.CastNextRay(currentAngle));
-                    if(rightToLeft)
+                    this.DoDamage(this.CastNextRay(currentAngle), element);
+                    if(element.goesRightToLeft)
                         currentAngle += angleIncrease;
                     else
                         currentAngle -= angleIncrease;
@@ -80,8 +77,8 @@ public class MeleeAttacks : MonoBehaviour
             }
             else if(time == 0)
             {
-                this.DoDamage(this.CastNextRay(currentAngle));
-                if (rightToLeft)
+                this.DoDamage(this.CastNextRay(currentAngle), element);
+                if (element.goesRightToLeft)
                     currentAngle += angleIncrease;
                 else
                     currentAngle -= angleIncrease;
@@ -102,7 +99,7 @@ public class MeleeAttacks : MonoBehaviour
         return Physics.RaycastAll(attackPoint.position, vectorAngle, radius, targetLayer, QueryTriggerInteraction.Ignore);
     }
 
-    private void DoDamage(RaycastHit[] hits)
+    private void DoDamage(RaycastHit[] hits, ComboElement element)
     {
         bool shield = false;
         foreach (RaycastHit hit in hits)
@@ -123,7 +120,7 @@ public class MeleeAttacks : MonoBehaviour
                     HealthPoints hp = hit.collider.GetComponent<HealthPoints>();
                     if (hp != null)
                     {
-                        hp.ReduceHealth(weaponDamage);
+                        hp.ReduceHealth(element.damage);
                     }
                     targetsAlreadyHit.Add(hit.collider);
                 }

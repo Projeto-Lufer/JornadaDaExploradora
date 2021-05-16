@@ -8,47 +8,63 @@ public class PlayerAttackingState : ConcurrentState
     [SerializeField] private MeleeAttacks meleeAttack;
     [SerializeField] private Animator animator;
 
-    [Header("Gameplay tweeking fields")]
-    [SerializeField] private float[] timeBetweenAttacks;
+    [Header("Gameplay tweaking fields")]
+    [SerializeField] private ComboElement[] comboSequence;
 
     // Internal variables
-    private List<WaitForSeconds> timeBetweenAttacksWFS;
     private bool isAttacking;
-
-    private void Start()
-    {
-        timeBetweenAttacksWFS = new List<WaitForSeconds>();
-        foreach (float time in timeBetweenAttacks)
-        {
-            timeBetweenAttacksWFS.Add(new WaitForSeconds(time));
-        }
-    }
+    private int currIndex;
+    private float attackTimeElapsed;
+    private bool willTriggerNextAttack;
 
     public override void Enter()
     {
         animator.SetTrigger("Attack");
-        meleeAttack.Sweep();
-        StartCoroutine(AttackDuration(timeBetweenAttacksWFS[0]));
+        currIndex = 0;
+        StartCoroutine(AttackRoutine(comboSequence[currIndex++]));
     }
 
     public override void HandleInput()
     {
-        if (!isAttacking)
+        if (Input.GetButtonDown("Fire1"))
         {
-            if (Input.GetButtonDown("Fire1"))
+            if (CheckIfCanTriggerNextAttack())
             {
-                animator.SetTrigger("Attack");
-                meleeAttack.Sweep();
-                StartCoroutine(AttackDuration(timeBetweenAttacksWFS[0]));
+                willTriggerNextAttack = true;
             }
         }
     }
 
-    private IEnumerator AttackDuration(WaitForSeconds duration)
+    public override void LogicUpdate()
     {
+        if (attackTimeElapsed >= comboSequence[currIndex-1].duration && willTriggerNextAttack)
+        {
+            animator.SetTrigger("Attack");
+
+            StopAllCoroutines();
+            StartCoroutine(AttackRoutine(comboSequence[currIndex++]));
+        }
+    }
+
+    private bool CheckIfCanTriggerNextAttack()
+    {
+        return currIndex < comboSequence.Length  &&
+            (attackTimeElapsed >= comboSequence[currIndex].comboWindowStart) &&
+            (attackTimeElapsed <= comboSequence[currIndex].comboWindowFinish);
+    }
+
+    private IEnumerator AttackRoutine(ComboElement element)
+    {
+        willTriggerNextAttack = false;
+        meleeAttack.Sweep(element);
         stateMachine.ChangeOtherStateMachineState(typeof(PlayerIdleState));
         isAttacking = true;
-        yield return duration;
+
+        for (attackTimeElapsed = 0 ; attackTimeElapsed < element.timeout ; attackTimeElapsed += Time.deltaTime)
+        {
+            yield return null;
+        }
+        
         isAttacking = false;
         stateMachine.ChangeState(typeof(PlayerNotActingState));
     }

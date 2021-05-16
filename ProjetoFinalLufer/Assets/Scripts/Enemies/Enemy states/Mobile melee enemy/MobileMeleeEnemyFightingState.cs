@@ -11,7 +11,7 @@ public class MobileMeleeEnemyFightingState : SimpleAnimatableState
 
     [Header("Gameplay tweeking fields")]
     [SerializeField] private float attackPlayerDelay;
-    [SerializeField] private float attackDuration;
+    [SerializeField] private ComboElement attackStats;
     [SerializeField] private float turnSmoothTime = 0.1f;
 
     private WaitForSeconds attackDurationWFS;
@@ -19,7 +19,7 @@ public class MobileMeleeEnemyFightingState : SimpleAnimatableState
 
     private void Start()
     {
-        attackDurationWFS = new WaitForSeconds(attackDuration);
+        attackDurationWFS = new WaitForSeconds(attackStats.duration);
         fightAreaDetector.triggerExitCallback = ChangeToChasing;
     }
 
@@ -51,7 +51,7 @@ public class MobileMeleeEnemyFightingState : SimpleAnimatableState
                 yield return null;
             }
             PlayAnimationTrigger("Attacking");
-            meleeAttack.Sweep();
+            meleeAttack.Sweep(attackStats);
 
             yield return attackDurationWFS;
         }
