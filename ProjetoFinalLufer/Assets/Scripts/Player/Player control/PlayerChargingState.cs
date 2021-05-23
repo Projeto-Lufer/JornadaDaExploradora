@@ -19,6 +19,8 @@ public class PlayerChargingState : ConcurrentState
     private bool keyDown;
     private float speed;
     [HideInInspector] public bool canTurn = true;
+    [SerializeField] private ParticleSystem chargingParticles;
+    [SerializeField] private ParticleSystem chargedParticles;
 
 
     public override void Enter()
@@ -36,7 +38,18 @@ public class PlayerChargingState : ConcurrentState
     {
         if(keyDown)
         {
+            if (currChargeTime < chargeTime && !chargingParticles.isPlaying)
+            {
+                chargingParticles.Play();
+            }
+
             currChargeTime += Time.deltaTime;
+
+            if (currChargeTime >= chargeTime && !chargedParticles.isPlaying)
+            {
+                chargingParticles.Stop();
+                chargedParticles.Play();
+            }
         }
         else
         {
@@ -54,6 +67,8 @@ public class PlayerChargingState : ConcurrentState
                 }
             }
 
+            chargedParticles.Stop();
+            chargingParticles.Stop();
             currChargeTime = 0;
             base.stateMachine.ChangeState(typeof(PlayerNotActingState));
 
