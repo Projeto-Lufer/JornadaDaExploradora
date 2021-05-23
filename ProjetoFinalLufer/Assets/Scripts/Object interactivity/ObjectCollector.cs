@@ -31,6 +31,7 @@ public class ObjectCollector : MonoBehaviour
     public void UseKey()
     {
         --keysPossessed;
+        UpdateInvetoryUI();
     }
 
     private void UpdateInvetoryUI()
