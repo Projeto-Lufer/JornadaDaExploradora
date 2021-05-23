@@ -5,13 +5,12 @@ using TMPro;
 
 public class ObjectCollector : MonoBehaviour
 {
-    private List<CollectableObject> inventory;
+    private int keysPossessed;
     [SerializeField] private TextMeshProUGUI UIText;
     [SerializeField] private string collectableTag;
 
     private void Start()
     {
-        inventory = new List<CollectableObject>();
         UpdateInvetoryUI();
     }
 
@@ -22,15 +21,25 @@ public class ObjectCollector : MonoBehaviour
             CollectableObject collectable = hit.gameObject.GetComponent<CollectableObject>();
             if (collectable != null)
             {
-                inventory.Add(collectable);
+                ++keysPossessed;
                 collectable.Collect();
                 UpdateInvetoryUI();
             }
         }
     }
 
+    public void UseKey()
+    {
+        --keysPossessed;
+    }
+
     private void UpdateInvetoryUI()
     {
-        UIText.text = inventory.Count.ToString();
+        UIText.text = keysPossessed.ToString();
+    }
+
+    public int GetKeysPossessed()
+    {
+        return keysPossessed;
     }
 }
