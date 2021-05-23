@@ -659,6 +659,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7762025947535230012}
   - component: {fileID: 7762025947535230010}
+  - component: {fileID: 6835616210154787277}
   - component: {fileID: 4766827225807830560}
   - component: {fileID: 4974148435762435629}
   - component: {fileID: 4857794338073604352}
@@ -713,6 +714,20 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6835616210154787277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7762025947535230013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b327981d932c74438a2fb13f973a888, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UIText: {fileID: 0}
+  collectableTag: Collectable
 --- !u!114 &4766827225807830560
 MonoBehaviour:
   m_ObjectHideFlags: 0
