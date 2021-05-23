@@ -35,6 +35,11 @@ public class PlayerNotActingState : ConcurrentState
                     objectManipulator.GrabObject(interactive.gameObject);
                     base.stateMachine.ChangeState(typeof(PlayerDraggingState));                 
                 }
+                else if (interactiveType == typeof(InteractiveDoor))
+                {
+                    interactiveIdentifier.PopMostrelevantInteractive();
+                    interactive.Interact();
+                }
             }
         }
         else if (Input.GetButtonDown("Fire1"))
