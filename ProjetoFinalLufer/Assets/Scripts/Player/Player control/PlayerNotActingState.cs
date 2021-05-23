@@ -37,8 +37,7 @@ public class PlayerNotActingState : ConcurrentState
                 }
                 else if (interactiveType == typeof(InteractiveDoor))
                 {
-                    interactiveIdentifier.PopMostrelevantInteractive();
-                    interactive.Interact();
+                    interactive.Interact(transform.parent.gameObject);
                 }
             }
         }
