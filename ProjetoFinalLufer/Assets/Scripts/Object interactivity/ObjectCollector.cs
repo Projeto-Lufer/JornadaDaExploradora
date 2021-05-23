@@ -6,23 +6,25 @@ using TMPro;
 public class ObjectCollector : MonoBehaviour
 {
     private List<CollectableObject> inventory;
-    private TextMeshProUGUI UIText;
-    [SerializeField] private LayerMask collectacbelLayer;
+    [SerializeField] private TextMeshProUGUI UIText;
+    [SerializeField] private string collectableTag;
 
     private void Start()
     {
+        inventory = new List<CollectableObject>();
         UpdateInvetoryUI();
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if(collision.gameObject.layer == collectacbelLayer.value)
+        if(hit.gameObject.tag == collectableTag)
         {
-            CollectableObject collectable = collision.gameObject.GetComponent<CollectableObject>();
+            CollectableObject collectable = hit.gameObject.GetComponent<CollectableObject>();
             if (collectable != null)
             {
                 inventory.Add(collectable);
                 collectable.Collect();
+                UpdateInvetoryUI();
             }
         }
     }
