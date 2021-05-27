@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeout: 0.6
   duration: 0.2
-  comboWindowStart: 0.1
-  comboWindowFinish: 0.4
+  comboWindowStart: 0.3
+  comboWindowFinish: 0.5
   damage: 1
   goesRightToLeft: 1
