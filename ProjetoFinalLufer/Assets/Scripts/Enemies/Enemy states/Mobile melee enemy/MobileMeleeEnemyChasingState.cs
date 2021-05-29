@@ -6,22 +6,28 @@ using UnityEngine.AI;
 public class MobileMeleeEnemyChasingState : SimpleAnimatableState
 {
     [Header("External references")]
-    [SerializeField] private AreaDetector chaseAreaDetector;
-    [SerializeField] private AreaDetector fightAreaDetector;
+    [SerializeField] private RangeDetector chaseAreaDetector;
+    [SerializeField] private RangeDetector fightAreaDetector;
     [SerializeField] private NavMeshAgent agent;
 
-
-    private void Start()
-    {
-        chaseAreaDetector.triggerExitCallback = ChangeToPatrolling;
-        fightAreaDetector.triggerEnterCallback = ChangeToFighting;
-    }
-
-    public override void Enter(GameObject target)
+    public override void Enter()
     {
         agent.isStopped = false;
         base.PlayAnimationTrigger("Walking");
-        StartCoroutine(Chase(target.transform));
+
+        Collider[] hits = chaseAreaDetector.GetCollisionsInArea();
+        if (hits.Length > 0)
+        {
+            GameObject target = hits[0].gameObject;
+            PlayAnimationTrigger("Fighting");
+            StartCoroutine(Chase(target.transform));
+            StartCoroutine(CheckIfStillInChasingRange(target.transform));
+            StartCoroutine(CheckIfInFightingRange());
+        }
+        else
+        {
+            ChangeToPatrolling();
+        }
     }
 
     public override void Exit()
@@ -38,17 +44,40 @@ public class MobileMeleeEnemyChasingState : SimpleAnimatableState
         }
     }
 
+    IEnumerator CheckIfStillInChasingRange(Transform target)
+    {
+        yield return null;
+        Collider[] hits = chaseAreaDetector.GetCollisionsInArea();
+        while (hits.Length > 0)
+        {
+            hits = chaseAreaDetector.GetCollisionsInArea();
+            yield return null;
+        }
+        ChangeToPatrolling();
+    }
+
+    IEnumerator CheckIfInFightingRange()
+    {
+        Collider[] hits = fightAreaDetector.GetCollisionsInArea();
+        while (hits.Length == 0)
+        {
+            hits = fightAreaDetector.GetCollisionsInArea();
+            yield return null;
+        }
+        ChangeToFighting();
+    }
+
     // ==== State trasitions
 
-    private void ChangeToPatrolling(GameObject _)
+    private void ChangeToPatrolling()
     {
         stateMachine.ChangeState(typeof(MobileMeleeEnemyPatrollingState));
     }
 
-    private void ChangeToFighting(GameObject target)
+    private void ChangeToFighting()
     {
+        Debug.Log("Change to fighting");
         agent.isStopped = true;
-        stateMachine.ChangeState(typeof(MobileMeleeEnemyFightingState), target);
+        stateMachine.ChangeState(typeof(MobileMeleeEnemyFightingState));
     }
-
 }

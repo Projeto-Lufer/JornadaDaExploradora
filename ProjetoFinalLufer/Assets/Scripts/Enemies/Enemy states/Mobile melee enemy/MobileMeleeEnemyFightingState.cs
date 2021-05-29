@@ -5,7 +5,7 @@ using UnityEngine;
 public class MobileMeleeEnemyFightingState : SimpleAnimatableState
 {
     [Header("External references")]
-    [SerializeField] private AreaDetector fightAreaDetector;
+    [SerializeField] private RangeDetector fightAreaDetector;
     [SerializeField] private Transform parentToRotate;
     [SerializeField] private MeleeAttacks meleeAttack;
 
@@ -20,13 +20,22 @@ public class MobileMeleeEnemyFightingState : SimpleAnimatableState
     private void Start()
     {
         attackDurationWFS = new WaitForSeconds(attackStats.duration);
-        fightAreaDetector.triggerExitCallback = ChangeToChasing;
     }
 
-    public override void Enter(GameObject target)
+    public override void Enter()
     {
-        PlayAnimationTrigger("Fighting");
-        StartCoroutine(Fight(target.transform));
+        Collider[] hits = fightAreaDetector.GetCollisionsInArea();
+        if (hits.Length > 0)
+        {
+            GameObject target = hits[0].gameObject;
+            PlayAnimationTrigger("Fighting");
+            StartCoroutine(Fight(target.transform));
+            StartCoroutine(CheckIfStillInFightingRange(target.transform));
+        }
+        else
+        {
+            ChangeToChasing();
+        }
     }
 
     public override void Exit()
@@ -57,10 +66,23 @@ public class MobileMeleeEnemyFightingState : SimpleAnimatableState
         }
     }
 
+    IEnumerator CheckIfStillInFightingRange(Transform target)
+    {
+        yield return null;
+        Collider[] hits = fightAreaDetector.GetCollisionsInArea();
+        while (hits.Length > 0)
+        {
+            hits = fightAreaDetector.GetCollisionsInArea();
+            yield return null;
+        }
+        ChangeToChasing();
+    }
+
     // ==== State trasitions
 
-    private void ChangeToChasing(GameObject target)
+    private void ChangeToChasing()
     {
-        stateMachine.ChangeState(typeof(MobileMeleeEnemyChasingState), target);
+        Debug.Log("Start chasing");
+        stateMachine.ChangeState(typeof(MobileMeleeEnemyChasingState));
     }
 }

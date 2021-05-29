@@ -7,7 +7,7 @@ public class MobileMeleeEnemyPatrollingState : SimpleAnimatableState
 {
     [Header("External references")]
     [SerializeField] private Transform[] patrolPoints;
-    [SerializeField] private AreaDetector chaseAreaDetector;
+    [SerializeField] private RangeDetector chaseAreaDetector;
     [SerializeField] private NavMeshAgent agent;
 
     // Internal variables
@@ -15,7 +15,6 @@ public class MobileMeleeEnemyPatrollingState : SimpleAnimatableState
 
     private void Start()
     {
-        chaseAreaDetector.triggerEnterCallback = StartChasing;
         nextPatrolPointIndex = 0;
     }
 
@@ -24,6 +23,8 @@ public class MobileMeleeEnemyPatrollingState : SimpleAnimatableState
         agent.isStopped = false;
         base.PlayAnimationTrigger("Walking");
         StartCoroutine(Patrol());
+
+        StartCoroutine(CheckIfInChasingRange());
     }
 
     public override void Exit()
@@ -48,10 +49,21 @@ public class MobileMeleeEnemyPatrollingState : SimpleAnimatableState
         }
     }
 
+    IEnumerator CheckIfInChasingRange()
+    {
+        Collider[] hits = chaseAreaDetector.GetCollisionsInArea();
+        while (hits.Length == 0)
+        {
+            hits = chaseAreaDetector.GetCollisionsInArea();
+            yield return null;
+        }
+        ChangeToChasing();
+    }
+
     // ==== State trasitions
 
-    private void StartChasing(GameObject target)
+    private void ChangeToChasing()
     {
-        stateMachine.ChangeState(typeof(MobileMeleeEnemyChasingState), target);
+        stateMachine.ChangeState(typeof(MobileMeleeEnemyChasingState));
     }
 }
