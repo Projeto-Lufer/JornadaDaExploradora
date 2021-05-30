@@ -14,8 +14,6 @@ public class RangeDetector : MonoBehaviour
     private void Start()
     {
         layerMask = 1 << targetLayer;
-        Debug.Log(LayerMask.LayerToName(6));
-        Debug.Log(layerMask);
     }
 
     public Collider[] GetCollisionsInArea()
