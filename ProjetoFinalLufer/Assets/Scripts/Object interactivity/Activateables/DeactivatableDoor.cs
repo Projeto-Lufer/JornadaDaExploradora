@@ -2,15 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ActivateableByMultipleDoor : ActivateableByMultiple
+public class DeactivatableDoor : ActivateableByMultiple
 {
     protected override void ExecuteActivation()
     {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
     protected override void ExecuteDeactivation()
     {
-        return;
+        gameObject.SetActive(true);
     }
+
 }

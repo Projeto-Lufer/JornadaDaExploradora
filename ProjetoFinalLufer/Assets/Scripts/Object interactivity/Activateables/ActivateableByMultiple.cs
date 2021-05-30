@@ -24,8 +24,13 @@ public abstract class ActivateableByMultiple : Activateable
         if (activeActivators.Contains(activator))
         {
             activeActivators.Remove(activator);
+            if (activeActivators.Count < activatorsAmountNeeded)
+            {
+                ExecuteDeactivation();
+            }
         }
     }
 
     protected abstract void ExecuteActivation();
+    protected abstract void ExecuteDeactivation();
 }
