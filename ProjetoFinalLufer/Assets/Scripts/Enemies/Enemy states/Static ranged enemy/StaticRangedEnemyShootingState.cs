@@ -5,6 +5,7 @@ public class StaticRangedEnemyShootingState : SimpleState
 {
     [Header("External references")]
     [SerializeField] private RangeDetector shootingAreaDetector;
+    [SerializeField] private RangeDetector hidingAreaDetector;
     [SerializeField] private Transform parentToRotate;
     private ObjectPool projectilePool;
 
@@ -47,7 +48,7 @@ public class StaticRangedEnemyShootingState : SimpleState
             GameObject target = hits[0].gameObject;
             StartCoroutine(ShootingLoop(target.transform));
             StartCoroutine(CheckIfStillInShootingRange());
-            //StartCoroutine(CheckIfInHidingRange());
+            StartCoroutine(CheckIfInHidingRange());
         }
         else
         {
@@ -59,7 +60,6 @@ public class StaticRangedEnemyShootingState : SimpleState
     {
         StopAllCoroutines();
     }
-
 
     private IEnumerator ShootingLoop(Transform target)
     {
@@ -94,8 +94,24 @@ public class StaticRangedEnemyShootingState : SimpleState
         ChangeToIdle();
     }
 
+    private IEnumerator CheckIfInHidingRange()
+    {
+        Collider[] hits = hidingAreaDetector.GetCollisionsInArea();
+        while (hits.Length == 0)
+        {
+            hits = hidingAreaDetector.GetCollisionsInArea();
+            yield return null;
+        }
+        ChangeToHiding();
+    }
+
     private void ChangeToIdle()
     {
         stateMachine.ChangeState(typeof(StaticRangedEnemyIdleState));
+    }
+
+    private void ChangeToHiding()
+    {
+        stateMachine.ChangeState(typeof(StaticRangedEnemyHidingState));
     }
 }
