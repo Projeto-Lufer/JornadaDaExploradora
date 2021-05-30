@@ -8,25 +8,34 @@ public class Jump : MonoBehaviour
     [SerializeField] private CharacterController controller;
     [SerializeField] private float jumpSpeed;
 
-
+    private GameObject PlayerActionStates;
     private float directionY;
 
     // Start is called before the first frame update
+    void Start()
+    {
+        PlayerActionStates = transform.GetChild(1).gameObject;
+    }
 
     // Update is called once per frame
     void Update()
     {
         Vector3 direction = Vector3.zero;
 
-        if (controller.isGrounded && Input.GetButtonDown("Jump"))
+        State currentState = PlayerActionStates.GetComponent<ConcurrentStateMachine>().GetCurrentState();
+
+        if(currentState.GetType() == typeof(PlayerNotActingState))
         {
-            directionY = jumpHeight;
+            if (controller.isGrounded && Input.GetButtonDown("Jump"))
+            {
+                directionY = jumpHeight;
+            }
+
+            directionY += Physics.gravity.y * Time.deltaTime;
+
+            direction.y = directionY;
+
+            controller.Move(direction * jumpSpeed * Time.deltaTime);
         }
-
-        directionY += Physics.gravity.y * Time.deltaTime;
-
-        direction.y = directionY;
-
-        controller.Move(direction * jumpSpeed * Time.deltaTime);
     }
 }
