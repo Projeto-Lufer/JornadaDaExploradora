@@ -5,7 +5,7 @@ using UnityEngine;
 public class StaticRangedEnemyIdleState : SimpleState
 {
     [Header("External references")]
-    [SerializeField] private RangeDetector shootingAreaDetector;
+    [SerializeField] private RangeDetector areaDetector;
 
     public override void Enter()
     {
@@ -17,12 +17,12 @@ public class StaticRangedEnemyIdleState : SimpleState
         StopAllCoroutines();
     }
 
-    IEnumerator CheckIfInShootingRange()
+    private IEnumerator CheckIfInShootingRange()
     {
-        Collider[] hits = shootingAreaDetector.GetCollisionsInArea();
+        Collider[] hits = areaDetector.GetCollisionsInArea();
         while (hits.Length == 0)
         {
-            hits = shootingAreaDetector.GetCollisionsInArea();
+            hits = areaDetector.GetCollisionsInArea();
             yield return null;
         }
         ChangeToShooting();
