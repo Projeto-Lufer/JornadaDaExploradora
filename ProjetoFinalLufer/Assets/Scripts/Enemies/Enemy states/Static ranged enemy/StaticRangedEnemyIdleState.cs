@@ -5,20 +5,31 @@ using UnityEngine;
 public class StaticRangedEnemyIdleState : SimpleState
 {
     [Header("External references")]
-    [SerializeField] private AreaDetector areaDetector;
+    [SerializeField] private RangeDetector shootingAreaDetector;
 
     public override void Enter()
     {
-        areaDetector.triggerEnterCallback = StartShooting;
-    }
-
-    private void StartShooting(GameObject target)
-    {
-        stateMachine.ChangeState(typeof(StaticRangedEnemyShootingState), target);
+        StartCoroutine(CheckIfInShootingRange());
     }
 
     public override void Exit()
     {
-        areaDetector.triggerEnterCallback -= StartShooting;
+        StopAllCoroutines();
+    }
+
+    IEnumerator CheckIfInShootingRange()
+    {
+        Collider[] hits = shootingAreaDetector.GetCollisionsInArea();
+        while (hits.Length == 0)
+        {
+            hits = shootingAreaDetector.GetCollisionsInArea();
+            yield return null;
+        }
+        ChangeToShooting();
+    }
+
+    private void ChangeToShooting()
+    {
+        stateMachine.ChangeState(typeof(StaticRangedEnemyShootingState));
     }
 }

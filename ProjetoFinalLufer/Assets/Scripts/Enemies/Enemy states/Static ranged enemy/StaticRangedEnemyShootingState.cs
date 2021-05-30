@@ -4,7 +4,7 @@ using System.Collections;
 public class StaticRangedEnemyShootingState : SimpleState
 {
     [Header("External references")]
-    [SerializeField] private AreaDetector areaDetector;
+    [SerializeField] private RangeDetector shootingAreaDetector;
     [SerializeField] private Transform parentToRotate;
     private ObjectPool projectilePool;
 
@@ -16,7 +16,6 @@ public class StaticRangedEnemyShootingState : SimpleState
     [SerializeField] private Transform projectileSpawnPoint;
 
     // Internal attributes
-    private Transform target;
     private WaitForSeconds startledTimeWFS;
 
     protected override void OnValidate()
@@ -40,27 +39,29 @@ public class StaticRangedEnemyShootingState : SimpleState
         startledTimeWFS = new WaitForSeconds(startledTime);
     }
 
-    public override void Enter(GameObject target)
+    public override void Enter()
     {
-        this.target = target.transform;
-        areaDetector.triggerExitCallback = StopShooting;
-        StartCoroutine(ShootingLoop());
+        Collider[] hits = shootingAreaDetector.GetCollisionsInArea();
+        if (hits.Length > 0)
+        {
+            GameObject target = hits[0].gameObject;
+            StartCoroutine(ShootingLoop(target.transform));
+            StartCoroutine(CheckIfStillInShootingRange());
+            //StartCoroutine(CheckIfInHidingRange());
+        }
+        else
+        {
+            ChangeToIdle();
+        }
     }
 
     public override void Exit()
     {
-        areaDetector.triggerExitCallback -= StopShooting;
-    }
-
-    public void StopShooting(GameObject _)
-    {
-        this.target = null;
-
         StopAllCoroutines();
-        stateMachine.ChangeState(typeof(StaticRangedEnemyIdleState));
     }
 
-    private IEnumerator ShootingLoop()
+
+    private IEnumerator ShootingLoop(Transform target)
     {
         parentToRotate.LookAt(new Vector3(target.position.x, parentToRotate.position.y, target.position.z));
         // TODO: Play startled animation
@@ -79,5 +80,22 @@ public class StaticRangedEnemyShootingState : SimpleState
             GameObject projectile = projectilePool.GetPooledObject();
             projectile.GetComponent<EnemyProjectile>().SetStartingPosition(projectileSpawnPoint.position, projectileSpawnPoint.rotation);
         }
+    }
+
+    IEnumerator CheckIfStillInShootingRange()
+    {
+        yield return null;
+        Collider[] hits = shootingAreaDetector.GetCollisionsInArea();
+        while (hits.Length > 0)
+        {
+            hits = shootingAreaDetector.GetCollisionsInArea();
+            yield return null;
+        }
+        ChangeToIdle();
+    }
+
+    private void ChangeToIdle()
+    {
+        stateMachine.ChangeState(typeof(StaticRangedEnemyIdleState));
     }
 }
