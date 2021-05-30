@@ -282,6 +282,7 @@ GameObject:
   - component: {fileID: 959747648260530689}
   - component: {fileID: 6743590932463004393}
   - component: {fileID: 6816460038557060751}
+  - component: {fileID: 7390074192252192018}
   m_Layer: 0
   m_Name: Mobile Melee Enemy States
   m_TagString: Untagged
@@ -319,6 +320,7 @@ MonoBehaviour:
   - {fileID: 959747648260530689}
   - {fileID: 6743590932463004393}
   - {fileID: 6816460038557060751}
+  - {fileID: 7390074192252192018}
   startingState: {fileID: 959747648260530689}
 --- !u!114 &959747648260530689
 MonoBehaviour:
@@ -368,6 +370,20 @@ MonoBehaviour:
   attackPlayerDelay: 2
   attackStats: {fileID: 11400000, guid: dd5f645cae6f02f49bbceda765b2daca, type: 2}
   turnSmoothTime: 0.1
+--- !u!114 &7390074192252192018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3998161795545050026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f859b8cb1bdcd447809a0605bcbe559, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flinchingTime: 0.3
+  stateToReturnTo: {fileID: 6816460038557060751}
 --- !u!1 &4545563392732611284
 GameObject:
   m_ObjectHideFlags: 0
@@ -708,7 +724,7 @@ MonoBehaviour:
   audioManager: {fileID: 90339226463677784}
   maxHP: 5
   HPView: {fileID: 62554323867951339}
-  stateMachine: {fileID: 0}
+  stateMachine: {fileID: 4774286159638926702}
 --- !u!114 &62554323867951339
 MonoBehaviour:
   m_ObjectHideFlags: 0
