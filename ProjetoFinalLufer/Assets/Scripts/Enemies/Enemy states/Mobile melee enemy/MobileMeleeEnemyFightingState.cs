@@ -30,7 +30,7 @@ public class MobileMeleeEnemyFightingState : SimpleAnimatableState
             GameObject target = hits[0].gameObject;
             PlayAnimationTrigger("Fighting");
             StartCoroutine(Fight(target.transform));
-            StartCoroutine(CheckIfStillInFightingRange(target.transform));
+            StartCoroutine(CheckIfStillInFightingRange());
         }
         else
         {
@@ -66,7 +66,7 @@ public class MobileMeleeEnemyFightingState : SimpleAnimatableState
         }
     }
 
-    IEnumerator CheckIfStillInFightingRange(Transform target)
+    IEnumerator CheckIfStillInFightingRange()
     {
         yield return null;
         Collider[] hits = fightAreaDetector.GetCollisionsInArea();
@@ -82,7 +82,6 @@ public class MobileMeleeEnemyFightingState : SimpleAnimatableState
 
     private void ChangeToChasing()
     {
-        Debug.Log("Start chasing");
         stateMachine.ChangeState(typeof(MobileMeleeEnemyChasingState));
     }
 }
