@@ -13,7 +13,7 @@ public class EnemyProjectile : MonoBehaviour
     [SerializeField] private float maxDistance;
 
     private float distanceTravelled;
-
+    private bool reflected = false;
     void FixedUpdate()
     {
         float distanceToMove = speed * Time.deltaTime;
@@ -33,12 +33,21 @@ public class EnemyProjectile : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.collider.CompareTag("Player"))
+        if(collision.collider.CompareTag("Player") && !reflected)
         {
             collision.collider.GetComponent<HealthPoints>().ReduceHealth((int)damage);
+            DestructionProcess();
         }
-        
-        DestructionProcess();
+        else if(collision.collider.CompareTag("Shield") && !reflected)
+        {
+            transform.forward = collision.transform.parent.forward;
+            reflected = true;
+        }
+        else if(collision.gameObject.layer == 3 && reflected)
+        {
+            collision.collider.GetComponent<HealthPoints>().ReduceHealth((int)damage);
+            DestructionProcess();
+        }
     }
 
     private void DestructionProcess()
@@ -46,6 +55,7 @@ public class EnemyProjectile : MonoBehaviour
         // TODO:
         // Play destruction VFX/animation & sound
         distanceTravelled = 0;
+        reflected = false;
         gameObject.SetActive(false);
     }
 }
