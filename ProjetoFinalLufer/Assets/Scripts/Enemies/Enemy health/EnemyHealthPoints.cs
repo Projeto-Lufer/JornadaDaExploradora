@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyHealthPoints : HealthPoints
 {
     [SerializeField] private EnemyHealthPointsView HPView;
+    [SerializeField] private StateMachine stateMachine;
 
     public override void ReduceHealth(int amount)
     {
@@ -13,6 +14,8 @@ public class EnemyHealthPoints : HealthPoints
         base.curHP -= amount;
 
         HPView.PlayDamageVisuals();
+
+        stateMachine.ChangeState(typeof(FlinchingState));
 
         if (base.curHP <= 0)
         {
