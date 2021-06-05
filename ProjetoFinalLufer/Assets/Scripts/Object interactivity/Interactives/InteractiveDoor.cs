@@ -6,6 +6,7 @@ public class InteractiveDoor : Interactive
 {
     [SerializeField] private bool isLocked;
     [SerializeField] private GameObject lockObject;
+    [SerializeField] private Animator animator;
 
     private void Start()
     {
@@ -14,6 +15,7 @@ public class InteractiveDoor : Interactive
 
     public override void Interact(GameObject player)
     {
+        Debug.Log("Interacted");
         ObjectCollector collector = player.GetComponent<ObjectCollector>();
 
         if (isLocked && collector.GetKeysPossessed() > 0)
@@ -24,7 +26,7 @@ public class InteractiveDoor : Interactive
         }
         else if(!isLocked)
         {
-            Destroy(this.gameObject);
+            animator.SetTrigger("Open");
         }
     }
 }
