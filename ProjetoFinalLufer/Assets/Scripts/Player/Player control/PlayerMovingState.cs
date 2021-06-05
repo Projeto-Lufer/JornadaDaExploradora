@@ -15,8 +15,10 @@ public class PlayerMovingState : ConcurrentState
     // Internal attributes
     private float horizontalInput, verticalInput;
     private Vector3 direction;
+    private Vector3 relativeDirection;
     private float currSpeed;
     private float turnSmoothVelocity;
+    private Transform cam;
 
     [Header("Estados")]
     [SerializeField] PlayerChargingState pcs;
@@ -25,6 +27,8 @@ public class PlayerMovingState : ConcurrentState
     public override void Enter()
     {
         HandleInput();
+
+        cam = transform.parent.GetComponent<RoomTransition>().currCam.transform;
     }
 
     public override void HandleInput()
@@ -35,7 +39,17 @@ public class PlayerMovingState : ConcurrentState
 
     public override void PhysicsUpdate()
     {
-        direction = new Vector3(horizontalInput, 0f, verticalInput).normalized;
+        Vector3 camF = cam.forward;
+        Vector3 camR = cam.right;
+
+        camF.y = 0;
+        camR.y = 0;
+
+        camF = camF.normalized;
+        camR = camR.normalized;
+
+        relativeDirection = new Vector3(horizontalInput, 0f, verticalInput).normalized;
+        direction = (camF * relativeDirection.z + camR * relativeDirection.x).normalized;
 
         State otherSMState = stateMachine.GetOtherStateMachineCurrentState();
 
