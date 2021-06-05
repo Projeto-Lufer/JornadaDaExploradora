@@ -1,20 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &4470705487827055018
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3008327315822289953}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 150b14060bbf51143a0b920dd6901f20, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isLocked: 0
-  lockObject: {fileID: 7411073889067010091}
-  animator: {fileID: 7098268846827740649}
 --- !u!54 &2372799333635162275
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -31,6 +16,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &4470705487827055018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3008327315822289953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 150b14060bbf51143a0b920dd6901f20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isLocked: 0
+  lockObject: {fileID: 7411073889067010091}
+  animator: {fileID: 7098268846827740649}
 --- !u!1 &7411073889067010091
 GameObject:
   m_ObjectHideFlags: 0
@@ -91,7 +91,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c1054bd9240814ddb96f6ffae340ebb4, type: 2}
+  - {fileID: 2100000, guid: 5d8005a1a0b526345ab63e0ef012bc9b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
