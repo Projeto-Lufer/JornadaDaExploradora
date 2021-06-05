@@ -1230,7 +1230,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &367235333
 Transform:
   m_ObjectHideFlags: 0
@@ -2911,8 +2911,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.35841802, y: -0, z: -0, w: 0.9335612}
-  m_LocalPosition: {x: 19, y: 8.94, z: -48.9}
+  m_LocalRotation: {x: 0.23999909, y: -0, z: -0, w: 0.97077316}
+  m_LocalPosition: {x: 19, y: 6.6596937, z: -51.04801}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 888240360}
@@ -5454,6 +5454,11 @@ PrefabInstance:
       propertyPath: transitionsManager
       value: 
       objectReference: {fileID: 16350325}
+    - target: {fileID: 5008123393085208888, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
+        type: 3}
+      propertyPath: currCam
+      value: 
+      objectReference: {fileID: 367235334}
     - target: {fileID: 5891055706839819678, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
         type: 3}
       propertyPath: healthTextUI
