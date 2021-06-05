@@ -36,6 +36,7 @@ public abstract class ActivateableByCorrectOrder : Activateable
         if (activeActivators.Contains(activator))
         {
             activeActivators.Remove(activator);
+            ExecuteDeactivation();
         }
     }
 
@@ -51,4 +52,5 @@ public abstract class ActivateableByCorrectOrder : Activateable
     }
 
     protected abstract void ExecuteActivation();
+    protected abstract void ExecuteDeactivation();
 }
