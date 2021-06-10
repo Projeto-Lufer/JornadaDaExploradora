@@ -8,8 +8,9 @@ public class PlayerLiftingState : ConcurrentState
 
     private WaitForSeconds liftingDurationWFS;
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         liftingDurationWFS = new WaitForSeconds(liftingDuration);
     }
 

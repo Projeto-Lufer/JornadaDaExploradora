@@ -19,24 +19,18 @@ public class StaticRangedEnemyShootingState : SimpleState
     // Internal attributes
     private WaitForSeconds startledTimeWFS;
 
-    protected override void OnValidate()
+    protected override void Awake()
     {
-        base.OnValidate();
-        if(projectilePool == null)
+        base.Awake();
+        ObjectPool[] objects = FindObjectsOfType<ObjectPool>();
+        foreach (ObjectPool obj in objects)
         {
-            ObjectPool[] objects = FindObjectsOfType<ObjectPool>();
-            foreach(ObjectPool obj in objects)
+            if (obj.name == "Object Pool - Static Ranged Enemy")
             {
-                if (obj.name == "Object Pool - Static Ranged Enemy")
-                {
-                    projectilePool = obj;
-                }
+                projectilePool = obj;
             }
         }
-    }
-
-    private void Start()
-    {
+        
         startledTimeWFS = new WaitForSeconds(startledTime);
     }
 

@@ -5,7 +5,7 @@ public class ConcurrentState : State
 {
     protected ConcurrentStateMachine stateMachine;
 
-    private void OnValidate()
+    protected virtual void Start()
     {
         stateMachine = GetComponent<ConcurrentStateMachine>();
     }
