@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7840315670782883075}
   - component: {fileID: 1380372191267114816}
   - component: {fileID: 3038356731760815786}
+  - component: {fileID: 6661697569295426723}
   m_Layer: 0
   m_Name: Static ranged enemy states
   m_TagString: Untagged
@@ -52,6 +53,7 @@ MonoBehaviour:
   - {fileID: 7840315670782883075}
   - {fileID: 1380372191267114816}
   - {fileID: 3038356731760815786}
+  - {fileID: 6661697569295426723}
   startingState: {fileID: 7769584939354577130}
 --- !u!114 &7769584939354577130
 MonoBehaviour:
@@ -101,7 +103,6 @@ MonoBehaviour:
   hidingAreaDetector: {fileID: 9113591333445935052}
   enemyTransform: {fileID: 6842675159693420934}
   bodyCollider: {fileID: 3292796288340586847}
-  hidingPosition: {fileID: 0}
 --- !u!114 &3038356731760815786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,7 +115,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f859b8cb1bdcd447809a0605bcbe559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flinchingTime: 0.3
+  flinchingTime: 1.3
+  stateToReturnTo: {fileID: 7840315670782883075}
+--- !u!114 &6661697569295426723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 147735635811846725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7c8d56057b1a7b43be8526a0445bdce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stunTime: 2
   stateToReturnTo: {fileID: 7840315670782883075}
 --- !u!1 &481945047991422024
 GameObject:
