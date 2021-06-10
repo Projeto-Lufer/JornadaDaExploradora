@@ -23,6 +23,11 @@ public class EnemyHealthPoints : HealthPoints
         }
     }
 
+    public void Stun()
+    {
+        stateMachine.ChangeState(typeof(StunnedState));
+    }
+
     private void Die()
     {
         Destroy(parentToDestroy);
