@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 697e0ca5e5f21af4aab7b171df4a6d4c, type: 3}
   m_Name: Swipe 1
   m_EditorClassIdentifier: 
-  timeout: 0.6
+  timeout: 0.7
   duration: 0.2
-  comboWindowStart: 0.3
-  comboWindowFinish: 0.5
+  comboWindowStart: 0.2
+  comboWindowFinish: 0.7
   damage: 1
   goesRightToLeft: 1
