@@ -48,6 +48,10 @@ public class EnemyProjectile : MonoBehaviour
             collision.collider.GetComponent<EnemyHealthPoints>().Stun();
             DestructionProcess();
         }
+        else
+        {
+            DestructionProcess();
+        }
     }
 
     private void DestructionProcess()
