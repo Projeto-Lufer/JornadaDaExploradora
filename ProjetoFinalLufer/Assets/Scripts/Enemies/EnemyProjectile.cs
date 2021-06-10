@@ -60,6 +60,7 @@ public class EnemyProjectile : MonoBehaviour
         // Play destruction VFX/animation & sound
         distanceTravelled = 0;
         reflected = false;
-        gameObject.SetActive(false);
+        Destroy(gameObject);
+        //gameObject.SetActive(false);
     }
 }

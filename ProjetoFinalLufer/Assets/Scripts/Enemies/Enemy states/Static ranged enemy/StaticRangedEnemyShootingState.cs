@@ -7,7 +7,7 @@ public class StaticRangedEnemyShootingState : SimpleState
     [SerializeField] private RangeDetector shootingAreaDetector;
     [SerializeField] private RangeDetector hidingAreaDetector;
     [SerializeField] private Transform parentToRotate;
-    private ObjectPool projectilePool;
+    //private ObjectPool projectilePool;
 
     [Header("Gameplay tweeking fields")]
     [Tooltip("Tempo que o inimigo fica parado quando avista jogador pela primeira vez")]
@@ -22,14 +22,14 @@ public class StaticRangedEnemyShootingState : SimpleState
     protected override void Awake()
     {
         base.Awake();
-        ObjectPool[] objects = FindObjectsOfType<ObjectPool>();
+        /*ObjectPool[] objects = FindObjectsOfType<ObjectPool>();
         foreach (ObjectPool obj in objects)
         {
             if (obj.name == "Object Pool - Static Ranged Enemy")
             {
                 projectilePool = obj;
             }
-        }
+        }*/
         
         startledTimeWFS = new WaitForSeconds(startledTime);
     }
@@ -71,8 +71,9 @@ public class StaticRangedEnemyShootingState : SimpleState
                 }
                 yield return null;
             }
-            GameObject projectile = projectilePool.GetPooledObject();
-            projectile.GetComponent<EnemyProjectile>().SetStartingPosition(projectileSpawnPoint.position, projectileSpawnPoint.rotation);
+            //GameObject projectile = projectilePool.GetPooledObject();
+            GameObject projectileInstance = Instantiate(projectile);
+            projectileInstance.GetComponent<EnemyProjectile>().SetStartingPosition(projectileSpawnPoint.position, projectileSpawnPoint.rotation);
         }
     }
 
