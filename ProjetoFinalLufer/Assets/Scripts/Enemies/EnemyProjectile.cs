@@ -45,7 +45,7 @@ public class EnemyProjectile : MonoBehaviour
         }
         else if(collision.gameObject.layer == 3 && reflected)
         {
-            collision.collider.GetComponent<HealthPoints>().ReduceHealth((int)damage);
+            collision.collider.GetComponent<EnemyHealthPoints>().Stun();
             DestructionProcess();
         }
     }
