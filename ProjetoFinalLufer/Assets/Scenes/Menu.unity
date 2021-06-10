@@ -541,7 +541,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Cr\xE9ditos"
+  m_Text: Credits
 --- !u!222 &199427174
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -620,7 +620,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Voltar
+  m_Text: 'Back
 
 '
 --- !u!222 &408266071
@@ -912,7 +912,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Voltar
+  m_Text: Back
 --- !u!222 &565226409
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1159,7 +1159,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Sair
+  m_Text: Exit Game
 --- !u!222 &927294300
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1693,7 +1693,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Novo Jogo
+  m_Text: New Game
 --- !u!222 &1048790757
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2104,7 +2104,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Continuar
+  m_Text: Continue
 --- !u!222 &1383699579
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2460,7 +2460,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Configura\xE7\xF5es"
+  m_Text: Settings
 --- !u!222 &1448517938
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2684,7 +2684,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Voltar
+  m_Text: Back
 --- !u!222 &1647072655
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2763,10 +2763,27 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Como Jogar\n\nWASD / Setas: Movimentar a personagem\n\nBarra de espa\xE7o:
-    Pular\n\nE: Pegar, Soltar e Interagir com objetos\n\nF / Bot\xE3o esquerdo do
-    mouse: Atacar\n\nG: Utilizar escudo\n\nSegurar bot\xE3o direito do mouse: Ataque
-    carregado"
+  m_Text: 'How to Play
+
+
+    WASD / Arrows: Walk
+
+
+    Space Bar: Jump
+
+
+    E: Interact
+
+
+    G:
+    Shield
+
+
+    Left Mouse Click: Attack
+
+
+    Right Mouse Hold: Charge special
+    attack'
 --- !u!222 &1769817354
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2845,7 +2862,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Como jogar
+  m_Text: How to Play
 --- !u!222 &1808258732
 CanvasRenderer:
   m_ObjectHideFlags: 0
