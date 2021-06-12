@@ -92,12 +92,18 @@ public class StaticRangedEnemyShootingState : SimpleState
     private IEnumerator CheckIfInHidingRange()
     {
         Collider[] hits = hidingAreaDetector.GetCollisionsInArea();
-        while (hits.Length == 0)
+        while (true)
         {
+            foreach (Collider hit in hits)
+            {
+                if (hit.tag == "Player")
+                {
+                    ChangeToHiding();
+                }
+            }
             hits = hidingAreaDetector.GetCollisionsInArea();
             yield return null;
         }
-        ChangeToHiding();
     }
 
     private void ChangeToIdle()
