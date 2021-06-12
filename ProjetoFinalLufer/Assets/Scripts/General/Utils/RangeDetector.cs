@@ -6,6 +6,7 @@ public class RangeDetector : MonoBehaviour
 {
     [SerializeField] private float radius;
     [SerializeField] private int targetLayer;
+    [SerializeField] private List<string> obstructingTags;
     
     [SerializeField] private Transform thisTransform;
 
@@ -19,6 +20,22 @@ public class RangeDetector : MonoBehaviour
     public Collider[] GetCollisionsInArea()
     {
         return Physics.OverlapSphere(thisTransform.position, radius, layerMask);
+    }
+
+    public bool GetHasLineOfSight(Transform target)
+    {
+        Vector3 distance = (target.position - thisTransform.position);
+        RaycastHit[] hits = Physics.RaycastAll(thisTransform.position, distance.normalized, distance.magnitude);
+        
+        foreach(RaycastHit hit in hits)
+        {
+            Debug.Log(hit.collider.tag);
+            if (obstructingTags.Contains(hit.collider.tag))
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
     private void OnDrawGizmosSelected()
