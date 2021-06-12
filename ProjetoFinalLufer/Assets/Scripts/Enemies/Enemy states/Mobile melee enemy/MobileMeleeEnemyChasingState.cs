@@ -50,6 +50,11 @@ public class MobileMeleeEnemyChasingState : SimpleAnimatableState
         Collider[] hits = chaseAreaDetector.GetCollisionsInArea();
         while (hits.Length > 0)
         {
+            if (!chaseAreaDetector.GetHasLineOfSight(hits[0].transform))
+            {
+                // TODO: Fazer com que inimigo vá até o último lugar visto antes de voltar a patrulhar
+                break;
+            }
             hits = chaseAreaDetector.GetCollisionsInArea();
             yield return null;
         }
@@ -58,13 +63,20 @@ public class MobileMeleeEnemyChasingState : SimpleAnimatableState
 
     IEnumerator CheckIfInFightingRange()
     {
+        yield return null;
         Collider[] hits = fightAreaDetector.GetCollisionsInArea();
-        while (hits.Length == 0)
+        while (true)
         {
-            hits = fightAreaDetector.GetCollisionsInArea();
+            if (hits.Length == 0) // player not in range
+            {
+                hits = chaseAreaDetector.GetCollisionsInArea();
+            }
+            else if (chaseAreaDetector.GetHasLineOfSight(hits[0].transform))
+            {
+                ChangeToFighting();
+            }
             yield return null;
         }
-        ChangeToFighting();
     }
 
     // ==== State trasitions
@@ -76,7 +88,6 @@ public class MobileMeleeEnemyChasingState : SimpleAnimatableState
 
     private void ChangeToFighting()
     {
-        Debug.Log("Change to fighting");
         agent.isStopped = true;
         stateMachine.ChangeState(typeof(MobileMeleeEnemyFightingState));
     }

@@ -20,12 +20,18 @@ public class StaticRangedEnemyIdleState : SimpleState
     private IEnumerator CheckIfInShootingRange()
     {
         Collider[] hits = areaDetector.GetCollisionsInArea();
-        while (hits.Length == 0)
+        while (true)
         {
-            hits = areaDetector.GetCollisionsInArea();
+            if (hits.Length == 0) // player not in range
+            {
+                hits = areaDetector.GetCollisionsInArea();
+            }
+            else if (areaDetector.GetHasLineOfSight(hits[0].transform))
+            {
+                ChangeToShooting();
+            }
             yield return null;
         }
-        ChangeToShooting();
     }
 
     private void ChangeToShooting()

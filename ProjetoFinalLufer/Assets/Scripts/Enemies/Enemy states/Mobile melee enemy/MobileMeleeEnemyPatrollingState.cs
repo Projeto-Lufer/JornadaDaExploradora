@@ -52,12 +52,18 @@ public class MobileMeleeEnemyPatrollingState : SimpleAnimatableState
     IEnumerator CheckIfInChasingRange()
     {
         Collider[] hits = chaseAreaDetector.GetCollisionsInArea();
-        while (hits.Length == 0)
+        while (true)
         {
-            hits = chaseAreaDetector.GetCollisionsInArea();
+            if(hits.Length == 0) // player not in range
+            {
+                hits = chaseAreaDetector.GetCollisionsInArea();
+            }
+            else if(chaseAreaDetector.GetHasLineOfSight(hits[0].transform))
+            {
+                ChangeToChasing();
+            }
             yield return null;
         }
-        ChangeToChasing();
     }
 
     // ==== State trasitions
