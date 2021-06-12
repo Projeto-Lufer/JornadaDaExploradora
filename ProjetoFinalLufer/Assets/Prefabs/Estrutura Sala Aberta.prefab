@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 907276791027758604}
   m_Layer: 0
   m_Name: Parede (6)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -261,7 +261,7 @@ GameObject:
   - component: {fileID: 907276791650419191}
   m_Layer: 0
   m_Name: Parede (2)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -507,7 +507,7 @@ GameObject:
   - component: {fileID: 907276791977706216}
   m_Layer: 0
   m_Name: Parede (1)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -753,7 +753,7 @@ GameObject:
   - component: {fileID: 907276792160876506}
   m_Layer: 0
   m_Name: Parede (5)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -1036,7 +1036,7 @@ GameObject:
   - component: {fileID: 274577104768335280}
   m_Layer: 0
   m_Name: Parede (4)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -1282,7 +1282,7 @@ GameObject:
   - component: {fileID: 351477269126603566}
   m_Layer: 0
   m_Name: Parede (3)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -1700,7 +1700,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9216206780677010797}
   m_LocalRotation: {x: 0.46174863, y: 0, z: 0, w: 0.8870109}
-  m_LocalPosition: {x: 0.17999996, y: 1.4481426, z: -0.30230337}
+  m_LocalPosition: {x: 0.17999987, y: 1.5692171, z: -0.25542372}
   m_LocalScale: {x: 0.1, y: 0.10000001, z: 0.10000001}
   m_Children:
   - {fileID: 9216206780159372516}
