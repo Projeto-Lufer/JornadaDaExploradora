@@ -860,7 +860,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6570715575224956760}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4462619697762002774}
@@ -880,6 +880,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 5
   targetLayer: 6
+  obstructingTags: []
   thisTransform: {fileID: 6194603135234472599}
 --- !u!1 &6577670665639384122
 GameObject:
@@ -906,7 +907,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6577670665639384122}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4462619697762002774}
@@ -926,6 +927,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 13
   targetLayer: 6
+  obstructingTags:
+  - Obstacle
   thisTransform: {fileID: 5487074422019276346}
 --- !u!1 &7120738378738547207
 GameObject:

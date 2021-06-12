@@ -451,6 +451,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 7
   targetLayer: 6
+  obstructingTags: []
   thisTransform: {fileID: 460505842061497824}
 --- !u!1 &3970184104505013570
 GameObject:
@@ -645,6 +646,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 15
   targetLayer: 6
+  obstructingTags:
+  - Obstacle
   thisTransform: {fileID: 1617449143641484197}
 --- !u!1 &8473313026466432543
 GameObject:
