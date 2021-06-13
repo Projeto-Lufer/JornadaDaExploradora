@@ -22,7 +22,6 @@ public class PlayerChargingState : ConcurrentState
     [SerializeField] private ParticleSystem chargingParticles;
     [SerializeField] private ParticleSystem chargedParticles;
 
-
     public override void Enter()
     {
         speed = maxDistance / time;
@@ -80,6 +79,7 @@ public class PlayerChargingState : ConcurrentState
         float currDistance = 0;
         Vector3 currPosition;
         canTurn = false;
+        bool hitObstacle = false;
 
         while(currDistance < maxDistance)
         {
@@ -91,10 +91,25 @@ public class PlayerChargingState : ConcurrentState
 
             foreach (Collider target in targets)
             {
-                target.GetComponent<HealthPoints>().ReduceHealth(weaponDamage);
+                if(target.tag == "Obstacle")
+                {
+                    hitObstacle = true;
+                }
+                HealthPoints currHP = target.GetComponent<HealthPoints>();
+                if(currHP != null)
+                {
+                    currHP.ReduceHealth(weaponDamage);
+                }
             }
 
-            yield return null;
+            if (hitObstacle)
+            {
+                break;
+            }
+            else
+            {
+                yield return null;
+            }
         }
 
         canTurn = true;
