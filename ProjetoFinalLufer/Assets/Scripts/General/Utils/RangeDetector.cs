@@ -29,7 +29,6 @@ public class RangeDetector : MonoBehaviour
         
         foreach(RaycastHit hit in hits)
         {
-            Debug.Log(hit.collider.tag);
             if (obstructingTags.Contains(hit.collider.tag))
             {
                 return false;

@@ -18,13 +18,11 @@ public class FlinchingState : SimpleAnimatableState
     {
         StartCoroutine(Flinching());
         //base.PlayAnimationTrigger("Flinch");
-        Debug.Log("Started Flinching");
     }
 
     IEnumerator Flinching()
     {
         yield return flinchingTimeWFS;
-        Debug.Log("Stoped Flinching");
         stateMachine.ChangeState(stateToReturnTo.GetType());
     }
 }
