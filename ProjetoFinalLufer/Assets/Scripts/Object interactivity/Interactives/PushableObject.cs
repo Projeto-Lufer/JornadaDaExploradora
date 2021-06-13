@@ -14,10 +14,10 @@ public class PushableObject : Interactive
         return gameObject;
     }
 
-    public void Grab(Transform grabPosition)
+    public void Grab(Transform grabber)
     {
-        float disx = transform.position.x - grabPosition.parent.transform.position.x;
-        float disz = transform.position.z - grabPosition.parent.transform.position.z;
+        float disx = transform.position.x - grabber.parent.transform.position.x;
+        float disz = transform.position.z - grabber.parent.transform.position.z;
 
         SetColliderAndGravityEnabled(false);
 
@@ -25,26 +25,39 @@ public class PushableObject : Interactive
         {
             if(Mathf.Sign(disx) == -1)
             {
-                grabPosition.parent.transform.SetPositionAndRotation(grabPositions[2].position, grabPositions[2].rotation);
+                SetGrabberPositionAndRotation(2, grabber);
             }
             else
             {
-                grabPosition.parent.transform.SetPositionAndRotation(grabPositions[3].position, grabPositions[3].rotation);
+                SetGrabberPositionAndRotation(3, grabber);
             }
         }
         else
         {
             if (Mathf.Sign(disz) == -1)
             {
-                grabPosition.parent.transform.SetPositionAndRotation(grabPositions[0].position, grabPositions[0].rotation);
+                SetGrabberPositionAndRotation(0, grabber);
             }
             else
             {
-                grabPosition.parent.transform.SetPositionAndRotation(grabPositions[1].position, grabPositions[1].rotation);
+                SetGrabberPositionAndRotation(1, grabber);
             }
         }
 
-        transform.parent = grabPosition;
+        transform.parent = grabber;
+        /*
+        Vector3 objectPosition = transform.position;
+        transform.SetParent(grabPosition, false);
+        transform.position = objectPosition;*/
+    }
+
+    private void SetGrabberPositionAndRotation(int positionIndex, Transform grabber)
+    {
+        Transform currGrabPosition = grabPositions[positionIndex];
+
+        Vector3 posDiscardingtY = new Vector3(currGrabPosition.position.x, grabber.position.y, currGrabPosition.position.z);
+
+        grabber.parent.transform.SetPositionAndRotation(posDiscardingtY, grabPositions[positionIndex].rotation);
     }
 
     public void Release()
