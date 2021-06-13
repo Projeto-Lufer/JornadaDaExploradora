@@ -4,7 +4,10 @@ using UnityEngine.SceneManagement;
 public class GameTransitionsManager : MonoBehaviour
 {
     [SerializeField] private GameObject endGamePopup;
+    [SerializeField] private GameObject victoryPopup;
     [SerializeField] private GameObject inGameMenu;
+
+    private bool gameHasEnded;
 
     private void Update()
     {
@@ -20,9 +23,19 @@ public class GameTransitionsManager : MonoBehaviour
         endGamePopup.SetActive(true);
     }
 
+    public void WinGame()
+    {
+        SetShowInGameMenu(false);
+        gameHasEnded = true;
+        victoryPopup.SetActive(true);
+    }
+
     public void SetShowInGameMenu(bool show)
     {
-        inGameMenu.SetActive(show);
+        if (!gameHasEnded)
+        {
+            inGameMenu.SetActive(show);
+        }
     }
 
     public void RestartFromLastCheckpoint()
