@@ -149,7 +149,7 @@ MonoBehaviour:
   attackPoint: {fileID: 7120491097240641718}
   targetLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 9
   damageArea: {x: 0.25, y: 0.25, z: 1}
   weaponDamage: 10
   canTurn: 1
@@ -530,7 +530,7 @@ GameObject:
   - component: {fileID: 7762025946051498913}
   - component: {fileID: 7762025946051498975}
   - component: {fileID: 7762025946051498912}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Interactive Identifier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -750,7 +750,7 @@ MonoBehaviour:
   audioManager: {fileID: 9183958328411519134}
   targetLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 9
   fov: 90
   radius: 5
   rayCount: 50
