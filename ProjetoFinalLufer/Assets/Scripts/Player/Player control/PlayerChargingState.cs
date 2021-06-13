@@ -15,12 +15,15 @@ public class PlayerChargingState : ConcurrentState
     [SerializeField] private Transform attackPoint;
     [SerializeField] private LayerMask targetLayer;
     [SerializeField] private Vector3 damageArea;
-    public int weaponDamage;
-    private bool keyDown;
-    private float speed;
-    [HideInInspector] public bool canTurn = true;
+    [SerializeField] private int chargedDamage;
+    [SerializeField] private int unchargedDamage;
+
     [SerializeField] private ParticleSystem chargingParticles;
     [SerializeField] private ParticleSystem chargedParticles;
+
+    [HideInInspector] public bool canTurn = true;
+    private bool keyDown;
+    private float speed;
 
     public override void Enter()
     {
@@ -58,12 +61,7 @@ public class PlayerChargingState : ConcurrentState
             }
             else
             {
-                Collider[] targets = Physics.OverlapBox(attackPoint.position, damageArea, transform.rotation, targetLayer);
-
-                foreach (Collider target in targets)
-                {
-                    target.GetComponent<HealthPoints>().ReduceHealth(weaponDamage);
-                }
+                DoStabDamage(unchargedDamage);
             }
 
             chargedParticles.Stop();
@@ -87,20 +85,7 @@ public class PlayerChargingState : ConcurrentState
             charController.Move(transform.forward * speed * Time.deltaTime);
             currDistance += Vector3.Distance(currPosition, transform.position);
 
-            Collider[] targets = Physics.OverlapBox(attackPoint.position, damageArea, transform.rotation, targetLayer);
-
-            foreach (Collider target in targets)
-            {
-                if(target.tag == "Obstacle")
-                {
-                    hitObstacle = true;
-                }
-                HealthPoints currHP = target.GetComponent<HealthPoints>();
-                if(currHP != null)
-                {
-                    currHP.ReduceHealth(weaponDamage);
-                }
-            }
+            hitObstacle = DoStabDamage(chargedDamage);
 
             if (hitObstacle)
             {
@@ -113,5 +98,27 @@ public class PlayerChargingState : ConcurrentState
         }
 
         canTurn = true;
+    }
+
+    private bool DoStabDamage(int amount)
+    {
+        bool hitObstacle = false;
+
+        Collider[] targets = Physics.OverlapBox(attackPoint.position, damageArea, transform.rotation, targetLayer);
+
+        foreach (Collider target in targets)
+        {
+            if (target.tag == "Obstacle")
+            {
+                hitObstacle = true;
+            }
+            HealthPoints currHP = target.GetComponent<HealthPoints>();
+            if (currHP != null)
+            {
+                currHP.ReduceHealth(amount);
+            }
+        }
+
+        return hitObstacle;
     }
 }
