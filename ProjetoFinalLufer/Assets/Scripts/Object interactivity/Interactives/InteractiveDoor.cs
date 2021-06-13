@@ -7,6 +7,7 @@ public class InteractiveDoor : Interactive
     [SerializeField] private bool isLocked;
     [SerializeField] private GameObject lockObject;
     [SerializeField] private Animator animator;
+    [SerializeField] private AudioSource audioSource;
 
     private void Start()
     {
@@ -27,6 +28,7 @@ public class InteractiveDoor : Interactive
         else if(!isLocked)
         {
             animator.SetTrigger("Open");
+            audioSource.Play();
         }
     }
 }
