@@ -6,26 +6,38 @@ using TMPro;
 public class ObjectCollector : MonoBehaviour
 {
     private int keysPossessed;
+    private bool canCollect = true;
+    private WaitForSeconds collectionDelay;
     [SerializeField] private TextMeshProUGUI UIText;
     [SerializeField] private string collectableTag;
 
     private void Start()
     {
         UpdateInvetoryUI();
+        collectionDelay = new WaitForSeconds(0.4f);
     }
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if(hit.gameObject.tag == collectableTag)
+        if(hit.gameObject.tag == collectableTag && canCollect)
         {
-            CollectableObject collectable = hit.gameObject.GetComponent<CollectableObject>();
-            if (collectable != null)
-            {
-                ++keysPossessed;
-                collectable.Collect();
-                UpdateInvetoryUI();
-            }
+            StartCoroutine(PickupWithDelay(hit));
         }
+    }
+
+    IEnumerator PickupWithDelay(ControllerColliderHit hit)
+    {
+        CollectableObject collectable = hit.gameObject.GetComponent<CollectableObject>();
+        if (collectable != null)
+        {
+            ++keysPossessed;
+            collectable.Collect();
+            UpdateInvetoryUI();
+        }
+
+        canCollect = false;
+        yield return collectionDelay;
+        canCollect = true;
     }
 
     public void UseKey()
