@@ -5,19 +5,45 @@ using UnityEngine;
 public class GroundButton : Activator
 {
     private bool isActivated = false;
+    private bool playerIsOn = false;
+    private bool boxIsOn = false;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Push" || other.gameObject.tag == "Player")
+        if(other.gameObject.tag == "Push")
         {
-            Interact();
+            boxIsOn = true;
+            if(!playerIsOn)
+            {
+                Interact();
+            }
+        }
+        else if (other.gameObject.tag == "Player")
+        {
+            playerIsOn = true;
+            if(!boxIsOn)
+            {
+                Interact();
+            }
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if(other.gameObject.tag == "Push" || other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Push")
         {
-            Interact();
+            boxIsOn = false;
+            if (!playerIsOn)
+            {
+                Interact();
+            }
+        }
+        else if (other.gameObject.tag == "Player")
+        {
+            playerIsOn = false;
+            if (!boxIsOn)
+            {
+                Interact();
+            }
         }
     }
 
