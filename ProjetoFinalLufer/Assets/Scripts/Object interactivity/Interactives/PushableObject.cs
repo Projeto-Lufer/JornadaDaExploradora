@@ -45,10 +45,6 @@ public class PushableObject : Interactive
         }
 
         transform.parent = grabber;
-        /*
-        Vector3 objectPosition = transform.position;
-        transform.SetParent(grabPosition, false);
-        transform.position = objectPosition;*/
     }
 
     private void SetGrabberPositionAndRotation(int positionIndex, Transform grabber)
