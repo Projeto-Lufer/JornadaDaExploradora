@@ -151,10 +151,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 9
   damageArea: {x: 0.25, y: 0.25, z: 1}
-  weaponDamage: 10
-  canTurn: 1
+  chargedDamage: 10
+  unchargedDamage: 2
   chargingParticles: {fileID: 722229359375205633}
   chargedParticles: {fileID: 284380043104563936}
+  canTurn: 1
 --- !u!114 &7407808896950493283
 MonoBehaviour:
   m_ObjectHideFlags: 0
