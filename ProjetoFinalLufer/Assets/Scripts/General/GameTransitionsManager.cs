@@ -6,12 +6,12 @@ public class GameTransitionsManager : MonoBehaviour
     [SerializeField] private GameObject endGamePopup;
     [SerializeField] private GameObject victoryPopup;
     [SerializeField] private GameObject inGameMenu;
-
+    [SerializeField] private PlayerInputManager inputManager;
     private bool gameHasEnded;
 
     private void Update()
     {
-        if (Input.GetButtonDown("Escape"))
+        if (inputManager.actionEscape.ReadValue<bool>())
         {
             SetShowInGameMenu(!inGameMenu.activeInHierarchy);
         }

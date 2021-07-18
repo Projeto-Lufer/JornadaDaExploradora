@@ -10,7 +10,7 @@ public class PlayerNotActingState : ConcurrentState
 
     public override void HandleInput()
     {
-        if (Input.GetButtonDown("Interact"))
+        if (stateMachine.inputManager.actionInteract.triggered)
         {
             Interactive interactive = interactiveIdentifier.PeekMostRelevantInteractive();
 
@@ -41,15 +41,15 @@ public class PlayerNotActingState : ConcurrentState
                 }
             }
         }
-        else if (Input.GetButtonDown("Fire1"))
+        else if (stateMachine.inputManager.actionAttack1.triggered)
         {
             stateMachine.ChangeState(typeof(PlayerAttackingState));
         }
-        else if(Input.GetMouseButtonDown(1))
+        else if(stateMachine.inputManager.actionAttack2.triggered)
         {
             stateMachine.ChangeState(typeof(PlayerChargingState));
         }
-        else if (Input.GetButtonDown("Fire2"))
+        else if (stateMachine.inputManager.actionDefend.triggered)
         {
             stateMachine.ChangeState(typeof(PlayerDefendingState));
         }

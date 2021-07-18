@@ -31,10 +31,10 @@ public class PlayerMovingState : ConcurrentState
         cam = transform.parent.GetComponent<RoomTransition>().currCam.transform;
     }
 
+
     public override void HandleInput()
-    { 
-        horizontalInput = Input.GetAxisRaw("Horizontal");
-        verticalInput = Input.GetAxisRaw("Vertical");
+    {
+        direction = base.stateMachine.inputManager.actionMove.ReadValue<Vector2>();
     }
 
     public override void PhysicsUpdate()
@@ -48,7 +48,7 @@ public class PlayerMovingState : ConcurrentState
         camF = camF.normalized;
         camR = camR.normalized;
 
-        relativeDirection = new Vector3(horizontalInput, 0f, verticalInput).normalized;
+        relativeDirection = new Vector3(direction.x, 0f, direction.y).normalized;
         direction = (camF * relativeDirection.z + camR * relativeDirection.x).normalized;
 
         State otherSMState = stateMachine.GetOtherStateMachineCurrentState();

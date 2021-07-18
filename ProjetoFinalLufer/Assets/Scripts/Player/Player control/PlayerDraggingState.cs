@@ -9,7 +9,7 @@ public class PlayerDraggingState : ConcurrentState
 
     public override void HandleInput()
     {
-        if (Input.GetButtonDown("Interact") || Input.GetButtonDown("Cancel"))
+        if (stateMachine.inputManager.actionInteract.triggered || stateMachine.inputManager.actionCancel.triggered)
         {
             objectManipulator.ReleaseObject();
             base.stateMachine.ChangeState(typeof(PlayerNotActingState));

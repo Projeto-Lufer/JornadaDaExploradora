@@ -26,7 +26,7 @@ public class PlayerAttackingState : ConcurrentState
 
     public override void HandleInput()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (stateMachine.inputManager.actionAttack1.triggered)
         {
             if (CheckIfCanTriggerNextAttack())
             {

@@ -9,12 +9,12 @@ public class PlayerHoldingState : ConcurrentState
 
     public override void HandleInput()
     { 
-        if (Input.GetButtonDown("Interact"))
+        if (stateMachine.inputManager.actionInteract.triggered)
         {
             objectManipulator.ThrowObject();
             base.stateMachine.ChangeState(typeof(PlayerNotActingState));
         }
-        else if (Input.GetButtonDown("Cancel"))
+        else if (stateMachine.inputManager.actionCancel.triggered)
         {
             objectManipulator.PutDownObject();
             base.stateMachine.ChangeState(typeof(PlayerNotActingState));

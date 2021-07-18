@@ -4,19 +4,21 @@ using UnityEngine;
 
 public class PlayerIdleState : ConcurrentState
 {
-    private float horizontalInput, verticalInput;
     private bool canMove;
+    private Vector2 direction = Vector2.zero;
+
 
     public override void HandleInput()
     {
-        horizontalInput = Input.GetAxisRaw("Horizontal");
-        verticalInput = Input.GetAxisRaw("Vertical");
+        direction = base.stateMachine.inputManager.actionMove.ReadValue<Vector2>();
+        Debug.Log(direction);
+
         State otherSMState = stateMachine.GetOtherStateMachineCurrentState();
 
         canMove = otherSMState.GetType() != typeof(PlayerLiftingState) &&
                     otherSMState.GetType() != typeof(PlayerAttackingState);
 
-        if (canMove && (horizontalInput != 0 || verticalInput != 0))
+        if (canMove && direction != Vector2.zero)
         {
             base.stateMachine.ChangeState(typeof(PlayerMovingState));
         }

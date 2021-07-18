@@ -28,12 +28,13 @@ public class PlayerChargingState : ConcurrentState
     public override void Enter()
     {
         speed = maxDistance / time;
-        HandleInput();
+        keyDown = true;
+        stateMachine.inputManager.actionAttack2.canceled += ctx => keyDown = false;
     }
 
-    public override void HandleInput()
+    public override void Exit()
     {
-        keyDown = Input.GetMouseButton(1);
+        stateMachine.inputManager.actionAttack2.canceled -= ctx => keyDown = false;
     }
 
     public override void PhysicsUpdate()
