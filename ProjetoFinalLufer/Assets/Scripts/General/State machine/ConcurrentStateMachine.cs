@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ConcurrentStateMachine : StateMachine
 {
     [SerializeField] private StateMachine otherStateMachine;
+
+    public PlayerInputManager inputManager;
 
     public State GetOtherStateMachineCurrentState()
     {
