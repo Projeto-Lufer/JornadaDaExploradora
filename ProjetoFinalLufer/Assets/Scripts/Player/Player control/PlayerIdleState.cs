@@ -11,7 +11,6 @@ public class PlayerIdleState : ConcurrentState
     public override void HandleInput()
     {
         direction = base.stateMachine.inputManager.actionMove.ReadValue<Vector2>();
-        Debug.Log(direction);
 
         State otherSMState = stateMachine.GetOtherStateMachineCurrentState();
 
