@@ -12,6 +12,7 @@ public class PlayerInputManager : MonoBehaviour
     public InputAction actionAttack2;
     public InputAction actionDefend;
     public InputAction actionCancel;
+    public InputAction actionJump;
 
     public InputAction actionEscape;
 
@@ -25,8 +26,6 @@ public class PlayerInputManager : MonoBehaviour
         actionAttack2 = input.actions["Attack2"];
         actionDefend = input.actions["Defend"];
         actionCancel = input.actions["Cancel"];
-
-        Debug.Log(input.currentActionMap);
-        Debug.Log(input.currentControlScheme);
+        actionJump = input.actions["Jump"];
     }
 }

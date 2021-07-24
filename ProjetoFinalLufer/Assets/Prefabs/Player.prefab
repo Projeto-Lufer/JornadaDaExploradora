@@ -840,6 +840,8 @@ MonoBehaviour:
   jumpHeight: 4
   controller: {fileID: 7762025947535230010}
   jumpSpeed: 2
+  inputManager: {fileID: 6199768831625760094}
+  PlayerActionStates: {fileID: 206274268144785079}
 --- !u!1 &8810218390698127014
 GameObject:
   m_ObjectHideFlags: 0
@@ -930,6 +932,14 @@ MonoBehaviour:
     m_Type: 0
     m_ExpectedControlType: 
     m_Id: 29178f9b-788f-4007-a627-aabed20e9a52
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+  actionJump:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings: []
