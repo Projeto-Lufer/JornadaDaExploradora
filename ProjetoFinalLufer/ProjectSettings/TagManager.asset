@@ -9,6 +9,8 @@ TagManager:
   - Collectable
   - Room
   - Obstacle
+  - Receptor
+  - Redirector
   layers:
   - Default
   - TransparentFX
