@@ -22,6 +22,7 @@ public class PlayerDefendingState : ConcurrentState
 
     public override void Exit()
     {
+        shield.GetComponent<ShieldReflection>().canEmmit = false;
         stateMachine.inputManager.actionDefend.canceled -= ctx => isDefending = false;
     }
 
