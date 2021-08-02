@@ -13,13 +13,18 @@ public class MobileMeleeEnemyFightingState : SimpleAnimatableState
     [SerializeField] private float attackPlayerDelay;
     [SerializeField] private ComboElement attackStats;
     [SerializeField] private float turnSmoothTime = 0.1f;
+    [SerializeField] private float chaseDelay;
 
     private WaitForSeconds attackDurationWFS;
+    private WaitForSeconds chaseDelayWFS;
     private float turnSmoothVelocity;
+
+    private bool targetInRange;
 
     private void Start()
     {
         attackDurationWFS = new WaitForSeconds(attackStats.duration);
+        chaseDelayWFS = new WaitForSeconds(chaseDelay);
     }
 
     public override void Enter()
@@ -28,7 +33,7 @@ public class MobileMeleeEnemyFightingState : SimpleAnimatableState
         if (hits.Length > 0)
         {
             GameObject target = hits[0].gameObject;
-            PlayAnimationTrigger("Fighting");
+            base.SetAnimationBool("Fighting", true);
             StartCoroutine(Fight(target.transform));
             StartCoroutine(CheckIfStillInFightingRange());
         }
@@ -40,6 +45,8 @@ public class MobileMeleeEnemyFightingState : SimpleAnimatableState
 
     public override void Exit()
     {
+        base.SetAnimationBool("Fighting", false);
+
         StopAllCoroutines();
     }
 
@@ -47,7 +54,7 @@ public class MobileMeleeEnemyFightingState : SimpleAnimatableState
     {
         while (true)
         {
-            PlayAnimationTrigger("Fighting");
+            base.SetAnimationBool("Fighting", true);
             for (float i = 0; i < attackPlayerDelay; i += Time.deltaTime)
             {
                 Vector3 direction = new Vector3(target.position.x - parentToRotate.position.x, 
@@ -59,22 +66,32 @@ public class MobileMeleeEnemyFightingState : SimpleAnimatableState
 
                 yield return null;
             }
-            PlayAnimationTrigger("Attacking");
-            meleeAttack.Sweep(attackStats);
 
-            yield return attackDurationWFS;
+            if (targetInRange)
+            {
+                base.SetAnimationBool("Fighting", false);
+
+                PlayAnimationTrigger("Attacking");
+                meleeAttack.Sweep(attackStats);
+                yield return attackDurationWFS;
+            }
+
+            yield return null;
         }
     }
 
     IEnumerator CheckIfStillInFightingRange()
     {
         yield return null;
-        Collider[] hits = fightAreaDetector.GetCollisionsInArea();
-        while (hits.Length > 0)
+        targetInRange = true;
+
+        while (fightAreaDetector.GetCollisionsInArea().Length > 0)
         {
-            hits = fightAreaDetector.GetCollisionsInArea();
             yield return null;
         }
+
+        targetInRange = false;
+        yield return chaseDelayWFS;
         ChangeToChasing();
     }
 

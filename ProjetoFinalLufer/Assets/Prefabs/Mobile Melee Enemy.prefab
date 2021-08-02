@@ -372,6 +372,7 @@ MonoBehaviour:
   attackPlayerDelay: 2
   attackStats: {fileID: 11400000, guid: dd5f645cae6f02f49bbceda765b2daca, type: 2}
   turnSmoothTime: 0.1
+  chaseDelay: 0.3
 --- !u!114 &7390074192252192018
 MonoBehaviour:
   m_ObjectHideFlags: 0
