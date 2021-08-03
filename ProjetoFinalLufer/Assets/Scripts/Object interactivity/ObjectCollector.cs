@@ -49,11 +49,10 @@ public class ObjectCollector : MonoBehaviour
         {
             ++keysPossessed;
         }
-        /*
         else if(item.name == "Heal")
         {
-            collectedItem.Use();
-        }*/
+            item.Use(gameObject);
+        }
         UpdateInvetoryUI();
     }
 
