@@ -26,6 +26,12 @@ public class PlayerHealthPoints : HealthPoints
         }
     }
 
+    public void AddHealth(int amount)
+    {
+        base.curHP += amount;
+        playerHPView.UpdateHealthUI(base.curHP, base.maxHP);
+    }
+
     private void Die()
     {
         transitionsManager.EndGame();
