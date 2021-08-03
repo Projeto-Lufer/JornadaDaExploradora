@@ -212,6 +212,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxDistance: 1000
   canEmmit: 0
+  ignoreLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!114 &206869682706105260
 MonoBehaviour:
   m_ObjectHideFlags: 0
