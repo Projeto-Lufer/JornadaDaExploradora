@@ -8,6 +8,9 @@ public class ItemDropper : MonoBehaviour
 
     public void DropItem()
     {
-        Instantiate(itemToDrop, transform.position, transform.rotation);
+        if(itemToDrop != null)
+        {
+            Instantiate(itemToDrop, transform.position, transform.rotation);
+        }
     }
 }

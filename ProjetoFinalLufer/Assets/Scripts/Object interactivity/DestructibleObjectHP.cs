@@ -18,10 +18,7 @@ public class DestructibleObjectHP : HealthPoints
 
     private void Die()
     {
-        if(dropper != null)
-        {
-            dropper.DropItem();
-        }
+        dropper.DropItem();
 
         Destroy(parentToDestroy);
     }
