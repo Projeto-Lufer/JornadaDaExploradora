@@ -84,15 +84,22 @@ public class MobileMeleeEnemyFightingState : SimpleAnimatableState
     {
         yield return null;
         targetInRange = true;
+        Collider[] hits = fightAreaDetector.GetCollisionsInArea();
 
-        while (fightAreaDetector.GetCollisionsInArea().Length > 0)
+        while (true)
         {
+            if (hits.Length > 0 && fightAreaDetector.GetHasLineOfSight(hits[0].transform))
+            {
+                hits = fightAreaDetector.GetCollisionsInArea();
+            }
+            else
+            {
+                targetInRange = false;
+                yield return chaseDelayWFS;
+                ChangeToChasing();
+            }
             yield return null;
         }
-
-        targetInRange = false;
-        yield return chaseDelayWFS;
-        ChangeToChasing();
     }
 
     // ==== State trasitions

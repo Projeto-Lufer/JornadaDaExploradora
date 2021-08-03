@@ -881,7 +881,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 5
   targetLayer: 6
-  obstructingTags: []
+  obstructingTags:
+  - Obstacle
+  - Receptor
+  - Push
   thisTransform: {fileID: 6194603135234472599}
 --- !u!1 &6577670665639384122
 GameObject:
