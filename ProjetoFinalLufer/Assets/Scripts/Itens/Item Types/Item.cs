@@ -7,5 +7,5 @@ public class Item : MonoBehaviour
     public string name;
     public int id;
 
-    public virtual void Use() { }
+    public virtual void Use(GameObject user) { }
 }
