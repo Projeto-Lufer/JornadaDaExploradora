@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 9131048113922607949}
   - component: {fileID: 9131048113922607950}
   - component: {fileID: 2250047253300353668}
+  - component: {fileID: 5497344765272897276}
   - component: {fileID: 7469712460732492635}
   - component: {fileID: 6804273921861046256}
   m_Layer: 3
@@ -114,6 +115,20 @@ MonoBehaviour:
   hitSFX: {fileID: 0}
   audioManager: {fileID: 0}
   maxHP: 1
+  dropper: {fileID: 5497344765272897276}
+--- !u!114 &5497344765272897276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9131048113922607945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d810207f84e57af4393e80ff4dde30e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemToDrop: {fileID: 0}
 --- !u!54 &7469712460732492635
 Rigidbody:
   m_ObjectHideFlags: 0
