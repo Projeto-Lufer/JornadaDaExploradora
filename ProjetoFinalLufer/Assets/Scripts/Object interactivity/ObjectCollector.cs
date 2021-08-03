@@ -28,16 +28,33 @@ public class ObjectCollector : MonoBehaviour
     IEnumerator PickupWithDelay(ControllerColliderHit hit)
     {
         CollectableObject collectable = hit.gameObject.GetComponent<CollectableObject>();
+
         if (collectable != null)
         {
-            ++keysPossessed;
+            Item collectedItem = collectable.gameObject.GetComponent<Item>();
+
+            GetItem(collectedItem);
+
             collectable.Collect();
-            UpdateInvetoryUI();
         }
 
         canCollect = false;
         yield return collectionDelay;
         canCollect = true;
+    }
+
+    public void GetItem(Item item)
+    {
+        if (item.name == "Key")
+        {
+            ++keysPossessed;
+        }
+        /*
+        else if(item.name == "Heal")
+        {
+            collectedItem.Use();
+        }*/
+        UpdateInvetoryUI();
     }
 
     public void UseKey()
