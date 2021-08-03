@@ -19,4 +19,9 @@ public abstract class SimpleAnimatableState : SimpleState
             animator.SetTrigger(animationName);
         }
     }
+
+    protected void SetAnimationBool(string animationName, bool shouldPlay)
+    {
+        animator.SetBool(animationName, shouldPlay);
+    }
 }

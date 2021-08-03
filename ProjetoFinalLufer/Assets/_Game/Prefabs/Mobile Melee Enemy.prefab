@@ -372,6 +372,7 @@ MonoBehaviour:
   attackPlayerDelay: 2
   attackStats: {fileID: 11400000, guid: dd5f645cae6f02f49bbceda765b2daca, type: 2}
   turnSmoothTime: 0.1
+  chaseDelay: 0.3
 --- !u!114 &7390074192252192018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -880,7 +881,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 5
   targetLayer: 6
-  obstructingTags: []
+  obstructingTags:
+  - Obstacle
+  - Receptor
+  - Push
   thisTransform: {fileID: 6194603135234472599}
 --- !u!1 &6577670665639384122
 GameObject:

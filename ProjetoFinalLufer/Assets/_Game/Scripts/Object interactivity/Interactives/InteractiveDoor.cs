@@ -16,7 +16,6 @@ public class InteractiveDoor : Interactive
 
     public override void Interact(GameObject player)
     {
-        Debug.Log("Interacted");
         ObjectCollector collector = player.GetComponent<ObjectCollector>();
 
         if (isLocked && collector.GetKeysPossessed() > 0)
