@@ -10,11 +10,14 @@ public class ShieldReflection : MonoBehaviour
     [SerializeField] private int maxDistance;
     public bool canEmmit;
 
+    [SerializeField] private LayerMask ignoreLayer;
+    private LayerMask targetLayers;
 
     void Start()
     {
         lr = GetComponent<LineRenderer>();
         startPoint = gameObject.transform;
+        targetLayers = ~ignoreLayer;
     }
 
     // Update is called once per frame
@@ -31,7 +34,7 @@ public class ShieldReflection : MonoBehaviour
             lr.SetPosition(0, startPoint.position);
             RaycastHit hit;
 
-            if (Physics.Raycast(transform.position, transform.up, out hit))
+            if (Physics.Raycast(transform.position, transform.up, out hit, maxDistance, targetLayers))
             {
                 if (hit.collider)
                 {
