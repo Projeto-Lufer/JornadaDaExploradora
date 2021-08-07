@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealItem : Item
+public class HealItem : CollectableObject
 {
     [SerializeField] private int healAmount;
 
-    public override void Use(GameObject healthObject)
+    public override void Collect(ObjectCollector collector)
     {
-        healthObject.GetComponent<PlayerHealthPoints>().AddHealth(healAmount);
+        collector.GetComponent<PlayerHealthPoints>().AddHealth(healAmount);
     }
 }

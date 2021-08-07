@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3946382349441167405}
   - component: {fileID: 1455160419226691343}
-  - component: {fileID: 1407903552868623382}
   - component: {fileID: 8084227122203312106}
   - component: {fileID: 1356227355207782848}
   - component: {fileID: 8798200610863506065}
@@ -48,21 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d16073d61206aa741b9604acfd944b75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Heal
-  id: 0
   healAmount: 1
---- !u!114 &1407903552868623382
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6046118360837756108}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d233f2f93f91824dae08d8057a8a203, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!33 &8084227122203312106
 MeshFilter:
   m_ObjectHideFlags: 0

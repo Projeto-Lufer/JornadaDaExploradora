@@ -5,10 +5,10 @@ using TMPro;
 
 public class ObjectCollector : MonoBehaviour
 {
-    private int keysPossessed;
+    private Dictionary<Item, int> inventory = new Dictionary<Item, int>();
     private bool canCollect = true;
     private WaitForSeconds collectionDelay;
-    [SerializeField] private TextMeshProUGUI UIText;
+    [SerializeField] private TextMeshProUGUI RegularKeyText;
     [SerializeField] private string collectableTag;
 
     private void Start()
@@ -31,11 +31,7 @@ public class ObjectCollector : MonoBehaviour
 
         if (collectable != null)
         {
-            Item collectedItem = collectable.gameObject.GetComponent<Item>();
-
-            GetItem(collectedItem);
-
-            collectable.Collect();
+            collectable.Collect(this);
         }
 
         canCollect = false;
@@ -45,30 +41,35 @@ public class ObjectCollector : MonoBehaviour
 
     public void GetItem(Item item)
     {
-        if (item.name == "Key")
-        {
-            ++keysPossessed;
-        }
-        else if(item.name == "Heal")
-        {
-            item.Use(gameObject);
-        }
+        inventory[item] = 1 + (inventory.ContainsKey(item)? inventory[item] : 0);
         UpdateInvetoryUI();
     }
 
     public void UseKey()
     {
-        --keysPossessed;
-        UpdateInvetoryUI();
+        UseItem(Item.regularKey);
+    }
+    public bool UseItem(Item item)
+    {
+        if((inventory.ContainsKey(item)? inventory[item] : 0) > 0)
+        {
+            inventory[item] = (inventory.ContainsKey(item)? inventory[item] : 0) - 1;
+            UpdateInvetoryUI();
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     private void UpdateInvetoryUI()
     {
-        UIText.text = keysPossessed.ToString();
+        RegularKeyText.text =(inventory.ContainsKey(Item.regularKey)? inventory[Item.regularKey] : 0).ToString();
     }
 
     public int GetKeysPossessed()
     {
-        return keysPossessed;
+        return (inventory.ContainsKey(Item.regularKey)? inventory[Item.regularKey] : 0);
     }
 }

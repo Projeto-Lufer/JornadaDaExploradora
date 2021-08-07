@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CollectableObject : MonoBehaviour
 {
-    public void Collect()
+    public virtual void Collect(ObjectCollector collector)
     {
         Destroy(gameObject);
     }
