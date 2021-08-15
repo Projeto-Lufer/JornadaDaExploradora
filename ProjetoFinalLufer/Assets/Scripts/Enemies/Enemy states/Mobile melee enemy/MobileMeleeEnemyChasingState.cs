@@ -13,13 +13,12 @@ public class MobileMeleeEnemyChasingState : SimpleAnimatableState
     public override void Enter()
     {
         agent.isStopped = false;
-        base.PlayAnimationTrigger("Walking");
+        base.SetAnimationBool("Walking", true);
 
         Collider[] hits = chaseAreaDetector.GetCollisionsInArea();
         if (hits.Length > 0)
         {
             GameObject target = hits[0].gameObject;
-            PlayAnimationTrigger("Fighting");
             StartCoroutine(Chase(target.transform));
             StartCoroutine(CheckIfStillInChasingRange(target.transform));
             StartCoroutine(CheckIfInFightingRange());
@@ -32,6 +31,8 @@ public class MobileMeleeEnemyChasingState : SimpleAnimatableState
 
     public override void Exit()
     {
+        base.SetAnimationBool("Walking", false);
+
         StopAllCoroutines();
     }
 
@@ -69,9 +70,9 @@ public class MobileMeleeEnemyChasingState : SimpleAnimatableState
         {
             if (hits.Length == 0) // player not in range
             {
-                hits = chaseAreaDetector.GetCollisionsInArea();
+                hits = fightAreaDetector.GetCollisionsInArea();
             }
-            else if (chaseAreaDetector.GetHasLineOfSight(hits[0].transform))
+            else if (fightAreaDetector.GetHasLineOfSight(hits[0].transform))
             {
                 ChangeToFighting();
             }

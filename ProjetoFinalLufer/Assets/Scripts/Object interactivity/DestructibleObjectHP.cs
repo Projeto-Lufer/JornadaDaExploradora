@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DestructibleObjectHP : HealthPoints
 {
+    [SerializeField] private ItemDropper dropper;
+
     public override void ReduceHealth(int amount)
     {
         base.curHP -= amount;
@@ -16,6 +18,8 @@ public class DestructibleObjectHP : HealthPoints
 
     private void Die()
     {
+        dropper.DropItem();
+
         Destroy(parentToDestroy);
     }
 }

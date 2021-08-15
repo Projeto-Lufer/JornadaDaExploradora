@@ -73,6 +73,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Jump"",
+                    ""type"": ""Button"",
+                    ""id"": ""7f9efcef-c428-4251-9bec-b6adf025a18e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -273,6 +281,28 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""Defend"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cc213efa-3eaf-4aeb-a877-599689afa8ac"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & mouse"",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a58753ff-4c3e-43ec-8d5d-0768a836f701"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -316,6 +346,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Characteractions_Attack2 = m_Characteractions.FindAction("Attack2", throwIfNotFound: true);
         m_Characteractions_Cancel = m_Characteractions.FindAction("Cancel", throwIfNotFound: true);
         m_Characteractions_Defend = m_Characteractions.FindAction("Defend", throwIfNotFound: true);
+        m_Characteractions_Jump = m_Characteractions.FindAction("Jump", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -372,6 +403,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Characteractions_Attack2;
     private readonly InputAction m_Characteractions_Cancel;
     private readonly InputAction m_Characteractions_Defend;
+    private readonly InputAction m_Characteractions_Jump;
     public struct CharacteractionsActions
     {
         private @PlayerControls m_Wrapper;
@@ -383,6 +415,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @Attack2 => m_Wrapper.m_Characteractions_Attack2;
         public InputAction @Cancel => m_Wrapper.m_Characteractions_Cancel;
         public InputAction @Defend => m_Wrapper.m_Characteractions_Defend;
+        public InputAction @Jump => m_Wrapper.m_Characteractions_Jump;
         public InputActionMap Get() { return m_Wrapper.m_Characteractions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -413,6 +446,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Defend.started -= m_Wrapper.m_CharacteractionsActionsCallbackInterface.OnDefend;
                 @Defend.performed -= m_Wrapper.m_CharacteractionsActionsCallbackInterface.OnDefend;
                 @Defend.canceled -= m_Wrapper.m_CharacteractionsActionsCallbackInterface.OnDefend;
+                @Jump.started -= m_Wrapper.m_CharacteractionsActionsCallbackInterface.OnJump;
+                @Jump.performed -= m_Wrapper.m_CharacteractionsActionsCallbackInterface.OnJump;
+                @Jump.canceled -= m_Wrapper.m_CharacteractionsActionsCallbackInterface.OnJump;
             }
             m_Wrapper.m_CharacteractionsActionsCallbackInterface = instance;
             if (instance != null)
@@ -438,6 +474,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Defend.started += instance.OnDefend;
                 @Defend.performed += instance.OnDefend;
                 @Defend.canceled += instance.OnDefend;
+                @Jump.started += instance.OnJump;
+                @Jump.performed += instance.OnJump;
+                @Jump.canceled += instance.OnJump;
             }
         }
     }
@@ -469,5 +508,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnAttack2(InputAction.CallbackContext context);
         void OnCancel(InputAction.CallbackContext context);
         void OnDefend(InputAction.CallbackContext context);
+        void OnJump(InputAction.CallbackContext context);
     }
 }

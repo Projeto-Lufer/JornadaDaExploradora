@@ -21,7 +21,7 @@ public class MobileMeleeEnemyPatrollingState : SimpleAnimatableState
     public override void Enter()
     {
         agent.isStopped = false;
-        base.PlayAnimationTrigger("Walking");
+        base.SetAnimationBool("Walking", true);
         StartCoroutine(Patrol());
 
         StartCoroutine(CheckIfInChasingRange());
@@ -29,6 +29,8 @@ public class MobileMeleeEnemyPatrollingState : SimpleAnimatableState
 
     public override void Exit()
     {
+        base.SetAnimationBool("Walking", false);
+
         StopAllCoroutines();
     }
     
@@ -51,6 +53,7 @@ public class MobileMeleeEnemyPatrollingState : SimpleAnimatableState
 
     IEnumerator CheckIfInChasingRange()
     {
+        yield return null;
         Collider[] hits = chaseAreaDetector.GetCollisionsInArea();
         while (true)
         {

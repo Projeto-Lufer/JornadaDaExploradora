@@ -9,6 +9,8 @@ TagManager:
   - Collectable
   - Room
   - Obstacle
+  - Receptor
+  - Redirector
   layers:
   - Default
   - TransparentFX
@@ -17,7 +19,7 @@ TagManager:
   - Water
   - UI
   - Player
-  - 
+  - Ignore Laser
   - 
   - 
   - 
