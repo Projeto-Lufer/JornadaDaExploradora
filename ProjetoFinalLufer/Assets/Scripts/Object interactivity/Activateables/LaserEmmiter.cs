@@ -48,6 +48,12 @@ public class LaserEmmiter : MonoBehaviour
                         hit.transform.SendMessage("Interact");
                         lastHit = hit.transform.gameObject;
                     }
+                    else if(lastHit != null && lastHit.tag == "Shield")
+                    {
+                        lastHit.SendMessage("Interact");
+                        hit.transform.SendMessage("Interact");
+                        lastHit = hit.transform.gameObject;
+                    }
                 }
                 else if (hit.transform.tag == "Shield")
                 {
@@ -55,6 +61,10 @@ public class LaserEmmiter : MonoBehaviour
                     {
                         hit.transform.SendMessage("Interact");
                         lastHit = hit.transform.gameObject;
+                    }
+                    else if(lastHit != null && lastHit.tag != "Shield")
+                    {
+                        hit.transform.SendMessage("Interact");
                     }
                 }
                 else
@@ -85,6 +95,11 @@ public class LaserEmmiter : MonoBehaviour
         }
         else
         {
+            if(lastHit != null)
+            {
+                lastHit.SendMessage("Interact");
+                lastHit = null;
+            }
             lr.SetPosition(0, startPoint.position);
             lr.SetPosition(1, startPoint.position);
         }

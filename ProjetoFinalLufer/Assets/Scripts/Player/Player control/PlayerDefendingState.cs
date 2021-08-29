@@ -7,7 +7,7 @@ public class PlayerDefendingState : ConcurrentState
     [Header("Controle de velocidade")]
     public float defendingSpeed;
 
-    [Header("Variáveis do escudo")]
+    [Header("Variï¿½veis do escudo")]
     [SerializeField] private GameObject shield;
     [SerializeField] private float radius;
 
@@ -22,7 +22,7 @@ public class PlayerDefendingState : ConcurrentState
 
     public override void Exit()
     {
-        shield.GetComponent<ShieldReflection>().canEmmit = false;
+        shield.GetComponent<ShieldReflection>().Interact();
         stateMachine.inputManager.actionDefend.canceled -= ctx => isDefending = false;
     }
 

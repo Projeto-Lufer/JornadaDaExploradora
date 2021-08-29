@@ -81,6 +81,8 @@ public class ShieldReflection : MonoBehaviour
     {
         if(canEmmit)
         {
+            Debug.Log("Entrou caraleo");
+            maxDistance = 0;
             canEmmit = false;
             if(lastHit != null)
             {
@@ -90,6 +92,7 @@ public class ShieldReflection : MonoBehaviour
         }
         else
         {
+            maxDistance = 1000;
             canEmmit = true;
         }
     }

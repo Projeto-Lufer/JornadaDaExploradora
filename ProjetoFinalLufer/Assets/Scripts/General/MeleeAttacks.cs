@@ -114,7 +114,7 @@ public class MeleeAttacks : MonoBehaviour
         {
             foreach (RaycastHit hit in hits)
             {
-                // trocar isso para algo como os alvos terem uma invulnerabilidade temporária, para evitar ter que ficar mexendo com lista
+                // trocar isso para algo como os alvos terem uma invulnerabilidade temporï¿½ria, para evitar ter que ficar mexendo com lista
                 if (!targetsAlreadyHit.Contains(hit.collider))
                 {
                     HealthPoints hp = hit.collider.GetComponent<HealthPoints>();
