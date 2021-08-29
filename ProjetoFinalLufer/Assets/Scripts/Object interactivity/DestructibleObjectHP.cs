@@ -8,6 +8,13 @@ public class DestructibleObjectHP : HealthPoints
 
     public override void ReduceHealth(int amount)
     {
+        LaserRedirector lr = base.GetComponent<LaserRedirector>();
+        if(lr != null)
+        {
+            lr.Turn();
+            return;
+        }
+        
         base.curHP -= amount;
 
         if (base.curHP <= 0)
