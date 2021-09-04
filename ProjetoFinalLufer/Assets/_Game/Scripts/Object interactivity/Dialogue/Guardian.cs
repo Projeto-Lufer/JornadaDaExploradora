@@ -8,6 +8,9 @@ public class Guardian : Interactive
     [SerializeField] private Dialogue alreadyInteractedDialogue;
 
     private bool alreadyInteracted = false;
+
+    public bool isShield;
+
     public override void Interact(GameObject player)
     {
         if(alreadyInteracted)
@@ -20,6 +23,12 @@ public class Guardian : Interactive
             player.GetComponentInChildren<PlayerDialogueState>().dialogue = initialDialogue;
             player.transform.GetChild(2).GetComponent<ConcurrentStateMachine>().ChangeState(typeof(PlayerDialogueState));
             alreadyInteracted = true;
+
+            if(isShield)
+            {
+                player.GetComponentInChildren<PlayerNotActingState>().canDefend = true;
+                Destroy(gameObject);
+            }
         }
     }
 }

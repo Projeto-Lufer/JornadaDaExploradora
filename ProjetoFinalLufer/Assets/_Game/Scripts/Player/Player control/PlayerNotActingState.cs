@@ -8,6 +8,8 @@ public class PlayerNotActingState : ConcurrentState
     [SerializeField] private InteractiveIdentifier interactiveIdentifier;
     [SerializeField] private ObjectManipulator objectManipulator;
 
+    [HideInInspector] public bool canDefend = false;
+
     public override void HandleInput()
     {
         bool isGrounded = transform.parent.GetComponent<CharacterController>().isGrounded;
@@ -60,7 +62,7 @@ public class PlayerNotActingState : ConcurrentState
             {
                 stateMachine.ChangeState(typeof(PlayerChargingState));
             }
-            else if (stateMachine.inputManager.actionDefend.triggered)
+            else if (stateMachine.inputManager.actionDefend.triggered && canDefend)
             {
                 stateMachine.ChangeState(typeof(PlayerDefendingState));
             }
