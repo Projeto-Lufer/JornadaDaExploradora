@@ -122,12 +122,30 @@ public class MeleeAttacks : MonoBehaviour
                     {
                         hp.ReduceHealth(element.damage);
                     }
+                    if(element.knockback > 0)
+                    {
+                        Vector3 direction = hit.collider.transform.position - transform.position;
+                        direction.y = 0;
+                        Rigidbody rb = hit.collider.transform.parent.GetComponent<Rigidbody>();
+                        if(rb != null)
+                        {
+                            rb.AddForce(direction * element.knockback, ForceMode.Impulse);
+                            StartCoroutine(removeKnockbackForce(rb, element.knockbackTime));
+                        }
+                    }
                     targetsAlreadyHit.Add(hit.collider);
                 }
             }
         }
     }
 
+    private IEnumerator removeKnockbackForce(Rigidbody rb, float t)
+    {
+        yield return new WaitForSeconds(t);
+
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+    }
     private float VectorToAngle(Vector3 direction)
     {
         float newAngle = Mathf.Atan2(direction.z, direction.x) * Mathf.Rad2Deg;

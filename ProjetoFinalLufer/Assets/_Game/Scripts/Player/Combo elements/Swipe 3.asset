@@ -18,3 +18,5 @@ MonoBehaviour:
   comboWindowFinish: 0.7
   damage: 3
   goesRightToLeft: 0
+  knockback: 10
+  knockbackTime: 2
