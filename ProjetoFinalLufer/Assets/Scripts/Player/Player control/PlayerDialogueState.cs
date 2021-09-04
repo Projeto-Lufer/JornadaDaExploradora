@@ -1,15 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class PlayerDialogueState : ConcurrentState
 {
     public Queue<string> sentences = new Queue<string>();
-
+    public TMP_Text dialogueText;
     public Dialogue dialogue;
+
+    public GameObject dialogueBox;
 
     public override void Enter()
     {
+        dialogueBox.SetActive(true);
+
         sentences.Clear();
 
         foreach(string sentence in dialogue.sentences)
@@ -37,11 +43,12 @@ public class PlayerDialogueState : ConcurrentState
         }
 
         string sentence = sentences.Dequeue();
-        Debug.Log(sentence);
+        dialogueText.text = sentence;
     }
 
     public void EndDialogue()
     {
+        dialogueBox.SetActive(false);
         base.stateMachine.ChangeState(typeof(PlayerNotActingState));
     }
 }
