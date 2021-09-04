@@ -6,17 +6,12 @@ using UnityEngine.AI;
 public class MobileMeleeEnemyPatrollingState : SimpleAnimatableState
 {
     [Header("External references")]
-    [SerializeField] private Transform[] patrolPoints;
     [SerializeField] private RangeDetector chaseAreaDetector;
     [SerializeField] private NavMeshAgent agent;
+    public PatrolRoute patrolRoute;
 
     // Internal variables
     private int nextPatrolPointIndex;
-
-    private void Start()
-    {
-        nextPatrolPointIndex = 0;
-    }
 
     public override void Enter()
     {
@@ -36,16 +31,16 @@ public class MobileMeleeEnemyPatrollingState : SimpleAnimatableState
     
     IEnumerator Patrol()
     {
-        agent.destination = patrolPoints[nextPatrolPointIndex].position;
+        patrolRoute.StartPatrolRoute();
+        agent.SetDestination(patrolRoute.GetNextPatrolPointPosition());
 
         while (true)
         {
-            if (Vector3.Distance(patrolPoints[nextPatrolPointIndex].position, transform.position) <= 1.2)
+            if (Vector3.Distance(patrolRoute.GetNextPatrolPointPosition(), transform.position) <= 2.6)
             {
-                if (++nextPatrolPointIndex >= patrolPoints.Length)
-                    nextPatrolPointIndex = 0;
+                patrolRoute.GoToNextPatrolPoint();
 
-                agent.destination = patrolPoints[nextPatrolPointIndex].position;
+                agent.destination = patrolRoute.GetNextPatrolPointPosition();
             }
             yield return null; // Maybe make it wait for some seconds so it's not so performance intensive
         }
