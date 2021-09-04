@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="AudioFile" id="{c01cdc0f-138e-4907-bd1c-09740854f020}">
+		<property name="assetPath">
+			<value>Ambience/ambience-temple-room-tone.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>14.5</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{3c0f6cae-f38f-4d9d-8257-45b7f54f764f}</destination>
+		</relationship>
+	</object>
+</objects>

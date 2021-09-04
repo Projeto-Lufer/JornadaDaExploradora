@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.01.00">
-	<object class="Bank" id="{319be1a5-a6ab-4643-941c-fa69cba8f387}">
-		<property name="color">
-			<value>Blue</value>
-		</property>
+	<object class="EventFolder" id="{da60f202-43a1-4d96-8a9f-94f44ee82dc2}">
 		<property name="name">
 			<value>SFX</value>
 		</property>
 		<relationship name="folder">
-			<destination>{adb75019-0b00-4201-ab43-e5eb1661ee75}</destination>
+			<destination>{19d260eb-46b0-4dc8-8dad-2fc663b3964f}</destination>
 		</relationship>
 	</object>
 </objects>

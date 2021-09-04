@@ -78,9 +78,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SwitchSettingsMigration: 1
   HasSourceProject: 0
-  HasPlatforms: 0
+  HasPlatforms: 1
   sourceProjectPath: 
-  sourceBankPath: Assets/FMOD-Bank/Desktop
+  sourceBankPath: Assets/FMOD-Bank
   SourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1
