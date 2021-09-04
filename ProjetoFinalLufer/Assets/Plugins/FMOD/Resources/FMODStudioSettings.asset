@@ -80,7 +80,7 @@ MonoBehaviour:
   HasSourceProject: 0
   HasPlatforms: 0
   sourceProjectPath: 
-  sourceBankPath: C:/Users/Administrator/Data/Unity Workspace/Lufer/ProjetoFinalLufer/Assets/FMOD-Bank
+  sourceBankPath: Assets/FMOD-Bank/Desktop
   SourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1
@@ -118,11 +118,11 @@ MonoBehaviour:
   EnableErrorCallback: 0
   SharedLibraryUpdateStage: 0
   SharedLibraryTimeSinceStart: 0
-  HideSetupWizard: 0
+  HideSetupWizard: 1
   Platforms:
   - {fileID: -4071492508257109162}
-  - {fileID: 5157116322890183498}
   - {fileID: 4933246922028811544}
+  - {fileID: 5157116322890183498}
   MigratedPlatforms: 080000000200000001000000
 --- !u!114 &4933246922028811544
 MonoBehaviour:
