@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 3906696032279641580}
   - component: {fileID: 7989665054200242460}
   - component: {fileID: 7407808896950493283}
+  - component: {fileID: 6272904214066361962}
   m_Layer: 0
   m_Name: Player action states
   m_TagString: Untagged
@@ -56,6 +57,9 @@ MonoBehaviour:
   - {fileID: 757483507450492028}
   - {fileID: 1720773917333692300}
   - {fileID: 3906696032279641580}
+  - {fileID: 7989665054200242460}
+  - {fileID: 7407808896950493283}
+  - {fileID: 6272904214066361962}
   startingState: {fileID: 9041497815187191158}
   otherStateMachine: {fileID: 2519515204889033553}
   inputManager: {fileID: 6199768831625760094}
@@ -172,6 +176,21 @@ MonoBehaviour:
   defendingSpeed: 4
   shield: {fileID: 4115159625032260279}
   radius: 2
+--- !u!114 &6272904214066361962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 206274268144785079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a929a351a3b6bf64e90f0d6be885dc7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: 
+    sentences: []
 --- !u!1 &2134347131696939373
 GameObject:
   m_ObjectHideFlags: 0

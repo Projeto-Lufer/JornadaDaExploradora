@@ -5,6 +5,7 @@ using UnityEngine;
 public class ItemContainer : Interactive
 {
     [SerializeField] private Item containedItem;
+    [SerializeField] private Dialogue emptyDialogue;
 
     private bool hasBeenOpened;
 
@@ -16,6 +17,11 @@ public class ItemContainer : Interactive
             ObjectCollector collector = interactor.GetComponent<ObjectCollector>();
 
             collector.GetItem(containedItem);
+        }
+        else
+        {
+            interactor.GetComponentInChildren<PlayerDialogueState>().dialogue = emptyDialogue;
+            interactor.transform.GetChild(2).GetComponent<ConcurrentStateMachine>().ChangeState(typeof(PlayerDialogueState));
         }
     }
 }

@@ -9,6 +9,8 @@ public class InteractiveDoor : Interactive
     [SerializeField] private Animator animator;
     [SerializeField] private AudioSource audioSource;
 
+    [SerializeField] private Dialogue lockedDialogue;
+
     private void Start()
     {
         lockObject.SetActive(isLocked);
@@ -18,7 +20,12 @@ public class InteractiveDoor : Interactive
     {
         ObjectCollector collector = player.GetComponent<ObjectCollector>();
 
-        if (isLocked && collector.GetKeysPossessed() > 0)
+        if(isLocked && collector.GetKeysPossessed() == 0)
+        {
+            player.GetComponentInChildren<PlayerDialogueState>().dialogue = lockedDialogue;
+            player.transform.GetChild(2).GetComponent<ConcurrentStateMachine>().ChangeState(typeof(PlayerDialogueState));
+        }
+        else if (isLocked && collector.GetKeysPossessed() > 0)
         {
             isLocked = false;
             collector.UseKey();

@@ -128,6 +128,11 @@ MonoBehaviour:
   lockObject: {fileID: 7411073889067010091}
   animator: {fileID: 7098268846827740649}
   audioSource: {fileID: 7742749738312700150}
+  lockedDialogue:
+    name: 
+    sentences:
+    - A porta esta trancada
+    - Vc precisa de uma chave
 --- !u!1 &7411073889067010091
 GameObject:
   m_ObjectHideFlags: 0
