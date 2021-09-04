@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class TempleRoom : MonoBehaviour
 {
     [SerializeField] private TempleRoomElement[] elements;
-
+    public CinemachineVirtualCamera virtualCamera;
     // !!! Para testar, remover depois
     private void Start()
     {
