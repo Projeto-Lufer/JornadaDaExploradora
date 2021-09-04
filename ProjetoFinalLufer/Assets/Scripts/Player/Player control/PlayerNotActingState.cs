@@ -43,6 +43,10 @@ public class PlayerNotActingState : ConcurrentState
                 {
                     interactive.Interact(transform.parent.gameObject);
                 }
+                else if(interactiveType == typeof(Guardian))
+                {
+                    interactive.Interact(transform.parent.gameObject);
+                }
             }
         }
         else if (stateMachine.inputManager.actionAttack1.triggered)

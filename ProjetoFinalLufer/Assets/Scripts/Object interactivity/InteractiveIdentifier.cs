@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InteractiveIdentifier : MonoBehaviour
 {
-    private List<Interactive> interactivesInRange = new List<Interactive>();
+    [SerializeField] private List<Interactive> interactivesInRange = new List<Interactive>();
 
     private void OnTriggerEnter(Collider other)
     {
