@@ -44,7 +44,6 @@ GameObject:
   - component: {fileID: 6651626120128477822}
   - component: {fileID: 9098330176613696130}
   - component: {fileID: 1493783983266697277}
-  - component: {fileID: 3277699042035510294}
   m_Layer: 0
   m_Name: Right shadow
   m_TagString: Untagged
@@ -115,20 +114,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &3277699042035510294
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2591587648899745674}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &5502427182516137230
 GameObject:
   m_ObjectHideFlags: 0
@@ -177,6 +162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   elements: []
   virtualCamera: {fileID: 0}
+  playerIsHere: 0
 --- !u!1 &6444909834171977923
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,7 +269,6 @@ GameObject:
   - component: {fileID: 8495857968669222253}
   - component: {fileID: 3911303723890353344}
   - component: {fileID: 4666782318059069618}
-  - component: {fileID: 7836313829542823700}
   m_Layer: 0
   m_Name: Door shadow
   m_TagString: Untagged
@@ -354,20 +339,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &7836313829542823700
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7632601200245978972}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &7805862345503054519
 GameObject:
   m_ObjectHideFlags: 0
@@ -379,7 +350,6 @@ GameObject:
   - component: {fileID: 7954972082496455533}
   - component: {fileID: 4902743903046249102}
   - component: {fileID: 6812037267787535834}
-  - component: {fileID: 3742575394053950551}
   m_Layer: 0
   m_Name: Left shadow
   m_TagString: Untagged
@@ -450,20 +420,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &3742575394053950551
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7805862345503054519}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &8305342324413244537
 GameObject:
   m_ObjectHideFlags: 0
