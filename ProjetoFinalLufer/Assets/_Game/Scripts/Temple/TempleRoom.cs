@@ -16,11 +16,13 @@ public class TempleRoom : MonoBehaviour
         }
     }
 
-    public void SetRoom()
+    public void DestroyElements()
     {
+        playerIsHere = false;
         foreach (TempleRoomElement element in elements)
         {
-            element.Spawn();
+            element.Despawn();
         }
     }
+
 }
