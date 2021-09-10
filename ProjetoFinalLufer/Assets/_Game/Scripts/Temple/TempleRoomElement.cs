@@ -7,9 +7,11 @@ public class TempleRoomElement : MonoBehaviour
     [SerializeField] private GameObject elementPrefab;
     [SerializeField] private PatrolRoute patrolRoute;
 
+    private GameObject elementInstance;
+
     public void Spawn()
     {
-        GameObject elementInstance = Instantiate(elementPrefab, transform.position, Quaternion.identity);
+        elementInstance = Instantiate(elementPrefab, transform.position, Quaternion.identity);
 
         // Gambiarra, mas funciona
         if(patrolRoute != null)
