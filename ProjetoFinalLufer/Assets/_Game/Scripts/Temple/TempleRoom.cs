@@ -7,8 +7,6 @@ public class TempleRoom : MonoBehaviour
 {
     [SerializeField] private TempleRoomElement[] elements;
     public CinemachineVirtualCamera virtualCamera;
-    // !!! Para testar, remover depois
-    private void Start()
     {
         SetRoom();
     }
