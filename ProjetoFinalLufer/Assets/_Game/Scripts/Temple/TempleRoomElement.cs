@@ -6,7 +6,6 @@ public class TempleRoomElement : MonoBehaviour
 {
     [SerializeField] private GameObject elementPrefab;
     [SerializeField] private PatrolRoute patrolRoute;
-    [SerializeField] private bool resets = true;
 
     public void Spawn()
     {
