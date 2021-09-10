@@ -20,4 +20,9 @@ public class TempleRoomElement : MonoBehaviour
             elementInstance.GetComponentInChildren<MobileMeleeEnemyPatrollingState>().patrolRoute = patrolRoute;
         }
     }
+
+    public void Despawn()
+    {
+        Destroy(elementInstance);
+    }
 }
