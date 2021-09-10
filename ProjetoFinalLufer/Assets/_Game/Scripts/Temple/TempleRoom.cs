@@ -7,8 +7,13 @@ public class TempleRoom : MonoBehaviour
 {
     [SerializeField] private TempleRoomElement[] elements;
     public CinemachineVirtualCamera virtualCamera;
+    public void SpawnElements()
     {
-        SetRoom();
+        playerIsHere = true;
+        foreach (TempleRoomElement element in elements)
+        {
+            element.Spawn();
+        }
     }
 
     public void SetRoom()
