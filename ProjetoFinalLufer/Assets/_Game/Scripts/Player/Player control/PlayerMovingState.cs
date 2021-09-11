@@ -18,7 +18,7 @@ public class PlayerMovingState : ConcurrentState
     private Vector3 relativeDirection;
     private float currSpeed;
     private float turnSmoothVelocity;
-    private Transform cam;
+    private Transform camTransform;
 
     [Header("Estados")]
     [SerializeField] PlayerChargingState pcs;
@@ -27,8 +27,9 @@ public class PlayerMovingState : ConcurrentState
     public override void Enter()
     {
         HandleInput();
-
-        cam = transform.parent.GetComponent<RoomTransition>().currCam.transform;
+        var rt = transform.parent.GetComponent<RoomTransition>();
+        var camScript = rt.currCam;
+        camTransform = camScript.transform;
     }
 
 
@@ -39,8 +40,8 @@ public class PlayerMovingState : ConcurrentState
 
     public override void PhysicsUpdate()
     {
-        Vector3 camF = cam.forward;
-        Vector3 camR = cam.right;
+        Vector3 camF = camTransform.forward;
+        Vector3 camR = camTransform.right;
 
         camF.y = 0;
         camR.y = 0;

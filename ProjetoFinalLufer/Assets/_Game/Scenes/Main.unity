@@ -4777,6 +4777,11 @@ PrefabInstance:
       propertyPath: UIText
       value: 
       objectReference: {fileID: 892967541}
+    - target: {fileID: 6835616210154787277, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
+        type: 3}
+      propertyPath: RegularKeyText
+      value: 
+      objectReference: {fileID: 892967541}
     - target: {fileID: 7008044775822542438, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
         type: 3}
       propertyPath: allStates.Array.size
