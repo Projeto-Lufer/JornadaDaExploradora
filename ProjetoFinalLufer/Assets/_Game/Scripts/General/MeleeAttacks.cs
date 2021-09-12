@@ -143,8 +143,12 @@ public class MeleeAttacks : MonoBehaviour
     {
         yield return new WaitForSeconds(t);
 
-        rb.velocity = Vector3.zero;
-        rb.angularVelocity = Vector3.zero;
+        if(rb != null)
+        {
+            rb.velocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+            rb = null;
+        }
     }
     private float VectorToAngle(Vector3 direction)
     {
