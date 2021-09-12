@@ -96,9 +96,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b9da5ed1f15989478127f410042b2f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
-  damage: 1
   rb: {fileID: 355201343741385822}
+  speed: 15
+  attackStats: {fileID: 11400000, guid: 182658578c7ac2d4a8be62ae7ddd0266, type: 2}
   maxDistance: 50
 --- !u!135 &196786606904966205
 SphereCollider:
