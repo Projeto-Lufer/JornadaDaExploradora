@@ -8,6 +8,7 @@ public class StateMachine : MonoBehaviour
 
     [SerializeField] State startingState;
     private State currentState;
+    public bool canChangeStates = true;
 
     private Dictionary<System.Type, State> statesDictionary;
 
