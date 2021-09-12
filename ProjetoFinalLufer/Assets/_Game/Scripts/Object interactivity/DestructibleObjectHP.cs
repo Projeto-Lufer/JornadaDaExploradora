@@ -6,7 +6,7 @@ public class DestructibleObjectHP : HealthPoints
 {
     [SerializeField] private ItemDropper dropper;
 
-    public override void ReduceHealth(int amount)
+    public override void ReduceHealth(ComboElement attackStats)
     {
         LaserRedirector lr = base.GetComponent<LaserRedirector>();
         if(lr != null)
@@ -15,7 +15,7 @@ public class DestructibleObjectHP : HealthPoints
             return;
         }
         
-        base.curHP -= amount;
+        base.ReduceHealth(attackStats);
 
         if (base.curHP <= 0)
         {
