@@ -9,7 +9,6 @@ public class TempleRoom : MonoBehaviour
     public CinemachineVirtualCamera virtualCamera;
     public void SpawnElements()
     {
-        playerIsHere = true;
         foreach (TempleRoomElement element in elements)
         {
             element.Spawn();
@@ -18,7 +17,6 @@ public class TempleRoom : MonoBehaviour
 
     public void DestroyElements()
     {
-        playerIsHere = false;
         foreach (TempleRoomElement element in elements)
         {
             element.Despawn();
