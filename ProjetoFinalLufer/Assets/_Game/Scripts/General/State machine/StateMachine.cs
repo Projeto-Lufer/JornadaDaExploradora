@@ -50,6 +50,13 @@ public class StateMachine : MonoBehaviour
 
         currentState = statesDictionary[newState];
         currentState.Enter(gameObject);
+    public void ChangeState(System.Type newState, float floatForNewState)
+    {
+        if(canChangeStates)
+        {
+            ExitAndUpdateCurrentState(newState);
+            currentState.Enter(floatForNewState);
+        }
     }
 
     private void InitializeDictionary()
