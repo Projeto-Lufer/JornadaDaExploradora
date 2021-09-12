@@ -12,11 +12,12 @@ public class PlayerIdleState : ConcurrentState
     {
         direction = base.stateMachine.inputManager.actionMove.ReadValue<Vector2>();
 
-        State otherSMState = stateMachine.GetOtherStateMachineCurrentState();
+        System.Type otherSMStateType = stateMachine.GetOtherStateMachineCurrentState().GetType();
 
-        canMove = otherSMState.GetType() != typeof(PlayerLiftingState) &&
-                    otherSMState.GetType() != typeof(PlayerAttackingState) &&
-                    otherSMState.GetType() != typeof(PlayerDialogueState);
+        canMove = otherSMStateType != typeof(PlayerLiftingState) &&
+                    otherSMStateType != typeof(PlayerAttackingState) &&
+                    otherSMStateType != typeof(PlayerDialogueState) &&
+                    otherSMStateType != typeof(FlinchingState);
 
         if (canMove && direction != Vector2.zero)
         {
