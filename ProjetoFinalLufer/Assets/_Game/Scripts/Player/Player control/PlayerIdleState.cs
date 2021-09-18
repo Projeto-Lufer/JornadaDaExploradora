@@ -6,7 +6,12 @@ public class PlayerIdleState : ConcurrentState
 {
     private bool canMove;
     private Vector2 direction = Vector2.zero;
+    [SerializeField] private Animator animator;
 
+    public override void Enter()
+    {
+        animator.SetBool("Idle", true);
+    }
 
     public override void HandleInput()
     {
@@ -21,6 +26,7 @@ public class PlayerIdleState : ConcurrentState
 
         if (canMove && direction != Vector2.zero)
         {
+            animator.SetBool("Idle", false);
             base.stateMachine.ChangeState(typeof(PlayerMovingState));
         }
     }
