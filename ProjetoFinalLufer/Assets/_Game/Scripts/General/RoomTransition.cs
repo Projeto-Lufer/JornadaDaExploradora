@@ -18,6 +18,7 @@ public class RoomTransition : MonoBehaviour
                 currCam.Priority = 0;
             }
             currCam = vcam;
+            //currCam.Follow = transform;
         }
     }
 }
