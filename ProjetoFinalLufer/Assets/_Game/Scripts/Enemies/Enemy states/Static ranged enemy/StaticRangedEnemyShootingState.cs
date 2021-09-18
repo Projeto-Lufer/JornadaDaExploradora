@@ -65,8 +65,7 @@ public class StaticRangedEnemyShootingState : SimpleAnimatableState
                 }
                 yield return null;
             }
-            GameObject projectileInstance = Instantiate(projectile);
-            projectileInstance.GetComponent<EnemyProjectile>().SetStartingPosition(projectileSpawnPoint.position, projectileSpawnPoint.rotation);
+            Instantiate(projectile).GetComponent<EnemyProjectile>().SetStartingPosition(projectileSpawnPoint.position, projectileSpawnPoint.rotation);
         }
     }
 
