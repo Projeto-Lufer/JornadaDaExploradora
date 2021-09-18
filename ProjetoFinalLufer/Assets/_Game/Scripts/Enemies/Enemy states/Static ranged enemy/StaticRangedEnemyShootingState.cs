@@ -40,6 +40,8 @@ public class StaticRangedEnemyShootingState : SimpleAnimatableState
         {
             ChangeToIdle();
         }
+
+        base.PlayAnimationTrigger("Dig up");
     }
 
     public override void Exit()
@@ -99,6 +101,7 @@ public class StaticRangedEnemyShootingState : SimpleAnimatableState
 
     private void ChangeToIdle()
     {
+        base.PlayAnimationTrigger("Dig down");
         stateMachine.ChangeState(typeof(StaticRangedEnemyIdleState));
     }
 
