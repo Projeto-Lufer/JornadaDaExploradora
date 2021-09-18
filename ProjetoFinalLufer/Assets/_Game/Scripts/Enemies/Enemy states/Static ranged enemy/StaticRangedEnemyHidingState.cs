@@ -39,8 +39,7 @@ public class StaticRangedEnemyHidingState : SimpleAnimatableState
 
     private void Hide()
     {
-        //PlayAnimationTrigger("Hide");
-        enemyTransform.position = hidingPosition;
+        base.PlayAnimationTrigger("Dig down");
         bodyCollider.enabled = false;
     }
 

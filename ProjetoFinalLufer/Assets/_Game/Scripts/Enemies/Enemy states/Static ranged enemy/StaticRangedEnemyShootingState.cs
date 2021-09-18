@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class StaticRangedEnemyShootingState : SimpleState
+public class StaticRangedEnemyShootingState : SimpleAnimatableState
 {
     [Header("External references")]
     [SerializeField] private RangeDetector shootingAreaDetector;
@@ -22,14 +22,6 @@ public class StaticRangedEnemyShootingState : SimpleState
     protected override void Awake()
     {
         base.Awake();
-        /*ObjectPool[] objects = FindObjectsOfType<ObjectPool>();
-        foreach (ObjectPool obj in objects)
-        {
-            if (obj.name == "Object Pool - Static Ranged Enemy")
-            {
-                projectilePool = obj;
-            }
-        }*/
         
         startledTimeWFS = new WaitForSeconds(startledTime);
     }
@@ -48,6 +40,8 @@ public class StaticRangedEnemyShootingState : SimpleState
         {
             ChangeToIdle();
         }
+
+        base.PlayAnimationTrigger("Dig up");
     }
 
     public override void Exit()
@@ -71,9 +65,7 @@ public class StaticRangedEnemyShootingState : SimpleState
                 }
                 yield return null;
             }
-            //GameObject projectile = projectilePool.GetPooledObject();
-            GameObject projectileInstance = Instantiate(projectile);
-            projectileInstance.GetComponent<EnemyProjectile>().SetStartingPosition(projectileSpawnPoint.position, projectileSpawnPoint.rotation);
+            Instantiate(projectile).GetComponent<EnemyProjectile>().SetStartingPosition(projectileSpawnPoint.position, projectileSpawnPoint.rotation);
         }
     }
 
@@ -108,6 +100,7 @@ public class StaticRangedEnemyShootingState : SimpleState
 
     private void ChangeToIdle()
     {
+        base.PlayAnimationTrigger("Dig down");
         stateMachine.ChangeState(typeof(StaticRangedEnemyIdleState));
     }
 

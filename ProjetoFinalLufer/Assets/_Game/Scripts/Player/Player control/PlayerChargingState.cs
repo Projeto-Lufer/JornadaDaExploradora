@@ -15,8 +15,8 @@ public class PlayerChargingState : ConcurrentState
     [SerializeField] private Transform attackPoint;
     [SerializeField] private LayerMask targetLayer;
     [SerializeField] private Vector3 damageArea;
-    [SerializeField] private int chargedDamage;
-    [SerializeField] private int unchargedDamage;
+    [SerializeField] private ComboElement chargedStabStats;
+    [SerializeField] private ComboElement unchargedStabStats;
 
     [SerializeField] private ParticleSystem chargingParticles;
     [SerializeField] private ParticleSystem chargedParticles;
@@ -62,7 +62,7 @@ public class PlayerChargingState : ConcurrentState
             }
             else
             {
-                DoStabDamage(unchargedDamage);
+                DoStabDamage(unchargedStabStats);
             }
 
             chargedParticles.Stop();
@@ -86,7 +86,7 @@ public class PlayerChargingState : ConcurrentState
             charController.Move(transform.forward * speed * Time.deltaTime);
             currDistance += Vector3.Distance(currPosition, transform.position);
 
-            hitObstacle = DoStabDamage(chargedDamage);
+            hitObstacle = DoStabDamage(chargedStabStats);
 
             if (hitObstacle)
             {
@@ -101,7 +101,7 @@ public class PlayerChargingState : ConcurrentState
         canTurn = true;
     }
 
-    private bool DoStabDamage(int amount)
+    private bool DoStabDamage(ComboElement stabStats)
     {
         bool hitObstacle = false;
 
@@ -116,7 +116,7 @@ public class PlayerChargingState : ConcurrentState
             HealthPoints currHP = target.GetComponent<HealthPoints>();
             if (currHP != null)
             {
-                currHP.ReduceHealth(amount);
+                currHP.ReduceHealth(stabStats);
             }
         }
 
