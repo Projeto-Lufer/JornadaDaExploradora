@@ -21,9 +21,9 @@ public class RoomTransition : MonoBehaviour
                 currCam = vcam;
                 stateMachine.ChangeState(typeof(PlayerTransitionState));
             }
-
-            //currCam.Follow = transform;
-
+            else{
+                currCam = vcam;
+            }
         }
     }
 }
