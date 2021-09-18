@@ -8,11 +8,15 @@ public abstract class Activator : Interactive
     [SerializeField] protected Material activatedMaterial;
 
     protected Material deactivatedMaterial;
-    protected MeshRenderer meshRenderer;
+    [SerializeField] protected MeshRenderer meshRenderer;
 
     protected virtual void Start()
     {
-        meshRenderer = GetComponent<MeshRenderer>();
+        MeshRenderer renderer = GetComponent<MeshRenderer>();
+        if(renderer != null)
+        {
+            meshRenderer = renderer;
+        }
         deactivatedMaterial = meshRenderer.material;
     }
 
