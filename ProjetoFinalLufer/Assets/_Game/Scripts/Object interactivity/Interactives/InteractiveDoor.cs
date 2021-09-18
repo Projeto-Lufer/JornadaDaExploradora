@@ -7,7 +7,14 @@ public class InteractiveDoor : Interactive
     [SerializeField] private bool isLocked;
     [SerializeField] private GameObject lockObject;
     [SerializeField] private Animator animator;
-    [SerializeField] private AudioSource audioSource;
+    
+    [Header("Audio FMOD Event")]
+    [FMODUnity.EventRef]
+    public string sfxDoorOpening;
+    [FMODUnity.EventRef]
+    public string sfxDoorLocked;
+    [FMODUnity.EventRef]
+    public string sfxDoorUnlocked;
 
     [SerializeField] private Dialogue lockedDialogue;
 
@@ -22,11 +29,13 @@ public class InteractiveDoor : Interactive
 
         if(isLocked && collector.GetKeysPossessed() == 0)
         {
+            FMODUnity.RuntimeManager.PlayOneShot(sfxDoorLocked, transform.position);
             player.GetComponentInChildren<PlayerDialogueState>().dialogue = lockedDialogue;
             player.transform.GetChild(2).GetComponent<ConcurrentStateMachine>().ChangeState(typeof(PlayerDialogueState));
         }
         else if (isLocked && collector.GetKeysPossessed() > 0)
         {
+            FMODUnity.RuntimeManager.PlayOneShot(sfxDoorUnlocked, transform.position);
             isLocked = false;
             collector.UseKey();
             lockObject.SetActive(false);
@@ -34,7 +43,7 @@ public class InteractiveDoor : Interactive
         else if(!isLocked)
         {
             animator.SetTrigger("Open");
-            audioSource.Play();
+            FMODUnity.RuntimeManager.PlayOneShot(sfxDoorOpening, transform.position);
         }
     }
 }

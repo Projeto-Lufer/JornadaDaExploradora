@@ -7,6 +7,10 @@ public class GroundButton : Activator
     private bool isActivated = false;
     private bool playerIsOn = false;
     private bool boxIsOn = false;
+
+    [Header("Audio FMOD Event")]
+    [FMODUnity.EventRef]
+    public string sfxPressurePlateSpinning;
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Push")
@@ -49,6 +53,7 @@ public class GroundButton : Activator
 
     public override void Interact()
     {
+        FMODUnity.RuntimeManager.PlayOneShot(sfxPressurePlateSpinning, transform.position);
         if (!isActivated)
         {
             isActivated = true;

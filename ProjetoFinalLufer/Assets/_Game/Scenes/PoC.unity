@@ -1051,6 +1051,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e00a0b8fe38512a4ea7a88c1c4590818, type: 3}
+--- !u!4 &223073403
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1656004685}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1187821001}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &254646847
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1311,6 +1325,21 @@ PrefabInstance:
         type: 3}
       propertyPath: isLocked
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4470705487827055018, guid: 4ffc4f652f33f564aae0ec59914ded33,
+        type: 3}
+      propertyPath: sfxDoorLocked
+      value: event:/SFX/sfx-door-locked
+      objectReference: {fileID: 0}
+    - target: {fileID: 4470705487827055018, guid: 4ffc4f652f33f564aae0ec59914ded33,
+        type: 3}
+      propertyPath: sfxDoorOpening
+      value: event:/SFX/sfx-door-opening
+      objectReference: {fileID: 0}
+    - target: {fileID: 4470705487827055018, guid: 4ffc4f652f33f564aae0ec59914ded33,
+        type: 3}
+      propertyPath: sfxDoorUnlocked
+      value: event:/SFX/sfx-door-unlocked
       objectReference: {fileID: 0}
     - target: {fileID: 5125036405945718700, guid: 4ffc4f652f33f564aae0ec59914ded33,
         type: 3}
@@ -1884,6 +1913,20 @@ PrefabInstance:
       objectReference: {fileID: 600855334}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f47ceba01721b548b7a28a0ce794610, type: 3}
+--- !u!4 &369999511
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 886749815}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1987001688}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &377465064
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2074,7 +2117,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1187821001}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &408761132
 MonoBehaviour:
@@ -2201,6 +2244,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8207699958807753028, guid: 39ae6b94be960944da60d6ef39359c1b,
         type: 3}
+      propertyPath: sfxDoorUnlocked
+      value: event:/SFX/sfx-door-unlocked
+      objectReference: {fileID: 0}
+    - target: {fileID: 8207699958807753028, guid: 39ae6b94be960944da60d6ef39359c1b,
+        type: 3}
       propertyPath: objectToActivate
       value: 
       objectReference: {fileID: 1516596553}
@@ -2293,6 +2341,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2426596739993104342, guid: 1dde36550b05e0944bea18a9467e1072,
         type: 3}
+      propertyPath: sfxDoorOpening
+      value: event:/SFX/sfx-door-opening
+      objectReference: {fileID: 0}
+    - target: {fileID: 2426596739993104342, guid: 1dde36550b05e0944bea18a9467e1072,
+        type: 3}
       propertyPath: activatorsAmountNeeded
       value: 1
       objectReference: {fileID: 0}
@@ -2301,7 +2354,8 @@ PrefabInstance:
       propertyPath: shouldDeactivateWhenNotAllAreActivating
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4868511209698742246, guid: 1dde36550b05e0944bea18a9467e1072, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1dde36550b05e0944bea18a9467e1072, type: 3}
 --- !u!4 &571340521 stripped
 Transform:
@@ -2444,12 +2498,21 @@ Transform:
   m_Father: {fileID: 1084420518}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &605819163 stripped
+--- !u!4 &605819163
 Transform:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 6842675159693420934, guid: e00a0b8fe38512a4ea7a88c1c4590818,
     type: 3}
   m_PrefabInstance: {fileID: 223073402}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1679171840}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1187821001}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &605865317 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4671724864276115931, guid: 410d54bc3cb1cd44b8dcc4811d966928,
@@ -4031,6 +4094,22 @@ Transform:
   m_Father: {fileID: 1191936818}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &886749815
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 369999511}
+  m_Layer: 0
+  m_Name: Mobile Melee Enemy (1) (Missing Prefab)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &888240359
 GameObject:
   m_ObjectHideFlags: 0
@@ -4640,11 +4719,13 @@ GameObject:
   m_Component:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
-  - component: {fileID: 963194226}
   - component: {fileID: 963194231}
   - component: {fileID: 963194230}
   - component: {fileID: 963194232}
   - component: {fileID: 963194229}
+  - component: {fileID: 963194234}
+  - component: {fileID: 963194233}
+  - component: {fileID: 963194226}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4652,14 +4733,29 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &963194226
-AudioListener:
+--- !u!114 &963194226
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Ambience/ambience-temple-room-tone
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!20 &963194227
 Camera:
   m_ObjectHideFlags: 0
@@ -4805,6 +4901,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   followTarget: {fileID: 953271446}
+--- !u!114 &963194233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Music/music-2-cutscene
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
+--- !u!114 &963194234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 0}
+  ListenerNumber: -1
 --- !u!114 &982805987 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5861759569846800791, guid: efd492f3a8aebe345b1b49d5884c9964,
@@ -6225,6 +6358,7 @@ Transform:
   - {fileID: 109242022}
   - {fileID: 605819163}
   - {fileID: 302432530}
+  - {fileID: 223073403}
   - {fileID: 408761131}
   m_Father: {fileID: 1191936818}
   m_RootOrder: 4
@@ -6302,6 +6436,22 @@ Transform:
   m_Father: {fileID: 2074862259}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1273846119
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1370362179}
+  m_Layer: 0
+  m_Name: Missing Prefab (Dummy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1001 &1274743229
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7032,12 +7182,21 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 539655928}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1370362179 stripped
+--- !u!4 &1370362179
 Transform:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 4462619697762002774, guid: 5f47ceba01721b548b7a28a0ce794610,
     type: 3}
   m_PrefabInstance: {fileID: 369999510}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1273846119}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1987001688}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1384554154
 GameObject:
   m_ObjectHideFlags: 0
@@ -7511,6 +7670,11 @@ PrefabInstance:
       propertyPath: objectToActivate
       value: 
       objectReference: {fileID: 811828447}
+    - target: {fileID: 7265533175059167001, guid: 9e69e71b31b6ad44f862aa14cf5ffb36,
+        type: 3}
+      propertyPath: sfxPressurePlateSpinning
+      value: event:/SFX/sfx-pressure-plate-spinning
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e69e71b31b6ad44f862aa14cf5ffb36, type: 3}
 --- !u!4 &1402820471 stripped
@@ -8671,6 +8835,21 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Shield
       objectReference: {fileID: 0}
+    - target: {fileID: 4766827225807830560, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
+        type: 3}
+      propertyPath: sfxAylaNormalAttack1
+      value: event:/SFX/Ayla/sfx-ayla-normal-attack-1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4766827225807830560, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
+        type: 3}
+      propertyPath: sfxAylaNormalAttack2
+      value: event:/SFX/Ayla/sfx-ayla-normal-attack-2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4766827225807830560, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
+        type: 3}
+      propertyPath: sfxAylaNormalAttack3
+      value: event:/SFX/Ayla/sfx-ayla-normal-attack-3
+      objectReference: {fileID: 0}
     - target: {fileID: 4857794338073604352, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
         type: 3}
       propertyPath: transitionsManager
@@ -8771,6 +8950,16 @@ PrefabInstance:
       propertyPath: allStates.Array.data[6]
       value: 
       objectReference: {fileID: 1589854016}
+    - target: {fileID: 7407808896950493283, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
+        type: 3}
+      propertyPath: sfxAylaEnableShield
+      value: event:/SFX/Ayla/sfx-ayla-enable-shield
+      objectReference: {fileID: 0}
+    - target: {fileID: 7407808896950493283, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
+        type: 3}
+      propertyPath: sfxAylaShieldEnable
+      value: event:/SFX/Ayla/sfx-ayla-enable-shield
+      objectReference: {fileID: 0}
     - target: {fileID: 7762025947470870749, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
         type: 3}
       propertyPath: grabPosition
@@ -8984,6 +9173,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f21eb610c91d684f9cce631b538d629, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1656004685
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 223073403}
+  m_Layer: 0
+  m_Name: Static Ranged Enemy (2) (Missing Prefab)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1657638725
 GameObject:
   m_ObjectHideFlags: 0
@@ -9079,6 +9284,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1657638725}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1679171840
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 605819163}
+  m_Layer: 0
+  m_Name: Missing Prefab (Dummy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1687665313
 GameObject:
   m_ObjectHideFlags: 0
@@ -10638,6 +10859,7 @@ Transform:
   - {fileID: 1370362179}
   - {fileID: 1907012203}
   - {fileID: 365256769}
+  - {fileID: 369999511}
   m_Father: {fileID: 1191936818}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11190,6 +11412,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1108939178}
     m_Modifications:
+    - target: {fileID: 3566974379422807078, guid: ad6b4cdf1ebfbd4419f177e1cc0cea49,
+        type: 3}
+      propertyPath: sfxDoorOpening
+      value: event:/SFX/sfx-door-opening
+      objectReference: {fileID: 0}
     - target: {fileID: 3566974379422807078, guid: ad6b4cdf1ebfbd4419f177e1cc0cea49,
         type: 3}
       propertyPath: activatorOrder.Array.data[0]

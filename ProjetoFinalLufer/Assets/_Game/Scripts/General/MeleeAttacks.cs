@@ -6,8 +6,14 @@ public class MeleeAttacks : MonoBehaviour
 {
     [Header("External references")]
     [SerializeField] private Transform attackPoint;
-    [SerializeField] private AudioClip attackSFX;
-    [SerializeField] private AudioManager audioManager;
+
+    [Header("Audio FMOD Event")]
+    [FMODUnity.EventRef]
+    public string sfxAylaNormalAttack1;
+     [FMODUnity.EventRef]
+    public string sfxAylaNormalAttack2;
+     [FMODUnity.EventRef]
+    public string sfxAylaNormalAttack3;
 
     [Header("Gameplay tweeking fields")]
     [SerializeField] private LayerMask targetLayer;
@@ -49,7 +55,7 @@ public class MeleeAttacks : MonoBehaviour
         targetsAlreadyHit.Clear();
         float lastTotalTime = 0;
 
-        audioManager.PlaySFX(attackSFX, true, false);
+        FMODUnity.RuntimeManager.PlayOneShot(sfxAylaNormalAttack1, transform.position);
 
         for (float time = 0; time <= element.duration; time += Time.deltaTime)
         {

@@ -7,9 +7,13 @@ public class PlayerDefendingState : ConcurrentState
     [Header("Controle de velocidade")]
     public float defendingSpeed;
 
-    [Header("Vari�veis do escudo")]
+    [Header("Variaveis do escudo")]
     [SerializeField] private GameObject shield;
     [SerializeField] private float radius;
+
+    [Header("Audio FMOD Event")]
+    [FMODUnity.EventRef]
+    public string sfxAylaEnableShield;
 
     private bool isDefending;
 
@@ -18,6 +22,7 @@ public class PlayerDefendingState : ConcurrentState
         shield.transform.localScale = new Vector3(radius, 0.1f, radius);
         isDefending = true;
         stateMachine.inputManager.actionDefend.canceled += ctx => isDefending = false;
+        FMODUnity.RuntimeManager.PlayOneShot(sfxAylaEnableShield, transform.position);
     }
 
     public override void Exit()
