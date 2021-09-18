@@ -6,6 +6,7 @@ public class PlayerHealthPoints : HealthPoints
 {
     [SerializeField] private PlayerHealthPointsView playerHPView;
     [SerializeField] private GameTransitionsManager transitionsManager;
+    [SerializeField] private ConcurrentStateMachine stateMachine;
 
     protected override void Start()
     {
@@ -13,12 +14,14 @@ public class PlayerHealthPoints : HealthPoints
         playerHPView.UpdateHealthUI(base.curHP, base.maxHP);
     }
 
-    public override void ReduceHealth(int amount)
+    public override void ReduceHealth(ComboElement attackStats)
     {
-        base.ReduceHealth(amount);
-        base.curHP -= amount;
+        base.ReduceHealth(attackStats);
 
         playerHPView.ReactToDamage(base.curHP, base.maxHP);
+
+        stateMachine.ChangeOtherStateMachineState(typeof(PlayerIdleState));
+        stateMachine.ChangeState(typeof(FlinchingState), attackStats.hitstunDuration);
 
         if (base.curHP <= 0)
         {

@@ -6,20 +6,27 @@ public class PlayerIdleState : ConcurrentState
 {
     private bool canMove;
     private Vector2 direction = Vector2.zero;
+    [SerializeField] private Animator animator;
 
+    public override void Enter()
+    {
+        animator.SetBool("Idle", true);
+    }
 
     public override void HandleInput()
     {
         direction = base.stateMachine.inputManager.actionMove.ReadValue<Vector2>();
 
-        State otherSMState = stateMachine.GetOtherStateMachineCurrentState();
+        System.Type otherSMStateType = stateMachine.GetOtherStateMachineCurrentState().GetType();
 
-        canMove = otherSMState.GetType() != typeof(PlayerLiftingState) &&
-                    otherSMState.GetType() != typeof(PlayerAttackingState) &&
-                    otherSMState.GetType() != typeof(PlayerDialogueState);
+        canMove = otherSMStateType != typeof(PlayerLiftingState) &&
+                    otherSMStateType != typeof(PlayerAttackingState) &&
+                    otherSMStateType != typeof(PlayerDialogueState) &&
+                    otherSMStateType != typeof(FlinchingState);
 
         if (canMove && direction != Vector2.zero)
         {
+            animator.SetBool("Idle", false);
             base.stateMachine.ChangeState(typeof(PlayerMovingState));
         }
     }

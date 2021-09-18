@@ -56,16 +56,20 @@ public class PlayerAttackingState : ConcurrentState
     private IEnumerator AttackRoutine(ComboElement element)
     {
         willTriggerNextAttack = false;
+        // TODO: Tocar animacao de ataque
         meleeAttack.Sweep(element);
         stateMachine.ChangeOtherStateMachineState(typeof(PlayerIdleState));
+        stateMachine.canChangeStates = false;
+
         isAttacking = true;
 
-        for (attackTimeElapsed = 0 ; attackTimeElapsed < element.timeout ; attackTimeElapsed += Time.deltaTime)
+        for (attackTimeElapsed = 0 ; attackTimeElapsed < element.totalTime ; attackTimeElapsed += Time.deltaTime)
         {
             yield return null;
         }
         
         isAttacking = false;
+        stateMachine.canChangeStates = true;
         stateMachine.ChangeState(typeof(PlayerNotActingState));
     }
 }

@@ -336,9 +336,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 295bd814149ef7c448d29827a898894e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  patrolPoints: []
   chaseAreaDetector: {fileID: 4583803838000307223}
   agent: {fileID: 1973560530444295902}
+  patrolRoute: {fileID: 0}
 --- !u!114 &6743590932463004393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -369,7 +369,9 @@ MonoBehaviour:
   fightAreaDetector: {fileID: 2118058242632274277}
   parentToRotate: {fileID: 4462619697762002774}
   meleeAttack: {fileID: 8898433266695747558}
-  attackPlayerDelay: 2
+  attackCooldownTime: 1
+  attackWindUpTime: 0.2
+  attackRecoveryTime: 0.2
   attackStats: {fileID: 11400000, guid: dd5f645cae6f02f49bbceda765b2daca, type: 2}
   turnSmoothTime: 0.1
   chaseDelay: 0.3
@@ -385,7 +387,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f859b8cb1bdcd447809a0605bcbe559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flinchingTime: 0.3
   stateToReturnTo: {fileID: 6816460038557060751}
 --- !u!114 &3579864555024659875
 MonoBehaviour:

@@ -8,6 +8,8 @@ public abstract class State : MonoBehaviour
 
     public virtual void Enter(GameObject gameObject) { }
 
+    public virtual void Enter(float value) { }
+
     public virtual void HandleInput() { }
 
     public virtual void PhysicsUpdate() { }
