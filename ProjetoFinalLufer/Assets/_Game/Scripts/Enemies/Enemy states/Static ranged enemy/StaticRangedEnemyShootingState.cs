@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class StaticRangedEnemyShootingState : SimpleState
+public class StaticRangedEnemyShootingState : SimpleAnimatableState
 {
     [Header("External references")]
     [SerializeField] private RangeDetector shootingAreaDetector;
