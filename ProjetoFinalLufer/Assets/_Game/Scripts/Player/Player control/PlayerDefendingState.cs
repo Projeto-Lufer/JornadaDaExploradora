@@ -15,7 +15,7 @@ public class PlayerDefendingState : ConcurrentState
 
     public override void Enter()
     {
-        shield.transform.localScale = new Vector3(radius, shield.transform.localScale.y, radius);
+        shield.transform.localScale = new Vector3(radius, 1f, radius);
         isDefending = true;
         stateMachine.inputManager.actionDefend.canceled += ctx => isDefending = false;
     }
