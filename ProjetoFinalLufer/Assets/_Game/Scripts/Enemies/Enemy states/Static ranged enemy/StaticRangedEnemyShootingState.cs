@@ -22,14 +22,6 @@ public class StaticRangedEnemyShootingState : SimpleState
     protected override void Awake()
     {
         base.Awake();
-        /*ObjectPool[] objects = FindObjectsOfType<ObjectPool>();
-        foreach (ObjectPool obj in objects)
-        {
-            if (obj.name == "Object Pool - Static Ranged Enemy")
-            {
-                projectilePool = obj;
-            }
-        }*/
         
         startledTimeWFS = new WaitForSeconds(startledTime);
     }
@@ -71,7 +63,6 @@ public class StaticRangedEnemyShootingState : SimpleState
                 }
                 yield return null;
             }
-            //GameObject projectile = projectilePool.GetPooledObject();
             GameObject projectileInstance = Instantiate(projectile);
             projectileInstance.GetComponent<EnemyProjectile>().SetStartingPosition(projectileSpawnPoint.position, projectileSpawnPoint.rotation);
         }
