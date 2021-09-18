@@ -12,10 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 697e0ca5e5f21af4aab7b171df4a6d4c, type: 3}
   m_Name: Swipe 3
   m_EditorClassIdentifier: 
-  timeout: 0.7
+  totalTime: 1
+  windUp: 0
   duration: 0.2
   comboWindowStart: 0.2
   comboWindowFinish: 0.7
+  hitstunDuration: 0.3
+  cooldown: 0
   damage: 3
   goesRightToLeft: 0
   knockback: 10

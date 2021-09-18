@@ -9,7 +9,7 @@ public abstract class SimpleAnimatableState : SimpleState
     protected override void Awake()
     {
         base.Awake();
-        animator = transform.parent.GetComponent<Animator>();
+        animator = transform.parent.GetComponentInChildren<Animator>();
     }
 
     protected void PlayAnimationTrigger(string animationName)

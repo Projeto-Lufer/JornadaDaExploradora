@@ -8,6 +8,7 @@ public class StateMachine : MonoBehaviour
 
     [SerializeField] State startingState;
     private State currentState;
+    public bool canChangeStates = true;
 
     private Dictionary<System.Type, State> statesDictionary;
 
@@ -35,20 +36,39 @@ public class StateMachine : MonoBehaviour
         currentState.PhysicsUpdate();
     }
 
-    public void ChangeState(System.Type newState)
+    private void ExitAndUpdateCurrentState(System.Type newState)
     {
         currentState.Exit();
 
         currentState = statesDictionary[newState];
-        currentState.Enter();
+
     }
 
-    public void ChangeState(System.Type newState, GameObject gameObject)
+    public void ChangeState(System.Type newState)
     {
-        currentState.Exit();
+        if(canChangeStates)
+        {
+            ExitAndUpdateCurrentState(newState);
+            currentState.Enter();
+        }
+    }
 
-        currentState = statesDictionary[newState];
-        currentState.Enter(gameObject);
+    public void ChangeState(System.Type newState, GameObject gameObjectForNewState)
+    {
+        if(canChangeStates)
+        {
+            ExitAndUpdateCurrentState(newState);
+            currentState.Enter(gameObjectForNewState);
+        }
+    }
+
+    public void ChangeState(System.Type newState, float floatForNewState)
+    {
+        if(canChangeStates)
+        {
+            ExitAndUpdateCurrentState(newState);
+            currentState.Enter(floatForNewState);
+        }
     }
 
     private void InitializeDictionary()

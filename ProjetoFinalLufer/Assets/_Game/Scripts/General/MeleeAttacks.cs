@@ -114,13 +114,13 @@ public class MeleeAttacks : MonoBehaviour
         {
             foreach (RaycastHit hit in hits)
             {
-                // trocar isso para algo como os alvos terem uma invulnerabilidade tempor�ria, para evitar ter que ficar mexendo com lista
+                // trocar isso para algo como os alvos terem uma invulnerabilidade temporaria, para evitar ter que ficar mexendo com lista
                 if (!targetsAlreadyHit.Contains(hit.collider))
                 {
                     HealthPoints hp = hit.collider.GetComponent<HealthPoints>();
                     if (hp != null)
                     {
-                        hp.ReduceHealth(element.damage);
+                        hp.ReduceHealth(element);
                     }
                     if(element.knockback > 0)
                     {
@@ -143,8 +143,12 @@ public class MeleeAttacks : MonoBehaviour
     {
         yield return new WaitForSeconds(t);
 
-        rb.velocity = Vector3.zero;
-        rb.angularVelocity = Vector3.zero;
+        if(rb != null)
+        {
+            rb.velocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+            rb = null;
+        }
     }
     private float VectorToAngle(Vector3 direction)
     {

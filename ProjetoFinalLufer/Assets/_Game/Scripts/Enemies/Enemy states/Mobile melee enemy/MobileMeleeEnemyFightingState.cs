@@ -10,12 +10,13 @@ public class MobileMeleeEnemyFightingState : SimpleAnimatableState
     [SerializeField] private MeleeAttacks meleeAttack;
 
     [Header("Gameplay tweeking fields")]
-    [SerializeField] private float attackPlayerDelay;
+    [SerializeField] private float attackCooldownTime;
     [SerializeField] private ComboElement attackStats;
     [SerializeField] private float turnSmoothTime = 0.1f;
     [SerializeField] private float chaseDelay;
 
-    private WaitForSeconds attackDurationWFS;
+    private WaitForSeconds attackTotalTimeWFS;
+    private WaitForSeconds attackWindUpTimeWFS;
     private WaitForSeconds chaseDelayWFS;
     private float turnSmoothVelocity;
 
@@ -23,8 +24,9 @@ public class MobileMeleeEnemyFightingState : SimpleAnimatableState
 
     private void Start()
     {
-        attackDurationWFS = new WaitForSeconds(attackStats.duration);
+        attackTotalTimeWFS = new WaitForSeconds(attackStats.totalTime);
         chaseDelayWFS = new WaitForSeconds(chaseDelay);
+        attackWindUpTimeWFS = new WaitForSeconds(attackStats.windUp);
     }
 
     public override void Enter()
@@ -55,7 +57,7 @@ public class MobileMeleeEnemyFightingState : SimpleAnimatableState
         while (true)
         {
             base.SetAnimationBool("Fighting", true);
-            for (float i = 0; i < attackPlayerDelay; i += Time.deltaTime)
+            for (float i = 0; i < attackStats.cooldown; i += Time.deltaTime)
             {
                 Vector3 direction = new Vector3(target.position.x - parentToRotate.position.x, 
                                                 transform.position.y,
@@ -71,9 +73,12 @@ public class MobileMeleeEnemyFightingState : SimpleAnimatableState
             {
                 base.SetAnimationBool("Fighting", false);
 
+                stateMachine.canChangeStates = false;
                 PlayAnimationTrigger("Attacking");
+                yield return attackWindUpTimeWFS;
                 meleeAttack.Sweep(attackStats);
-                yield return attackDurationWFS;
+                yield return attackTotalTimeWFS;
+                stateMachine.canChangeStates = true;
             }
 
             yield return null;
