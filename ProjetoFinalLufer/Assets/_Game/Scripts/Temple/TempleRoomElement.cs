@@ -6,11 +6,12 @@ public class TempleRoomElement : MonoBehaviour
 {
     [SerializeField] private GameObject elementPrefab;
     [SerializeField] private PatrolRoute patrolRoute;
-    [SerializeField] private bool resets = true;
+
+    private GameObject elementInstance;
 
     public void Spawn()
     {
-        GameObject elementInstance = Instantiate(elementPrefab, transform.position, Quaternion.identity);
+        elementInstance = Instantiate(elementPrefab, transform.position, Quaternion.identity);
 
         // Gambiarra, mas funciona
         if(patrolRoute != null)
@@ -18,5 +19,10 @@ public class TempleRoomElement : MonoBehaviour
             // TODO: Pegar tambem o patrolling state do inimigo rolante (quando tiver)
             elementInstance.GetComponentInChildren<MobileMeleeEnemyPatrollingState>().patrolRoute = patrolRoute;
         }
+    }
+
+    public void Despawn()
+    {
+        Destroy(elementInstance);
     }
 }
