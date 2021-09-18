@@ -5434,6 +5434,21 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Shield
       objectReference: {fileID: 0}
+    - target: {fileID: 4766827225807830560, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
+        type: 3}
+      propertyPath: sfxAylaNormalAttack1
+      value: event:/SFX/Ayla/sfx-ayla-normal-attack-1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4766827225807830560, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
+        type: 3}
+      propertyPath: sfxAylaNormalAttack2
+      value: event:/SFX/Ayla/sfx-ayla-normal-attack-2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4766827225807830560, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
+        type: 3}
+      propertyPath: sfxAylaNormalAttack3
+      value: event:/SFX/Ayla/sfx-ayla-normal-attack-3
+      objectReference: {fileID: 0}
     - target: {fileID: 4857794338073604352, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
         type: 3}
       propertyPath: transitionsManager
@@ -5464,6 +5479,11 @@ PrefabInstance:
       propertyPath: UIText
       value: 
       objectReference: {fileID: 892967541}
+    - target: {fileID: 7407808896950493283, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
+        type: 3}
+      propertyPath: sfxAylaEnableShield
+      value: event:/SFX/Ayla/sfx-ayla-enable-shield
+      objectReference: {fileID: 0}
     - target: {fileID: 7762025947470870749, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
         type: 3}
       propertyPath: grabPosition
