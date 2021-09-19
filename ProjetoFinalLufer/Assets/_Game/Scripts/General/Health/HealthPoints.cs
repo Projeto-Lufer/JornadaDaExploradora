@@ -6,9 +6,6 @@ using System;
 public abstract class HealthPoints : MonoBehaviour
 {    
     [SerializeField] protected GameObject parentToDestroy;
-    [SerializeField] protected AudioClip hitSFX;
-    [SerializeField] protected AudioManager audioManager;
-
     [SerializeField] protected int maxHP;
     protected int curHP;
 

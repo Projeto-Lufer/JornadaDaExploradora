@@ -8,6 +8,14 @@ public class PlayerHealthPoints : HealthPoints
     [SerializeField] private GameTransitionsManager transitionsManager;
     [SerializeField] private ConcurrentStateMachine stateMachine;
 
+    [Header("Audio FMOD Event")]
+    [FMODUnity.EventRef]
+    public string sfxReceiveDamage;
+    [FMODUnity.EventRef]
+    public string sfxAddHealth;
+    [FMODUnity.EventRef]
+    public string sfxDie;
+
     protected override void Start()
     {
         base.Start();
@@ -23,6 +31,8 @@ public class PlayerHealthPoints : HealthPoints
         stateMachine.ChangeOtherStateMachineState(typeof(PlayerIdleState));
         stateMachine.ChangeState(typeof(FlinchingState), attackStats.hitstunDuration);
 
+        FMODUnity.RuntimeManager.PlayOneShot(sfxReceiveDamage, transform.position);
+
         if (base.curHP <= 0)
         {
             Die();
@@ -33,10 +43,12 @@ public class PlayerHealthPoints : HealthPoints
     {
         base.curHP += amount;
         playerHPView.UpdateHealthUI(base.curHP, base.maxHP);
+        FMODUnity.RuntimeManager.PlayOneShot(sfxAddHealth, transform.position);
     }
 
     private void Die()
     {
+        FMODUnity.RuntimeManager.PlayOneShot(sfxDie, transform.position);
         transitionsManager.EndGame();
         Destroy(base.parentToDestroy);
     }

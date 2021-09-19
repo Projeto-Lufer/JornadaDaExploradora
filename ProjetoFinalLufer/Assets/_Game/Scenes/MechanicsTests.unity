@@ -125,18 +125,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: ec0be25282e04504fb93161b2c7dc41b, type: 2}
---- !u!114 &12233266 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7989665054200242460, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
-    type: 3}
-  m_PrefabInstance: {fileID: 1589854012}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa6d625560e925e409c17728b30c90b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &16350323
 GameObject:
   m_ObjectHideFlags: 0
@@ -2033,12 +2021,6 @@ Transform:
   m_Father: {fileID: 581980725}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &506417405 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8609870106646547660, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
-    type: 3}
-  m_PrefabInstance: {fileID: 1589854012}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &527785013 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1350921258976361312, guid: 6ac68cf44f8bca348a2760bbeffccf08,
@@ -3350,11 +3332,11 @@ GameObject:
   m_Component:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
-  - component: {fileID: 963194226}
   - component: {fileID: 963194231}
   - component: {fileID: 963194230}
   - component: {fileID: 963194232}
   - component: {fileID: 963194229}
+  - component: {fileID: 963194226}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3362,14 +3344,29 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &963194226
-AudioListener:
+--- !u!114 &963194226
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Ambience/ambience-temple-room-tone
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!20 &963194227
 Camera:
   m_ObjectHideFlags: 0
@@ -6033,61 +6030,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 581980725}
     m_Modifications:
-    - target: {fileID: 445092720497293635, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
-        type: 3}
-      propertyPath: pcs
-      value: 
-      objectReference: {fileID: 12233266}
-    - target: {fileID: 445092720497293635, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
-        type: 3}
-      propertyPath: pds
-      value: 
-      objectReference: {fileID: 1589854016}
-    - target: {fileID: 445092720497293635, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
-        type: 3}
-      propertyPath: defendingSpeed
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 2154762436887923820, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
         type: 3}
       propertyPath: healthTextUI
       value: 
       objectReference: {fileID: 756167241}
-    - target: {fileID: 2436840782452708807, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3602708293186218668, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
-        type: 3}
-      propertyPath: healthTextUI
-      value: 
-      objectReference: {fileID: 756167241}
-    - target: {fileID: 4078346675285778751, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4115159625032260279, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
-        type: 3}
-      propertyPath: m_TagString
-      value: Shield
-      objectReference: {fileID: 0}
-    - target: {fileID: 4766827225807830560, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
-        type: 3}
-      propertyPath: sfxAylaNormalAttack1
-      value: event:/SFX/Ayla/sfx-ayla-normal-attack-1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4766827225807830560, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
-        type: 3}
-      propertyPath: sfxAylaNormalAttack2
-      value: event:/SFX/Ayla/sfx-ayla-normal-attack-2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4766827225807830560, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
-        type: 3}
-      propertyPath: sfxAylaNormalAttack3
-      value: event:/SFX/Ayla/sfx-ayla-normal-attack-3
-      objectReference: {fileID: 0}
     - target: {fileID: 4857794338073604352, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
         type: 3}
       propertyPath: transitionsManager
@@ -6098,11 +6045,6 @@ PrefabInstance:
       propertyPath: currCam
       value: 
       objectReference: {fileID: 367235334}
-    - target: {fileID: 5891055706839819678, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
-        type: 3}
-      propertyPath: healthTextUI
-      value: 
-      objectReference: {fileID: 756167241}
     - target: {fileID: 6272904214066361962, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
         type: 3}
       propertyPath: dialogueBox
@@ -6113,21 +6055,6 @@ PrefabInstance:
       propertyPath: dialogueText
       value: 
       objectReference: {fileID: 1582062781}
-    - target: {fileID: 6835616210154787277, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
-        type: 3}
-      propertyPath: UIText
-      value: 
-      objectReference: {fileID: 892967541}
-    - target: {fileID: 7407808896950493283, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
-        type: 3}
-      propertyPath: sfxAylaEnableShield
-      value: event:/SFX/Ayla/sfx-ayla-enable-shield
-      objectReference: {fileID: 0}
-    - target: {fileID: 7762025947470870749, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
-        type: 3}
-      propertyPath: grabPosition
-      value: 
-      objectReference: {fileID: 506417405}
     - target: {fileID: 7762025947535230012, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
         type: 3}
       propertyPath: m_RootOrder
@@ -6188,11 +6115,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 8381517165663716504, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
-        type: 3}
-      propertyPath: transitionsManager
-      value: 
-      objectReference: {fileID: 16350325}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1566e1ffe378dc443a5c1fd49c7833f7, type: 3}
 --- !u!4 &1589854013 stripped
@@ -6201,18 +6123,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1589854012}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1589854016 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7407808896950493283, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
-    type: 3}
-  m_PrefabInstance: {fileID: 1589854012}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1646c15717cd61449b1e3d3a8453a93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1618909202 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2252469768437468514, guid: 1dde36550b05e0944bea18a9467e1072,

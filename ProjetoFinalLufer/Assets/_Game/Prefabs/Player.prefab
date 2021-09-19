@@ -675,6 +675,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2024ef9abeb99dd429e7a8d3a42a207a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  grassSteps: event:/Footsteeps/Ayla/steps-ayla-grass
+  stoneSteps: event:/Footsteeps/Ayla/steps-ayla-stone
 --- !u!1 &6843548698356923412
 GameObject:
   m_ObjectHideFlags: 0
@@ -1056,12 +1058,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentToDestroy: {fileID: 7762025947535230013}
-  hitSFX: {fileID: 8300000, guid: ec7cfd85e2a9141959a9819e2de9d057, type: 3}
-  audioManager: {fileID: 0}
   maxHP: 3
   playerHPView: {fileID: 2154762436887923820}
   transitionsManager: {fileID: 0}
   stateMachine: {fileID: 0}
+  sfxReceiveDamage: 
+  sfxAddHealth: 
+  sfxDie: 
 --- !u!114 &2154762436887923820
 MonoBehaviour:
   m_ObjectHideFlags: 0
