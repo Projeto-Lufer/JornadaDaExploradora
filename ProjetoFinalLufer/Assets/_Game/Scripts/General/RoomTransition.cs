@@ -5,7 +5,9 @@ using Cinemachine;
 
 public class RoomTransition : MonoBehaviour
 {
+    [HideInInspector]
     public CinemachineVirtualCamera vcam, currCam;
+    public ConcurrentStateMachine stateMachine;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -13,11 +15,15 @@ public class RoomTransition : MonoBehaviour
         {
             vcam = other.GetComponentInChildren<CinemachineVirtualCamera>();
             vcam.Priority = 10;
-            if(currCam != null)
+            if(currCam != null && currCam != vcam)
             {
                 currCam.Priority = 0;
+                currCam = vcam;
+                stateMachine.ChangeState(typeof(PlayerTransitionState));
             }
-            currCam = vcam;
+            else{
+                currCam = vcam;
+            }
         }
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StaticRangedEnemyIdleState : SimpleState
+public class StaticRangedEnemyIdleState : SimpleAnimatableState
 {
     [Header("External references")]
     [SerializeField] private RangeDetector areaDetector;

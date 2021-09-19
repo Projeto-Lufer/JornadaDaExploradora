@@ -17,8 +17,9 @@ public abstract class HealthPoints : MonoBehaviour
         curHP = maxHP;
     }
 
-    public virtual void ReduceHealth(int amount)
+    public virtual void ReduceHealth(ComboElement attackStats)
     {
-        audioManager.PlaySFX(hitSFX, true);
+        //TODO: Toca som de dano
+        curHP -= attackStats.damage;
     }
 }

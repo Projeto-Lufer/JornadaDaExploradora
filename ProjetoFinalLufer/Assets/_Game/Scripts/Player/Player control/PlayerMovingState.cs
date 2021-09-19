@@ -7,6 +7,7 @@ public class PlayerMovingState : ConcurrentState
     [Header("External references")]
     [SerializeField] private CharacterController controller;
     [SerializeField] private Transform playerRoot;
+    [SerializeField] private Animator animator;
 
     [Header("Gameplay tweeking fields")]
     [SerializeField] private float speed;
@@ -26,6 +27,7 @@ public class PlayerMovingState : ConcurrentState
 
     public override void Enter()
     {
+        animator.SetBool("Running", true);
         HandleInput();
         var rt = transform.parent.GetComponent<RoomTransition>();
         var camScript = rt.currCam;
@@ -92,6 +94,7 @@ public class PlayerMovingState : ConcurrentState
         }
         else
         {
+            animator.SetBool("Running", false);
             base.stateMachine.ChangeState(typeof(PlayerIdleState));
         }
     }

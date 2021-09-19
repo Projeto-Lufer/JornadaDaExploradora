@@ -9,7 +9,7 @@ public class EnemyProjectile : MonoBehaviour
 
     [Header("Gameplay tweeking fields")]
     [SerializeField] private float speed;
-    [SerializeField] private float damage;
+    [SerializeField] private ComboElement attackStats;
     [SerializeField] private float maxDistance;
 
     private float distanceTravelled;
@@ -35,7 +35,7 @@ public class EnemyProjectile : MonoBehaviour
     {
         if(collision.collider.CompareTag("Player") && !reflected)
         {
-            collision.collider.GetComponent<HealthPoints>().ReduceHealth((int)damage);
+            collision.collider.GetComponent<HealthPoints>().ReduceHealth(attackStats);
             DestructionProcess();
         }
         else if(collision.collider.CompareTag("Shield") && !reflected)
