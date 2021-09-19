@@ -4,17 +4,15 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    [SerializeField] private AudioSource audioSource;
+    [Header("Audio FMOD Event")]
+    [FMODUnity.EventRef]
+    public string grassSteps;
 
-    public void PlaySFX(AudioClip audioToPlay, bool varyPitch = false, bool stopLastAudio = false)
+    [FMODUnity.EventRef]
+    public string stoneSteps;
+
+    public void AudioFootsteps()
     {
-        if (varyPitch)
-            audioSource.pitch = Random.Range(0.8f, 1.2f);
-        
-        if (stopLastAudio)
-            audioSource.Stop();
-
-        audioSource.clip = audioToPlay;
-        audioSource.Play();
+        FMODUnity.RuntimeManager.PlayOneShot(grassSteps, transform.position);
     }
 }
