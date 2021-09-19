@@ -16,6 +16,14 @@ public class StaticRangedEnemyShootingState : SimpleAnimatableState
     [SerializeField] private GameObject projectile;
     [SerializeField] private Transform projectileSpawnPoint;
 
+    [Header("Audio FMOD Event")]
+    [FMODUnity.EventRef]
+    public string sfxRangedEnemyDigUp;
+    [FMODUnity.EventRef]
+    public string sfxRangedEnemyDigDown;
+    [FMODUnity.EventRef]
+    public string sfxRangedEnemyGrowl;
+
     // Internal attributes
     private WaitForSeconds startledTimeWFS;
 
@@ -42,6 +50,8 @@ public class StaticRangedEnemyShootingState : SimpleAnimatableState
         }
 
         base.PlayAnimationTrigger("Dig up");
+        FMODUnity.RuntimeManager.PlayOneShot(sfxRangedEnemyDigUp, transform.position);
+        FMODUnity.RuntimeManager.PlayOneShot(sfxRangedEnemyGrowl, transform.position);
     }
 
     public override void Exit()
@@ -102,6 +112,7 @@ public class StaticRangedEnemyShootingState : SimpleAnimatableState
     {
         base.PlayAnimationTrigger("Dig down");
         stateMachine.ChangeState(typeof(StaticRangedEnemyIdleState));
+        FMODUnity.RuntimeManager.PlayOneShot(sfxRangedEnemyDigDown, transform.position);
     }
 
     private void ChangeToHiding()

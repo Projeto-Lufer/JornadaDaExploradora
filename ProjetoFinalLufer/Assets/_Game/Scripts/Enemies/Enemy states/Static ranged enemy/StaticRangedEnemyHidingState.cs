@@ -11,6 +11,9 @@ public class StaticRangedEnemyHidingState : SimpleAnimatableState
     private Vector3 originalPosition;
     private Vector3 hidingPosition;
 
+    [FMODUnity.EventRef]
+    public string sfxRangedEnemyDigDown;
+
     private void Start()
     {
         originalPosition = enemyTransform.position;
@@ -41,6 +44,7 @@ public class StaticRangedEnemyHidingState : SimpleAnimatableState
     {
         base.PlayAnimationTrigger("Dig down");
         bodyCollider.enabled = false;
+        FMODUnity.RuntimeManager.PlayOneShot(sfxRangedEnemyDigDown, transform.position);
     }
 
     private void Show()

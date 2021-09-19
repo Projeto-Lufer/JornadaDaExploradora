@@ -753,6 +753,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5937285092459470075}
+  - {fileID: 340049901759177556}
   m_Father: {fileID: 7762025947535230012}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -905,6 +906,7 @@ GameObject:
   - component: {fileID: 2154762436887923820}
   - component: {fileID: 5008123393085208888}
   - component: {fileID: 1919823758602532896}
+  - component: {fileID: 164156725}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -1011,7 +1013,7 @@ MonoBehaviour:
   playerHPView: {fileID: 2154762436887923820}
   transitionsManager: {fileID: 0}
   stateMachine: {fileID: 0}
-  sfxReceiveDamage: 
+  sfxReceiveDamage: event:/SFX/Ayla/sfx-ayla-receiving-damage
   sfxAddHealth: 
   sfxDie: 
 --- !u!114 &2154762436887923820
@@ -1060,6 +1062,20 @@ MonoBehaviour:
   jumpSpeed: 2
   inputManager: {fileID: 6199768831625760094}
   PlayerActionStates: {fileID: 206274268144785079}
+--- !u!114 &164156725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7762025947535230013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 0}
+  ListenerNumber: -1
 --- !u!1 &8810218390698127014
 GameObject:
   m_ObjectHideFlags: 0
