@@ -759,6 +759,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -179.99998
       objectReference: {fileID: 0}
+    - target: {fileID: 1380372191267114816, guid: 883020f2bfb12524ba0fdd6087fe68cc,
+        type: 3}
+      propertyPath: sfxRangedEnemyDigDown
+      value: event:/SFX/Ranged Enemy/sfx-ranged-enemy-digdown3d
+      objectReference: {fileID: 0}
     - target: {fileID: 1570917099811998593, guid: 883020f2bfb12524ba0fdd6087fe68cc,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1163,6 +1168,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.00000007327718
+      objectReference: {fileID: 0}
+    - target: {fileID: 7840315670782883075, guid: 883020f2bfb12524ba0fdd6087fe68cc,
+        type: 3}
+      propertyPath: sfxRangedEnemyDigUp
+      value: event:/SFX/Ranged Enemy/sfx-ranged-enemy-digup
+      objectReference: {fileID: 0}
+    - target: {fileID: 7840315670782883075, guid: 883020f2bfb12524ba0fdd6087fe68cc,
+        type: 3}
+      propertyPath: sfxRangedEnemyGrowl
+      value: event:/SFX/Ranged Enemy/sfx-ranged-enemy-growl
+      objectReference: {fileID: 0}
+    - target: {fileID: 7840315670782883075, guid: 883020f2bfb12524ba0fdd6087fe68cc,
+        type: 3}
+      propertyPath: sfxRangedEnemyDigDown
+      value: event:/SFX/Ranged Enemy/sfx-ranged-enemy-digdown3d
       objectReference: {fileID: 0}
     - target: {fileID: 7888846641241475323, guid: 883020f2bfb12524ba0fdd6087fe68cc,
         type: 3}
@@ -3337,6 +3357,7 @@ GameObject:
   - component: {fileID: 963194232}
   - component: {fileID: 963194229}
   - component: {fileID: 963194226}
+  - component: {fileID: 963194233}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3512,6 +3533,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   followTarget: {fileID: 1589854013}
+--- !u!114 &963194233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Music/music-2-cutscene
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!1001 &972177844
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6899,6 +6943,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsKinematic
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8898433266695747558, guid: f74cac5df04b6a144b14b396f84a4b6e,
+        type: 3}
+      propertyPath: sfxAylaNormalAttack1
+      value: event:/SFX/Ayla/sfx-ayla-normal-attack-1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f74cac5df04b6a144b14b396f84a4b6e, type: 3}

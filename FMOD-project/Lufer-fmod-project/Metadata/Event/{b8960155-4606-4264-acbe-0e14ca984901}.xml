@@ -5,10 +5,10 @@
 			<value>sfx-door-opening</value>
 		</property>
 		<property name="outputFormat">
-			<value>1</value>
+			<value>0</value>
 		</property>
 		<relationship name="folder">
-			<destination>{da60f202-43a1-4d96-8a9f-94f44ee82dc2}</destination>
+			<destination>{976a0d3c-fb5a-4e45-8f6e-2f2f867927d0}</destination>
 		</relationship>
 		<relationship name="mixer">
 			<destination>{09e42acd-290f-4c36-9f72-b43b7e4d452f}</destination>
@@ -140,7 +140,7 @@
 			<value>-6.5</value>
 		</property>
 		<property name="inputFormat">
-			<value>1</value>
+			<value>0</value>
 		</property>
 		<relationship name="mixerReturn">
 			<destination>{f76e6383-a3fb-4096-b913-f47af4e27545}</destination>
