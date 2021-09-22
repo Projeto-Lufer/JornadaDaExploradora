@@ -149,8 +149,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chargeTime: 2
   currChargeTime: 0
-  maxDistance: 10
-  time: 0.5
+  maxDistance: 7
+  time: 0.25
   charController: {fileID: 7762025947535230010}
   attackPoint: {fileID: 7120491097240641718}
   targetLayer:
