@@ -59,6 +59,7 @@ MonoBehaviour:
   - {fileID: 3906696032279641580}
   - {fileID: 7989665054200242460}
   - {fileID: 7407808896950493283}
+  - {fileID: 6272904214066361962}
   startingState: {fileID: 9041497815187191158}
   canChangeStates: 1
   otherStateMachine: {fileID: 2519515204889033553}
@@ -477,7 +478,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0001669, y: 0.11038582, z: 1.0007243}
+  m_Size: {x: 1.0001669, y: 0.2503858, z: 1.0007243}
   m_Center: {x: 0.000000059604645, y: 0.019041903, z: -0.005791515}
 --- !u!114 &7418606137427591771
 MonoBehaviour:
