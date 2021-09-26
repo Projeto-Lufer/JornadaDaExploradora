@@ -23,4 +23,5 @@ MonoBehaviour:
   goesRightToLeft: 0
   knockback: 10
   knockbackTime: 2
-  FMODEventName: 
+  sfxAttack: event:/SFX/Ayla/sfx-ayla-normal-attack-3
+  voiceSound: event:/Voice/voice-ayla-short-effort-hard

@@ -13,6 +13,6 @@ public class AudioManager : MonoBehaviour
 
     public void AudioFootsteps()
     {
-        FMODUnity.RuntimeManager.PlayOneShot(grassSteps, transform.position);
+        FMODUnity.RuntimeManager.PlayOneShot(stoneSteps, transform.position);
     }
 }

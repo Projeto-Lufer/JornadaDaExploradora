@@ -23,3 +23,5 @@ MonoBehaviour:
   goesRightToLeft: 1
   knockback: 0
   knockbackTime: 0
+  sfxAttack: event:/SFX/Ayla/sfx-ayla-normal-attack-1
+  voiceSound: 

@@ -10,6 +10,10 @@ public class ObjectManipulator : MonoBehaviour
     private GameObject currentObject;
     private LiftableObject currLiftableObjectScript;
     private PushableObject currPushableObjectScript;
+
+    [Header("Audio FMOD Event")]
+    [FMODUnity.EventRef]
+    public string voiceAylaShortActions;
     
 
     // Bloco de funcoes referentes ao lancamento de objetos
@@ -37,6 +41,7 @@ public class ObjectManipulator : MonoBehaviour
     // Bloco de funcoes referente a acao de empurrar objetos
     public void GrabObject(GameObject heldObject)
     {
+        FMODUnity.RuntimeManager.PlayOneShot(voiceAylaShortActions, transform.position);
         currentObject = heldObject;
         currPushableObjectScript = currentObject.GetComponent<PushableObject>();
 

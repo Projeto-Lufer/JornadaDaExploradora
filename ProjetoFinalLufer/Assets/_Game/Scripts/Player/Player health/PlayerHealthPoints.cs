@@ -16,6 +16,10 @@ public class PlayerHealthPoints : HealthPoints
     [FMODUnity.EventRef]
     public string sfxDie;
 
+    [FMODUnity.EventRef]
+    public string voiceAylaHurt;
+
+
     protected override void Start()
     {
         base.Start();
@@ -24,14 +28,14 @@ public class PlayerHealthPoints : HealthPoints
 
     public override void ReduceHealth(ComboElement attackStats)
     {
+        FMODUnity.RuntimeManager.PlayOneShot(sfxReceiveDamage, transform.position);
+        FMODUnity.RuntimeManager.PlayOneShot(voiceAylaHurt, transform.position);
         base.ReduceHealth(attackStats);
 
         playerHPView.ReactToDamage(base.curHP, base.maxHP);
 
         stateMachine.ChangeOtherStateMachineState(typeof(PlayerIdleState));
         stateMachine.ChangeState(typeof(FlinchingState), attackStats.hitstunDuration);
-
-        FMODUnity.RuntimeManager.PlayOneShot(sfxReceiveDamage, transform.position);
 
         if (base.curHP <= 0)
         {

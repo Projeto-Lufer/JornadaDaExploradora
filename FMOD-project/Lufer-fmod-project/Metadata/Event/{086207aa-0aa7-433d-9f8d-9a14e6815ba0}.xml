@@ -5,7 +5,7 @@
 			<value>steps-ayla-stone</value>
 		</property>
 		<property name="outputFormat">
-			<value>1</value>
+			<value>0</value>
 		</property>
 		<relationship name="folder">
 			<destination>{2b386787-ee0b-4580-a85e-1acc3fb08da4}</destination>
@@ -92,6 +92,9 @@
 		<property name="length">
 			<value>0.5</value>
 		</property>
+		<relationship name="modulators">
+			<destination>{5033d00b-650f-4a34-93dc-7150ce1a55ae}</destination>
+		</relationship>
 		<relationship name="sounds">
 			<destination>{783899f6-7302-4da7-a349-b2dedd01232a}</destination>
 			<destination>{f99fecba-7599-4103-be1e-a175c7915a06}</destination>
@@ -100,7 +103,7 @@
 	</object>
 	<object class="EventMixerGroup" id="{afc3eef4-febf-4546-849d-e1ff3f0b1b32}">
 		<property name="volume">
-			<value>-5.5</value>
+			<value>-11.5</value>
 		</property>
 		<property name="name">
 			<value>Audio 1</value>
@@ -122,6 +125,14 @@
 	</object>
 	<object class="MixerBusPanner" id="{3e3cb484-65e2-4073-9c13-392393e94dd9}" />
 	<object class="MixerBusFader" id="{971eda02-7be7-402c-b1f7-8776e5bab1eb}" />
+	<object class="RandomizerModulator" id="{5033d00b-650f-4a34-93dc-7150ce1a55ae}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>pitch</value>
+		</property>
+		<property name="amount">
+			<value>4.5</value>
+		</property>
+	</object>
 	<object class="SingleSound" id="{783899f6-7302-4da7-a349-b2dedd01232a}">
 		<relationship name="audioFile">
 			<destination>{a901ea54-ec16-4a85-bc1f-406d309aa1a2}</destination>
@@ -148,10 +159,10 @@
 	<object class="MixerBusFader" id="{e72243ff-94e2-4344-bf9e-28a225889af2}" />
 	<object class="MixerSend" id="{dd513a90-b3ef-4276-8cd8-287af9194b6f}">
 		<property name="level">
-			<value>-20.5</value>
+			<value>-9</value>
 		</property>
 		<property name="inputFormat">
-			<value>1</value>
+			<value>0</value>
 		</property>
 		<relationship name="mixerReturn">
 			<destination>{f76e6383-a3fb-4096-b913-f47af4e27545}</destination>

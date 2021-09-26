@@ -227,101 +227,6 @@ Transform:
   m_Father: {fileID: 5937285092459470075}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2436840782452708807
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 340049901759177556}
-  - component: {fileID: 3068800476974219326}
-  - component: {fileID: 588226115431630683}
-  - component: {fileID: 1148343144831767858}
-  m_Layer: 0
-  m_Name: Cube
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &340049901759177556
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2436840782452708807}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 7762025945828408406}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &3068800476974219326
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2436840782452708807}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &588226115431630683
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2436840782452708807}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 6a1143ee683302f4aa628c052723efc1, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1148343144831767858
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2436840782452708807}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2607738862202962939
 GameObject:
   m_ObjectHideFlags: 0
@@ -754,7 +659,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5937285092459470075}
-  - {fileID: 340049901759177556}
   m_Father: {fileID: 7762025947535230012}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -988,6 +892,9 @@ MonoBehaviour:
   sfxAylaNormalAttack1: event:/SFX/Ayla/sfx-ayla-normal-attack-1
   sfxAylaNormalAttack2: event:/SFX/Ayla/sfx-ayla-normal-attack-2
   sfxAylaNormalAttack3: event:/SFX/Ayla/sfx-ayla-normal-attack-3
+  voiceAylaShortEffortSoftly: 
+  voiceAylaShortEffortMedium: 
+  voiceAylaShortEffortHard: 
   targetLayer:
     serializedVersion: 2
     m_Bits: 9
@@ -1012,10 +919,11 @@ MonoBehaviour:
   maxHP: 3
   playerHPView: {fileID: 2154762436887923820}
   transitionsManager: {fileID: 0}
-  stateMachine: {fileID: 0}
+  stateMachine: {fileID: 2519515204889033553}
   sfxReceiveDamage: event:/SFX/Ayla/sfx-ayla-receiving-damage
   sfxAddHealth: 
   sfxDie: 
+  voiceAylaHurt: event:/Voice/voice-ayla-hurt
 --- !u!114 &2154762436887923820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1030,6 +938,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthTextUI: {fileID: 0}
   hitParticles: {fileID: 2656358179411934925}
+  allHearts: []
+  emptyHeart: {fileID: 0}
+  halfHeart: {fileID: 0}
+  fullHeart: {fileID: 0}
 --- !u!114 &5008123393085208888
 MonoBehaviour:
   m_ObjectHideFlags: 0

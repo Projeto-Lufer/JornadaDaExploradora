@@ -25,6 +25,8 @@ public class ComboElement : ScriptableObject
     public int knockback;
     public float knockbackTime;
 
-    [Tooltip("Nome do evento do FMOD para tocar o som referente a esse ataque")]
-    public string FMODEventName;
+    [FMODUnity.EventRef]
+    public string sfxAttack;
+    [FMODUnity.EventRef]
+    public string voiceSound;
 }
