@@ -20,12 +20,12 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.9528302, g: 0.9528302, b: 0.9528302, a: 1}
+  m_AmbientSkyColor: {r: 1, g: 1, b: 1, a: 1}
   m_AmbientEquatorColor: {r: 1, g: 1, b: 1, a: 1}
   m_AmbientGroundColor: {r: 0, g: 0.7454045, b: 0.116970696, a: 1}
-  m_AmbientIntensity: 1.22
-  m_AmbientMode: 3
-  m_SubtractiveShadowColor: {r: 0.8737629, g: 0.9053421, b: 0.9811321, a: 1}
+  m_AmbientIntensity: 1
+  m_AmbientMode: 1
+  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: bb2ca4c7c70434a13bb2f73000435ef1, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: 728b297e6f1014acfa018971f661dd68,
     type: 2}
-  m_LightingSettings: {fileID: 4890085278179872738, guid: 426f0d2a4c0a16d4b9ebf4f8befd2e14,
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 6f8a60b8e0ce10a4099dae73eda9f2bf,
     type: 2}
 --- !u!196 &4
 NavMeshSettings:
@@ -2197,7 +2197,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh232774
+  m_Name: pb_Mesh55472
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2676,8 +2676,8 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.6792453, g: 0.6792453, b: 0.6792453, a: 1}
-  m_Intensity: 0.3
+  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Intensity: 0.12
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.802082
@@ -2716,7 +2716,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 2
+  m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1

@@ -10,6 +10,7 @@ public class FlinchingState : SimpleAnimatableState
     public override void Enter(float flinchingTime)
     {
         flinchingTimeWFS = new WaitForSeconds(flinchingTime);
+        base.PlayAnimationTrigger("Damaged");
         StartCoroutine(Flinching());
         //base.PlayAnimationTrigger("Flinch");
     }
