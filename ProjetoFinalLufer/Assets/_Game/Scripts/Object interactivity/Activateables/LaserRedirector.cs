@@ -9,10 +9,12 @@ public class LaserRedirector : LaserEmmiter
     {
         if(canEmmit)
         {
+            Debug.Log("cannot emmit");
             canEmmit = false;
         }
         else
         {
+            Debug.Log("can emmit");
             canEmmit = true;
         }
     }
