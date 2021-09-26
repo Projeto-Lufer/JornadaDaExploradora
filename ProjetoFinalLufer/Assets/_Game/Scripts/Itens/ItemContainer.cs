@@ -11,11 +11,17 @@ public class ItemContainer : Interactive
 
     private bool hasBeenOpened;
 
+    [Header("Audio FMOD Event")]
+    [FMODUnity.EventRef]
+    public string sfxChestOpening;
+
+
     public override void Interact(GameObject interactor)
     {
         if (!hasBeenOpened)
         {
             hasBeenOpened = true;
+            FMODUnity.RuntimeManager.PlayOneShot(sfxChestOpening, transform.position);
             animator.SetTrigger("Open");
             ObjectCollector collector = interactor.GetComponent<ObjectCollector>();
 

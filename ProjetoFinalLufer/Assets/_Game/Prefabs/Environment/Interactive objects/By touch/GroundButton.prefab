@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 7265533175059166996}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 28.8, y: 1.09, z: -38.14}
-  m_LocalScale: {x: 1, y: 0.1, z: 1}
+  m_LocalScale: {x: 1.5, y: 0.103, z: 1.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -111,6 +111,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectToActivate: {fileID: 0}
   activatedMaterial: {fileID: 2100000, guid: f77276480dcbbed4b8549d5eac775035, type: 2}
+  meshRenderer: {fileID: 0}
+  sfxPressurePlateSpinning: event:/SFX/Objects/sfx-pressure-plate-spinning
 --- !u!54 &7265533175059167002
 Rigidbody:
   m_ObjectHideFlags: 0

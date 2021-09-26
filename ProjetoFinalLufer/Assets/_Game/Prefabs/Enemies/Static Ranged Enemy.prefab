@@ -86,9 +86,9 @@ MonoBehaviour:
   parentToRotate: {fileID: 6842675159693420934}
   startledTime: 1
   timeBetweenShots: 1.5
-  sfxRangedEnemyDigUp: 
-  sfxRangedEnemyDigDown: 
-  sfxRangedEnemyGrowl: 
+  sfxRangedEnemyDigUp: event:/SFX/Ranged Enemy/sfx-ranged-enemy-digup
+  sfxRangedEnemyDigDown: event:/SFX/Ranged Enemy/sfx-ranged-enemy-digdown
+  sfxRangedEnemyGrowl: event:/SFX/Ranged Enemy/sfx-ranged-enemy-growl
 --- !u!114 &1380372191267114816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,7 +104,7 @@ MonoBehaviour:
   hidingAreaDetector: {fileID: 9113591333445935052}
   enemyTransform: {fileID: 6842675159693420934}
   bodyCollider: {fileID: 3292796288340586847}
-  sfxRangedEnemyDigDown: 
+  sfxRangedEnemyDigDown: event:/SFX/Ranged Enemy/sfx-ranged-enemy-digdown
 --- !u!114 &3038356731760815786
 MonoBehaviour:
   m_ObjectHideFlags: 0

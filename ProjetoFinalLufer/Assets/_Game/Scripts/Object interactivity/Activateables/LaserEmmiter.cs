@@ -13,11 +13,16 @@ public class LaserEmmiter : MonoBehaviour
     [SerializeField] private LayerMask ignoreLayer;
     private LayerMask targetLayers;
 
+    [Header("Audio FMOD Event")]
+    [FMODUnity.EventRef]
+    public string sfxLightEmitterChanneling;
+
     void Start()
     {
         lr = GetComponent<LineRenderer>();
         startPoint = gameObject.transform;
         targetLayers = ~ignoreLayer;
+        FMODUnity.RuntimeManager.PlayOneShot(sfxLightEmitterChanneling, transform.position);
     }
 
     // Update is called once per frame

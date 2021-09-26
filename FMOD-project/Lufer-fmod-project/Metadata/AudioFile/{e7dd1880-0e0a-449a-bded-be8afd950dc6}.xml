@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.01.00">
-	<object class="AudioFile" id="{23b0e2d1-0d77-4075-bfb3-bd2fa75ea8c5}">
+	<object class="AudioFile" id="{e7dd1880-0e0a-449a-bded-be8afd950dc6}">
 		<property name="assetPath">
-			<value>SFX/sfx-ayla-receiving-damage-1.wav</value>
+			<value>Music/3- The Fields of Nomura (Overworld).wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>
 		</property>
 		<property name="channelCount">
-			<value>1</value>
+			<value>2</value>
 		</property>
 		<property name="length">
-			<value>0.5</value>
+			<value>52.645249999999997</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{3c0f6cae-f38f-4d9d-8257-45b7f54f764f}</destination>
