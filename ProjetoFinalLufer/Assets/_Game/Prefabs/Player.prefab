@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 7989665054200242460}
   - component: {fileID: 7407808896950493283}
   - component: {fileID: 6272904214066361962}
+  - component: {fileID: 8394353991767502052}
   m_Layer: 0
   m_Name: Player action states
   m_TagString: Untagged
@@ -200,6 +201,19 @@ MonoBehaviour:
     name: 
     sentences: []
   dialogueBox: {fileID: 0}
+--- !u!114 &8394353991767502052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 206274268144785079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f859b8cb1bdcd447809a0605bcbe559, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateToReturnTo: {fileID: 0}
 --- !u!1 &2134347131696939373
 GameObject:
   m_ObjectHideFlags: 0
@@ -894,7 +908,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b327981d932c74438a2fb13f973a888, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RegularKeyText: {fileID: 0}
+  keyImages: []
   collectableTag: Collectable
 --- !u!114 &4766827225807830560
 MonoBehaviour:

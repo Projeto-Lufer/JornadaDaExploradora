@@ -10,8 +10,11 @@ public class InteractiveIdentifier : MonoBehaviour
     {
         Interactive interactive = other.GetComponentInChildren<Interactive>();
 
-        if(interactive != null)
+        if(interactive != null && !interactivesInRange.Contains(interactive))
         {
+            // gambiarra
+            interactivesInRange.Clear();
+
             interactivesInRange.Add(interactive);
         }
     }
@@ -20,10 +23,11 @@ public class InteractiveIdentifier : MonoBehaviour
     {
         Interactive interactive = other.GetComponentInChildren<Interactive>();
 
-        if (interactive != null)
+        if (interactive != null && interactivesInRange.Contains(interactive))
         {
             interactivesInRange.Remove(interactive);
         }
+
     }
 
     public bool GetHasInteractibleInRange()
