@@ -158,8 +158,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 9
   damageArea: {x: 0.25, y: 0.25, z: 1}
-  chargedStabStats: {fileID: 0}
-  unchargedStabStats: {fileID: 0}
+  chargedStabStats: {fileID: 11400000, guid: f0802c49db5b42747ba6e5ce5a6ffdd2, type: 2}
+  unchargedStabStats: {fileID: 11400000, guid: dc8475b1bca016c4aa77685ea145ef50, type: 2}
   chargingParticles: {fileID: 722229359375205633}
   chargedParticles: {fileID: 284380043104563936}
   canTurn: 1
