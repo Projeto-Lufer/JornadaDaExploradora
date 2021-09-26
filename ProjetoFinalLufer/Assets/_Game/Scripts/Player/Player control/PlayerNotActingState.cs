@@ -8,7 +8,7 @@ public class PlayerNotActingState : ConcurrentState
     [SerializeField] private InteractiveIdentifier interactiveIdentifier;
     [SerializeField] private ObjectManipulator objectManipulator;
 
-    [HideInInspector] public bool canDefend = false;
+    public bool canDefend = false;
 
     public override void HandleInput()
     {
