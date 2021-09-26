@@ -14,6 +14,7 @@ public class StaticRangedEnemyIdleState : SimpleAnimatableState
 
     public override void Exit()
     {
+        base.PlayAnimationTrigger("Dig up");
         StopAllCoroutines();
     }
 

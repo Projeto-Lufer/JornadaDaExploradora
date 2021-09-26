@@ -23,11 +23,13 @@ public class EnemyHealthPoints : HealthPoints
 
     public void Stun()
     {
+        HPView.SetStunnedVFXEnabled(true);
         stateMachine.ChangeState(typeof(StunnedState));
     }
 
     private void Die()
     {
+        HPView.PlayDeathVisual();
         Destroy(parentToDestroy);
     }
 }

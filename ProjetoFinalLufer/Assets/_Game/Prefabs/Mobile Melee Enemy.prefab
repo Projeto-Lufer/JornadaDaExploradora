@@ -202,8 +202,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackPoint: {fileID: 1946608633494751666}
-  attackSFX: {fileID: 8300000, guid: 4e0a17fdcd2a74b8ab2d8bbe2aa9ce5d, type: 3}
-  audioManager: {fileID: 90339226463677784}
+  sfxAylaNormalAttack1: 
+  sfxAylaNormalAttack2: 
+  sfxAylaNormalAttack3: 
   targetLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -324,6 +325,7 @@ MonoBehaviour:
   - {fileID: 7390074192252192018}
   - {fileID: 3579864555024659875}
   startingState: {fileID: 959747648260530689}
+  canChangeStates: 1
 --- !u!114 &959747648260530689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -370,8 +372,6 @@ MonoBehaviour:
   parentToRotate: {fileID: 4462619697762002774}
   meleeAttack: {fileID: 8898433266695747558}
   attackCooldownTime: 1
-  attackWindUpTime: 0.2
-  attackRecoveryTime: 0.2
   attackStats: {fileID: 11400000, guid: dd5f645cae6f02f49bbceda765b2daca, type: 2}
   turnSmoothTime: 0.1
   chaseDelay: 0.3
@@ -402,6 +402,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stunTime: 2
   stateToReturnTo: {fileID: 6743590932463004393}
+  HPView: {fileID: 0}
 --- !u!1 &4545563392732611284
 GameObject:
   m_ObjectHideFlags: 0
@@ -738,8 +739,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentToDestroy: {fileID: 2202740110688647472}
-  hitSFX: {fileID: 8300000, guid: ec7cfd85e2a9141959a9819e2de9d057, type: 3}
-  audioManager: {fileID: 90339226463677784}
   maxHP: 5
   HPView: {fileID: 62554323867951339}
   stateMachine: {fileID: 4774286159638926702}
@@ -756,6 +755,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitVFX: {fileID: 2652671410530370121}
+  stunnedVFX: {fileID: 0}
+  deathVFX: {fileID: 5803288318614513315, guid: e05b16b468729de4baf8f72f1a5e5fc4,
+    type: 3}
 --- !u!1 &6389831873221794200
 GameObject:
   m_ObjectHideFlags: 0
@@ -1416,15 +1418,3 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 9103559119248854219}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &90339226463677784 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9157689159848960403, guid: d151c3f31a5d9b648bb3582e41e2820e,
-    type: 3}
-  m_PrefabInstance: {fileID: 9103559119248854219}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2024ef9abeb99dd429e7a8d3a42a207a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
