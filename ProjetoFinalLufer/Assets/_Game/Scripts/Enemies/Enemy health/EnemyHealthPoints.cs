@@ -29,6 +29,7 @@ public class EnemyHealthPoints : HealthPoints
 
     private void Die()
     {
+        HPView.PlayDeathVisual();
         Destroy(parentToDestroy);
     }
 }
