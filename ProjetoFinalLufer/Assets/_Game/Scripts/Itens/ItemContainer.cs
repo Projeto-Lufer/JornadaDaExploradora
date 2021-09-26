@@ -7,6 +7,8 @@ public class ItemContainer : Interactive
     [SerializeField] private Item containedItem;
     [SerializeField] private Dialogue emptyDialogue;
 
+    [SerializeField] private Animator animator;
+
     private bool hasBeenOpened;
 
     public override void Interact(GameObject interactor)
@@ -14,6 +16,7 @@ public class ItemContainer : Interactive
         if (!hasBeenOpened)
         {
             hasBeenOpened = true;
+            animator.SetTrigger("Open");
             ObjectCollector collector = interactor.GetComponent<ObjectCollector>();
 
             collector.GetItem(containedItem);
