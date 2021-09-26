@@ -65,13 +65,13 @@ PrefabInstance:
     - target: {fileID: 2802851317437030094, guid: 413b2f2cfeb2a9f478f1d7c28f4ada2c,
         type: 3}
       propertyPath: m_Name
-      value: Temple Room Element
+      value: Temple Room Ranged Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 8355077049455764817, guid: 413b2f2cfeb2a9f478f1d7c28f4ada2c,
         type: 3}
       propertyPath: elementPrefab
       value: 
-      objectReference: {fileID: 4934168771730955389, guid: e00a0b8fe38512a4ea7a88c1c4590818,
+      objectReference: {fileID: 4934168771730955389, guid: 883020f2bfb12524ba0fdd6087fe68cc,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 413b2f2cfeb2a9f478f1d7c28f4ada2c, type: 3}

@@ -1,27 +1,14 @@
 fileFormatVersion: 2
-guid: 69c8958d77af9b34fbc680bb1f745b30
+guid: 0123f81a3098d4d4ab4603602381e139
 ModelImporter:
   serializedVersion: 20200
-  internalIDToNameTable:
-  - first:
-      74: -623603649343465320
-    second: Scene
+  internalIDToNameTable: []
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material
-    second: {fileID: 2100000, guid: b869ada2b0de61d479b8ef78389dd532, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material.001
-    second: {fileID: 2100000, guid: b869ada2b0de61d479b8ef78389dd532, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material.002
-    second: {fileID: 2100000, guid: b869ada2b0de61d479b8ef78389dd532, type: 2}
+      name: star
+    second: {fileID: 2100000, guid: 01bde6b75442f3c41a7a0987aad306f3, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -52,7 +39,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 80
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -103,7 +90,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
+    globalScale: 0.79999995
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

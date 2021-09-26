@@ -204,7 +204,7 @@ ModelImporter:
       name: IdleAgr
       takeName: Armature|ArmatureAction
       internalID: 0
-      firstFrame: 181
+      firstFrame: 180
       lastFrame: 210
       wrapMode: 0
       orientationOffsetY: 0

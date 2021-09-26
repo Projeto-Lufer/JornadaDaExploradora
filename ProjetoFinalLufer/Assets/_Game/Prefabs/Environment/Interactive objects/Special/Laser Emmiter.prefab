@@ -161,7 +161,7 @@ MonoBehaviour:
   canEmmit: 1
   ignoreLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 640
 --- !u!1001 &359879015195280933
 PrefabInstance:
   m_ObjectHideFlags: 0
