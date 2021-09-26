@@ -20,7 +20,7 @@ MonoBehaviour:
   hitstunDuration: 0.3
   cooldown: 0
   damage: 3
-  goesRightToLeft: 0
-  knockback: 10
-  knockbackTime: 2
+  goesRightToLeft: 1
+  knockback: 6
+  knockbackTime: 0.5
   FMODEventName: 
