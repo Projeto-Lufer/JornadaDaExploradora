@@ -23,6 +23,7 @@ public class PlayerChargingState : ConcurrentState
     [SerializeField] private ParticleSystem chargedParticles;
 
     [SerializeField] private Animator animator;
+    [SerializeField] private PlayerInCombatStateControl playerInCombatControl;
 
     [HideInInspector] public bool canTurn = true;
     private bool keyDown;
@@ -44,6 +45,7 @@ public class PlayerChargingState : ConcurrentState
     {
         if(keyDown)
         {
+            playerInCombatControl.SetInCombat();
             animator.SetBool("ChargingSpecial", true);
             if (currChargeTime < chargeTime && !chargingParticles.isPlaying)
             {
@@ -84,9 +86,11 @@ public class PlayerChargingState : ConcurrentState
         canTurn = false;
         bool hitObstacle = false;
 
-        while(currDistance < maxDistance)
+        animator.SetBool("UsingSpecial", true);
+
+        while (currDistance < maxDistance)
         {
-            animator.SetBool("UsingSpecial", true);
+            playerInCombatControl.SetInCombat();
             currPosition = transform.position;
             charController.Move(transform.forward * speed * Time.deltaTime);
             currDistance += Vector3.Distance(currPosition, transform.position);
@@ -108,6 +112,7 @@ public class PlayerChargingState : ConcurrentState
 
     private IEnumerator UnchargedStab()
     {
+        playerInCombatControl.SetInCombat();
         animator.SetBool("UsingSpecial", true);
         DoStabDamage(unchargedStabStats);
         yield return new WaitForSeconds(unchargedStabStats.duration);

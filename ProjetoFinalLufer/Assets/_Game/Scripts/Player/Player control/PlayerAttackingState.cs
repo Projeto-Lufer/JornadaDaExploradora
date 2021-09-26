@@ -7,6 +7,7 @@ public class PlayerAttackingState : ConcurrentState
     [Header("External references")]
     [SerializeField] private MeleeAttacks meleeAttack;
     [SerializeField] private Animator animator;
+    [SerializeField] private PlayerInCombatStateControl playerInCombatControl;
 
     [Header("Gameplay tweaking fields")]
     [SerializeField] private ComboElement[] comboSequence;
@@ -21,6 +22,7 @@ public class PlayerAttackingState : ConcurrentState
     {
         animator.SetTrigger("Attack");
         animator.SetBool("Fighting", true);
+        playerInCombatControl.SetInCombat();
         currIndex = 0;
         StartCoroutine(AttackRoutine(comboSequence[currIndex++]));
     }
