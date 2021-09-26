@@ -17,9 +17,12 @@ public class PlayerChargingState : ConcurrentState
     [SerializeField] private Vector3 damageArea;
     [SerializeField] private ComboElement chargedStabStats;
     [SerializeField] private ComboElement unchargedStabStats;
+    [SerializeField] private float chargeTimeNeededToStab;
 
     [SerializeField] private ParticleSystem chargingParticles;
     [SerializeField] private ParticleSystem chargedParticles;
+
+    [SerializeField] private Animator animator;
 
     [HideInInspector] public bool canTurn = true;
     private bool keyDown;
@@ -41,6 +44,7 @@ public class PlayerChargingState : ConcurrentState
     {
         if(keyDown)
         {
+            animator.SetBool("ChargingSpecial", true);
             if (currChargeTime < chargeTime && !chargingParticles.isPlaying)
             {
                 chargingParticles.Play();
@@ -56,20 +60,20 @@ public class PlayerChargingState : ConcurrentState
         }
         else
         {
-            if(currChargeTime >= chargeTime)
+            animator.SetBool("ChargingSpecial", false);
+            if (currChargeTime >= chargeTime)
             {
                 StartCoroutine(Charge());
             }
-            else
+            else if(currChargeTime >= chargeTimeNeededToStab)
             {
-                DoStabDamage(unchargedStabStats);
+                StartCoroutine(UnchargedStab());
             }
 
             chargedParticles.Stop();
             chargingParticles.Stop();
             currChargeTime = 0;
             base.stateMachine.ChangeState(typeof(PlayerNotActingState));
-
         }
     }
 
@@ -82,6 +86,7 @@ public class PlayerChargingState : ConcurrentState
 
         while(currDistance < maxDistance)
         {
+            animator.SetBool("UsingSpecial", true);
             currPosition = transform.position;
             charController.Move(transform.forward * speed * Time.deltaTime);
             currDistance += Vector3.Distance(currPosition, transform.position);
@@ -97,8 +102,16 @@ public class PlayerChargingState : ConcurrentState
                 yield return null;
             }
         }
-
+        animator.SetBool("UsingSpecial", false);
         canTurn = true;
+    }
+
+    private IEnumerator UnchargedStab()
+    {
+        animator.SetBool("UsingSpecial", true);
+        DoStabDamage(unchargedStabStats);
+        yield return new WaitForSeconds(unchargedStabStats.duration);
+        animator.SetBool("UsingSpecial", false);
     }
 
     private bool DoStabDamage(ComboElement stabStats)

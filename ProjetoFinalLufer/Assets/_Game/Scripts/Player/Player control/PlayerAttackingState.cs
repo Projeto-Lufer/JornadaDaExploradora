@@ -20,8 +20,14 @@ public class PlayerAttackingState : ConcurrentState
     public override void Enter()
     {
         animator.SetTrigger("Attack");
+        animator.SetBool("Fighting", true);
         currIndex = 0;
         StartCoroutine(AttackRoutine(comboSequence[currIndex++]));
+    }
+
+    public override void Exit()
+    {
+        animator.SetBool("Fighting", false);
     }
 
     public override void HandleInput()
