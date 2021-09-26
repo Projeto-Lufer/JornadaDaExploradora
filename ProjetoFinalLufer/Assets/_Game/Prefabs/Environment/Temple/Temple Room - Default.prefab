@@ -663,7 +663,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3941342198533440606}
   - component: {fileID: 1023033754513615110}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Room
   m_TagString: Room
   m_Icon: {fileID: 0}
