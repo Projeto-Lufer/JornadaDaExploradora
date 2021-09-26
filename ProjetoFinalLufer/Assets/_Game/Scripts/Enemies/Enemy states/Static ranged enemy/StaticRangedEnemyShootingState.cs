@@ -13,8 +13,6 @@ public class StaticRangedEnemyShootingState : SimpleAnimatableState
     [Tooltip("Tempo que o inimigo fica parado quando avista jogador pela primeira vez")]
     [SerializeField] private float startledTime;
     [SerializeField] private float timeBetweenShots;
-    [SerializeField] private GameObject projectile;
-    [SerializeField] private Transform projectileSpawnPoint;
 
     [Header("Audio FMOD Event")]
     [FMODUnity.EventRef]
@@ -49,7 +47,6 @@ public class StaticRangedEnemyShootingState : SimpleAnimatableState
             ChangeToIdle();
         }
 
-        base.PlayAnimationTrigger("Dig up");
         FMODUnity.RuntimeManager.PlayOneShot(sfxRangedEnemyDigUp, transform.position);
         FMODUnity.RuntimeManager.PlayOneShot(sfxRangedEnemyGrowl, transform.position);
     }
@@ -75,7 +72,7 @@ public class StaticRangedEnemyShootingState : SimpleAnimatableState
                 }
                 yield return null;
             }
-            Instantiate(projectile).GetComponent<EnemyProjectile>().SetStartingPosition(projectileSpawnPoint.position, projectileSpawnPoint.rotation);
+            base.PlayAnimationTrigger("Attack");
         }
     }
 
