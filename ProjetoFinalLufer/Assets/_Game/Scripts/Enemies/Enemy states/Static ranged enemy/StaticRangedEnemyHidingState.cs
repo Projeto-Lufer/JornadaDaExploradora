@@ -37,6 +37,7 @@ public class StaticRangedEnemyHidingState : SimpleAnimatableState
 
     public override void Exit()
     {
+        base.PlayAnimationTrigger("Dig up");
         Show();
     }
 
@@ -49,7 +50,6 @@ public class StaticRangedEnemyHidingState : SimpleAnimatableState
 
     private void Show()
     {
-        enemyTransform.position = originalPosition;
         bodyCollider.enabled = true;
     }
 
