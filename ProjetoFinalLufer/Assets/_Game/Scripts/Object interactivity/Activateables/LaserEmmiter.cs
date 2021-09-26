@@ -54,6 +54,12 @@ public class LaserEmmiter : MonoBehaviour
                         hit.transform.SendMessage("Interact");
                         lastHit = hit.transform.gameObject;
                     }
+                    else if(lastHit != null && lastHit.tag != hit.transform.tag)
+                    {
+                        lastHit.SendMessage("Interact");
+                        hit.transform.SendMessage("Interact");
+                        lastHit = hit.transform.gameObject;
+                    }
                 }
                 else if (hit.transform.tag == "Shield")
                 {
