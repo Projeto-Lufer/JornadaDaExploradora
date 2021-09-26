@@ -125,11 +125,14 @@ public class MeleeAttacks : MonoBehaviour
                     {
                         Vector3 direction = hit.collider.transform.position - transform.position;
                         direction.y = 0;
-                        Rigidbody rb = hit.collider.transform.parent.GetComponent<Rigidbody>();
-                        if(rb != null)
+                        if(hit.collider.transform.parent != null)
                         {
-                            rb.AddForce(direction * element.knockback, ForceMode.Impulse);
-                            StartCoroutine(removeKnockbackForce(rb, element.knockbackTime));
+                            Rigidbody rb = hit.collider.transform.parent.GetComponent<Rigidbody>();
+                            if (rb != null)
+                            {
+                                rb.AddForce(direction * element.knockback, ForceMode.Impulse);
+                                StartCoroutine(removeKnockbackForce(rb, element.knockbackTime));
+                            }
                         }
                     }
                     targetsAlreadyHit.Add(hit.collider);

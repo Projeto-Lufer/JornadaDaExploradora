@@ -12,12 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 697e0ca5e5f21af4aab7b171df4a6d4c, type: 3}
   m_Name: UnchargedStab
   m_EditorClassIdentifier: 
-  timeout: 0
-  duration: 0
+  totalTime: 0
+  windUp: 0
+  duration: 0.6
   comboWindowStart: 0
   comboWindowFinish: 0
   hitstunDuration: 0
+  cooldown: 0
   damage: 2
   goesRightToLeft: 0
   knockback: 0
   knockbackTime: 0
+  FMODEventName: 

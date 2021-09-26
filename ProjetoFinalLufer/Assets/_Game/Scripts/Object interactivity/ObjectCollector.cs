@@ -8,7 +8,7 @@ public class ObjectCollector : MonoBehaviour
     private Dictionary<Item, int> inventory = new Dictionary<Item, int>();
     private bool canCollect = true;
     private WaitForSeconds collectionDelay;
-    [SerializeField] private TextMeshProUGUI RegularKeyText;
+    [SerializeField] private List<GameObject> keyImages;
     [SerializeField] private string collectableTag;
 
     private void Start()
@@ -19,7 +19,7 @@ public class ObjectCollector : MonoBehaviour
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if(hit.gameObject.tag == collectableTag && canCollect)
+        if (hit.gameObject.tag == collectableTag && canCollect)
         {
             StartCoroutine(PickupWithDelay(hit));
         }
@@ -41,7 +41,7 @@ public class ObjectCollector : MonoBehaviour
 
     public void GetItem(Item item)
     {
-        inventory[item] = 1 + (inventory.ContainsKey(item)? inventory[item] : 0);
+        inventory[item] = 1 + (inventory.ContainsKey(item) ? inventory[item] : 0);
         UpdateInvetoryUI();
     }
 
@@ -51,9 +51,9 @@ public class ObjectCollector : MonoBehaviour
     }
     public bool UseItem(Item item)
     {
-        if((inventory.ContainsKey(item)? inventory[item] : 0) > 0)
+        if ((inventory.ContainsKey(item) ? inventory[item] : 0) > 0)
         {
-            inventory[item] = (inventory.ContainsKey(item)? inventory[item] : 0) - 1;
+            inventory[item] = (inventory.ContainsKey(item) ? inventory[item] : 0) - 1;
             UpdateInvetoryUI();
             return true;
         }
@@ -65,11 +65,15 @@ public class ObjectCollector : MonoBehaviour
 
     private void UpdateInvetoryUI()
     {
-        RegularKeyText.text =(inventory.ContainsKey(Item.regularKey)? inventory[Item.regularKey] : 0).ToString();
+        var numberOfKeys = (inventory.ContainsKey(Item.regularKey) ? inventory[Item.regularKey] : 0);
+        for (int i = 0; i < keyImages.Count; i++)
+        {
+            keyImages[i].SetActive(i < numberOfKeys);
+        }
     }
 
     public int GetKeysPossessed()
     {
-        return (inventory.ContainsKey(Item.regularKey)? inventory[Item.regularKey] : 0);
+        return (inventory.ContainsKey(Item.regularKey) ? inventory[Item.regularKey] : 0);
     }
 }

@@ -39,8 +39,14 @@ public class StateMachine : MonoBehaviour
     private void ExitAndUpdateCurrentState(System.Type newState)
     {
         currentState.Exit();
-
-        currentState = statesDictionary[newState];
+        if(statesDictionary.ContainsKey(newState))
+        {
+            currentState = statesDictionary[newState];
+        }
+        else
+        {
+            Debug.Log(newState);
+        }
 
     }
 
