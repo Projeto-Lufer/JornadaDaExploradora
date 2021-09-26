@@ -78,7 +78,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactiveIdentifier: {fileID: 7762025946051498912}
   objectManipulator: {fileID: 7762025947470870749}
-  canDefend: 0
+  canDefend: 1
 --- !u!114 &5825953694623298292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1030,6 +1030,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthTextUI: {fileID: 0}
   hitParticles: {fileID: 2656358179411934925}
+  allHearts: []
+  emptyHeart: {fileID: 0}
+  halfHeart: {fileID: 0}
+  fullHeart: {fileID: 0}
 --- !u!114 &5008123393085208888
 MonoBehaviour:
   m_ObjectHideFlags: 0
