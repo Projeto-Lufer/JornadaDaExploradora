@@ -322,6 +322,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitVFX: {fileID: 1989501419168178625}
   stunnedVFX: {fileID: 2103746548446884212}
+  deathVFX: {fileID: 5803288318614513315, guid: e05b16b468729de4baf8f72f1a5e5fc4,
+    type: 3}
 --- !u!1 &4934168771730955389
 GameObject:
   m_ObjectHideFlags: 0
