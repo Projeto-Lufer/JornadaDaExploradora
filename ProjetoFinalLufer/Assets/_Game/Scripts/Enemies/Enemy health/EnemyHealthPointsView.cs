@@ -16,11 +16,11 @@ public class EnemyHealthPointsView : MonoBehaviour
 
     public void PlayDeathVisual()
     {
-        //Instantiate(deathVFX, transform.parent.position, transform.parent.rotation);
+        Instantiate(deathVFX, transform.parent.position, transform.parent.rotation);
     }
 
     public void SetStunnedVFXEnabled(bool enabled)
     {
-        //stunnedVFX.SetActive(enabled);
+        stunnedVFX.SetActive(enabled);
     }
 }
