@@ -23,3 +23,5 @@ MonoBehaviour:
   goesRightToLeft: 0
   knockback: 0
   knockbackTime: 0
+  sfxAttack: event:/SFX/Ranged Enemy/sfx-ranged-enemy-attack
+  voiceSound: event:/SFX/Ranged Enemy/sfx-ranged-enemy-growl

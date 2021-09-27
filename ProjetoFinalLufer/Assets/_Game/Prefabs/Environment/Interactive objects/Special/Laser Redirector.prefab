@@ -34,7 +34,7 @@ Transform:
   m_GameObject: {fileID: 206869682706105301}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.5, z: -1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.125, y: 2.125, z: 2.125}
   m_Children:
   - {fileID: 4840063077559387424}
   - {fileID: 7253677797425405713}
@@ -218,6 +218,7 @@ MonoBehaviour:
   ignoreLayer:
     serializedVersion: 2
     m_Bits: 128
+  sfxLightEmitterChanneling: event:/SFX/Objects/sfx-light-emmiter-channeling-3d
   canTurn: 0
 --- !u!54 &206869682706105261
 Rigidbody:
@@ -270,6 +271,7 @@ MonoBehaviour:
   - {fileID: 9129048633998310235}
   - {fileID: 1083631391293132386}
   - {fileID: 3731990467408335882}
+  sfxGrabedObject: 
 --- !u!114 &477895153
 MonoBehaviour:
   m_ObjectHideFlags: 0

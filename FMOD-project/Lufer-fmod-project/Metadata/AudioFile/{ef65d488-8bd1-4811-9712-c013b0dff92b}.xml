@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.01.00">
-	<object class="AudioFile" id="{07e5057a-02bb-494d-ac57-eb79f86a323f}">
+	<object class="AudioFile" id="{ef65d488-8bd1-4811-9712-c013b0dff92b}">
 		<property name="assetPath">
-			<value>SFX/sfx-chest-opening.wav</value>
+			<value>SFX/sfx-ranged-enemy-attack.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>
