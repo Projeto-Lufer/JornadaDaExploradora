@@ -141,7 +141,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   fov: 90
-  radius: 5
+  radius: 4
   rayCount: 50
   sweepRange: 2.71
   showRays: 0
@@ -376,7 +376,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentToDestroy: {fileID: 2202740110688647472}
-  maxHP: 5
+  maxHP: 10
   HPView: {fileID: 62554323867951339}
   stateMachine: {fileID: 4774286159638926702}
 --- !u!114 &62554323867951339
@@ -438,7 +438,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a205c8befd9eaf44e9ea1b3830df3dff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 5
+  radius: 3
   targetLayer: 6
   obstructingTags:
   - Obstacle
@@ -488,7 +488,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a205c8befd9eaf44e9ea1b3830df3dff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 13
+  radius: 5
   targetLayer: 6
   obstructingTags:
   - Obstacle
