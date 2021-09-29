@@ -284,7 +284,7 @@ MonoBehaviour:
   fightAreaDetector: {fileID: 2118058242632274277}
   parentToRotate: {fileID: 4462619697762002774}
   meleeAttack: {fileID: 8898433266695747558}
-  attackCooldownTime: 1
+  attackCooldownTime: 0.2
   attackStats: {fileID: 11400000, guid: dd5f645cae6f02f49bbceda765b2daca, type: 2}
   turnSmoothTime: 0.1
   chaseDelay: 0.3
