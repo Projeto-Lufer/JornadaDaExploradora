@@ -141,7 +141,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   fov: 90
-  radius: 5
+  radius: 4
   rayCount: 50
   sweepRange: 2.71
   showRays: 0
@@ -284,7 +284,7 @@ MonoBehaviour:
   fightAreaDetector: {fileID: 2118058242632274277}
   parentToRotate: {fileID: 4462619697762002774}
   meleeAttack: {fileID: 8898433266695747558}
-  attackCooldownTime: 1
+  attackCooldownTime: 0.2
   attackStats: {fileID: 11400000, guid: dd5f645cae6f02f49bbceda765b2daca, type: 2}
   turnSmoothTime: 0.1
   chaseDelay: 0.3
@@ -438,7 +438,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a205c8befd9eaf44e9ea1b3830df3dff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 5
+  radius: 3
   targetLayer: 6
   obstructingTags:
   - Obstacle
@@ -488,7 +488,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a205c8befd9eaf44e9ea1b3830df3dff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 13
+  radius: 5
   targetLayer: 6
   obstructingTags:
   - Obstacle

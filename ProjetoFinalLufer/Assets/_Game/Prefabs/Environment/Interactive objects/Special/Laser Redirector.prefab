@@ -217,7 +217,7 @@ MonoBehaviour:
   canEmmit: 0
   ignoreLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 640
   canTurn: 0
 --- !u!54 &206869682706105261
 Rigidbody:

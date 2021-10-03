@@ -54,7 +54,7 @@ public class LaserEmmiter : MonoBehaviour
                         hit.transform.SendMessage("Interact");
                         lastHit = hit.transform.gameObject;
                     }
-                    else if(lastHit != null && lastHit.tag != hit.transform.tag)
+                    else if(lastHit != null)
                     {
                         lastHit.SendMessage("Interact");
                         hit.transform.SendMessage("Interact");
@@ -93,6 +93,7 @@ public class LaserEmmiter : MonoBehaviour
                 {
                     if(lastHit.activeSelf == true)
                     {
+                        Debug.Log("socorro");
                         lastHit.transform.SendMessage("Interact");
                     }
                     lastHit = null;

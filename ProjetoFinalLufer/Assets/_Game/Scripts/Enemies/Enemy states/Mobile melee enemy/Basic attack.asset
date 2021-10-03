@@ -18,8 +18,9 @@ MonoBehaviour:
   comboWindowStart: 0
   comboWindowFinish: 0
   hitstunDuration: 0.3
-  cooldown: 2
+  cooldown: 1
   damage: 1
   goesRightToLeft: 1
   knockback: 0
   knockbackTime: 0
+  FMODEventName: 
