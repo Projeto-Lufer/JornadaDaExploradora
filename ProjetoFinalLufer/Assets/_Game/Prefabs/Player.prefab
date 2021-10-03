@@ -972,6 +972,7 @@ MonoBehaviour:
   emptyHeart: {fileID: 0}
   halfHeart: {fileID: 0}
   fullHeart: {fileID: 0}
+  animator: {fileID: 8730488536679072951}
 --- !u!114 &5008123393085208888
 MonoBehaviour:
   m_ObjectHideFlags: 0
