@@ -930,9 +930,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 9
   fov: 90
-  radius: 5
+  radius: 2
   rayCount: 50
-  sweepRange: 1.14
   showRays: 0
 --- !u!114 &4857794338073604352
 MonoBehaviour:
