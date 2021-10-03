@@ -22,7 +22,6 @@ public class MeleeAttacks : MonoBehaviour
     [SerializeField] private float fov = 90f;
     [SerializeField] private float radius = 5f;
     [SerializeField] private int rayCount = 50;
-    [SerializeField] private float sweepRange;
     [SerializeField] private bool showRays;
 
     float angleIncrease;
