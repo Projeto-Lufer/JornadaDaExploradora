@@ -12,11 +12,14 @@ public class PlayerHealthPointsView : MonoBehaviour
     [SerializeField] private Sprite emptyHeart;
     [SerializeField] private Sprite halfHeart;
     [SerializeField] private Sprite fullHeart;
+    [SerializeField] private Animator animator;
     private string baseText;
+    int damageAnimHash;
 
     void Start()
     {
         baseText = healthTextUI.text;
+        damageAnimHash = Animator.StringToHash("Damage");
     }
 
     public void ReactToDamage(int curHP, int maxHP)
@@ -54,6 +57,7 @@ public class PlayerHealthPointsView : MonoBehaviour
     private void PlayDamageVisuals()
     {
         hitParticles.Play();
+        animator.CrossFade(damageAnimHash, 0f);
 
         //TODO:
         // 1. Tocar animacao
