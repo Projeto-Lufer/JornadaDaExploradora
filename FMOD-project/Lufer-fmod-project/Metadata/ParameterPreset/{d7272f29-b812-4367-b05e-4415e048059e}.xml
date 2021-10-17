@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="ParameterPreset" id="{d7272f29-b812-4367-b05e-4415e048059e}">
+		<property name="name">
+			<value>Special Attack Ending</value>
+		</property>
+		<relationship name="folder">
+			<destination>{14e21aa9-a487-4cb5-90e6-a5363119b4d9}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{3b0a0079-9882-4719-8bc2-c6ba6d7a9e11}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{3b0a0079-9882-4719-8bc2-c6ba6d7a9e11}">
+		<property name="parameterType">
+			<value>2</value>
+		</property>
+		<property name="maximum">
+			<value>3</value>
+		</property>
+		<property name="enumerationLabels">
+			<value>Loop</value>
+			<value>FullEnd</value>
+			<value>EmptyEnd</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>
