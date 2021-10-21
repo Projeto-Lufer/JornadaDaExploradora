@@ -22,7 +22,10 @@ public abstract class Activator : Interactive
 
     public override void Interact()
     {
-        meshRenderer.material = activatedMaterial;
+        if(deactivatedMaterial != null)
+        {
+            meshRenderer.material = activatedMaterial;
+        }
         objectToActivate.Activate();
         objectToActivate.Activate(gameObject);
     }
