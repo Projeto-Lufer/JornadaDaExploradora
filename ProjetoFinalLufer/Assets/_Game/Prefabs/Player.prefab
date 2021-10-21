@@ -707,7 +707,7 @@ GameObject:
   - component: {fileID: 7762025946051498913}
   - component: {fileID: 7762025946051498975}
   - component: {fileID: 7762025946051498912}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Interactive Identifier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
