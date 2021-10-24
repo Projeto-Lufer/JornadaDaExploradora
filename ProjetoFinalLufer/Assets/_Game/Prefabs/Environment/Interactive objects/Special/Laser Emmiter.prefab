@@ -177,10 +177,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxDistance: 10000
-  canEmmit: 1
   ignoreLayer:
     serializedVersion: 2
     m_Bits: 640
+  startOn: 1
+  startPoint: {fileID: 6918679195810518144}
+  canEmmit: 1
 --- !u!1001 &359879015195280933
 PrefabInstance:
   m_ObjectHideFlags: 0
