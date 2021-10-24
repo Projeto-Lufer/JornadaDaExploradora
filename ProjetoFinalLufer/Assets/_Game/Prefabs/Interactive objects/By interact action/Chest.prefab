@@ -49,7 +49,10 @@ MonoBehaviour:
     sentences:
     - Vc ja abriu este bau
     - Ele esta vazio
+  isLocked: 0
   animator: {fileID: 348519166}
+  sfxDoorLocked: event:/SFX/Objects/sfx-door-locked
+  sfxDoorUnlocked: event:/SFX/Objects/sfx-door-unlocked
   sfxChestOpening: event:/SFX/Objects/sfx-chest-opening
 --- !u!1 &2218563041017206872
 GameObject:
@@ -144,6 +147,7 @@ GameObject:
   - component: {fileID: 7380301091724188953}
   - component: {fileID: 8851745479133740086}
   - component: {fileID: 6575517994404330914}
+  - component: {fileID: 1621062241503543655}
   - component: {fileID: 4108574464624202671}
   - component: {fileID: 532094467837806434}
   - component: {fileID: 348519166}
@@ -220,6 +224,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1621062241503543655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7801281324660050922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4d092ef7c77e414d8fdfd2a7e20d5b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activatorsAmountNeeded: 1
+  container: {fileID: 4738306755170977718}
 --- !u!65 &4108574464624202671
 BoxCollider:
   m_ObjectHideFlags: 0
