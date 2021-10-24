@@ -7,8 +7,15 @@ public class EnemyHealthPoints : HealthPoints
     [SerializeField] private EnemyHealthPointsView HPView;
     [SerializeField] private StateMachine stateMachine;
 
+    [Header("Audio FMOD Event")]
+    [FMODUnity.EventRef]
+    public string sfxEnemyReceivingDamage;
+    [FMODUnity.EventRef]
+    public string sfxEnemyDying;
+
     public override void ReduceHealth(ComboElement attackStats)
     {
+        FMODUnity.RuntimeManager.PlayOneShot(sfxEnemyReceivingDamage, transform.position);
         base.ReduceHealth(attackStats);
 
         HPView.PlayDamageVisuals();
@@ -29,6 +36,7 @@ public class EnemyHealthPoints : HealthPoints
 
     private void Die()
     {
+        FMODUnity.RuntimeManager.PlayOneShot(sfxEnemyDying, transform.position);
         HPView.PlayDeathVisual();
         Destroy(parentToDestroy);
     }
