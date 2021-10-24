@@ -34,7 +34,6 @@ public class PlayerNotActingState : ConcurrentState
                 }
                 else if (interactiveType == typeof(PushableObject))
                 {
-                    interactiveIdentifier.PopMostrelevantInteractive();
                     interactive.Interact();
                     objectManipulator.GrabObject(interactive.gameObject);
                     base.stateMachine.ChangeState(typeof(PlayerDraggingState));                 
