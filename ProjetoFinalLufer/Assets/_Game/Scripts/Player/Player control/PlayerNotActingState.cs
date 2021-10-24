@@ -27,13 +27,13 @@ public class PlayerNotActingState : ConcurrentState
                     objectManipulator.LiftObject(interactive.gameObject);
                     base.stateMachine.ChangeState(typeof(PlayerLiftingState));
                 }
-                else if(interactiveType.IsSubclassOf(typeof(Activator)) && interactiveType != typeof(GroundButton))
+                else if(interactiveType.IsSubclassOf(typeof(Activator)) && interactiveType != typeof(GroundButton)
+                    && !interactive.CompareTag("Receptor"))
                 {
                     interactive.Interact();
                 }
                 else if (interactiveType == typeof(PushableObject))
                 {
-                    interactiveIdentifier.PopMostrelevantInteractive();
                     interactive.Interact();
                     objectManipulator.GrabObject(interactive.gameObject);
                     base.stateMachine.ChangeState(typeof(PlayerDraggingState));                 

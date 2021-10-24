@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -81,7 +82,7 @@ public class PlayerMovingState : ConcurrentState
         {
             currSpeed = speed / 2;
 
-            if(transform.forward.x != 0)
+            if(Math.Abs(transform.forward.x) > Math.Abs(transform.forward.z))
             {
                 direction.z = 0f;
             }

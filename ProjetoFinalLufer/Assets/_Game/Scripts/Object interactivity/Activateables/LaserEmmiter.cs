@@ -2,43 +2,60 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LaserEmmiter : MonoBehaviour
+public class LaserEmmiter : Activateable
 {
-    private LineRenderer lr;
-    private Transform startPoint;
-    private GameObject lastHit;
     [SerializeField] private int maxDistance;
-    public bool canEmmit;
-
     [SerializeField] private LayerMask ignoreLayer;
-    private LayerMask targetLayers;
+    [SerializeField] private bool startOn;
+    [SerializeField] private Transform startPoint;
 
-    [Header("Audio FMOD Event")]
-    [FMODUnity.EventRef]
-    public string sfxLightEmitterChanneling;
+    private LineRenderer lr;
+    private GameObject lastHit;
+    private LayerMask targetLayers;
+    private Coroutine emmitCoroutine;
+    private Activator lastActivatorHit;
 
     void Start()
     {
         lr = GetComponent<LineRenderer>();
-        startPoint = gameObject.transform;
         targetLayers = ~ignoreLayer;
-        FMODUnity.RuntimeManager.PlayOneShot(sfxLightEmitterChanneling, transform.position);
+        lastHit = gameObject;
+
+        if(startOn)
+        {
+            this.Activate();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void Activate()
     {
-        Emmit();
+        if(emmitCoroutine == null)
+        {
+            emmitCoroutine = StartCoroutine(Emmit());
+        }
     }
 
-    public void Emmit()
+    public override void Deactivate()
     {
-        if(canEmmit)
+        lr.SetPosition(0, startPoint.position);
+        lr.SetPosition(1, startPoint.position);
+
+        DisableLastActivatorHit();
+        if(emmitCoroutine != null)
+        {
+            StopCoroutine(emmitCoroutine);
+            emmitCoroutine = null;
+        }
+    }
+
+    public IEnumerator Emmit()
+    {
+        while (true)
         {
             lr.positionCount = 2;
             lr.SetPosition(0, startPoint.position);
             RaycastHit hit;
-
+            
             if (Physics.Raycast(transform.position, transform.forward, out hit, maxDistance, targetLayers))
             {
                 if (hit.collider)
@@ -46,75 +63,44 @@ public class LaserEmmiter : MonoBehaviour
                     lr.SetPosition(1, hit.point);
                 }
 
-                if (hit.transform.tag == "Receptor" || hit.transform.tag == "Redirector")
+                if (IsHittingDifferentObject(hit))
                 {
-                    if (lastHit == null)
+                    DisableLastActivatorHit();
+                    if (hit.transform.CompareTag("Receptor") || hit.transform.CompareTag("Shield"))
                     {
-                        hit.transform.SendMessage("Interact");
-                        lastHit = hit.transform.gameObject;
+                        lastActivatorHit = hit.transform.GetComponent<Activator>();
+                        lastActivatorHit.Interact();
                     }
-                    else if(lastHit != null && lastHit.tag == "Shield")
-                    {
-                        lastHit.SendMessage("Interact");
-                        hit.transform.SendMessage("Interact");
-                        lastHit = hit.transform.gameObject;
-                    }
-                    else if(lastHit != null)
-                    {
-                        lastHit.SendMessage("Interact");
-                        hit.transform.SendMessage("Interact");
-                        lastHit = hit.transform.gameObject;
-                    }
-                }
-                else if (hit.transform.tag == "Shield")
-                {
-                    if (lastHit == null)
-                    {
-                        hit.transform.SendMessage("Interact");
-                        lastHit = hit.transform.gameObject;
-                    }
-                    else if(lastHit != null && lastHit.tag != "Shield")
-                    {
-                        hit.transform.SendMessage("Interact");
-                    }
-                }
-                else
-                {
-                    if (lastHit != null)
-                    {
-                        if(lastHit.activeSelf == true)
-                        {
-                            lastHit.transform.SendMessage("Interact");
-                        }
-                        lastHit = null;
-                    }
+
+                    lastHit = hit.collider.gameObject;
                 }
             }
             else
             {
                 lr.SetPosition(1, transform.forward * maxDistance);
-
-                if (lastHit != null)
-                {
-                    if(lastHit.activeSelf == true)
-                    {
-                        Debug.Log("socorro");
-                        lastHit.transform.SendMessage("Interact");
-                    }
-                    lastHit = null;
-                }
-            }
-        }
-        else
-        {
-            if(lastHit != null)
-            {
-                lastHit.SendMessage("Interact");
+                DisableLastActivatorHit();
+                
+                lastActivatorHit = null;
                 lastHit = null;
             }
-            lr.SetPosition(0, startPoint.position);
-            lr.SetPosition(1, startPoint.position);
+            yield return null;
         }
+    }
 
+    private bool IsHittingDifferentObject(RaycastHit raycastData)
+    {
+        return lastHit == null || !lastHit.Equals(raycastData.collider.gameObject);
+    }
+
+    private void DisableLastActivatorHit()
+    {
+        if (lastActivatorHit != null)
+        {
+            if (lastActivatorHit.gameObject.activeSelf)
+            {
+                lastActivatorHit.Interact();
+            }
+            lastActivatorHit = null;
+        }
     }
 }

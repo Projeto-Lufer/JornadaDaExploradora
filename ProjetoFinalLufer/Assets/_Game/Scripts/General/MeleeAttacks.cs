@@ -124,7 +124,8 @@ public class MeleeAttacks : MonoBehaviour
                     {
                         Vector3 direction = hit.collider.transform.position - transform.position;
                         direction.y = 0;
-                        if(hit.collider.transform.parent != null)
+                        
+                        if(hit.collider.transform.parent != null && ShouldKnockback(hit))
                         {
                             Rigidbody rb = hit.collider.transform.parent.GetComponent<Rigidbody>();
                             if (rb != null)
@@ -138,6 +139,11 @@ public class MeleeAttacks : MonoBehaviour
                 }
             }
         }
+    }
+
+    private bool ShouldKnockback(RaycastHit hit)
+    {
+        return !hit.collider.CompareTag("Obstacle");
     }
 
     private IEnumerator removeKnockbackForce(Rigidbody rb, float t)
