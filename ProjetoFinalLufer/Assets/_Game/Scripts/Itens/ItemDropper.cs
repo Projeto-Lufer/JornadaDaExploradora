@@ -6,7 +6,7 @@ public class ItemDropper : MonoBehaviour
 {
     [SerializeField] private GameObject itemToDrop;
 
-    public void DropItem()
+    public virtual void DropItem()
     {
         if(itemToDrop != null)
         {
