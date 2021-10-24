@@ -10,7 +10,7 @@ public class InteractiveIdentifier : MonoBehaviour
     {
         Interactive interactive = other.GetComponentInChildren<Interactive>();
 
-        if(interactive != null && !interactivesInRange.Contains(interactive))
+        if(interactive != null && !interactivesInRange.Contains(interactive) && other.tag != "Receptor")
         {
             // gambiarra
             interactivesInRange.Clear();
