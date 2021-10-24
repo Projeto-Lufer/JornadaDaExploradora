@@ -74,7 +74,7 @@ LineRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6918679195810518206}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 0
@@ -116,8 +116,8 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.05764967
-        value: 0.6092233
+        time: 0.04924589
+        value: 0.66666603
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -177,10 +177,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxDistance: 10000
-  canEmmit: 1
   ignoreLayer:
     serializedVersion: 2
     m_Bits: 640
+  startOn: 1
+  startPoint: {fileID: 6918679195810518144}
 --- !u!1001 &359879015195280933
 PrefabInstance:
   m_ObjectHideFlags: 0

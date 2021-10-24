@@ -8,9 +8,17 @@ public class DeactivateableActivator : Activator
     
     public virtual void Deactivate()
     {
-        base.meshRenderer.material = base.deactivatedMaterial;
+        if(base.meshRenderer != null)
+        {
+            base.meshRenderer.material = base.deactivatedMaterial;
+        }
         isActive = false;
         base.objectToActivate.Deactivate();
         base.objectToActivate.Deactivate(gameObject);
+    }
+
+    public bool GetIsActive()
+    {
+        return isActive;
     }
 }
