@@ -2451,7 +2451,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh160514
+  m_Name: pb_Mesh20980
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4220,6 +4220,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1339915610}
     m_Modifications:
+    - target: {fileID: -5687116400900070869, guid: d7788f2ea449e0546831d3c0560e1e58,
+        type: 3}
+      propertyPath: objectToActivate
+      value: 
+      objectReference: {fileID: 1471227537}
     - target: {fileID: 2071102325192679981, guid: d7788f2ea449e0546831d3c0560e1e58,
         type: 3}
       propertyPath: m_RootOrder
@@ -6051,6 +6056,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 658932927940311540}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1471227537 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1621062241503543655, guid: 197891135e3be8148a05e4d33c94227d,
+    type: 3}
+  m_PrefabInstance: {fileID: 84301488}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4d092ef7c77e414d8fdfd2a7e20d5b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1484714045
 GameObject:
   m_ObjectHideFlags: 0
@@ -6449,6 +6466,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Laser Emmiter
       objectReference: {fileID: 0}
+    - target: {fileID: 6918679195810518206, guid: bc9439ba41cb82442b7d1eb5786d19ac,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc9439ba41cb82442b7d1eb5786d19ac, type: 3}
 --- !u!4 &1525915378 stripped
@@ -6836,6 +6858,11 @@ PrefabInstance:
       propertyPath: healthTextUI
       value: 
       objectReference: {fileID: 756167241}
+    - target: {fileID: 2271126291506015462, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4857794338073604352, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
         type: 3}
       propertyPath: transitionsManager
@@ -9682,7 +9709,7 @@ PrefabInstance:
     - target: {fileID: 6918679195810518144, guid: bc9439ba41cb82442b7d1eb5786d19ac,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 15.66
+      value: 14.47
       objectReference: {fileID: 0}
     - target: {fileID: 6918679195810518144, guid: bc9439ba41cb82442b7d1eb5786d19ac,
         type: 3}
