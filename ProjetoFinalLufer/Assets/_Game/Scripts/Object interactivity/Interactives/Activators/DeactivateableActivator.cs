@@ -16,4 +16,9 @@ public class DeactivateableActivator : Activator
         base.objectToActivate.Deactivate();
         base.objectToActivate.Deactivate(gameObject);
     }
+
+    public bool GetIsActive()
+    {
+        return isActive;
+    }
 }
