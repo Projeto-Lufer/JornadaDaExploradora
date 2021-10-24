@@ -9,5 +9,6 @@ public class HealItem : CollectableObject
     public override void Collect(ObjectCollector collector)
     {
         collector.GetComponent<PlayerHealthPoints>().AddHealth(healAmount);
+        Destroy(this.gameObject);
     }
 }

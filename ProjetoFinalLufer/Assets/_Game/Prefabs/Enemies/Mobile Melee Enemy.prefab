@@ -249,6 +249,7 @@ MonoBehaviour:
   chaseAreaDetector: {fileID: 4583803838000307223}
   agent: {fileID: 1973560530444295902}
   patrolRoute: {fileID: 0}
+  distanceToPointToGoToNextPoint: 1
 --- !u!114 &6743590932463004393
 MonoBehaviour:
   m_ObjectHideFlags: 0
