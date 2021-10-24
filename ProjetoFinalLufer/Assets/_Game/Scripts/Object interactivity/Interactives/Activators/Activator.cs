@@ -7,17 +7,21 @@ public abstract class Activator : Interactive
     [SerializeField] protected Activateable objectToActivate;
     [SerializeField] protected Material activatedMaterial;
 
+    [SerializeField] private bool changeMaterialWhenActivated = true;
     protected Material deactivatedMaterial;
     [SerializeField] protected MeshRenderer meshRenderer;
 
     protected virtual void Start()
     {
-        MeshRenderer renderer = GetComponent<MeshRenderer>();
-        if(renderer != null)
+        if(changeMaterialWhenActivated)
         {
-            meshRenderer = renderer;
+            MeshRenderer renderer = GetComponent<MeshRenderer>();
+            if(renderer != null)
+            {
+                meshRenderer = renderer;
+            }
+            deactivatedMaterial = meshRenderer.material;
         }
-        deactivatedMaterial = meshRenderer.material;
     }
 
     public override void Interact()
