@@ -20,7 +20,7 @@ public class StaticRangedEnemyShootingState : SimpleAnimatableState
     [FMODUnity.EventRef]
     public string sfxRangedEnemyDigDown;
     [FMODUnity.EventRef]
-    public string sfxRangedEnemyGrowl;
+    public string sfxRangedEnemyGrowlAttacking;
 
     // Internal attributes
     private WaitForSeconds startledTimeWFS;
@@ -48,7 +48,6 @@ public class StaticRangedEnemyShootingState : SimpleAnimatableState
         }
 
         FMODUnity.RuntimeManager.PlayOneShot(sfxRangedEnemyDigUp, transform.position);
-        FMODUnity.RuntimeManager.PlayOneShot(sfxRangedEnemyGrowl, transform.position);
     }
 
     public override void Exit()
@@ -73,6 +72,7 @@ public class StaticRangedEnemyShootingState : SimpleAnimatableState
                 yield return null;
             }
             base.PlayAnimationTrigger("Attack");
+            FMODUnity.RuntimeManager.PlayOneShot(sfxRangedEnemyGrowlAttacking, transform.position);
         }
     }
 

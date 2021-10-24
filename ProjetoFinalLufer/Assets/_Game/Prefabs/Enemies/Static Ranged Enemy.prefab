@@ -88,7 +88,7 @@ MonoBehaviour:
   timeBetweenShots: 1.5
   sfxRangedEnemyDigUp: event:/SFX/Ranged Enemy/sfx-ranged-enemy-digup
   sfxRangedEnemyDigDown: event:/SFX/Ranged Enemy/sfx-ranged-enemy-digdown
-  sfxRangedEnemyGrowl: event:/SFX/Ranged Enemy/sfx-ranged-enemy-growl
+  sfxRangedEnemyGrowlAttacking: event:/SFX/Ranged Enemy/sfx-ranged-enemy-growl-attacking
 --- !u!114 &1380372191267114816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -308,7 +308,8 @@ MonoBehaviour:
   maxHP: 3
   HPView: {fileID: 2726814560231821363}
   stateMachine: {fileID: 782939195644684967}
-  sfxEnemyReceivingDamage: event:/SFX/Ayla/sfx-ayla-receiving-damage
+  sfxEnemyGrowlReceivingDamage: event:/SFX/Ranged Enemy/sfx-ranged-enemy-growl-receiving-damage
+  sfxEnemyHitReceivingDamage: event:/SFX/Ayla/sfx-ayla-receiving-damage
   sfxEnemyDying: event:/SFX/Melee Enemy/sfx-enemy-dying
 --- !u!114 &2726814560231821363
 MonoBehaviour:

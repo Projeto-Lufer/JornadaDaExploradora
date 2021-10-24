@@ -374,7 +374,8 @@ MonoBehaviour:
   maxHP: 5
   HPView: {fileID: 62554323867951339}
   stateMachine: {fileID: 4774286159638926702}
-  sfxEnemyReceivingDamage: event:/SFX/Ayla/sfx-ayla-receiving-damage
+  sfxEnemyGrowlReceivingDamage: event:/SFX/Ranged Enemy/sfx-ranged-enemy-growl-receiving-damage
+  sfxEnemyHitReceivingDamage: event:/SFX/Ayla/sfx-ayla-receiving-damage
   sfxEnemyDying: event:/SFX/Melee Enemy/sfx-enemy-dying
 --- !u!114 &62554323867951339
 MonoBehaviour:
