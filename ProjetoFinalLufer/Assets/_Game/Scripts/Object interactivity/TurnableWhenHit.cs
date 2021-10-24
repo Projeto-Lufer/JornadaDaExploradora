@@ -15,16 +15,6 @@ public class TurnableWhenHit : HealthPoints
 
     public override void ReduceHealth(ComboElement attackStats)
     {
-        LaserRedirector lr = base.GetComponentInChildren<LaserRedirector>();
-        if (lr != null)
-        {
-            Turn();
-            return;
-        }
-    }
-
-    public void Turn()
-    {
         if (turnCoroutine == null)
         {
             turnCoroutine = StartCoroutine(TurnAnimation());
