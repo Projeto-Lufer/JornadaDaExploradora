@@ -141,7 +141,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   fov: 90
-  radius: 4
+  radius: 2.5
   rayCount: 50
   showRays: 0
 --- !u!195 &1973560530444295902
@@ -438,7 +438,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a205c8befd9eaf44e9ea1b3830df3dff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 3
+  radius: 2.5
   targetLayer: 6
   obstructingTags:
   - Obstacle
