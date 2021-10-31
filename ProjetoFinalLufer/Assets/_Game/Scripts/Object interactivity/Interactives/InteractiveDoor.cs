@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class InteractiveDoor : Interactive
 {
+    [SerializeField] private Item keyType;
     [SerializeField] private bool isLocked;
     [SerializeField] private GameObject lockObject;
     [SerializeField] private Animator animator;
@@ -27,17 +28,17 @@ public class InteractiveDoor : Interactive
     {
         ObjectCollector collector = player.GetComponent<ObjectCollector>();
 
-        if(isLocked && collector.GetKeysPossessed() == 0)
+        if(isLocked && collector.CheckQty(keyType) == 0)
         {
             FMODUnity.RuntimeManager.PlayOneShot(sfxDoorLocked, transform.position);
             player.GetComponentInChildren<PlayerDialogueState>().dialogue = lockedDialogue;
             player.transform.GetChild(2).GetComponent<ConcurrentStateMachine>().ChangeState(typeof(PlayerDialogueState));
         }
-        else if (isLocked && collector.GetKeysPossessed() > 0)
+        else if (isLocked && collector.CheckQty(keyType) > 0)
         {
             FMODUnity.RuntimeManager.PlayOneShot(sfxDoorUnlocked, transform.position);
             isLocked = false;
-            collector.UseKey();
+            collector.UseItem(keyType);
             lockObject.SetActive(false);
         }
         else if(!isLocked)

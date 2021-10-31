@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RegularKeyItem : CollectableObject
+public class GenericItem : CollectableObject
 {
+    [SerializeField] Item itemType;
     public override void Collect(ObjectCollector collector)
     {
-        collector.GetItem(Item.regularKey);
+        collector.GetItem(itemType);
         base.Collect(collector);
     }
 }
