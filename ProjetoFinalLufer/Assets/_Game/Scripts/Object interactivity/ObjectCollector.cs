@@ -39,6 +39,11 @@ public class ObjectCollector : MonoBehaviour
         canCollect = true;
     }
 
+    public int CheckQty(Item i)
+    {
+        return (inventory.ContainsKey(i) ? inventory[i] : 0);
+    }
+
     public void GetItem(Item item)
     {
         inventory[item] = 1 + (inventory.ContainsKey(item) ? inventory[item] : 0);

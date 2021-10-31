@@ -41,6 +41,7 @@ public class PlayerHealthPoints : HealthPoints
 
     public void AddHealth(int amount)
     {
+        amount = Mathf.Min(amount, base.maxHP - base.curHP);
         base.curHP += amount;
         playerHPView.UpdateHealthUI(base.curHP, base.maxHP);
         FMODUnity.RuntimeManager.PlayOneShot(sfxAddHealth, transform.position);
