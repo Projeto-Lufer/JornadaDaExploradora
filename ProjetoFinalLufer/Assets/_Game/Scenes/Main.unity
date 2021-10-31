@@ -537,7 +537,7 @@ PrefabInstance:
     - target: {fileID: 7029509177957057631, guid: 5a4fdc4952a171143ab9d53f839106e0,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: QuitGame
+      value: ReturnToMenu
       objectReference: {fileID: 0}
     - target: {fileID: 7029509177957057631, guid: 5a4fdc4952a171143ab9d53f839106e0,
         type: 3}
@@ -3443,7 +3443,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh21310
+  m_Name: pb_Mesh24324
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5658,7 +5658,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.39410752, y: 0.58709395, z: -0.39410752, w: 0.58709395}
-  m_LocalPosition: {x: 97.878265, y: 9.508188, z: -49.943104}
+  m_LocalPosition: {x: 72.908264, y: 9.508183, z: -49.758183}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 888240360}
@@ -10792,7 +10792,7 @@ PrefabInstance:
     - target: {fileID: 8766830120189401714, guid: 34d750e1486d24c43815319b2a1e2748,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: QuitGame
+      value: ReturnToMenu
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34d750e1486d24c43815319b2a1e2748, type: 3}
