@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa6d625560e925e409c17728b30c90b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chargeTime: 2
+  chargeTime: 0.7
   currChargeTime: 0
   maxDistance: 7
   time: 0.25
@@ -715,6 +715,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99648728a11083646b704857a633aff7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 8730488536679072951}
 --- !u!1 &7762025945828408407
 GameObject:
   m_ObjectHideFlags: 0
@@ -979,8 +980,8 @@ MonoBehaviour:
   targetLayer:
     serializedVersion: 2
     m_Bits: 9
-  fov: 90
-  radius: 2
+  fov: 75
+  radius: 1.5
   rayCount: 50
   showRays: 0
 --- !u!114 &4857794338073604352
