@@ -894,6 +894,7 @@ GameObject:
   - component: {fileID: 4766827225807830560}
   - component: {fileID: 4857794338073604352}
   - component: {fileID: 2154762436887923820}
+  - component: {fileID: 4303454842182127869}
   - component: {fileID: 5008123393085208888}
   - component: {fileID: 164156725}
   m_Layer: 6
@@ -1023,6 +1024,25 @@ MonoBehaviour:
   halfHeart: {fileID: 0}
   fullHeart: {fileID: 0}
   animator: {fileID: 8730488536679072951}
+  damageBlinkController: {fileID: 4303454842182127869}
+--- !u!114 &4303454842182127869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7762025947535230013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ddfff8436825e942ade4ea19bab6c2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modelToBlink: {fileID: 5937285092459470075}
+  damageBlinkMaterials:
+  - {fileID: 2100000, guid: 6178c61d7b859b44c83114ea6b728a37, type: 2}
+  - {fileID: 2100000, guid: ebdbee0838807f844b931a15a2ac6f7e, type: 2}
+  - {fileID: 2100000, guid: 6d42b7b967b79434db3655315a4fe8dc, type: 2}
+  blinkDuration: 1.5
 --- !u!114 &5008123393085208888
 MonoBehaviour:
   m_ObjectHideFlags: 0

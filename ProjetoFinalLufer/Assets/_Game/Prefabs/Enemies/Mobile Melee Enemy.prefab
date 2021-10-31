@@ -284,7 +284,6 @@ MonoBehaviour:
   fightAreaDetector: {fileID: 2118058242632274277}
   parentToRotate: {fileID: 4462619697762002774}
   meleeAttack: {fileID: 8898433266695747558}
-  attackCooldownTime: 0.2
   attackStats: {fileID: 11400000, guid: dd5f645cae6f02f49bbceda765b2daca, type: 2}
   turnSmoothTime: 0.1
   chaseDelay: 0.3
@@ -328,6 +327,7 @@ GameObject:
   - component: {fileID: 3359830711433006887}
   - component: {fileID: 5829315856587164826}
   - component: {fileID: 62554323867951339}
+  - component: {fileID: 161284756295586557}
   m_Layer: 3
   m_Name: Body collider
   m_TagString: Untagged
@@ -395,6 +395,23 @@ MonoBehaviour:
   stunnedVFX: {fileID: 0}
   deathVFX: {fileID: 5803288318614513315, guid: e05b16b468729de4baf8f72f1a5e5fc4,
     type: 3}
+  damageBlinkController: {fileID: 161284756295586557}
+--- !u!114 &161284756295586557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6355608670794030397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ddfff8436825e942ade4ea19bab6c2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modelToBlink: {fileID: 28590820966086290}
+  damageBlinkMaterials:
+  - {fileID: 2100000, guid: e5fad75daece18243aceccd78c871649, type: 2}
+  blinkDuration: 1.5
 --- !u!1 &6570715575224956760
 GameObject:
   m_ObjectHideFlags: 0
