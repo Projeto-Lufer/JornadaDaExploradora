@@ -10,6 +10,8 @@ public class MobileMeleeEnemyPatrollingState : SimpleAnimatableState
     [SerializeField] private NavMeshAgent agent;
     public PatrolRoute patrolRoute;
 
+    [SerializeField] private float distanceToPointToGoToNextPoint;
+
     // Internal variables
     private int nextPatrolPointIndex;
 
@@ -36,7 +38,7 @@ public class MobileMeleeEnemyPatrollingState : SimpleAnimatableState
 
         while (true)
         {
-            if (Vector3.Distance(patrolRoute.GetNextPatrolPointPosition(), transform.position) <= 2.6)
+            if (Vector3.Distance(patrolRoute.GetNextPatrolPointPosition(), transform.position) <= distanceToPointToGoToNextPoint)
             {
                 patrolRoute.GoToNextPatrolPoint();
 

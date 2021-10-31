@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -13,6 +14,8 @@ public class PlayerHealthPointsView : MonoBehaviour
     [SerializeField] private Sprite halfHeart;
     [SerializeField] private Sprite fullHeart;
     [SerializeField] private Animator animator;
+    [SerializeField] private DamageBlinkController damageBlinkController;
+
     private string baseText;
     int damageAnimHash;
 
@@ -59,8 +62,6 @@ public class PlayerHealthPointsView : MonoBehaviour
         hitParticles.Play();
         animator.CrossFade(damageAnimHash, 0f);
 
-        //TODO:
-        // 1. Tocar animacao
-        // 2. Receber callback para destruir objeto quando visuais terminarem
+        damageBlinkController.PlayBlinkingAnimation();
     }
 }

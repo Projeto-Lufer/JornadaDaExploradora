@@ -10,7 +10,6 @@ public class MobileMeleeEnemyFightingState : SimpleAnimatableState
     [SerializeField] private MeleeAttacks meleeAttack;
 
     [Header("Gameplay tweeking fields")]
-    [SerializeField] private float attackCooldownTime;
     [SerializeField] private ComboElement attackStats;
     [SerializeField] private float turnSmoothTime = 0.1f;
     [SerializeField] private float chaseDelay;

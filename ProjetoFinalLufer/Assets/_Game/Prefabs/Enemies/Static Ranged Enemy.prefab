@@ -257,6 +257,7 @@ GameObject:
   - component: {fileID: 3292796288340586847}
   - component: {fileID: 2492329037526491420}
   - component: {fileID: 2726814560231821363}
+  - component: {fileID: 878751207570999200}
   m_Layer: 3
   m_Name: Body collider
   m_TagString: Untagged
@@ -324,6 +325,23 @@ MonoBehaviour:
   stunnedVFX: {fileID: 2103746548446884212}
   deathVFX: {fileID: 5803288318614513315, guid: e05b16b468729de4baf8f72f1a5e5fc4,
     type: 3}
+  damageBlinkController: {fileID: 878751207570999200}
+--- !u!114 &878751207570999200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4072663038609025270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ddfff8436825e942ade4ea19bab6c2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modelToBlink: {fileID: 4207981367255278139}
+  damageBlinkMaterials:
+  - {fileID: 2100000, guid: f09a2b2926f673d459db39c259331802, type: 2}
+  blinkDuration: 1.5
 --- !u!1 &4934168771730955389
 GameObject:
   m_ObjectHideFlags: 0
@@ -1159,12 +1177,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e9bc8bf5e2580145a94250e79b21f36, type: 3}
---- !u!4 &9034322706855978390 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -4571394287749652410, guid: 5e9bc8bf5e2580145a94250e79b21f36,
-    type: 3}
-  m_PrefabInstance: {fileID: 4462919618168341968}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4207981367255278139 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5e9bc8bf5e2580145a94250e79b21f36,
@@ -1174,6 +1186,12 @@ Transform:
 --- !u!1 &3543788024137971841 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5e9bc8bf5e2580145a94250e79b21f36,
+    type: 3}
+  m_PrefabInstance: {fileID: 4462919618168341968}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &9034322706855978390 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -4571394287749652410, guid: 5e9bc8bf5e2580145a94250e79b21f36,
     type: 3}
   m_PrefabInstance: {fileID: 4462919618168341968}
   m_PrefabAsset: {fileID: 0}
