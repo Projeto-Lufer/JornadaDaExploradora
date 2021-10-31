@@ -5143,12 +5143,6 @@ PrefabInstance:
       propertyPath: patrolRoute
       value: 
       objectReference: {fileID: 1557521245}
-    - target: {fileID: 4659243703709026810, guid: f306b541175e5734094440b52fa61c61,
-        type: 3}
-      propertyPath: elementPrefab
-      value: 
-      objectReference: {fileID: 2202740110688647472, guid: f74cac5df04b6a144b14b396f84a4b6e,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f306b541175e5734094440b52fa61c61, type: 3}
 --- !u!1001 &874234204
@@ -5223,12 +5217,6 @@ PrefabInstance:
       propertyPath: patrolRoute
       value: 
       objectReference: {fileID: 1888395338}
-    - target: {fileID: 4659243703709026810, guid: f306b541175e5734094440b52fa61c61,
-        type: 3}
-      propertyPath: elementPrefab
-      value: 
-      objectReference: {fileID: 2202740110688647472, guid: f74cac5df04b6a144b14b396f84a4b6e,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f306b541175e5734094440b52fa61c61, type: 3}
 --- !u!1 &888240359
@@ -5658,7 +5646,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.39410752, y: 0.58709395, z: -0.39410752, w: 0.58709395}
-  m_LocalPosition: {x: 72.908264, y: 9.508183, z: -49.758183}
+  m_LocalPosition: {x: 97.878265, y: 9.508188, z: -49.943104}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 888240360}
