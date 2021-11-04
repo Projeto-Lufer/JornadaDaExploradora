@@ -7,5 +7,6 @@ public class RegularKeyItem : CollectableObject
     public override void Collect(ObjectCollector collector)
     {
         collector.GetItem(Item.regularKey);
+        base.Collect(collector);
     }
 }

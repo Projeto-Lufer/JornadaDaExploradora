@@ -35,6 +35,11 @@ public class PlayerMovingState : ConcurrentState
         camTransform = camScript.transform;
     }
 
+    public override void Exit()
+    {
+        animator.SetBool("Running", false);
+    }
+
 
     public override void HandleInput()
     {
@@ -95,7 +100,6 @@ public class PlayerMovingState : ConcurrentState
         }
         else
         {
-            animator.SetBool("Running", false);
             base.stateMachine.ChangeState(typeof(PlayerIdleState));
         }
     }

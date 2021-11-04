@@ -7,11 +7,12 @@ public class EnemyHealthPointsView : MonoBehaviour
     [SerializeField] private ParticleSystem hitVFX;
     [SerializeField] private GameObject stunnedVFX;
     [SerializeField] private GameObject deathVFX;
+    [SerializeField] private DamageBlinkController damageBlinkController;
 
     public void PlayDamageVisuals()
     {
         hitVFX.Play();
-        //TODO: Play animation
+        damageBlinkController.PlayBlinkingAnimation();
     }
 
     public void PlayDeathVisual()
