@@ -13,6 +13,7 @@ public class victory : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            Time.timeScale = 0;
             UIScreen.SetActive(true);
         }
     }
