@@ -24,4 +24,4 @@ MonoBehaviour:
   knockback: 0
   knockbackTime: 0
   sfxAttack: event:/SFX/Melee Enemy/sfx-melee-enemy-attack
-  voiceSound: event:/SFX/Melee Enemy/sfx-melee-enemy-growl
+  voiceSound: event:/SFX/Melee Enemy/sfx-melee-enemy-growl-attack
