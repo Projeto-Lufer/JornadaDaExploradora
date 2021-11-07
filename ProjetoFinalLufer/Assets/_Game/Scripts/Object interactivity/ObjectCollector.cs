@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class ObjectCollector : MonoBehaviour
@@ -8,7 +10,13 @@ public class ObjectCollector : MonoBehaviour
     private Dictionary<Item, int> inventory = new Dictionary<Item, int>();
     private bool canCollect = true;
     private WaitForSeconds collectionDelay;
-    [SerializeField] private List<GameObject> keyImages;
+    [SerializeField] private List<Image> keyImages;
+    [SerializeField] private Color regularKeyColor;
+    [SerializeField] private Color bossKeyColor;
+    [SerializeField] private Color blueKeyColor;
+    [SerializeField] private Color orangeKeyColor;
+    [SerializeField] private Color redKeyColor;
+
     [SerializeField] private string collectableTag;
 
     private void Start()
@@ -70,11 +78,32 @@ public class ObjectCollector : MonoBehaviour
 
     private void UpdateInvetoryUI()
     {
-        var numberOfKeys = (inventory.ContainsKey(Item.regularKey) ? inventory[Item.regularKey] : 0);
-        for (int i = 0; i < keyImages.Count; i++)
+        List<Tuple<Item, Color>> itemColorMap = new List<Tuple<Item, Color>>{
+            new Tuple<Item, Color>(Item.regularKey,regularKeyColor),
+            new Tuple<Item, Color>(Item.blueKey,blueKeyColor),
+            new Tuple<Item, Color>(Item.orangeKey,orangeKeyColor),
+            new Tuple<Item, Color>(Item.redKey,redKeyColor),
+            new Tuple<Item, Color>(Item.bossKey,bossKeyColor),
+        };
+        int offset = 0;
+        foreach (var pair in itemColorMap)
         {
-            keyImages[i].SetActive(i < numberOfKeys);
+            offset += FillSlots(offset, pair.Item1, pair.Item2);
         }
+        for (int i = offset; i < keyImages.Count; i++)
+        {
+            keyImages[i].gameObject.SetActive(false);
+        }
+    }
+    private int FillSlots(int offset, Item itemType, Color color)
+    {
+        var count = (inventory.ContainsKey(itemType) ? inventory[itemType] : 0);
+        for (int i = 0; i < count; i++)
+        {
+            keyImages[offset + i].gameObject.SetActive(true);
+            keyImages[offset + i].color = color;
+        }
+        return count;
     }
 
     public int GetKeysPossessed()

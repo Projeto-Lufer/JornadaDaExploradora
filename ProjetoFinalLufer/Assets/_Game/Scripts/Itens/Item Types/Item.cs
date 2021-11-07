@@ -5,5 +5,8 @@ using UnityEngine;
 public enum Item
 {
     regularKey,
-    specialKey
+    bossKey,
+    blueKey,
+    orangeKey,
+    redKey
 }

@@ -244,7 +244,7 @@ Transform:
   m_Children:
   - {fileID: 2645542213764038349}
   m_Father: {fileID: 5937285092459470075}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2271126291506015462
 GameObject:
@@ -961,7 +961,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b327981d932c74438a2fb13f973a888, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyImages: []
+  keyImages:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  regularKeyColor: {r: 0.9490196, g: 0.7882353, b: 0.29803923, a: 1}
+  bossKeyColor: {r: 0.5147662, g: 0, b: 1, a: 1}
+  blueKeyColor: {r: 0, g: 0.08320022, b: 1, a: 1}
+  orangeKeyColor: {r: 1, g: 0.46568164, b: 0, a: 1}
+  redKeyColor: {r: 1, g: 0, b: 0, a: 1}
   collectableTag: Collectable
 --- !u!114 &4766827225807830560
 MonoBehaviour:
