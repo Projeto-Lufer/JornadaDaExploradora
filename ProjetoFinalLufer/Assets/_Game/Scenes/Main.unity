@@ -5420,18 +5420,6 @@ RectTransform:
   m_AnchoredPosition: {x: 24.579, y: 0}
   m_SizeDelta: {x: 49.1577, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &892967541
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1066715277}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!222 &892967542
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6019,7 +6007,6 @@ GameObject:
   - component: {fileID: 1066715278}
   - component: {fileID: 1066715280}
   - component: {fileID: 1066715279}
-  - component: {fileID: 892967541}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -8934,12 +8921,12 @@ PrefabInstance:
         type: 3}
       propertyPath: UIText
       value: 
-      objectReference: {fileID: 892967541}
+      objectReference: {fileID: 0}
     - target: {fileID: 6835616210154787277, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
         type: 3}
       propertyPath: RegularKeyText
       value: 
-      objectReference: {fileID: 892967541}
+      objectReference: {fileID: 0}
     - target: {fileID: 6835616210154787277, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
         type: 3}
       propertyPath: keyImages.Array.data[0]
