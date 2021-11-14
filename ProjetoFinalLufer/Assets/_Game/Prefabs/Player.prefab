@@ -806,6 +806,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactivesInRange: []
+  popupText: {fileID: 0}
 --- !u!1 &7762025946394303481
 GameObject:
   m_ObjectHideFlags: 0

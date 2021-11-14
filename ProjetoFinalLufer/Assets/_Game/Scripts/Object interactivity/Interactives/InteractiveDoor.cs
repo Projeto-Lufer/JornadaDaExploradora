@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class InteractiveDoor : Interactive
 {
-    [SerializeField] private Item keyType;
+    [SerializeField] private ItemConfig keyType;
     [SerializeField] private bool isLocked;
     [SerializeField] private GameObject lockObject;
     [SerializeField] private Animator animator;
-    
+
     [Header("Audio FMOD Event")]
     [FMODUnity.EventRef]
     public string sfxDoorOpening;

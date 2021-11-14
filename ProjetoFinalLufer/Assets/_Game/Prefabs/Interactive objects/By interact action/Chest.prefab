@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04396940c86f03f4a8735c96579bd181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  containedItem: 0
+  containedItem: {fileID: 11400000, guid: dc84dcfe55fcacf48a03ebac3c36654e, type: 2}
   emptyDialogue:
     name: 
     sentences:
@@ -79,7 +79,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2218563041017206872}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -55.680367, y: -0.681754, z: 38.77692}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.70899796, y: 1.0996032, z: 1.0186318}
   m_Children: []
   m_Father: {fileID: 7380301091724188953}
