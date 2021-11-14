@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class RegularKeyItem : CollectableObject
 {
+    //[SerializeField] private
     public override void Collect(ObjectCollector collector)
     {
-        collector.GetItem(Item.regularKey);
+        //collector.GetItem(Item.regularKey);
         base.Collect(collector);
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,17 +8,22 @@ public class GameTransitionsManager : MonoBehaviour
     [SerializeField] private GameObject endGameFirstButton;
     [SerializeField] private GameObject victoryPopup;
     [SerializeField] private GameObject victoryFirstButton;
-    [SerializeField] private GameObject inGameMenu;
-    [SerializeField] private GameObject inGameMenuFirstButton;
+    [SerializeField] private GameObject inGameMenuGameObject;
     [SerializeField] private UnityEngine.EventSystems.EventSystem eventSystem;
     [SerializeField] private PlayerInputManager inputManager;
     private bool gameHasEnded;
+    private InGameMenu inGameMenu;
+
+    private void Start()
+    {
+        inGameMenu = inGameMenuGameObject.GetComponent<InGameMenu>();
+    }
 
     private void Update()
     {
         if (inputManager.actionEscape.triggered)
         {
-            SetShowInGameMenu(!inGameMenu.activeInHierarchy);
+            SetShowInGameMenu(!inGameMenuGameObject.activeInHierarchy);
         }
     }
 
@@ -50,8 +56,8 @@ public class GameTransitionsManager : MonoBehaviour
             {
                 Time.timeScale = 1;
             }
-            inGameMenu.SetActive(show);
-            eventSystem.SetSelectedGameObject(inGameMenuFirstButton);
+            inGameMenuGameObject.SetActive(show);
+            inGameMenu.OpenItemsScreen();
         }
     }
 
