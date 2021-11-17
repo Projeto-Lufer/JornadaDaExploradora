@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Assertions;
 using UnityEngine.SceneManagement;
 
 public class GameTransitionsManager : MonoBehaviour
@@ -12,6 +13,23 @@ public class GameTransitionsManager : MonoBehaviour
     [SerializeField] private UnityEngine.EventSystems.EventSystem eventSystem;
     [SerializeField] private PlayerInputManager inputManager;
     private bool gameHasEnded;
+    private InGameMenu inGameMenu;
+    private DepthOfField dof;
+
+    private void Start()
+    {
+        Assert.IsNotNull(inGameMenuGameObject);
+        inGameMenu = inGameMenuGameObject.GetComponent<InGameMenu>();
+        if (!dof)
+        {
+            DepthOfField tempDof;
+
+            if (postProcessingVolume.profile.TryGet(out tempDof))
+            {
+                dof = tempDof;
+            }
+        }
+    }
 
     private void Update()
     {
