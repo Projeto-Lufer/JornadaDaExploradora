@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Assertions;
 using UnityEngine.SceneManagement;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
@@ -21,6 +22,7 @@ public class GameTransitionsManager : MonoBehaviour
 
     private void Start()
     {
+        Assert.IsNotNull(inGameMenuGameObject);
         inGameMenu = inGameMenuGameObject.GetComponent<InGameMenu>();
         if (!dof)
         {
