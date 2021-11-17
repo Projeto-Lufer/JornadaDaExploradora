@@ -7,31 +7,27 @@ using TMPro;
 
 public class ObjectCollector : MonoBehaviour
 {
-    private Dictionary<ItemConfig, int> inventory;
+    private Dictionary<Item, int> inventory = new Dictionary<Item, int>();
     private bool canCollect = true;
     private WaitForSeconds collectionDelay;
     [SerializeField] private List<Image> keyImages;
-    [SerializeField] private ItemConfig regularKeyConfig, bossKeyConfig, blueKeyConfig, orangeKeyConfig, redKeyConfig;
+    [SerializeField] private Color regularKeyColor;
+    [SerializeField] private Color bossKeyColor;
+    [SerializeField] private Color blueKeyColor;
+    [SerializeField] private Color orangeKeyColor;
+    [SerializeField] private Color redKeyColor;
+
     [SerializeField] private string collectableTag;
 
     private void Start()
     {
-        inventory = new Dictionary<ItemConfig, int>()
-        {
-            {regularKeyConfig, 0},
-            {blueKeyConfig, 0},
-            {orangeKeyConfig, 0},
-            {redKeyConfig, 0},
-            {bossKeyConfig, 0}
-        };
-
         UpdateInvetoryUI();
         collectionDelay = new WaitForSeconds(0.4f);
     }
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if (hit.gameObject.CompareTag(collectableTag) && canCollect)
+        if (hit.gameObject.tag == collectableTag && canCollect)
         {
             StartCoroutine(PickupWithDelay(hit));
         }
@@ -51,57 +47,67 @@ public class ObjectCollector : MonoBehaviour
         canCollect = true;
     }
 
-    public int CheckQty(ItemConfig item)
+    public int CheckQty(Item i)
     {
-        return inventory[item];
+        return (inventory.ContainsKey(i) ? inventory[i] : 0);
     }
 
-    public void GetItem(ItemConfig item)
+    public void GetItem(Item item)
     {
-        inventory[item]++;
+        inventory[item] = 1 + (inventory.ContainsKey(item) ? inventory[item] : 0);
         UpdateInvetoryUI();
     }
 
-    public Dictionary<ItemConfig, int> GetInventory()
+    public void UseKey()
     {
-        return inventory;
+        UseItem(Item.regularKey);
     }
-
-    public bool UseItem(ItemConfig item)
+    public bool UseItem(Item item)
     {
-        int keysAmount = inventory[item];
-        if (keysAmount > 0)
+        if ((inventory.ContainsKey(item) ? inventory[item] : 0) > 0)
         {
-            inventory[item]--;
+            inventory[item] = (inventory.ContainsKey(item) ? inventory[item] : 0) - 1;
             UpdateInvetoryUI();
             return true;
         }
-        return false;
+        else
+        {
+            return false;
+        }
     }
 
     private void UpdateInvetoryUI()
     {
-        int lastKeyTypeFinalIndex = 0;
-        foreach (ItemConfig item in inventory.Keys)
+        List<Tuple<Item, Color>> itemColorMap = new List<Tuple<Item, Color>>{
+            new Tuple<Item, Color>(Item.regularKey,regularKeyColor),
+            new Tuple<Item, Color>(Item.blueKey,blueKeyColor),
+            new Tuple<Item, Color>(Item.orangeKey,orangeKeyColor),
+            new Tuple<Item, Color>(Item.redKey,redKeyColor),
+            new Tuple<Item, Color>(Item.bossKey,bossKeyColor),
+        };
+        int offset = 0;
+        foreach (var pair in itemColorMap)
         {
-            lastKeyTypeFinalIndex += ShowKeysOfType(lastKeyTypeFinalIndex, item);
+            offset += FillSlots(offset, pair.Item1, pair.Item2);
         }
-        for (int i = lastKeyTypeFinalIndex; i < keyImages.Count; i++)
+        for (int i = offset; i < keyImages.Count; i++)
         {
             keyImages[i].gameObject.SetActive(false);
         }
     }
-
-    private int ShowKeysOfType(int lastKeyTypeFinalIndex, ItemConfig item)
+    private int FillSlots(int offset, Item itemType, Color color)
     {
-        var count = inventory[item];
-        for (int i = 0 ; i < count; i++)
+        var count = (inventory.ContainsKey(itemType) ? inventory[itemType] : 0);
+        for (int i = 0; i < count; i++)
         {
-            int currIndex = lastKeyTypeFinalIndex + i;
-            keyImages[currIndex].gameObject.SetActive(true);
-            keyImages[currIndex].sprite = item.HudSprite;
-            keyImages[currIndex].color = item.tint;
+            keyImages[offset + i].gameObject.SetActive(true);
+            keyImages[offset + i].color = color;
         }
         return count;
+    }
+
+    public int GetKeysPossessed()
+    {
+        return (inventory.ContainsKey(Item.regularKey) ? inventory[Item.regularKey] : 0);
     }
 }

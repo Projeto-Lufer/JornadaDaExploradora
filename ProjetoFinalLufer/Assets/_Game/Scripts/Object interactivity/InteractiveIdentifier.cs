@@ -5,7 +5,6 @@ using UnityEngine;
 public class InteractiveIdentifier : MonoBehaviour
 {
     [SerializeField] private List<Interactive> interactivesInRange = new List<Interactive>();
-    [SerializeField] private GameObject popupText;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -17,8 +16,6 @@ public class InteractiveIdentifier : MonoBehaviour
             interactivesInRange.Clear();
 
             interactivesInRange.Add(interactive);
-
-            popupText.SetActive(true);
         }
     }
 
@@ -29,8 +26,6 @@ public class InteractiveIdentifier : MonoBehaviour
         if (interactive != null && interactivesInRange.Contains(interactive))
         {
             interactivesInRange.Remove(interactive);
-            
-            popupText.SetActive(false);
         }
 
     }
