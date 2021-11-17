@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class GenericItem : CollectableObject
 {
-    [SerializeField] ItemConfig itemConfig;
+    [SerializeField] Item itemType;
     public override void Collect(ObjectCollector collector)
     {
-        collector.GetItem(itemConfig);
+        collector.GetItem(itemType);
         base.Collect(collector);
     }
 }

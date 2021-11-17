@@ -141,7 +141,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   fov: 90
-  radius: 4
+  radius: 2.5
   rayCount: 50
   showRays: 0
 --- !u!195 &1973560530444295902
