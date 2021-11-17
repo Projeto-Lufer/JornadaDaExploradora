@@ -1,6 +1,9 @@
+using System;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.SceneManagement;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class GameTransitionsManager : MonoBehaviour
 {
@@ -8,18 +11,19 @@ public class GameTransitionsManager : MonoBehaviour
     [SerializeField] private GameObject endGameFirstButton;
     [SerializeField] private GameObject victoryPopup;
     [SerializeField] private GameObject victoryFirstButton;
-    [SerializeField] private GameObject inGameMenu;
-    [SerializeField] private GameObject inGameMenuFirstButton;
+    [SerializeField] private GameObject inGameMenuGameObject;
     [SerializeField] private UnityEngine.EventSystems.EventSystem eventSystem;
     [SerializeField] private PlayerInputManager inputManager;
+    [SerializeField] private Volume postProcessingVolume;
+
     private bool gameHasEnded;
     private InGameMenu inGameMenu;
     private DepthOfField dof;
 
     private void Start()
     {
-        Assert.IsNotNull(inGameMenuGameObject);
         inGameMenu = inGameMenuGameObject.GetComponent<InGameMenu>();
+        Assert.IsNotNull(inGameMenuGameObject);
         if (!dof)
         {
             DepthOfField tempDof;
@@ -35,13 +39,14 @@ public class GameTransitionsManager : MonoBehaviour
     {
         if (inputManager.actionEscape.triggered)
         {
-            SetShowInGameMenu(!inGameMenu.activeInHierarchy);
+            SetShowInGameMenu(!inGameMenuGameObject.activeInHierarchy);
         }
     }
 
     public void EndGame()
     {
         Time.timeScale = 0;
+        dof.active = false;
         SetShowInGameMenu(false);
         endGamePopup.SetActive(true);
         eventSystem.SetSelectedGameObject(endGameFirstButton);
@@ -49,6 +54,7 @@ public class GameTransitionsManager : MonoBehaviour
 
     public void WinGame()
     {
+        dof.active = true;
         Time.timeScale = 0;
         SetShowInGameMenu(false);
         gameHasEnded = true;
@@ -63,13 +69,15 @@ public class GameTransitionsManager : MonoBehaviour
             if (show)
             {
                 Time.timeScale = 0;
+                inGameMenu.OpenItemsScreen();
             }
             else
             {
                 Time.timeScale = 1;
             }
-            inGameMenu.SetActive(show);
-            eventSystem.SetSelectedGameObject(inGameMenuFirstButton);
+
+            dof.active = show;
+            inGameMenuGameObject.SetActive(show);
         }
     }
 
@@ -78,6 +86,7 @@ public class GameTransitionsManager : MonoBehaviour
         if(Time.timeScale < 1)
         {
             Time.timeScale = 1;
+            dof.active = false;
         }
         // TODO: Implementar checkpoints
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

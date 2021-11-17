@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ItemContainer : Interactive
 {
-    [SerializeField] private Item containedItem;
+    [SerializeField] private ItemConfig containedItem;
     [SerializeField] private Dialogue emptyDialogue;
     [SerializeField] private bool isLocked = true;
 
@@ -40,7 +40,7 @@ public class ItemContainer : Interactive
             {
                 FMODUnity.RuntimeManager.PlayOneShot(sfxDoorLocked, transform.position);
                 /* (Bernardo) TODO: Adicionar dialogo de "trancado"
-                * 
+                *
                 * interactor.GetComponentInChildren<PlayerDialogueState>().dialogue = lockedDialogue;
                 interactor.transform.GetChild(2).GetComponent<ConcurrentStateMachine>().ChangeState(typeof(PlayerDialogueState));*/
             }
