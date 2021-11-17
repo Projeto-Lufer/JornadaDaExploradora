@@ -10,6 +10,7 @@ public class InGameMenu : MonoBehaviour
     [SerializeField] private GameObject[] screens;
     [SerializeField] private GameTransitionsManager transitionsManager;
     [SerializeField] private PlayerInputManager inputManager;
+    [SerializeField] private PlayerNotActingState playerNotActingState;
     [SerializeField] private Image pageHeader;
     [SerializeField] private Sprite[] pageHeaders;
     [SerializeField] private EventSystem eventSystem;
@@ -19,6 +20,7 @@ public class InGameMenu : MonoBehaviour
     [SerializeField] private ObjectCollector objectCollector;
     [SerializeField] private ItemSlot[] itemSlotsArray;
     [SerializeField] private ItemSlot[] skillSlotsArray;
+    [SerializeField] private ItemConfig shieldConfig;
     [SerializeField] private TMP_Text itemNameText;
     [SerializeField] private TMP_Text itemDescriptionText;
 
@@ -81,6 +83,11 @@ public class InGameMenu : MonoBehaviour
         for (; lastSetKeyIndex < itemSlotsArray.Length; lastSetKeyIndex++)
         {
             itemSlotsArray[lastSetKeyIndex].SetItem(itemToSet);
+        }
+
+        if (playerNotActingState.canDefend)
+        {
+            skillSlotsArray[0].SetItem(shieldConfig);
         }
 
         eventSystem.SetSelectedGameObject(itemScreenFirstElement);
