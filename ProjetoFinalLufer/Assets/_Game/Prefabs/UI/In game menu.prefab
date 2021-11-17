@@ -431,6 +431,7 @@ MonoBehaviour:
   - {fileID: 8071085856829871370}
   transitionsManager: {fileID: 0}
   inputManager: {fileID: 0}
+  playerNotActingState: {fileID: 0}
   pageHeader: {fileID: 8660250081058153147}
   pageHeaders:
   - {fileID: 21300000, guid: ce42a36c6a0890a498763571a9e690ed, type: 3}
@@ -453,6 +454,7 @@ MonoBehaviour:
   - {fileID: 3647190892670160355}
   - {fileID: 6903293380201294032}
   - {fileID: 2087841675076832805}
+  shieldConfig: {fileID: 11400000, guid: 0b61546ada8f8b8439099ac0ac897dd7, type: 2}
   itemNameText: {fileID: 8158897957953341585}
   itemDescriptionText: {fileID: 3004107399033897222}
 --- !u!1 &1914317290407545948
@@ -2607,6 +2609,22 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 429930928318073585}
+    - target: {fileID: 3714910564179140689, guid: e4987a44b6e72ba4d80c768c6dacfd26,
+        type: 3}
+      propertyPath: m_Name
+      value: Shield
+      objectReference: {fileID: 0}
+    - target: {fileID: 4012229146804717149, guid: e4987a44b6e72ba4d80c768c6dacfd26,
+        type: 3}
+      propertyPath: inGameMenu
+      value: 
+      objectReference: {fileID: 1557720166233128364}
+    - target: {fileID: 6761558343793672436, guid: e4987a44b6e72ba4d80c768c6dacfd26,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3304a31ed325779449f7275ba7d3c092,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4987a44b6e72ba4d80c768c6dacfd26, type: 3}
 --- !u!224 &3034077488632754496 stripped
