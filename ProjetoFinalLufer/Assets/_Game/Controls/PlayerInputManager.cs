@@ -15,16 +15,12 @@ public class PlayerInputManager : MonoBehaviour
     public InputAction actionJump;
 
     public InputAction actionEscape;
-    public InputAction actionLeftTrigger;
-    public InputAction actionRightTrigger;
 
     private void Awake()
     {
         input = GetComponent<PlayerInput>();
         actionMove = input.actions["Move"];
         actionEscape = input.actions["Escape"];
-        actionLeftTrigger = input.actions["LeftTrigger"];
-        actionRightTrigger = input.actions["RightTrigger"];
         actionInteract = input.actions["Interact"];
         actionAttack1 = input.actions["Attack1"];
         actionAttack2 = input.actions["Attack2"];
