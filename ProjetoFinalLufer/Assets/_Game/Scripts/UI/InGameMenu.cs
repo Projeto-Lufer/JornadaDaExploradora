@@ -34,6 +34,10 @@ public class InGameMenu : MonoBehaviour
         {
             ChangeScreenRight();
         }
+        else if (inputManager.actionCancel.triggered)
+        {
+            transitionsManager.SetShowInGameMenu(false);
+        }
     }
 
     private void SetSlotMenuReferences()
