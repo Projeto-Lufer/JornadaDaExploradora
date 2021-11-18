@@ -967,11 +967,11 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  regularKeyConfig: {fileID: 0}
-  bossKeyConfig: {fileID: 0}
-  blueKeyConfig: {fileID: 0}
-  orangeKeyConfig: {fileID: 0}
-  redKeyConfig: {fileID: 0}
+  regularKeyConfig: {fileID: 11400000, guid: dc84dcfe55fcacf48a03ebac3c36654e, type: 2}
+  bossKeyConfig: {fileID: 11400000, guid: 5233dbb6997bcd7458c79d5735059e79, type: 2}
+  blueKeyConfig: {fileID: 11400000, guid: 91ac329e50e76da4cb6fd1d6179d0f38, type: 2}
+  orangeKeyConfig: {fileID: 11400000, guid: 157e4ddff2762274794051666e11a58e, type: 2}
+  redKeyConfig: {fileID: 11400000, guid: 4787ddebbbc4e8148b69ee79f4f95876, type: 2}
   collectableTag: Collectable
 --- !u!114 &4766827225807830560
 MonoBehaviour:
@@ -1028,12 +1028,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fa1b56212619254583e8c3515b0fed6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthTextUI: {fileID: 0}
   hitParticles: {fileID: 2656358179411934925}
   allHearts: []
-  emptyHeart: {fileID: 0}
-  halfHeart: {fileID: 0}
-  fullHeart: {fileID: 0}
+  emptyHeart: {fileID: 21300000, guid: 5c6b32966871f9c43bbde467d003b258, type: 3}
+  halfHeart: {fileID: 21300000, guid: fdd41a0a1e949e943b3bbf25d10beba4, type: 3}
+  fullHeart: {fileID: 21300000, guid: 856b9533886c94b49a83dc1d3325342a, type: 3}
   animator: {fileID: 8730488536679072951}
   damageBlinkController: {fileID: 4303454842182127869}
 --- !u!114 &4303454842182127869
