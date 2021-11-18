@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,15 +10,23 @@ using UnityEngine.Video;
 public class VideoManager : MonoBehaviour
 {
     private VideoPlayer videoPlayer;
-    [SerializeField]
-    private VideoClip clip;
-    [SerializeField]
-    private string sceneName;
+    [SerializeField] private VideoClip clip;
+    [SerializeField] private string sceneName;
+    [SerializeField] private PlayerInputManager inputManager;
 
     private void Awake()
     {
         videoPlayer = GetComponent<VideoPlayer>();
+        videoPlayer.clip = clip;
         PlayStartThenChangeScene(sceneName);
+    }
+
+    private void Update()
+    {
+        if (inputManager.actionEscape.triggered)
+        {
+            SceneManager.LoadScene(sceneName);
+        }
     }
 
     public void PlayStartThenChangeScene(string sceneName)
