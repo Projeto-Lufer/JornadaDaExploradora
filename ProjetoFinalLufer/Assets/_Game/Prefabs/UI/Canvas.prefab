@@ -722,6 +722,31 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -162.4464
       objectReference: {fileID: 0}
+    - target: {fileID: 4716349110092286333, guid: 5a4fdc4952a171143ab9d53f839106e0,
+        type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6603743622243088774, guid: 5a4fdc4952a171143ab9d53f839106e0,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2595503265031617511}
+    - target: {fileID: 6603743622243088774, guid: 5a4fdc4952a171143ab9d53f839106e0,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RestartFromLastCheckpoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 7029509177957057631, guid: 5a4fdc4952a171143ab9d53f839106e0,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2595503265031617511}
+    - target: {fileID: 7029509177957057631, guid: 5a4fdc4952a171143ab9d53f839106e0,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReturnToMenu
+      objectReference: {fileID: 0}
     - target: {fileID: 8349220330866620638, guid: 5a4fdc4952a171143ab9d53f839106e0,
         type: 3}
       propertyPath: m_Name
@@ -730,6 +755,11 @@ PrefabInstance:
     - target: {fileID: 8349220330866620638, guid: 5a4fdc4952a171143ab9d53f839106e0,
         type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8938657515732973463, guid: 5a4fdc4952a171143ab9d53f839106e0,
+        type: 3}
+      propertyPath: m_Type
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1326,11 +1356,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2595503265031617511}
     - target: {fileID: 8766830120189401714, guid: 34d750e1486d24c43815319b2a1e2748,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ReturnToMenu
+      value: GoToCredits
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34d750e1486d24c43815319b2a1e2748, type: 3}
