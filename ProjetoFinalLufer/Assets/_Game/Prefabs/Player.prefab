@@ -138,6 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectManipulator: {fileID: 7762025947470870749}
+  animator: {fileID: 8730488536679072951}
 --- !u!114 &7989665054200242460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -966,11 +967,11 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  regularKeyColor: {r: 0.9490196, g: 0.7882353, b: 0.29803923, a: 1}
-  bossKeyColor: {r: 0.5147662, g: 0, b: 1, a: 1}
-  blueKeyColor: {r: 0, g: 0.08320022, b: 1, a: 1}
-  orangeKeyColor: {r: 1, g: 0.46568164, b: 0, a: 1}
-  redKeyColor: {r: 1, g: 0, b: 0, a: 1}
+  regularKeyConfig: {fileID: 0}
+  bossKeyConfig: {fileID: 0}
+  blueKeyConfig: {fileID: 0}
+  orangeKeyConfig: {fileID: 0}
+  redKeyConfig: {fileID: 0}
   collectableTag: Collectable
 --- !u!114 &4766827225807830560
 MonoBehaviour:
@@ -1188,6 +1189,22 @@ MonoBehaviour:
     m_Type: 0
     m_ExpectedControlType: 
     m_Id: 6adc4761-8b3c-4385-bb28-8764e431d603
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+  actionLeftTrigger:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+  actionRightTrigger:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings: []
