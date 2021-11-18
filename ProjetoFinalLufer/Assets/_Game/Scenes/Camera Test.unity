@@ -5108,11 +5108,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5268495385050541151, guid: 738258e6fef64694a98323bf0cd5fd22,
-        type: 3}
-      propertyPath: m_YDamping
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5502427182516137230, guid: 738258e6fef64694a98323bf0cd5fd22,
         type: 3}
       propertyPath: m_Name
