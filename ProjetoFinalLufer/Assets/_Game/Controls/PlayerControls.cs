@@ -81,6 +81,22 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""LeftTrigger"",
+                    ""type"": ""Button"",
+                    ""id"": ""9ed5e953-cece-4903-96e7-3f270b80b2fb"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""RightTrigger"",
+                    ""type"": ""Button"",
+                    ""id"": ""38993a15-e09a-4025-b9e7-09902e66f28f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -303,6 +319,50 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d75bf349-ae6a-4fb5-bfdc-159b757111cd"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""LeftTrigger"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cf14f716-447c-49db-a6a5-45396a83f7f4"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & mouse"",
+                    ""action"": ""LeftTrigger"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b6a3d748-c878-4a10-aeca-a095671d3ba4"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""RightTrigger"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7641508c-05e9-4e41-ab5f-d9641b14a350"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & mouse"",
+                    ""action"": ""RightTrigger"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -347,6 +407,8 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Characteractions_Cancel = m_Characteractions.FindAction("Cancel", throwIfNotFound: true);
         m_Characteractions_Defend = m_Characteractions.FindAction("Defend", throwIfNotFound: true);
         m_Characteractions_Jump = m_Characteractions.FindAction("Jump", throwIfNotFound: true);
+        m_Characteractions_LeftTrigger = m_Characteractions.FindAction("LeftTrigger", throwIfNotFound: true);
+        m_Characteractions_RightTrigger = m_Characteractions.FindAction("RightTrigger", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -404,6 +466,8 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Characteractions_Cancel;
     private readonly InputAction m_Characteractions_Defend;
     private readonly InputAction m_Characteractions_Jump;
+    private readonly InputAction m_Characteractions_LeftTrigger;
+    private readonly InputAction m_Characteractions_RightTrigger;
     public struct CharacteractionsActions
     {
         private @PlayerControls m_Wrapper;
@@ -416,6 +480,8 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @Cancel => m_Wrapper.m_Characteractions_Cancel;
         public InputAction @Defend => m_Wrapper.m_Characteractions_Defend;
         public InputAction @Jump => m_Wrapper.m_Characteractions_Jump;
+        public InputAction @LeftTrigger => m_Wrapper.m_Characteractions_LeftTrigger;
+        public InputAction @RightTrigger => m_Wrapper.m_Characteractions_RightTrigger;
         public InputActionMap Get() { return m_Wrapper.m_Characteractions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -449,6 +515,12 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Jump.started -= m_Wrapper.m_CharacteractionsActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_CharacteractionsActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_CharacteractionsActionsCallbackInterface.OnJump;
+                @LeftTrigger.started -= m_Wrapper.m_CharacteractionsActionsCallbackInterface.OnLeftTrigger;
+                @LeftTrigger.performed -= m_Wrapper.m_CharacteractionsActionsCallbackInterface.OnLeftTrigger;
+                @LeftTrigger.canceled -= m_Wrapper.m_CharacteractionsActionsCallbackInterface.OnLeftTrigger;
+                @RightTrigger.started -= m_Wrapper.m_CharacteractionsActionsCallbackInterface.OnRightTrigger;
+                @RightTrigger.performed -= m_Wrapper.m_CharacteractionsActionsCallbackInterface.OnRightTrigger;
+                @RightTrigger.canceled -= m_Wrapper.m_CharacteractionsActionsCallbackInterface.OnRightTrigger;
             }
             m_Wrapper.m_CharacteractionsActionsCallbackInterface = instance;
             if (instance != null)
@@ -477,6 +549,12 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
+                @LeftTrigger.started += instance.OnLeftTrigger;
+                @LeftTrigger.performed += instance.OnLeftTrigger;
+                @LeftTrigger.canceled += instance.OnLeftTrigger;
+                @RightTrigger.started += instance.OnRightTrigger;
+                @RightTrigger.performed += instance.OnRightTrigger;
+                @RightTrigger.canceled += instance.OnRightTrigger;
             }
         }
     }
@@ -509,5 +587,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnCancel(InputAction.CallbackContext context);
         void OnDefend(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+        void OnLeftTrigger(InputAction.CallbackContext context);
+        void OnRightTrigger(InputAction.CallbackContext context);
     }
 }
