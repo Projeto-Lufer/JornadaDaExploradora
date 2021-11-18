@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 public class PlayerHealthPointsView : MonoBehaviour
 {
-    [SerializeField] private Text healthTextUI;
     [SerializeField] private ParticleSystem hitParticles;
     [SerializeField] private List<Image> allHearts;
     [SerializeField] private Sprite emptyHeart;
@@ -16,12 +15,10 @@ public class PlayerHealthPointsView : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private DamageBlinkController damageBlinkController;
 
-    private string baseText;
     int damageAnimHash;
 
     void Start()
     {
-        baseText = healthTextUI.text;
         damageAnimHash = Animator.StringToHash("Damage");
     }
 

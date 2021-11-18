@@ -1,25 +1,37 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class ObjectCollector : MonoBehaviour
 {
-    private Dictionary<Item, int> inventory = new Dictionary<Item, int>();
+    private Dictionary<ItemConfig, int> inventory;
     private bool canCollect = true;
     private WaitForSeconds collectionDelay;
-    [SerializeField] private List<GameObject> keyImages;
+    [SerializeField] private List<Image> keyImages;
+    [SerializeField] private ItemConfig regularKeyConfig, bossKeyConfig, blueKeyConfig, orangeKeyConfig, redKeyConfig;
     [SerializeField] private string collectableTag;
 
     private void Start()
     {
+        inventory = new Dictionary<ItemConfig, int>()
+        {
+            {regularKeyConfig, 0},
+            {blueKeyConfig, 0},
+            {orangeKeyConfig, 0},
+            {redKeyConfig, 0},
+            {bossKeyConfig, 0}
+        };
+
         UpdateInvetoryUI();
         collectionDelay = new WaitForSeconds(0.4f);
     }
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if (hit.gameObject.tag == collectableTag && canCollect)
+        if (hit.gameObject.CompareTag(collectableTag) && canCollect)
         {
             StartCoroutine(PickupWithDelay(hit));
         }
@@ -39,46 +51,57 @@ public class ObjectCollector : MonoBehaviour
         canCollect = true;
     }
 
-    public int CheckQty(Item i)
+    public int CheckQty(ItemConfig item)
     {
-        return (inventory.ContainsKey(i) ? inventory[i] : 0);
+        return inventory[item];
     }
 
-    public void GetItem(Item item)
+    public void GetItem(ItemConfig item)
     {
-        inventory[item] = 1 + (inventory.ContainsKey(item) ? inventory[item] : 0);
+        inventory[item]++;
         UpdateInvetoryUI();
     }
 
-    public void UseKey()
+    public Dictionary<ItemConfig, int> GetInventory()
     {
-        UseItem(Item.regularKey);
+        return inventory;
     }
-    public bool UseItem(Item item)
+
+    public bool UseItem(ItemConfig item)
     {
-        if ((inventory.ContainsKey(item) ? inventory[item] : 0) > 0)
+        int keysAmount = inventory[item];
+        if (keysAmount > 0)
         {
-            inventory[item] = (inventory.ContainsKey(item) ? inventory[item] : 0) - 1;
+            inventory[item]--;
             UpdateInvetoryUI();
             return true;
         }
-        else
-        {
-            return false;
-        }
+        return false;
     }
 
     private void UpdateInvetoryUI()
     {
-        var numberOfKeys = (inventory.ContainsKey(Item.regularKey) ? inventory[Item.regularKey] : 0);
-        for (int i = 0; i < keyImages.Count; i++)
+        int lastKeyTypeFinalIndex = 0;
+        foreach (ItemConfig item in inventory.Keys)
         {
-            keyImages[i].SetActive(i < numberOfKeys);
+            lastKeyTypeFinalIndex += ShowKeysOfType(lastKeyTypeFinalIndex, item);
+        }
+        for (int i = lastKeyTypeFinalIndex; i < keyImages.Count; i++)
+        {
+            keyImages[i].gameObject.SetActive(false);
         }
     }
 
-    public int GetKeysPossessed()
+    private int ShowKeysOfType(int lastKeyTypeFinalIndex, ItemConfig item)
     {
-        return (inventory.ContainsKey(Item.regularKey) ? inventory[Item.regularKey] : 0);
+        var count = inventory[item];
+        for (int i = 0 ; i < count; i++)
+        {
+            int currIndex = lastKeyTypeFinalIndex + i;
+            keyImages[currIndex].gameObject.SetActive(true);
+            keyImages[currIndex].sprite = item.HudSprite;
+            keyImages[currIndex].color = item.tint;
+        }
+        return count;
     }
 }
