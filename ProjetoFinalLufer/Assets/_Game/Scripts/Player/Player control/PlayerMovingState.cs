@@ -37,7 +37,6 @@ public class PlayerMovingState : ConcurrentState
 
     public override void Exit()
     {
-        Debug.Log("");
         animator.SetBool("Running", false);
         animator.SetBool("PushingForward", false);
         animator.SetBool("PushingBackwards", false);
