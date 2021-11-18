@@ -97,6 +97,11 @@ public class GameTransitionsManager : MonoBehaviour
         SceneManager.LoadScene("Menu", LoadSceneMode.Single);
     }
 
+    public void GoToCredits()
+    {
+        SceneManager.LoadScene("Credits");
+    }
+
     public void QuitGame()
     {
         Application.Quit();
