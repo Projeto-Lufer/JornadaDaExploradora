@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 public class PlayerDraggingState : ConcurrentState
@@ -18,6 +14,9 @@ public class PlayerDraggingState : ConcurrentState
     public override void Exit()
     {
         animator.SetBool("Pushing", false);
+        animator.SetBool("PushingForward", false);
+        animator.SetBool("PushingBackwards", false);
+        animator.SetFloat("MoveAmount", 0f);
     }
 
     public override void HandleInput()
