@@ -20,7 +20,8 @@ MonoBehaviour:
   hitstunDuration: 0.3
   cooldown: 0
   damage: 3
-  goesRightToLeft: 1
-  knockback: 6
-  knockbackTime: 0.5
-  FMODEventName: 
+  goesRightToLeft: 0
+  knockback: 10
+  knockbackTime: 2
+  sfxAttack: event:/SFX/Ayla/sfx-ayla-normal-attack-3
+  voiceSound: event:/Voice/voice-ayla-short-effort-hard

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="AudioFile" id="{16ef6d5b-f4eb-4e74-9833-7632a410b311}">
+		<property name="assetPath">
+			<value>SFX/Objects/sfx-stone-friction.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>1.2455416666666668</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{3c0f6cae-f38f-4d9d-8257-45b7f54f764f}</destination>
+		</relationship>
+	</object>
+</objects>

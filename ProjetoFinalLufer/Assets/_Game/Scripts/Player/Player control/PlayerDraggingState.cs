@@ -6,8 +6,14 @@ public class PlayerDraggingState : ConcurrentState
     [SerializeField] private ObjectManipulator objectManipulator;
     [SerializeField] private Animator animator;
 
+    [Header("Audio FMOD Event")]
+    [FMODUnity.EventRef]
+    public string voiceAylaShortActions;
+
+
     public override void Enter()
     {
+        FMODUnity.RuntimeManager.PlayOneShot(voiceAylaShortActions, transform.position);
         animator.SetBool("Pushing", true);
     }
 

@@ -272,6 +272,7 @@ MonoBehaviour:
   - {fileID: 180600928}
   - {fileID: 1085938486}
   - {fileID: 1112501188}
+  sfxGrabedObject: event:/SFX/Objects/sfx-stone-friction
 --- !u!54 &4714923649932675431
 Rigidbody:
   m_ObjectHideFlags: 0

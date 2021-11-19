@@ -9,6 +9,10 @@ public class PushableObject : Interactive
     [SerializeField] private Rigidbody rigidbody;
     [SerializeField] private Transform[] grabPositions;
 
+    [Header("Audio FMOD Event")]
+    [FMODUnity.EventRef]
+    public string sfxGrabedObject;
+
     public GameObject Interact(GameObject interactor)
     {
         return gameObject;
@@ -16,6 +20,9 @@ public class PushableObject : Interactive
 
     public void Grab(Transform grabber)
     {
+
+        FMODUnity.RuntimeManager.PlayOneShot(sfxGrabedObject, transform.position);
+
         float disx = transform.position.x - grabber.parent.transform.position.x;
         float disz = transform.position.z - grabber.parent.transform.position.z;
 

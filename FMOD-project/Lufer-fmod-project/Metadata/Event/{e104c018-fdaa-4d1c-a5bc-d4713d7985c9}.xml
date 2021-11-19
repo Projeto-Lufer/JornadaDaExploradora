@@ -5,7 +5,7 @@
 			<value>sfx-ayla-receiving-damage</value>
 		</property>
 		<property name="outputFormat">
-			<value>1</value>
+			<value>0</value>
 		</property>
 		<relationship name="folder">
 			<destination>{07852b67-2bc4-4579-a102-c725936ee335}</destination>
@@ -53,7 +53,7 @@
 			<destination>{2c3affda-6cff-4b72-91a1-70e5babeafb7}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{b6b1db88-26da-47d1-b0ac-e243daf84513}</destination>
+			<destination>{b9f95aaf-3d3f-42f1-8538-accacdb1e768}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{59e2e7d5-bab7-40df-806b-19128a1f97e5}" />
@@ -102,7 +102,7 @@
 	</object>
 	<object class="EventMixerGroup" id="{46076765-d726-4f16-bb74-d913d3115465}">
 		<property name="volume">
-			<value>-5</value>
+			<value>-3.5</value>
 		</property>
 		<property name="name">
 			<value>Audio 1</value>
@@ -153,10 +153,10 @@
 	<object class="MixerBusFader" id="{5c78c704-4b74-422c-bb59-f53778cbd9c1}" />
 	<object class="MixerSend" id="{ae370976-ec1a-4703-8054-7f8fc182aada}">
 		<property name="level">
-			<value>-25</value>
+			<value>-22.5</value>
 		</property>
 		<property name="inputFormat">
-			<value>1</value>
+			<value>0</value>
 		</property>
 		<relationship name="mixerReturn">
 			<destination>{f76e6383-a3fb-4096-b913-f47af4e27545}</destination>

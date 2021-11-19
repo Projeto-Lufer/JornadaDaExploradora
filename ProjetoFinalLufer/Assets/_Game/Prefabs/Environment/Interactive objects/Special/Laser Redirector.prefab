@@ -151,6 +151,7 @@ MonoBehaviour:
   - {fileID: 9129048633998310235}
   - {fileID: 1083631391293132386}
   - {fileID: 3731990467408335882}
+  sfxGrabedObject: event:/SFX/Objects/sfx-stone-friction
 --- !u!1 &1501298517238800084
 GameObject:
   m_ObjectHideFlags: 0
@@ -273,6 +274,7 @@ MonoBehaviour:
   activatedMaterial: {fileID: 0}
   changeMaterialWhenActivated: 0
   meshRenderer: {fileID: 0}
+  sfxLightReceiverActivating: 
 --- !u!54 &2372897609824886970
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -806,6 +808,7 @@ MonoBehaviour:
   activatedMaterial: {fileID: 0}
   changeMaterialWhenActivated: 0
   meshRenderer: {fileID: 0}
+  sfxLightReceiverActivating: 
 --- !u!54 &8002758639821252289
 Rigidbody:
   m_ObjectHideFlags: 0

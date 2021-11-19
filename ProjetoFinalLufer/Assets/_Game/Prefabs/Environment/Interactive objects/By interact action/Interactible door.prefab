@@ -127,9 +127,9 @@ MonoBehaviour:
   isLocked: 1
   lockObject: {fileID: 6500822531244431218}
   animator: {fileID: 7098268846827740649}
-  sfxDoorOpening: event:/SFX/sfx-door-opening
-  sfxDoorLocked: event:/SFX/sfx-door-locked
-  sfxDoorUnlocked: event:/SFX/sfx-door-unlocked
+  sfxDoorOpening: event:/SFX/Objects/sfx-door-opening
+  sfxDoorLocked: event:/SFX/Objects/sfx-door-locked
+  sfxDoorUnlocked: event:/SFX/Objects/sfx-door-unlocked
   lockedDialogue:
     name: 
     sentences:

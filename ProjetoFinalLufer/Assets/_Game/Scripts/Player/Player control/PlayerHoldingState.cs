@@ -7,6 +7,10 @@ public class PlayerHoldingState : ConcurrentState
     [Header("External references")]
     [SerializeField] private ObjectManipulator objectManipulator;
 
+    [Header("Audio FMOD Event")]
+    [FMODUnity.EventRef]
+    public string grassSteps;
+
     public override void HandleInput()
     { 
         if (stateMachine.inputManager.actionInteract.triggered)
