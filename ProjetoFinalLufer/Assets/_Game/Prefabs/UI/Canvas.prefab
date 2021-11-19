@@ -1615,7 +1615,7 @@ PrefabInstance:
         type: 3}
       propertyPath: eventSystem
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1087875136104204577}
     - target: {fileID: 1557720166233128364, guid: 7bca2bb0e4f599d4f9016014455b4fe8,
         type: 3}
       propertyPath: objectCollector
@@ -1819,7 +1819,7 @@ PrefabInstance:
     - target: {fileID: 5925448496166734260, guid: 7bca2bb0e4f599d4f9016014455b4fe8,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: QuitGame
+      value: ReturnToMenu
       objectReference: {fileID: 0}
     - target: {fileID: 5925448496166734260, guid: 7bca2bb0e4f599d4f9016014455b4fe8,
         type: 3}
