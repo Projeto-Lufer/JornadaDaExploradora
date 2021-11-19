@@ -124,6 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 150b14060bbf51143a0b920dd6901f20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  keyType: {fileID: 0}
   isLocked: 1
   lockObject: {fileID: 6500822531244431218}
   animator: {fileID: 7098268846827740649}
@@ -133,8 +134,7 @@ MonoBehaviour:
   lockedDialogue:
     name: 
     sentences:
-    - A porta esta trancada
-    - Vc precisa de uma chave
+    - This door is locked. You need a special key to open it.
 --- !u!1 &7411073889067010091
 GameObject:
   m_ObjectHideFlags: 0
