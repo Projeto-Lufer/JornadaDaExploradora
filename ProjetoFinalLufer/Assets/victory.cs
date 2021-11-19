@@ -7,14 +7,24 @@ public class victory : MonoBehaviour
 {
 
     public GameObject UIScreen;
+    public GameObject fade;
+
+    IEnumerator waiter()
+    {
+        fade.SetActive(true);
+        yield return new WaitForSecondsRealtime(1.8f);
+        Time.timeScale = 0;
+        UIScreen.SetActive(true);
+    }
+
 
     // Start is called before the first frame update
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            Time.timeScale = 0;
-            UIScreen.SetActive(true);
+            StartCoroutine(waiter());
+            Debug.Log("coco");
         }
     }
 }
