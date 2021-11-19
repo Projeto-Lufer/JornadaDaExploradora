@@ -5,16 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/_Game/Scenes/MechanicsTests.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
     path: Assets/_Game/Scenes/Menu.unity
     guid: 587327d41e0f25d4799b46347f5eeec6
-  - enabled: 0
-    path: Assets/_Game/Scenes/PoC.unity
-    guid: dbb2d5c2b38530e42a88bfb1fc02dec6
   - enabled: 1
     path: Assets/_Game/Scenes/Main.unity
-    guid: 71a5fba555932d246b02a1364130d375
+    guid: b2d8fb9cf63432945ac664bc2228e256
+  - enabled: 1
+    path: Assets/_Game/Scenes/Credits.unity
+    guid: b5360238c5a91784caa35b695cb8a33c
+  - enabled: 1
+    path: Assets/_Game/Scenes/Cutscene.unity
+    guid: 0468661fbc069d145a654e60dce4cfad
   m_configObjects: {}
