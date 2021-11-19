@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.InputSystem.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Video;
 
@@ -12,7 +13,7 @@ public class VideoManager : MonoBehaviour
     private VideoPlayer videoPlayer;
     [SerializeField] private VideoClip clip;
     [SerializeField] private string sceneName;
-    [SerializeField] private PlayerInputManager inputManager;
+    [SerializeField] private InputSystemUIInputModule inputManager;
 
     private void Awake()
     {
@@ -23,7 +24,7 @@ public class VideoManager : MonoBehaviour
 
     private void Update()
     {
-        if (inputManager.actionEscape.triggered)
+        if (inputManager.actionsAsset["Cancel"].triggered)
         {
             SceneManager.LoadScene(sceneName);
         }
