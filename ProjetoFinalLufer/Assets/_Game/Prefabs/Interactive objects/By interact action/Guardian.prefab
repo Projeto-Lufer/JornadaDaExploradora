@@ -47,7 +47,7 @@ Transform:
   m_GameObject: {fileID: 7374373658151356984}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 3.763125, y: 3.763125, z: 3.763125}
   m_Children:
   - {fileID: 1166342074416915328}
   m_Father: {fileID: 0}
@@ -79,16 +79,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialDialogue:
-    name: 
+    name: Guardian
     sentences:
-    - Eu sou o guardiao deste templo
-    - Ele esta sendo corrompido por um mal antigo
-    - Voce e a unica capaz de derrota-lo
-    - Va! Nao temos tempo a perder
+    - "A human!? \t"
+    - I haven't seen one for a long, long time. For centuries perhaps.
+    - 'To think one would come to my aid right when I needed it most. It must be
+      the work of fate.
+
+'
+    - "Usually, I would hand you a boon for such heroic deed. Unfortunately, I\u2019m
+      too weak for a feat like that."
+    - 'However, some goons, like the ones you defeated, took one of my plates and
+      darted somewhere deep into the temple. '
+    - "If you manage to reclaim it, I\u2019ll let you keep it for yourself. I\u2019m
+      sure someone it will aid you in fighting the corruption that spreads in this
+      temple.\n"
+    - Last I saw, the monsters fled east. Go in search of them and reclaim my power
+      for yourself!
   alreadyInteractedDialogue:
-    name: 
+    name: Guardian
     sentences:
-    - Va! Nao temos tempo a perder
+    - Go, there is not time to waste! You must stop the corruption.
   isShield: 0
 --- !u!54 &7374373658151356978
 Rigidbody:
