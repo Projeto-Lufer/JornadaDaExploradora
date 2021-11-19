@@ -8,8 +8,12 @@ public class MainMenu : MonoBehaviour
 
     public void NewGame()
     {
-        // Carrega a cena Main
-        SceneManager.LoadScene("Main", LoadSceneMode.Single);
+        SceneManager.LoadScene("Cutscene", LoadSceneMode.Single);
+    }
+
+    public void Credits()
+    {
+        SceneManager.LoadScene("Credits", LoadSceneMode.Single);
     }
 
     public void Continue()

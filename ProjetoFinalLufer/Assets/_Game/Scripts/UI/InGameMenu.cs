@@ -8,6 +8,11 @@ using UnityEngine.UI;
 public class InGameMenu : MonoBehaviour
 {
     [SerializeField] private GameObject[] screens;
+    [SerializeField] private GameTransitionsManager transitionsManager;
+    [SerializeField] private PlayerInputManager inputManager;
+    [SerializeField] private PlayerNotActingState playerNotActingState;
+    [SerializeField] private Image pageHeader;
+    [SerializeField] private Sprite[] pageHeaders;
     [SerializeField] private EventSystem eventSystem;
     [SerializeField] private GameObject itemScreenFirstElement, mapScreenFirstElement, systemScreenFirstElement;
 
@@ -15,10 +20,27 @@ public class InGameMenu : MonoBehaviour
     [SerializeField] private ObjectCollector objectCollector;
     [SerializeField] private ItemSlot[] itemSlotsArray;
     [SerializeField] private ItemSlot[] skillSlotsArray;
+    [SerializeField] private ItemConfig shieldConfig;
     [SerializeField] private TMP_Text itemNameText;
     [SerializeField] private TMP_Text itemDescriptionText;
 
     private int currScreenIndex;
+
+    private void Update()
+    {
+        if (inputManager.actionLeftTrigger.triggered)
+        {
+            ChangeScreenLeft();
+        }
+        else if (inputManager.actionRightTrigger.triggered)
+        {
+            ChangeScreenRight();
+        }
+        else if (inputManager.actionCancel.triggered)
+        {
+            transitionsManager.SetShowInGameMenu(false);
+        }
+    }
 
     private void SetSlotMenuReferences()
     {
@@ -63,6 +85,11 @@ public class InGameMenu : MonoBehaviour
             itemSlotsArray[lastSetKeyIndex].SetItem(itemToSet);
         }
 
+        if (playerNotActingState.canDefend)
+        {
+            skillSlotsArray[0].SetItem(shieldConfig);
+        }
+
         eventSystem.SetSelectedGameObject(itemScreenFirstElement);
     }
 
@@ -79,6 +106,13 @@ public class InGameMenu : MonoBehaviour
         screens[currScreenIndex].SetActive(true);
     }
 
+    public void OpenSystemScreen()
+    {
+        eventSystem.SetSelectedGameObject(systemScreenFirstElement);
+        currScreenIndex = 2;
+        screens[currScreenIndex].SetActive(true);
+    }
+
     private void ChangeScreenLeft()
     {
         screens[currScreenIndex].SetActive(false);
@@ -87,7 +121,7 @@ public class InGameMenu : MonoBehaviour
         {
             currScreenIndex = screens.Length - 1;
         }
-        screens[currScreenIndex].SetActive(true);
+        SetupScreenInIndex();
     }
 
     private void ChangeScreenRight()
@@ -98,6 +132,24 @@ public class InGameMenu : MonoBehaviour
         {
             currScreenIndex = 0;
         }
-        screens[currScreenIndex].SetActive(true);
+        SetupScreenInIndex();
+    }
+
+    private void SetupScreenInIndex()
+    {
+        pageHeader.sprite = pageHeaders[currScreenIndex];
+
+        switch (currScreenIndex)
+        {
+            case 0:
+                OpenMapScreen();
+                break;
+            case 1:
+                OpenItemsScreen();
+                break;
+            case 2:
+                OpenSystemScreen();
+                break;
+        }
     }
 }

@@ -33,11 +33,6 @@ public class ItemSlot : MonoBehaviour, ISelectHandler, IDeselectHandler
         selector.SetActive(false);
     }
 
-    public ItemConfig GetItemConfig()
-    {
-        return itemConfig;
-    }
-
     public void SetItem(ItemConfig config)
     {
         itemConfig = config;

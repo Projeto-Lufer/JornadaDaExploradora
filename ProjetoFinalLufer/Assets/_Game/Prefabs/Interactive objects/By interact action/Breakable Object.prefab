@@ -93,7 +93,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemToDrop: {fileID: 6046118360837756108, guid: bfbc86580abfe3c4aa7c10b7da37481f,
     type: 3}
-  dropChance: 1
+  dropChance: 0.407
 --- !u!1001 &7821001660856868671
 PrefabInstance:
   m_ObjectHideFlags: 0

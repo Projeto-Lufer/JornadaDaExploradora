@@ -20,7 +20,7 @@ public class PlayerAttackingState : ConcurrentState
 
     public override void Enter()
     {
-        animator.SetTrigger("Attack");
+        animator.Play("Hit1");
         animator.SetBool("Fighting", true);
         playerInCombatControl.SetInCombat();
         currIndex = 0;
@@ -75,7 +75,7 @@ public class PlayerAttackingState : ConcurrentState
         {
             yield return null;
         }
-        
+
         isAttacking = false;
         stateMachine.canChangeStates = true;
         stateMachine.ChangeState(typeof(PlayerNotActingState));
