@@ -30,6 +30,11 @@ public class MusicManager : MonoBehaviour
     [FMODUnity.EventRef]
     public string music8BossFightTheme;
 
+    void Start ()
+    {
+        PlayMusic(music3Overworld);
+    }
+
     public void PlayMusic(string musicEvent)
     {
         
