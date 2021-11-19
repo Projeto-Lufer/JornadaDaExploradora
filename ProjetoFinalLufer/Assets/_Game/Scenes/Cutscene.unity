@@ -241,7 +241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ab2d4f001160764fa9d983b639dd703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clip: {fileID: 32900000, guid: 5f63538cb12ca2c4d9e13fc5b40ea81d, type: 3}
+  clip: {fileID: 32900000, guid: b365da62ceea3d5409f070e73b286058, type: 3}
   sceneName: Main
   inputManager: {fileID: 158890046}
 --- !u!328 &709621218
