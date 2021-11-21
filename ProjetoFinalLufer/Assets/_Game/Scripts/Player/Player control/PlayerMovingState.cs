@@ -100,14 +100,14 @@ public class PlayerMovingState : ConcurrentState
 
             currSpeed = speed / 2;
 
-            if(Math.Abs(transform.forward.x) > Math.Abs(transform.forward.z))
-            {
-                direction.z = 0f;
-            }
-            else
-            {
-                direction.x = 0f;
-            }
+            // if(Math.Abs(transform.forward.x) > Math.Abs(transform.forward.z))
+            // {
+            //     direction.z = 0f;
+            // }
+            // else
+            // {
+            //     direction.x = 0f;
+            // }
 
             controller.Move(direction * currSpeed * Time.deltaTime);
         }
