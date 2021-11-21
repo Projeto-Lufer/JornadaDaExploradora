@@ -97,6 +97,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": ""Press""
+                },
+                {
+                    ""name"": ""SpinPlayerInUI"",
+                    ""type"": ""Value"",
+                    ""id"": ""18f9d6f1-c50f-458a-b4fa-36cd0b540b21"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": ""Press""
                 }
             ],
             ""bindings"": [
@@ -162,6 +170,17 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""308b304b-173f-4f25-a683-5989787d5787"",
+                    ""path"": ""<Gamepad>/dpad"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -301,7 +320,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""cc213efa-3eaf-4aeb-a877-599689afa8ac"",
-                    ""path"": ""<Keyboard>/space"",
+                    ""path"": ""<Keyboard>/enter"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard & mouse"",
@@ -363,6 +382,17 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""RightTrigger"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a0febc0c-6a3f-433a-8b41-00f845a6222b"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SpinPlayerInUI"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -409,6 +439,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Characteractions_Jump = m_Characteractions.FindAction("Jump", throwIfNotFound: true);
         m_Characteractions_LeftTrigger = m_Characteractions.FindAction("LeftTrigger", throwIfNotFound: true);
         m_Characteractions_RightTrigger = m_Characteractions.FindAction("RightTrigger", throwIfNotFound: true);
+        m_Characteractions_SpinPlayerInUI = m_Characteractions.FindAction("SpinPlayerInUI", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -468,6 +499,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Characteractions_Jump;
     private readonly InputAction m_Characteractions_LeftTrigger;
     private readonly InputAction m_Characteractions_RightTrigger;
+    private readonly InputAction m_Characteractions_SpinPlayerInUI;
     public struct CharacteractionsActions
     {
         private @PlayerControls m_Wrapper;
@@ -482,6 +514,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @Jump => m_Wrapper.m_Characteractions_Jump;
         public InputAction @LeftTrigger => m_Wrapper.m_Characteractions_LeftTrigger;
         public InputAction @RightTrigger => m_Wrapper.m_Characteractions_RightTrigger;
+        public InputAction @SpinPlayerInUI => m_Wrapper.m_Characteractions_SpinPlayerInUI;
         public InputActionMap Get() { return m_Wrapper.m_Characteractions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -521,6 +554,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @RightTrigger.started -= m_Wrapper.m_CharacteractionsActionsCallbackInterface.OnRightTrigger;
                 @RightTrigger.performed -= m_Wrapper.m_CharacteractionsActionsCallbackInterface.OnRightTrigger;
                 @RightTrigger.canceled -= m_Wrapper.m_CharacteractionsActionsCallbackInterface.OnRightTrigger;
+                @SpinPlayerInUI.started -= m_Wrapper.m_CharacteractionsActionsCallbackInterface.OnSpinPlayerInUI;
+                @SpinPlayerInUI.performed -= m_Wrapper.m_CharacteractionsActionsCallbackInterface.OnSpinPlayerInUI;
+                @SpinPlayerInUI.canceled -= m_Wrapper.m_CharacteractionsActionsCallbackInterface.OnSpinPlayerInUI;
             }
             m_Wrapper.m_CharacteractionsActionsCallbackInterface = instance;
             if (instance != null)
@@ -555,6 +591,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @RightTrigger.started += instance.OnRightTrigger;
                 @RightTrigger.performed += instance.OnRightTrigger;
                 @RightTrigger.canceled += instance.OnRightTrigger;
+                @SpinPlayerInUI.started += instance.OnSpinPlayerInUI;
+                @SpinPlayerInUI.performed += instance.OnSpinPlayerInUI;
+                @SpinPlayerInUI.canceled += instance.OnSpinPlayerInUI;
             }
         }
     }
@@ -589,5 +628,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnLeftTrigger(InputAction.CallbackContext context);
         void OnRightTrigger(InputAction.CallbackContext context);
+        void OnSpinPlayerInUI(InputAction.CallbackContext context);
     }
 }

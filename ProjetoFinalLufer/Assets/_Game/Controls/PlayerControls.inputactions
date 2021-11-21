@@ -84,6 +84,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Press"
+                },
+                {
+                    "name": "SpinPlayerInUI",
+                    "type": "Value",
+                    "id": "18f9d6f1-c50f-458a-b4fa-36cd0b540b21",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "Press"
                 }
             ],
             "bindings": [
@@ -149,6 +157,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "308b304b-173f-4f25-a683-5989787d5787",
+                    "path": "<Gamepad>/dpad",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -288,7 +307,7 @@
                 {
                     "name": "",
                     "id": "cc213efa-3eaf-4aeb-a877-599689afa8ac",
-                    "path": "<Keyboard>/space",
+                    "path": "<Keyboard>/enter",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard & mouse",
@@ -348,6 +367,17 @@
                     "processors": "",
                     "groups": "Keyboard & mouse",
                     "action": "RightTrigger",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a0febc0c-6a3f-433a-8b41-00f845a6222b",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SpinPlayerInUI",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
