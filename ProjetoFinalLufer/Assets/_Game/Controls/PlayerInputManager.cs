@@ -17,6 +17,7 @@ public class PlayerInputManager : MonoBehaviour
     public InputAction actionEscape;
     public InputAction actionLeftTrigger;
     public InputAction actionRightTrigger;
+    public InputAction actionSpinPlayerInUI;
 
     private void Awake()
     {
@@ -31,5 +32,6 @@ public class PlayerInputManager : MonoBehaviour
         actionDefend = input.actions["Defend"];
         actionCancel = input.actions["Cancel"];
         actionJump = input.actions["Jump"];
+        actionSpinPlayerInUI = input.actions["SpinPlayerInUI"];
     }
 }
