@@ -94,7 +94,14 @@ public class GameTransitionsManager : MonoBehaviour
 
     public void ReturnToMenu()
     {
-        SceneManager.LoadScene("Menu", LoadSceneMode.Single);
+        Time.timeScale = 1;
+        SceneManager.LoadScene("Menu");
+    }
+
+    public void GoToCredits()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("Credits");
     }
 
     public void QuitGame()

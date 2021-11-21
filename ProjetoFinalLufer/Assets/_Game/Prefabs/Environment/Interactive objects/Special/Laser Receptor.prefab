@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 2071102325192679985}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 22.12, y: 1.84, z: -40.63}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2499999, y: 1.25, z: 1.2499999}
   m_Children:
   - {fileID: 7214984725472946822}
   m_Father: {fileID: 0}
@@ -61,6 +61,7 @@ MonoBehaviour:
   objectToActivate: {fileID: 0}
   activatedMaterial: {fileID: 2100000, guid: f77276480dcbbed4b8549d5eac775035, type: 2}
   meshRenderer: {fileID: 8389056829345288681}
+  sfxLightReceiverActivating: event:/SFX/Objects/sfx-light-receiver-activating
 --- !u!1001 &7181692317975334253
 PrefabInstance:
   m_ObjectHideFlags: 0

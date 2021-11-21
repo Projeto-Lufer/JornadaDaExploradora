@@ -79,6 +79,7 @@ MonoBehaviour:
   parentToDestroy: {fileID: 4714923649932675429}
   maxHP: 1
   dropper: {fileID: 1931671419311342801}
+  sfxBreakingJar: event:/SFX/Objects/sfx-breaking-jar
 --- !u!114 &1931671419311342801
 MonoBehaviour:
   m_ObjectHideFlags: 0

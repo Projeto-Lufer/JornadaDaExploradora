@@ -61,8 +61,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 206869682706105301}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
-  m_LocalScale: {x: 1.785, y: 1.785, z: 1.785}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 2.035971, y: 2.035971, z: 2.035971}
   m_Children:
   - {fileID: 4840063077559387424}
   - {fileID: 290272792056145820}
@@ -151,6 +151,7 @@ MonoBehaviour:
   - {fileID: 9129048633998310235}
   - {fileID: 1083631391293132386}
   - {fileID: 3731990467408335882}
+  sfxGrabedObject: event:/SFX/Objects/sfx-stone-friction
 --- !u!1 &1501298517238800084
 GameObject:
   m_ObjectHideFlags: 0
@@ -273,6 +274,7 @@ MonoBehaviour:
   activatedMaterial: {fileID: 0}
   changeMaterialWhenActivated: 0
   meshRenderer: {fileID: 0}
+  sfxLightReceiverActivating: 
 --- !u!54 &2372897609824886970
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -524,7 +526,7 @@ LineRenderer:
     numCornerVertices: 0
     numCapVertices: 0
     alignment: 0
-    textureMode: 0
+    textureMode: 1
     shadowBias: 0.5
     generateLightingData: 0
   m_UseWorldSpace: 1
@@ -739,7 +741,7 @@ LineRenderer:
     numCornerVertices: 0
     numCapVertices: 0
     alignment: 0
-    textureMode: 0
+    textureMode: 1
     shadowBias: 0.5
     generateLightingData: 0
   m_UseWorldSpace: 1
@@ -806,6 +808,7 @@ MonoBehaviour:
   activatedMaterial: {fileID: 0}
   changeMaterialWhenActivated: 0
   meshRenderer: {fileID: 0}
+  sfxLightReceiverActivating: 
 --- !u!54 &8002758639821252289
 Rigidbody:
   m_ObjectHideFlags: 0

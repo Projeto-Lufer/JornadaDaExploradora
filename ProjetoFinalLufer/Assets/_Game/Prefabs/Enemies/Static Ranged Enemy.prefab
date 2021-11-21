@@ -86,9 +86,9 @@ MonoBehaviour:
   parentToRotate: {fileID: 6842675159693420934}
   startledTime: 1
   timeBetweenShots: 1.5
-  sfxRangedEnemyDigUp: 
-  sfxRangedEnemyDigDown: 
-  sfxRangedEnemyGrowl: 
+  sfxRangedEnemyDigUp: event:/SFX/Ranged Enemy/sfx-ranged-enemy-digup
+  sfxRangedEnemyDigDown: event:/SFX/Ranged Enemy/sfx-ranged-enemy-digdown
+  sfxRangedEnemyGrowlAttacking: event:/SFX/Ranged Enemy/sfx-ranged-enemy-growl-attacking
 --- !u!114 &1380372191267114816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,7 +104,7 @@ MonoBehaviour:
   hidingAreaDetector: {fileID: 9113591333445935052}
   enemyTransform: {fileID: 6842675159693420934}
   bodyCollider: {fileID: 3292796288340586847}
-  sfxRangedEnemyDigDown: 
+  sfxRangedEnemyDigDown: event:/SFX/Ranged Enemy/sfx-ranged-enemy-digdown
 --- !u!114 &3038356731760815786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -309,6 +309,9 @@ MonoBehaviour:
   maxHP: 3
   HPView: {fileID: 2726814560231821363}
   stateMachine: {fileID: 782939195644684967}
+  sfxEnemyGrowlReceivingDamage: event:/SFX/Ranged Enemy/sfx-ranged-enemy-growl-receiving-damage
+  sfxEnemyHitReceivingDamage: event:/SFX/Ayla/sfx-ayla-receiving-damage
+  sfxEnemyDying: event:/SFX/Melee Enemy/sfx-enemy-dying
 --- !u!114 &2726814560231821363
 MonoBehaviour:
   m_ObjectHideFlags: 0

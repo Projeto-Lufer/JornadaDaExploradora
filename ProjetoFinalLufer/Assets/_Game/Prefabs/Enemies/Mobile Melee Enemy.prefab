@@ -108,7 +108,7 @@ Transform:
   m_GameObject: {fileID: 2202740110688647472}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
   m_Children:
   - {fileID: 5808313656093429874}
   - {fileID: 5250198281944220831}
@@ -117,7 +117,6 @@ Transform:
   - {fileID: 5487074422019276346}
   - {fileID: 6194603135234472599}
   - {fileID: 1946608633494751666}
-  - {fileID: 1719757861425066752}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -134,14 +133,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackPoint: {fileID: 1946608633494751666}
-  sfxAylaNormalAttack1: 
-  sfxAylaNormalAttack2: 
-  sfxAylaNormalAttack3: 
   targetLayer:
     serializedVersion: 2
     m_Bits: 64
   fov: 90
-  radius: 4
+  radius: 5
   rayCount: 50
   showRays: 0
 --- !u!195 &1973560530444295902
@@ -379,6 +375,9 @@ MonoBehaviour:
   maxHP: 5
   HPView: {fileID: 62554323867951339}
   stateMachine: {fileID: 4774286159638926702}
+  sfxEnemyGrowlReceivingDamage: event:/SFX/Ranged Enemy/sfx-ranged-enemy-growl-receiving-damage
+  sfxEnemyHitReceivingDamage: event:/SFX/Ayla/sfx-ayla-receiving-damage
+  sfxEnemyDying: event:/SFX/Melee Enemy/sfx-enemy-dying
 --- !u!114 &62554323867951339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -455,7 +454,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a205c8befd9eaf44e9ea1b3830df3dff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 2.5
+  radius: 4
   targetLayer: 6
   obstructingTags:
   - Obstacle
@@ -686,79 +685,4 @@ ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 3567748617173218910, guid: d7da38259e25cac449161f3fb8aad296,
     type: 3}
   m_PrefabInstance: {fileID: 1536605849663796247}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &9103559119248854219
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 4462619697762002774}
-    m_Modifications:
-    - target: {fileID: 6900549049180373518, guid: d151c3f31a5d9b648bb3582e41e2820e,
-        type: 3}
-      propertyPath: m_Name
-      value: Sounds
-      objectReference: {fileID: 0}
-    - target: {fileID: 7605339936169246667, guid: d151c3f31a5d9b648bb3582e41e2820e,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 7605339936169246667, guid: d151c3f31a5d9b648bb3582e41e2820e,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7605339936169246667, guid: d151c3f31a5d9b648bb3582e41e2820e,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7605339936169246667, guid: d151c3f31a5d9b648bb3582e41e2820e,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7605339936169246667, guid: d151c3f31a5d9b648bb3582e41e2820e,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7605339936169246667, guid: d151c3f31a5d9b648bb3582e41e2820e,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7605339936169246667, guid: d151c3f31a5d9b648bb3582e41e2820e,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7605339936169246667, guid: d151c3f31a5d9b648bb3582e41e2820e,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7605339936169246667, guid: d151c3f31a5d9b648bb3582e41e2820e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7605339936169246667, guid: d151c3f31a5d9b648bb3582e41e2820e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7605339936169246667, guid: d151c3f31a5d9b648bb3582e41e2820e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d151c3f31a5d9b648bb3582e41e2820e, type: 3}
---- !u!4 &1719757861425066752 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7605339936169246667, guid: d151c3f31a5d9b648bb3582e41e2820e,
-    type: 3}
-  m_PrefabInstance: {fileID: 9103559119248854219}
   m_PrefabAsset: {fileID: 0}

@@ -69,6 +69,7 @@ public class ObjectCollector : MonoBehaviour
 
     public bool UseItem(ItemConfig item)
     {
+        return true;
         int keysAmount = inventory[item];
         if (keysAmount > 0)
         {

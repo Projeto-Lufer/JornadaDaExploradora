@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 public class PlayerDraggingState : ConcurrentState
@@ -10,14 +6,23 @@ public class PlayerDraggingState : ConcurrentState
     [SerializeField] private ObjectManipulator objectManipulator;
     [SerializeField] private Animator animator;
 
+    [Header("Audio FMOD Event")]
+    [FMODUnity.EventRef]
+    public string voiceAylaShortActions;
+
+
     public override void Enter()
     {
+        FMODUnity.RuntimeManager.PlayOneShot(voiceAylaShortActions, transform.position);
         animator.SetBool("Pushing", true);
     }
 
     public override void Exit()
     {
         animator.SetBool("Pushing", false);
+        animator.SetBool("PushingForward", false);
+        animator.SetBool("PushingBackwards", false);
+        animator.SetFloat("MoveAmount", 0f);
     }
 
     public override void HandleInput()

@@ -47,8 +47,7 @@ MonoBehaviour:
   emptyDialogue:
     name: 
     sentences:
-    - Vc ja abriu este bau
-    - Ele esta vazio
+    - You've already opened this chest.
   isLocked: 0
   animator: {fileID: 348519166}
   sfxDoorLocked: event:/SFX/Objects/sfx-door-locked
@@ -133,7 +132,7 @@ SpriteRenderer:
   m_Size: {x: 0.68, y: 0.68}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &7801281324660050922
