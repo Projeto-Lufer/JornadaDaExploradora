@@ -13,6 +13,8 @@ public class InGameMenu : MonoBehaviour
     [SerializeField] private PlayerNotActingState playerNotActingState;
     [SerializeField] private Image pageHeader;
     [SerializeField] private Sprite[] pageHeaders;
+    [SerializeField] private Transform playerModelInUi;
+    [SerializeField] private float playerSpinSpeed = 5;
     [SerializeField] private EventSystem eventSystem;
     [SerializeField] private GameObject itemScreenFirstElement, mapScreenFirstElement, systemScreenFirstElement;
 
@@ -25,6 +27,7 @@ public class InGameMenu : MonoBehaviour
     [SerializeField] private TMP_Text itemDescriptionText;
 
     private int currScreenIndex;
+
 
     private void Update()
     {
@@ -40,6 +43,9 @@ public class InGameMenu : MonoBehaviour
         {
             transitionsManager.SetShowInGameMenu(false);
         }
+
+        float playerSpinAmount = inputManager.actionSpinPlayerInUI.ReadValue<Vector2>().x;
+        playerModelInUi.Rotate(Vector3.up, playerSpinAmount * playerSpinSpeed);
     }
 
     private void SetSlotMenuReferences()
