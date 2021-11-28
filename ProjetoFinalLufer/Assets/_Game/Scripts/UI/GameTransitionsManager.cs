@@ -15,6 +15,7 @@ public class GameTransitionsManager : MonoBehaviour
     [SerializeField] private UnityEngine.EventSystems.EventSystem eventSystem;
     [SerializeField] private PlayerInputManager inputManager;
     [SerializeField] private Volume postProcessingVolume;
+    [SerializeField] private Respawn respawn;
 
     private bool gameHasEnded;
     private InGameMenu inGameMenu;
@@ -88,8 +89,10 @@ public class GameTransitionsManager : MonoBehaviour
             Time.timeScale = 1;
             dof.active = false;
         }
+        endGamePopup.SetActive(false);
+        gameHasEnded = false;
         // TODO: Implementar checkpoints
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        respawn.RespawnPlayer();
     }
 
     public void ReturnToMenu()
