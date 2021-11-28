@@ -6,13 +6,18 @@ using Cinemachine;
 public class TempleRoom : MonoBehaviour
 {
     [SerializeField] private TempleRoomElement[] elements;
+    [SerializeField] private GameObject shadowsParent;
     public CinemachineVirtualCamera virtualCamera;
+
+    private Coroutine shadowsCoroutine;
+
     public void SpawnElements()
     {
         foreach (TempleRoomElement element in elements)
         {
             element.Spawn();
         }
+        StartShadowsStateChangeCoroutine(0, true);
     }
 
     public void DestroyElements()
@@ -21,6 +26,24 @@ public class TempleRoom : MonoBehaviour
         {
             element.Despawn();
         }
+        StartShadowsStateChangeCoroutine(2, false);
     }
 
+    private void StartShadowsStateChangeCoroutine(float delay, bool show)
+    {
+        if(shadowsCoroutine != null)
+        {
+            StopCoroutine(shadowsCoroutine);
+        }
+
+        shadowsCoroutine = StartCoroutine(SetShadowsShowStateWithDelay(delay, show));
+    }
+
+    private IEnumerator SetShadowsShowStateWithDelay(float delay, bool show)
+    {
+        yield return new WaitForSeconds(delay);
+
+        shadowsParent.SetActive(show);
+        shadowsCoroutine = null;
+    }
 }
