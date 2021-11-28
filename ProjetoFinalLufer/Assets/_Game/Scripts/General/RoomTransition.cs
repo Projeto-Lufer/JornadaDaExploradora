@@ -9,6 +9,8 @@ public class RoomTransition : MonoBehaviour
     public CinemachineVirtualCamera vcam, currCam;
     public ConcurrentStateMachine stateMachine;
 
+    [SerializeField] private Respawn respawn;
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Room"))
@@ -24,6 +26,8 @@ public class RoomTransition : MonoBehaviour
             else{
                 currCam = vcam;
             }
+
+            respawn.SetLastRoomVisited(other.GetComponentInParent<TempleRoom>());
         }
     }
 }
