@@ -13,6 +13,7 @@ public class InGameMenu : MonoBehaviour
     [SerializeField] private PlayerNotActingState playerNotActingState;
     [SerializeField] private Image pageHeader;
     [SerializeField] private Sprite[] pageHeaders;
+    [SerializeField] private GameObject playerRenderInUiObject;
     [SerializeField] private Transform playerModelInUi;
     [SerializeField] private float playerSpinSpeed = 5;
     [SerializeField] private EventSystem eventSystem;
@@ -64,11 +65,13 @@ public class InGameMenu : MonoBehaviour
     private void OnDisable()
     {
         screens[currScreenIndex].SetActive(false);
+        playerRenderInUiObject.SetActive(false);
     }
 
     public void OpenItemsScreen()
     {
         SetSlotMenuReferences();
+        playerRenderInUiObject.SetActive(true);
 
         currScreenIndex = 1;
         screens[currScreenIndex].SetActive(true);
