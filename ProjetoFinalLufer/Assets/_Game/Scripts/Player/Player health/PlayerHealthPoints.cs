@@ -59,6 +59,7 @@ public class PlayerHealthPoints : HealthPoints
     private void Die()
     {
         FMODUnity.RuntimeManager.PlayOneShot(sfxDie, transform.position);
+        playerHPView.GetDamageBlinkController().ResetToNormalMaterials();
         transitionsManager.EndGame();
         parentToDestroy.SetActive(false);
     }
