@@ -58,8 +58,10 @@ public class ItemContainer : Interactive
             }
             else
             {
-                interactor.GetComponentInChildren<PlayerDialogueState>().dialogue = emptyDialogue;
-                interactor.transform.GetChild(2).GetComponent<ConcurrentStateMachine>().ChangeState(typeof(PlayerDialogueState));
+                PlayerDialogueState dialogueState = interactor.GetComponentInChildren<PlayerDialogueState>();
+
+                dialogueState.dialogue = emptyDialogue;
+                dialogueState.GetComponent<ConcurrentStateMachine>().ChangeState(typeof(PlayerDialogueState));
             }
         }
 

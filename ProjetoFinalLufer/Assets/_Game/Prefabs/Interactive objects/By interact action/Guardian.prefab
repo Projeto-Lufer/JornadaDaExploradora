@@ -79,7 +79,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialDialogue:
-    name: 
+    name: Guardian
     sentences:
     - 'A human!?
 
@@ -100,7 +100,7 @@ MonoBehaviour:
 
 '
   alreadyInteractedDialogue:
-    name: 
+    name: Guardian
     sentences:
     - Go, there is not time to waste! You must stop the corruption!
   isShield: 0
