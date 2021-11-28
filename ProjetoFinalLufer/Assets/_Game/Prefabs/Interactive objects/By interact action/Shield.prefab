@@ -63,7 +63,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialDialogue:
-    name: Escudo
+    name: 
     sentences:
     - This must be the plate the spirit mentioned. It will surely be useful.
     - Press B to use your new shield.
