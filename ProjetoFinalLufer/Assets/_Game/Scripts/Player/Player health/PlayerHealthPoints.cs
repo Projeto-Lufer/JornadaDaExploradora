@@ -51,10 +51,16 @@ public class PlayerHealthPoints : HealthPoints
         FMODUnity.RuntimeManager.PlayOneShot(sfxAddHealth, transform.position);
     }
 
+    public void MaxOutHealth()
+    {
+        AddHealth(base.maxHP);
+    }
+
     private void Die()
     {
         FMODUnity.RuntimeManager.PlayOneShot(sfxDie, transform.position);
+        playerHPView.GetDamageBlinkController().ResetToNormalMaterials();
         transitionsManager.EndGame();
-        Destroy(base.parentToDestroy);
+        parentToDestroy.SetActive(false);
     }
 }

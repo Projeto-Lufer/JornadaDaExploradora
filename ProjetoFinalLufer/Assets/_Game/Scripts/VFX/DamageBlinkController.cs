@@ -40,6 +40,27 @@ public class DamageBlinkController : MonoBehaviour
         damageBlinkCoroutine = StartCoroutine(DamageBlinkCoroutine());
     }
 
+    public void ResetToNormalMaterials()
+    {
+        if (damageBlinkCoroutine != null)
+        {
+            StopCoroutine(damageBlinkCoroutine);
+            damageBlinkCoroutine = null;
+        }
+
+        for (int i = 0; i < originalMaterials.Length; i++)
+        {
+            Material[] objectMaterials = originalMaterials[i].renderer.materials;
+            int materialsInObj = originalMaterials[i].renderer.materials.Length;
+            for (int j = 0; j < materialsInObj; j++)
+            {
+                objectMaterials[j] = originalMaterials[i].materials[j];
+            }
+
+            originalMaterials[i].renderer.materials = objectMaterials;
+        }
+    }
+
     private IEnumerator DamageBlinkCoroutine()
     {
         for (int i = 0 ; i < originalMaterials.Length ; i++) // Objects with texture
@@ -61,19 +82,7 @@ public class DamageBlinkController : MonoBehaviour
 
         yield return blinkDurationWFS;
 
-        for (int i = 0 ; i < originalMaterials.Length ; i++)
-        {
-            Material[] objectMaterials = originalMaterials[i].renderer.materials;
-            int materialsInObj = originalMaterials[i].renderer.materials.Length;
-            for (int j = 0; j < materialsInObj; j++)
-            {
-                objectMaterials[j] = originalMaterials[i].materials[j];
-            }
-
-            originalMaterials[i].renderer.materials = objectMaterials;
-        }
-
-        damageBlinkCoroutine = null;
+        ResetToNormalMaterials();
     }
 }
 

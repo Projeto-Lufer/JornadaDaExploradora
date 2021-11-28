@@ -13,15 +13,15 @@ public class Guardian : Interactive
 
     public override void Interact(GameObject player)
     {
-        if(alreadyInteracted)
+        PlayerDialogueState dialogueState = player.GetComponentInChildren<PlayerDialogueState>();
+
+        if (alreadyInteracted)
         {
-            player.GetComponentInChildren<PlayerDialogueState>().dialogue = alreadyInteractedDialogue;
-            player.transform.GetChild(2).GetComponent<ConcurrentStateMachine>().ChangeState(typeof(PlayerDialogueState));
+            dialogueState.dialogue = alreadyInteractedDialogue;
         }
         else
         {
-            player.GetComponentInChildren<PlayerDialogueState>().dialogue = initialDialogue;
-            player.transform.GetChild(2).GetComponent<ConcurrentStateMachine>().ChangeState(typeof(PlayerDialogueState));
+            dialogueState.dialogue = initialDialogue;
             alreadyInteracted = true;
 
             if(isShield)
@@ -30,5 +30,7 @@ public class Guardian : Interactive
                 Destroy(gameObject);
             }
         }
+
+        dialogueState.GetComponent<ConcurrentStateMachine>().ChangeState(typeof(PlayerDialogueState));
     }
 }

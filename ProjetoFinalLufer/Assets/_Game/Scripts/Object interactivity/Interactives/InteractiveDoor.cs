@@ -31,8 +31,9 @@ public class InteractiveDoor : Interactive
         if(isLocked && collector.CheckQty(keyType) == 0)
         {
             FMODUnity.RuntimeManager.PlayOneShot(sfxDoorLocked, transform.position);
-            player.GetComponentInChildren<PlayerDialogueState>().dialogue = lockedDialogue;
-            player.transform.GetChild(2).GetComponent<ConcurrentStateMachine>().ChangeState(typeof(PlayerDialogueState));
+            PlayerDialogueState dialogueState = player.GetComponentInChildren<PlayerDialogueState>();
+            dialogueState.dialogue = lockedDialogue;
+            dialogueState.GetComponent<ConcurrentStateMachine>().ChangeState(typeof(PlayerDialogueState));
         }
         else if (isLocked && collector.CheckQty(keyType) > 0)
         {

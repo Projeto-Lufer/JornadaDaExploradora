@@ -61,4 +61,9 @@ public class PlayerHealthPointsView : MonoBehaviour
 
         damageBlinkController.PlayBlinkingAnimation();
     }
+
+    public DamageBlinkController GetDamageBlinkController()
+    {
+        return damageBlinkController;
+    }
 }

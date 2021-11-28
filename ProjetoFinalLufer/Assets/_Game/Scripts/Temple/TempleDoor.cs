@@ -16,8 +16,7 @@ public class TempleDoor : MonoBehaviour
         //nextRoom.SpawnItens
         //lockar movimentação do player e tocar animação
         if (other.tag == "Player")
-        {
-            Debug.Log(other.name);
+        { 
             myRoom.DestroyElements();
             nextRoom.SpawnElements();
             nextRoom.virtualCamera.Priority = 1;
