@@ -3127,6 +3127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   elements: []
+  shadowsParent: {fileID: 8769446712536604094}
   virtualCamera: {fileID: 1396321369890060124}
 --- !u!1 &5520270256975003293
 GameObject:
