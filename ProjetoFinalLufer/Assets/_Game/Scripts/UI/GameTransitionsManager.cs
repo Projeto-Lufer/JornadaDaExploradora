@@ -46,8 +46,9 @@ public class GameTransitionsManager : MonoBehaviour
     public void EndGame()
     {
         Time.timeScale = 0;
-        dof.active = false;
-        SetShowInGameMenu(false);
+        dof.active = true;
+        inGameMenuGameObject.SetActive(false);
+        gameHasEnded = true;
         endGamePopup.SetActive(true);
         eventSystem.SetSelectedGameObject(endGameFirstButton);
     }
@@ -56,7 +57,7 @@ public class GameTransitionsManager : MonoBehaviour
     {
         dof.active = true;
         Time.timeScale = 0;
-        SetShowInGameMenu(false);
+        inGameMenuGameObject.SetActive(false);
         gameHasEnded = true;
         victoryPopup.SetActive(true);
         eventSystem.SetSelectedGameObject(victoryFirstButton);
@@ -66,6 +67,8 @@ public class GameTransitionsManager : MonoBehaviour
     {
         if (!gameHasEnded)
         {
+            dof.active = show;
+            inGameMenuGameObject.SetActive(show);
             if (show)
             {
                 Time.timeScale = 0;
@@ -75,9 +78,6 @@ public class GameTransitionsManager : MonoBehaviour
             {
                 Time.timeScale = 1;
             }
-
-            dof.active = show;
-            inGameMenuGameObject.SetActive(show);
         }
     }
 
