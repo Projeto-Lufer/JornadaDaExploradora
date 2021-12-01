@@ -6,38 +6,48 @@ public class MusicManager : MonoBehaviour
 {
     
     [Header("Audio FMOD Event")]
-    [FMODUnity.EventRef]
-    public string music1MenuTheme;
+    FMOD.Studio.EventInstance MusicPlaying;
 
-    [FMODUnity.EventRef]
-    public string music2Cutscene;
+    [FMODUnity.ParamRef]
+    public string eventParameter;
 
-    [FMODUnity.EventRef]
-    public string music3Overworld;
-
-    [FMODUnity.EventRef]
-    public string music4FirstTemple;
-
-    [FMODUnity.EventRef]
-    public string music5AylaTheme;
-
-    [FMODUnity.EventRef]
-    public string music6SpiritTheme;
-
-    [FMODUnity.EventRef]
-    public string music7EnemiesTheme;
-
-    [FMODUnity.EventRef]
-    public string music8BossFightTheme;
 
     void Start ()
     {
-        PlayMusic(music3Overworld);
+        MusicPlaying = FMODUnity.RuntimeManager.CreateInstance("event:/Music/music-manager");
+        MusicPlaying.start();
+        Debug.Log("Music Started");
     }
 
-    public void PlayMusic(string musicEvent)
+    public void PlayMusic(int musicNumber)
     {
-        
-        FMODUnity.RuntimeManager.PlayOneShot(musicEvent, transform.position);
+        Debug.Log("Music Number Playing: " + musicNumber);
+        switch (musicNumber)
+        {
+            case 1:
+                FMODUnity.RuntimeManager.StudioSystem.setParameterByName("MusicParameter", 1f);
+                break;
+            case 2:
+                FMODUnity.RuntimeManager.StudioSystem.setParameterByName("MusicParameter", 2f);
+                break;
+            case 3:
+                FMODUnity.RuntimeManager.StudioSystem.setParameterByName("MusicParameter", 3f);
+                break;
+            case 4:
+                FMODUnity.RuntimeManager.StudioSystem.setParameterByName("MusicParameter", 4f);
+                break;
+            case 5:
+                FMODUnity.RuntimeManager.StudioSystem.setParameterByName("MusicParameter", 5f);
+                break;
+            case 6:
+                FMODUnity.RuntimeManager.StudioSystem.setParameterByName("MusicParameter", 6f);
+                break;
+            case 7:
+                FMODUnity.RuntimeManager.StudioSystem.setParameterByName("MusicParameter", 7f);
+                break;
+            case 8:
+                FMODUnity.RuntimeManager.StudioSystem.setParameterByName("MusicParameter", 8f);
+                break;
+        }
     }
 }

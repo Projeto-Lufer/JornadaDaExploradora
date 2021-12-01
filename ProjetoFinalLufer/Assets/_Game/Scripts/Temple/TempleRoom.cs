@@ -8,11 +8,13 @@ public class TempleRoom : MonoBehaviour
     [SerializeField] private TempleRoomElement[] elements;
     [SerializeField] private GameObject shadowsParent;
     public CinemachineVirtualCamera virtualCamera;
-
     private Coroutine shadowsCoroutine;
+    public MusicManager musicController = null;
+    public int musicNumber = 3;
 
     public void SpawnElements()
     {
+        musicController.PlayMusic(musicNumber);
         foreach (TempleRoomElement element in elements)
         {
             element.Spawn();
