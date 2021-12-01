@@ -80,6 +80,8 @@ MonoBehaviour:
   maxHP: 1
   dropper: {fileID: 1931671419311342801}
   sfxBreakingJar: event:/SFX/Objects/sfx-breaking-jar
+  particle: {fileID: 5803288318614513315, guid: ef4036964ef13214a996cc801f3180e4,
+    type: 3}
 --- !u!114 &1931671419311342801
 MonoBehaviour:
   m_ObjectHideFlags: 0

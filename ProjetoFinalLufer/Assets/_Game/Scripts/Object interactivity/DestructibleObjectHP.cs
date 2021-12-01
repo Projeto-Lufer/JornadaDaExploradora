@@ -10,9 +10,11 @@ public class DestructibleObjectHP : HealthPoints
     [FMODUnity.EventRef]
     public string sfxBreakingJar;
 
+    [SerializeField] private GameObject particle;
+
 
     public override void ReduceHealth(ComboElement attackStats)
-    {        
+    {
         base.ReduceHealth(attackStats);
 
         if (base.curHP <= 0)
@@ -22,8 +24,14 @@ public class DestructibleObjectHP : HealthPoints
         }
     }
 
+    public void PlayBrokenVisual()
+    {
+        Instantiate(particle, transform.position, transform.rotation);
+    }
+
     private void Die()
     {
+        PlayBrokenVisual();
         dropper.DropItem();
 
         Destroy(parentToDestroy);
