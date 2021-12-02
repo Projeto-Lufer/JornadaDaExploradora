@@ -43106,8 +43106,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.39410874, y: 0.5870931, z: -0.39410874, w: 0.5870931}
-  m_LocalPosition: {x: 31.985584, y: 10.51514, z: -12.999999}
+  m_LocalRotation: {x: 0.39410752, y: 0.58709395, z: -0.39410752, w: 0.58709395}
+  m_LocalPosition: {x: 94.01554, y: 9.508194, z: 20.954994}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 888240360}
@@ -73732,11 +73732,6 @@ PrefabInstance:
       objectReference: {fileID: 1589854016}
     - target: {fileID: 445092720497293635, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
         type: 3}
-      propertyPath: speed
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 445092720497293635, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
-        type: 3}
       propertyPath: defendingSpeed
       value: 4
       objectReference: {fileID: 0}
@@ -100623,6 +100618,12 @@ PrefabInstance:
       propertyPath: musicController
       value: 
       objectReference: {fileID: 699999356}
+    - target: {fileID: 3380872672627292191, guid: cfc81960d9cc62c4e91f2b1aa0b0aa81,
+        type: 3}
+      propertyPath: elementPrefab
+      value: 
+      objectReference: {fileID: 2202740110688647472, guid: f74cac5df04b6a144b14b396f84a4b6e,
+        type: 3}
     - target: {fileID: 3598090865123884437, guid: cfc81960d9cc62c4e91f2b1aa0b0aa81,
         type: 3}
       propertyPath: musicController
