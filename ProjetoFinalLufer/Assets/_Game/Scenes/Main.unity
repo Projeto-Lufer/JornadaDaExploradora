@@ -73732,11 +73732,6 @@ PrefabInstance:
       objectReference: {fileID: 1589854016}
     - target: {fileID: 445092720497293635, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
         type: 3}
-      propertyPath: speed
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 445092720497293635, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
-        type: 3}
       propertyPath: defendingSpeed
       value: 4
       objectReference: {fileID: 0}
@@ -100623,6 +100618,12 @@ PrefabInstance:
       propertyPath: musicController
       value: 
       objectReference: {fileID: 699999356}
+    - target: {fileID: 3380872672627292191, guid: cfc81960d9cc62c4e91f2b1aa0b0aa81,
+        type: 3}
+      propertyPath: elementPrefab
+      value: 
+      objectReference: {fileID: 2202740110688647472, guid: f74cac5df04b6a144b14b396f84a4b6e,
+        type: 3}
     - target: {fileID: 3598090865123884437, guid: cfc81960d9cc62c4e91f2b1aa0b0aa81,
         type: 3}
       propertyPath: musicNumber

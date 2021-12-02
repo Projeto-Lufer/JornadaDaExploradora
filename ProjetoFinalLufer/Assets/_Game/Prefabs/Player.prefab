@@ -338,7 +338,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7762025947535230012}
-  m_RootOrder: 9
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4078346675285778751
 GameObject:
@@ -702,7 +702,7 @@ MonoBehaviour:
   controller: {fileID: 7762025947535230010}
   playerRoot: {fileID: 7762025947535230012}
   animator: {fileID: 8730488536679072951}
-  speed: 8
+  speed: 10
   turnSmoothTime: 0.1
   pcs: {fileID: 7989665054200242460}
   pds: {fileID: 7407808896950493283}
