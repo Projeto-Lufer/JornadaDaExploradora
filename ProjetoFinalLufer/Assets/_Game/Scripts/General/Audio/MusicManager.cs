@@ -6,7 +6,7 @@ public class MusicManager : MonoBehaviour
 {
     
     [Header("Audio FMOD Event")]
-    FMOD.Studio.EventInstance MusicPlaying;
+    FMOD.Studio.EventInstance musicPlaying;
 
     [FMODUnity.ParamRef]
     public string eventParameter;
@@ -14,8 +14,8 @@ public class MusicManager : MonoBehaviour
 
     void Start ()
     {
-        MusicPlaying = FMODUnity.RuntimeManager.CreateInstance("event:/Music/music-manager");
-        MusicPlaying.start();
+        musicPlaying = FMODUnity.RuntimeManager.CreateInstance("event:/Music/music-manager");
+        musicPlaying.start();
         Debug.Log("Music Started");
     }
 

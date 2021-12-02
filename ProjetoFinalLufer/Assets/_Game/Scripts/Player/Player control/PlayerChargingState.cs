@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class PlayerChargingState : ConcurrentState
 {
-    [Header("Variáveis de tempo")]
+    [Header("Variaveis de tempo")]
     [SerializeField] private float chargeTime;
     [SerializeField] private float currChargeTime;
-    [Header("Contole do avanço")]
+    [Header("Contole do avanco")]
     [SerializeField] private float maxDistance;
     [SerializeField] private float time;
     [SerializeField] private CharacterController charController;
-    [Header("Variáveis de ataque")]
+    [Header("Variaveis de ataque")]
     [SerializeField] private Transform attackPoint;
     [SerializeField] private LayerMask targetLayer;
     [SerializeField] private Vector3 damageArea;
@@ -28,12 +28,16 @@ public class PlayerChargingState : ConcurrentState
     [HideInInspector] public bool canTurn = true;
     private bool keyDown;
     private float speed;
+    [Header("Audio FMOD Event")]
+    FMOD.Studio.EventInstance sfxAylaSpecialAttack;
 
     public override void Enter()
     {
         speed = maxDistance / time;
         keyDown = true;
         stateMachine.inputManager.actionAttack2.canceled += ctx => keyDown = false;
+        sfxAylaSpecialAttack = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Ayla/sfx-ayla-special-attack");
+        sfxAylaSpecialAttack.start();
     }
 
     public override void Exit()
@@ -50,6 +54,8 @@ public class PlayerChargingState : ConcurrentState
             if (currChargeTime < chargeTime && !chargingParticles.isPlaying)
             {
                 chargingParticles.Play();
+                Debug.Log("Audio charge yellowww");
+                sfxAylaSpecialAttack.setParameterByName("AylaSpecialAttack", 0f);
             }
 
             currChargeTime += Time.deltaTime;
@@ -58,6 +64,7 @@ public class PlayerChargingState : ConcurrentState
             {
                 chargingParticles.Stop();
                 chargedParticles.Play();
+                Debug.Log("Audio charge reedddd");
             }
         }
         else
@@ -76,6 +83,8 @@ public class PlayerChargingState : ConcurrentState
             chargingParticles.Stop();
             currChargeTime = 0;
             base.stateMachine.ChangeState(typeof(PlayerNotActingState));
+
+            //sfxAylaSpecialAttack.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         }
     }
 
@@ -86,6 +95,8 @@ public class PlayerChargingState : ConcurrentState
         canTurn = false;
         bool hitObstacle = false;
 
+        sfxAylaSpecialAttack.setParameterByName("AylaSpecialAttack", 1f);
+        Debug.Log("Audio charge attackinggg");
         animator.SetBool("UsingSpecial", true);
 
         while (currDistance < maxDistance)
@@ -108,15 +119,24 @@ public class PlayerChargingState : ConcurrentState
         }
         animator.SetBool("UsingSpecial", false);
         canTurn = true;
+
+        //sfxAylaSpecialAttack.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
 
     private IEnumerator UnchargedStab()
     {
+        Debug.Log("Audio charge cancellll");
+        sfxAylaSpecialAttack.setParameterByName("AylaSpecialAttack", 2f);
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("AylaSpecialAttack", 2f);
+
         playerInCombatControl.SetInCombat();
         animator.SetBool("UsingSpecial", true);
         DoStabDamage(unchargedStabStats);
         yield return new WaitForSeconds(unchargedStabStats.duration);
         animator.SetBool("UsingSpecial", false);
+
+        //sfxAylaSpecialAttack.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        
     }
 
     private bool DoStabDamage(ComboElement stabStats)
@@ -138,6 +158,7 @@ public class PlayerChargingState : ConcurrentState
             }
         }
 
+        //sfxAylaSpecialAttack.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         return hitObstacle;
     }
 }

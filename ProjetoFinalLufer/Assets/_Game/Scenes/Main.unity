@@ -43106,8 +43106,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.39410752, y: 0.58709395, z: -0.39410752, w: 0.58709395}
-  m_LocalPosition: {x: 94.01554, y: 9.508194, z: 20.954994}
+  m_LocalRotation: {x: 0.39410874, y: 0.5870931, z: -0.39410874, w: 0.5870931}
+  m_LocalPosition: {x: 31.985584, y: 10.51514, z: -12.999999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 888240360}
@@ -73793,6 +73793,11 @@ PrefabInstance:
       propertyPath: healthTextUI
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3906696032279641580, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
+        type: 3}
+      propertyPath: voiceAylaShortActions
+      value: event:/Voice/voice-ayla-short-actions
+      objectReference: {fileID: 0}
     - target: {fileID: 4078346675285778751, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
         type: 3}
       propertyPath: m_IsActive
@@ -73820,9 +73825,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4857794338073604352, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
         type: 3}
+      propertyPath: sfxDie
+      value: event:/Voice/voice-ayla-hurt
+      objectReference: {fileID: 0}
+    - target: {fileID: 4857794338073604352, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
+        type: 3}
+      propertyPath: sfxAddHealth
+      value: event:/SFX/Ayla/sfx-ayla-recovering-health
+      objectReference: {fileID: 0}
+    - target: {fileID: 4857794338073604352, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
+        type: 3}
       propertyPath: stateMachine
       value: 
       objectReference: {fileID: 210409092}
+    - target: {fileID: 4857794338073604352, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
+        type: 3}
+      propertyPath: voiceAylaHurt
+      value: event:/Voice/voice-ayla-hurt
+      objectReference: {fileID: 0}
     - target: {fileID: 4857794338073604352, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
         type: 3}
       propertyPath: transitionsManager
@@ -73947,7 +73967,7 @@ PrefabInstance:
         type: 3}
       propertyPath: dialogueBox
       value: 
-      objectReference: {fileID: 948180910288516779}
+      objectReference: {fileID: 0}
     - target: {fileID: 6272904214066361962, guid: 1566e1ffe378dc443a5c1fd49c7833f7,
         type: 3}
       propertyPath: dialogueText
@@ -100345,12 +100365,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd1223f5765f2d146a4e9d0f151df467, type: 3}
---- !u!1 &948180910288516779 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7548776797058570737, guid: cd1223f5765f2d146a4e9d0f151df467,
-    type: 3}
-  m_PrefabInstance: {fileID: 948180910288516778}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &948180910288516780 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7548776797200425277, guid: cd1223f5765f2d146a4e9d0f151df467,

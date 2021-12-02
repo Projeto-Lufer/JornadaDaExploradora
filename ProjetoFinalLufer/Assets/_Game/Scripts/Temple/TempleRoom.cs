@@ -9,6 +9,9 @@ public class TempleRoom : MonoBehaviour
     [SerializeField] private GameObject shadowsParent;
     public CinemachineVirtualCamera virtualCamera;
     private Coroutine shadowsCoroutine;
+
+
+    [Header("Audio FMOD Event")]
     public MusicManager musicController = null;
     public int musicNumber = 3;
 
