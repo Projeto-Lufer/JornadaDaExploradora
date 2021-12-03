@@ -53,6 +53,7 @@ MonoBehaviour:
   sfxDoorLocked: event:/SFX/Objects/sfx-door-locked
   sfxDoorUnlocked: event:/SFX/Objects/sfx-door-unlocked
   sfxChestOpening: event:/SFX/Objects/sfx-chest-opening
+  sfxCollectingItem: event:/SFX/Ayla/sfx-ayla-recovering-health
 --- !u!1 &2218563041017206872
 GameObject:
   m_ObjectHideFlags: 0
