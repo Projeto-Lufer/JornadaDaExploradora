@@ -12,7 +12,7 @@ public class victory : MonoBehaviour
     IEnumerator waiter()
     {
         fade.SetActive(true);
-        yield return new WaitForSecondsRealtime(1.8f);
+        yield return new WaitForSecondsRealtime(2.0f);
         Time.timeScale = 0;
         UIScreen.SetActive(true);
     }

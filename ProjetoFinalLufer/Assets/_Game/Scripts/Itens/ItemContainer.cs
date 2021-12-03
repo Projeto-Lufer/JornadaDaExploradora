@@ -15,6 +15,8 @@ public class ItemContainer : Interactive
     public string sfxDoorUnlocked;
     [FMODUnity.EventRef]
     public string sfxChestOpening;
+    [FMODUnity.EventRef]
+    public string sfxCollectingItem;
 
     private bool hasBeenOpened;
 
@@ -55,6 +57,8 @@ public class ItemContainer : Interactive
                 ObjectCollector collector = interactor.GetComponent<ObjectCollector>();
 
                 collector.GetItem(containedItem);
+                FMODUnity.RuntimeManager.PlayOneShot(sfxCollectingItem, transform.position);
+
             }
             else
             {
