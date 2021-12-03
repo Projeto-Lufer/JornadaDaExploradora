@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: 728b297e6f1014acfa018971f661dd68,
+  m_LightingDataAsset: {fileID: 112000000, guid: 7121b2b933eb8ac4b8dbafc4e287a088,
     type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 426f0d2a4c0a16d4b9ebf4f8befd2e14,
     type: 2}
@@ -25499,7 +25499,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh1500048
+  m_Name: pb_Mesh2172540
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -43834,7 +43834,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.39410752, y: 0.58709395, z: -0.39410752, w: 0.58709395}
-  m_LocalPosition: {x: 94.01554, y: 9.508194, z: 20.954994}
+  m_LocalPosition: {x: 91.32158, y: 10.515123, z: 68.006546}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 888240360}
@@ -52766,6 +52766,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9b6acdc94f3a2844a30fb08fe92352c, type: 3}
+--- !u!1 &1151074987 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5843430800545757451, guid: cd1223f5765f2d146a4e9d0f151df467,
+    type: 3}
+  m_PrefabInstance: {fileID: 948180910288516778}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1151074991
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1151074987}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c0667f4378fb409498fe21009edec24e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1153377399
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -100228,46 +100253,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 888240360}
     m_Modifications:
-    - target: {fileID: 102256255, guid: cd1223f5765f2d146a4e9d0f151df467, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -277.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 102256256, guid: cd1223f5765f2d146a4e9d0f151df467, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 102256256, guid: cd1223f5765f2d146a4e9d0f151df467, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 102256256, guid: cd1223f5765f2d146a4e9d0f151df467, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 102256256, guid: cd1223f5765f2d146a4e9d0f151df467, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 2100000, guid: 2f0a8cdfe0c883049a1c3380e7b86ae5, type: 2}
-    - target: {fileID: 102256256, guid: cd1223f5765f2d146a4e9d0f151df467, type: 3}
-      propertyPath: m_FontData.m_RichText
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 102256256, guid: cd1223f5765f2d146a4e9d0f151df467, type: 3}
-      propertyPath: m_FontData.m_FontStyle
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 102256257, guid: cd1223f5765f2d146a4e9d0f151df467, type: 3}
-      propertyPath: m_CullTransparentMesh
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 102256259, guid: cd1223f5765f2d146a4e9d0f151df467, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1044816764, guid: cd1223f5765f2d146a4e9d0f151df467, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 948180911597357986, guid: cd1223f5765f2d146a4e9d0f151df467,
         type: 3}
       propertyPath: m_Name
@@ -100892,6 +100877,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 3.1588404
+      objectReference: {fileID: 0}
+    - target: {fileID: 1725131462290275645, guid: cfc81960d9cc62c4e91f2b1aa0b0aa81,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1972892161758981405, guid: cfc81960d9cc62c4e91f2b1aa0b0aa81,
         type: 3}
