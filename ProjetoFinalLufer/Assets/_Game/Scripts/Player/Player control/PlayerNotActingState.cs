@@ -46,19 +46,20 @@ public class PlayerNotActingState : ConcurrentState
                     interactive.Interact();
                     objectManipulator.GrabObject(interactive.gameObject);
                     base.stateMachine.ChangeState(typeof(PlayerDraggingState));
+                    interactiveIdentifier.SetInteractPopupShowState(false);
                 }
-                else if (interactiveType == typeof(InteractiveDoor))
+                else if (interactiveType == typeof(InteractiveDoor) ||
+                 interactiveType == typeof(ItemContainer) ||
+                 interactiveType == typeof(Guardian))
                 {
                     interactive.Interact(transform.parent.gameObject);
                 }
-                else if (interactiveType == typeof(ItemContainer))
+                else if (interactiveType == typeof(InteractiveShield))
                 {
                     interactive.Interact(transform.parent.gameObject);
+                    interactiveIdentifier.SetInteractPopupShowState(false);
                 }
-                else if(interactiveType == typeof(Guardian))
-                {
-                    interactive.Interact(transform.parent.gameObject);
-                }
+
             }
         }
         else if (stateMachine.inputManager.actionAttack1.triggered)
