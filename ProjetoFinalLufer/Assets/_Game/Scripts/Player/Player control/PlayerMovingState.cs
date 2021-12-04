@@ -13,6 +13,8 @@ public class PlayerMovingState : ConcurrentState
     [Header("Gameplay tweeking fields")]
     [SerializeField] private float speed;
     [SerializeField] private float turnSmoothTime = 0.1f;
+    [SerializeField] private float draggingSpeedReduction = 4;
+    [SerializeField] private float specialAttackChargeMoveSpeedReduction = 2;
 
     // Internal attributes
     private float horizontalInput, verticalInput;
@@ -38,7 +40,7 @@ public class PlayerMovingState : ConcurrentState
     public override void Exit()
     {
         animator.SetBool("Running", false);
-        
+
     }
 
 
@@ -71,7 +73,7 @@ public class PlayerMovingState : ConcurrentState
 
             if(otherSMState.GetType() == typeof(PlayerChargingState))
             {
-                currSpeed = speed / 2;
+                currSpeed = speed / specialAttackChargeMoveSpeedReduction;
             }
             else if(otherSMState.GetType() == typeof(PlayerDefendingState))
             {
@@ -96,7 +98,7 @@ public class PlayerMovingState : ConcurrentState
             animator.SetBool("PushingBackwards", !movingForward && isMoving);
             animator.SetFloat("MoveAmount", directionInR2.magnitude);
 
-            currSpeed = speed / 2;
+            currSpeed = speed / draggingSpeedReduction;
 
             // if(Math.Abs(transform.forward.x) > Math.Abs(transform.forward.z))
             // {
