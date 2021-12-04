@@ -10,6 +10,7 @@ public abstract class Activator : Interactive
     [SerializeField] private bool changeMaterialWhenActivated = true;
     protected Material deactivatedMaterial;
     [SerializeField] protected MeshRenderer meshRenderer;
+    [SerializeField] protected int materialIndexToChange = 0;
 
     protected virtual void Start()
     {
@@ -20,7 +21,7 @@ public abstract class Activator : Interactive
             {
                 meshRenderer = renderer;
             }
-            deactivatedMaterial = meshRenderer.material;
+            deactivatedMaterial = meshRenderer.materials[materialIndexToChange];
         }
     }
 
@@ -28,7 +29,9 @@ public abstract class Activator : Interactive
     {
         if(deactivatedMaterial != null)
         {
-            meshRenderer.material = activatedMaterial;
+            Material[] auxMaterials = meshRenderer.materials;
+            auxMaterials[materialIndexToChange] = activatedMaterial;
+            meshRenderer.materials = auxMaterials;
         }
         objectToActivate.Activate();
         objectToActivate.Activate(gameObject);
