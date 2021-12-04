@@ -13,6 +13,10 @@ public class ObjectCollector : MonoBehaviour
     [SerializeField] private List<Image> keyImages;
     [SerializeField] private ItemConfig regularKeyConfig, bossKeyConfig, blueKeyConfig, orangeKeyConfig, redKeyConfig;
     [SerializeField] private string collectableTag;
+    [SerializeField] private ItemDescriptionPopup itemPopup;
+    [SerializeField] private ConcurrentStateMachine stateMachine;
+    [SerializeField] private float delayToShowItemPopup = 2;
+    [SerializeField] private Animator animator;
 
     private void Start()
     {
@@ -58,6 +62,28 @@ public class ObjectCollector : MonoBehaviour
 
     public void GetItem(ItemConfig item)
     {
+        StartCoroutine(GetItemWithDelay(item));
+    }
+
+    private IEnumerator GetItemWithDelay(ItemConfig item)
+    {
+        float fakeGrabbingAnimationDelay = 0.3f;
+        stateMachine.ChangeState(typeof(PlayerReceivingItemState));
+        animator.SetBool("Pushing", true);
+
+        yield return new WaitForSeconds(fakeGrabbingAnimationDelay);
+        animator.SetBool("Pushing", false);
+
+        yield return new WaitForSeconds(delayToShowItemPopup - fakeGrabbingAnimationDelay);
+
+        itemPopup.ShowPopup(item.name, item.description, item.inventorySprite, item.tint);
+
+        if (item.name == "Shield")
+        {
+            GetComponentInChildren<PlayerNotActingState>().canDefend = true;
+            yield break;
+        }
+
         inventory[item]++;
         UpdateInvetoryUI();
     }
