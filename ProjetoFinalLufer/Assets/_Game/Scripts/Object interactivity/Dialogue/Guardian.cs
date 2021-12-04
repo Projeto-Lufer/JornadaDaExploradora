@@ -23,12 +23,6 @@ public class Guardian : Interactive
         {
             dialogueState.dialogue = initialDialogue;
             alreadyInteracted = true;
-
-            if(isShield)
-            {
-                player.GetComponentInChildren<PlayerNotActingState>().canDefend = true;
-                Destroy(gameObject);
-            }
         }
 
         dialogueState.GetComponent<ConcurrentStateMachine>().ChangeState(typeof(PlayerDialogueState));
