@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57541696a2c0f646ae0a161f00def84, type: 3}
   m_Name: Blue key
   m_EditorClassIdentifier: 
-  name: A Key
-  description: Try using it to open doors.
+  name: A blue key
+  description: Try using it to open doors with blue locks.
   inventorySprite: {fileID: 21300000, guid: 2acab1c4cffc7b6478055b2918f69790, type: 3}
   HudSprite: {fileID: 21300000, guid: f6dab99ca8f2be3489149a87d76b8af7, type: 3}
   tint: {r: 0, g: 0.3984952, b: 1, a: 1}

@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Boss key
   m_EditorClassIdentifier: 
   name: Special key
-  description: It seems like it's made for a special door
+  description: A heavy key embellished with subtle, yet elegant ornaments. Such a
+    key wasn't designed for the ordinary door.
   inventorySprite: {fileID: 21300000, guid: 64ebfa1306cf65a4dacbf362a8d3ee1d, type: 3}
   HudSprite: {fileID: 21300000, guid: 43159ecde1bf12a42bc30a4e1047f5b2, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
