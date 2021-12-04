@@ -44,8 +44,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.5748653, y: 0.69347966, z: 0.5488708}
+  m_Center: {x: 0, y: 0, z: 0.0060668476}
 --- !u!114 &2071102325192679980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59,8 +59,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToActivate: {fileID: 0}
-  activatedMaterial: {fileID: 2100000, guid: f77276480dcbbed4b8549d5eac775035, type: 2}
+  activatedMaterial: {fileID: 2100000, guid: 84142ef0b4e1b234d853306094e371aa, type: 2}
+  changeMaterialWhenActivated: 1
   meshRenderer: {fileID: 8389056829345288681}
+  materialIndexToChange: 1
   sfxLightReceiverActivating: event:/SFX/Objects/sfx-light-receiver-activating
 --- !u!1001 &7181692317975334253
 PrefabInstance:
