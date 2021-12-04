@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4001251781744597200}
   - component: {fileID: 4001251781744597201}
-  - component: {fileID: 7452483280712715697}
   - component: {fileID: 1999431788606201897}
+  - component: {fileID: 7160578135394287044}
   m_Layer: 0
   m_Name: Shield
   m_TagString: Untagged
@@ -50,27 +50,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &7452483280712715697
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4001251781744597207}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4246e7602d31a9a4f9c8944e627792eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  initialDialogue:
-    name: 
-    sentences:
-    - This must be the plate the spirit mentioned. It will surely be useful.
-    - Press B to use your new shield.
-  alreadyInteractedDialogue:
-    name: 
-    sentences: []
-  isShield: 1
 --- !u!65 &1999431788606201897
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -84,6 +63,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.74823505, y: 0.8214017, z: 0.12236267}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7160578135394287044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4001251781744597207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59d1979cc90a0684cb46cf12025097aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shieldConfig: {fileID: 11400000, guid: 0b61546ada8f8b8439099ac0ac897dd7, type: 2}
 --- !u!1001 &3690825596543628009
 PrefabInstance:
   m_ObjectHideFlags: 0
