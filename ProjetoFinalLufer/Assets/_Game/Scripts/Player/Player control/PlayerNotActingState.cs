@@ -53,6 +53,8 @@ public class PlayerNotActingState : ConcurrentState
                  interactiveType == typeof(Guardian))
                 {
                     interactive.Interact(transform.parent.gameObject);
+                    interactiveIdentifier.SetInteractPopupShowState(false);
+                    interactiveIdentifier.PopMostrelevantInteractive();
                 }
                 else if (interactiveType == typeof(InteractiveShield))
                 {
