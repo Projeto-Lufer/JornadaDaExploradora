@@ -22,7 +22,8 @@ public class PlayerIdleState : ConcurrentState
         canMove = otherSMStateType != typeof(PlayerLiftingState) &&
                     otherSMStateType != typeof(PlayerAttackingState) &&
                     otherSMStateType != typeof(PlayerDialogueState) &&
-                    otherSMStateType != typeof(FlinchingState);
+                    otherSMStateType != typeof(FlinchingState) &&
+                    otherSMStateType != typeof(PlayerReceivingItemState);
 
         if (canMove && direction != Vector2.zero)
         {
