@@ -18,7 +18,7 @@ public class InteractiveIdentifier : MonoBehaviour
 
             interactivesInRange.Add(interactive);
 
-            popupText.SetActive(true);
+            SetInteractPopupShowState(true);
         }
     }
 
@@ -29,10 +29,14 @@ public class InteractiveIdentifier : MonoBehaviour
         if (interactive != null && interactivesInRange.Contains(interactive))
         {
             interactivesInRange.Remove(interactive);
-            
-            popupText.SetActive(false);
-        }
 
+            SetInteractPopupShowState(false);
+        }
+    }
+
+    public void SetInteractPopupShowState(bool show)
+    {
+        popupText.SetActive(show);
     }
 
     public bool GetHasInteractibleInRange()
