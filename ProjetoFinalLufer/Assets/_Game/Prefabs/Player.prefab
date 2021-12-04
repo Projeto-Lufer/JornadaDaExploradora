@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 7407808896950493283}
   - component: {fileID: 6272904214066361962}
   - component: {fileID: 8394353991767502052}
+  - component: {fileID: 2612073517000491740}
   m_Layer: 0
   m_Name: Player action states
   m_TagString: Untagged
@@ -61,6 +62,7 @@ MonoBehaviour:
   - {fileID: 7989665054200242460}
   - {fileID: 7407808896950493283}
   - {fileID: 6272904214066361962}
+  - {fileID: 2612073517000491740}
   startingState: {fileID: 9041497815187191158}
   canChangeStates: 1
   otherStateMachine: {fileID: 2519515204889033553}
@@ -216,6 +218,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateToReturnTo: {fileID: 0}
+--- !u!114 &2612073517000491740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 206274268144785079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57ced81126c21cc4ebb86ded35fe8e2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popup: {fileID: 0}
 --- !u!1 &2134347131696939373
 GameObject:
   m_ObjectHideFlags: 0
@@ -976,6 +991,10 @@ MonoBehaviour:
   orangeKeyConfig: {fileID: 11400000, guid: 157e4ddff2762274794051666e11a58e, type: 2}
   redKeyConfig: {fileID: 11400000, guid: 4787ddebbbc4e8148b69ee79f4f95876, type: 2}
   collectableTag: Collectable
+  itemPopup: {fileID: 0}
+  stateMachine: {fileID: 7008044775822542438}
+  delayToShowItemPopup: 2
+  animator: {fileID: 8730488536679072951}
 --- !u!114 &4766827225807830560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2619,12 +2638,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90dc1d84609210046bf701032c52c408, type: 3}
---- !u!1 &6565091831305812137 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1077525880881054649, guid: 90dc1d84609210046bf701032c52c408,
-    type: 3}
-  m_PrefabInstance: {fileID: 6192379294396300048}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4923751025673821727 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1277735112392926479, guid: 90dc1d84609210046bf701032c52c408,
@@ -2640,6 +2653,12 @@ Transform:
 --- !u!1 &6426260606171776577 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 90dc1d84609210046bf701032c52c408,
+    type: 3}
+  m_PrefabInstance: {fileID: 6192379294396300048}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6565091831305812137 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1077525880881054649, guid: 90dc1d84609210046bf701032c52c408,
     type: 3}
   m_PrefabInstance: {fileID: 6192379294396300048}
   m_PrefabAsset: {fileID: 0}
