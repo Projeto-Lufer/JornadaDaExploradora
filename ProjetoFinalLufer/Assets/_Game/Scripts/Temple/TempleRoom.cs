@@ -31,7 +31,7 @@ public class TempleRoom : MonoBehaviour
         {
             element.Despawn();
         }
-        StartShadowsStateChangeCoroutine(2, false);
+        StartShadowsStateChangeCoroutine(0, false);
     }
 
     private void StartShadowsStateChangeCoroutine(float delay, bool show)
