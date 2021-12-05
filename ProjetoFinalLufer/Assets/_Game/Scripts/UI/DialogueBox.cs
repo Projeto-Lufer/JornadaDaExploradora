@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,7 +13,12 @@ public class DialogueBox : MonoBehaviour
     [SerializeField] private TMP_Text characterName;
     [SerializeField] private TMP_Text dialogueText;
     [SerializeField] private float textSpeed = 10f;
+    [SerializeField] private GameObject animatedArrow;
+    [SerializeField] private PlayerInputManager inputManager;
+
     private bool isDisplaying = false;
+    private bool skippedDialog = false;
+    private Coroutine checkSkipCoroutine;
 
     private Queue<string> sentences = new Queue<string>();
 
@@ -57,19 +63,43 @@ public class DialogueBox : MonoBehaviour
 
         isDisplaying = true;
         string sentence = sentences.Dequeue();
-        dialogueText.text = sentence;
+        StartCoroutine(DisplaySentence(sentence));
+        //dialogueText.text = sentence;
 
         return true;
     }
 
+    private IEnumerator CheckForSkip()
+    {
+        yield return new WaitForSeconds(1f);
+        while (true)
+        {
+            if (inputManager.input.actions["Interact"].triggered)
+            {
+                skippedDialog = true;
+                yield break;
+            }
+
+            yield return null;
+        }
+    }
+
     private IEnumerator DisplaySentence(string sentence)
     {
+        checkSkipCoroutine = StartCoroutine(CheckForSkip());
+        animatedArrow.SetActive(false);
         dialogueText.text = "";
         string currentText = "";
         string finalText = sentence;
 
         for (int i = 0; i < finalText.Length; i++)
         {
+            if (skippedDialog)
+            {
+                skippedDialog = false;
+                dialogueText.text = finalText;
+                break;
+            }
             currentText = finalText.Substring(0, i);
             currentText += "<color=#00000000>" + finalText.Substring(i) + "</color>";
             yield return new WaitForSeconds(1.0f/textSpeed);
@@ -78,5 +108,8 @@ public class DialogueBox : MonoBehaviour
         // helps avoiding accidently skipping dialogue
         yield return new WaitForSeconds(0.5f);
         isDisplaying = false;
+        animatedArrow.SetActive(true);
+        StopCoroutine(checkSkipCoroutine);
+        checkSkipCoroutine = null;
     }
 }
