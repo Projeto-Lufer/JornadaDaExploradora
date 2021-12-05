@@ -14,8 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Shield
   description: "The Guardian\u2019s lost scale. Despite being in possession of the
-    vile creatures, it hasn\u2019t lost its brightness. The Guardian said it could
-    help me fight the corruption. "
+    vile creatures, it hasn\u2019t lost its brightness."
   inventorySprite: {fileID: 21300000, guid: 3304a31ed325779449f7275ba7d3c092, type: 3}
   HudSprite: {fileID: 21300000, guid: 3304a31ed325779449f7275ba7d3c092, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}

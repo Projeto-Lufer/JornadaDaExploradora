@@ -53,7 +53,7 @@ MonoBehaviour:
   descriptionText: {fileID: 963650853451670314}
   iconImage: {fileID: 583313602747258912}
   visualsParent: {fileID: 7946440204705272472}
-  delayToAllowClosePopup: 3
+  delayToAllowClosePopup: 1
   animatedArrow: {fileID: 7646456367195218995}
   canClosePopup: 0
 --- !u!1 &2296185955982535276
