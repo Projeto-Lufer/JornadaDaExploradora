@@ -90,7 +90,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 57.404778, y: 33.9}
+  m_AnchoredPosition: {x: 57.404778, y: 27.9}
   m_SizeDelta: {x: 444.5122, y: 79.8904}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6581676509044804069
@@ -131,8 +131,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4280032582
-  m_fontColor: {r: 0.27450982, g: 0.11372549, b: 0.10980392, a: 1}
+    rgba: 4284978626
+  m_fontColor: {r: 0.7607843, g: 0.58431375, b: 0.40392157, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -149,8 +149,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 35
-  m_fontSizeBase: 35
+  m_fontSize: 33
+  m_fontSizeBase: 33
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -304,7 +304,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -95.3, y: -0.0000033379}
+  m_AnchoredPosition: {x: -90, y: -0.0000033379}
   m_SizeDelta: {x: 71.0245, y: 71.0241}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6868540638403002684
@@ -379,7 +379,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 41.407608, y: -10.4718075}
+  m_AnchoredPosition: {x: 41.407608, y: -16.2}
   m_SizeDelta: {x: 367.7256, y: 172.9007}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5960693989833423649
@@ -422,8 +422,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4280032582
-  m_fontColor: {r: 0.27450982, g: 0.11372549, b: 0.10980392, a: 1}
+    rgba: 4284978626
+  m_fontColor: {r: 0.7607843, g: 0.58431375, b: 0.40392157, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -499,7 +499,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &93873985813819092
 RectTransform:
   m_ObjectHideFlags: 0
