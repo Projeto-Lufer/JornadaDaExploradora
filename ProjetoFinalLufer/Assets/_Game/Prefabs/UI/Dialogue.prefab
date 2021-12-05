@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 4.418997}
+  m_AnchoredPosition: {x: 0, y: -0}
   m_SizeDelta: {x: 448.2761, y: 87.505}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &658932928582837578
@@ -266,7 +266,7 @@ MonoBehaviour:
   backgroundWithName: {fileID: 8303396448217735006}
   characterName: {fileID: 2636912039341940381}
   dialogueText: {fileID: 658932928582837577}
-  textSpeed: 10
+  textSpeed: 25
   animatedArrow: {fileID: 3908024485488587478}
   inputManager: {fileID: 0}
 --- !u!1 &7521964018513035875
@@ -419,7 +419,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &3834314096814328165
 RectTransform:
   m_ObjectHideFlags: 0
