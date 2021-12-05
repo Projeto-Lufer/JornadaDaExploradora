@@ -78,7 +78,7 @@ public class DialogueBox : MonoBehaviour
 
     private IEnumerator CheckForSkip()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         while (true)
         {
             if (inputManager.input.actions["Interact"].triggered)
