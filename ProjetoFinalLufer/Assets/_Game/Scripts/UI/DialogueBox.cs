@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 public class DialogueBox : MonoBehaviour
@@ -15,16 +14,21 @@ public class DialogueBox : MonoBehaviour
     [SerializeField] private float textSpeed = 10f;
     [SerializeField] private GameObject animatedArrow;
     [SerializeField] private PlayerInputManager inputManager;
+    [SerializeField] private BossAnimationController bossAnimation;
 
     private bool isDisplaying = false;
     private bool skippedDialog = false;
     private Coroutine checkSkipCoroutine;
+    private string speakerName;
 
     private Queue<string> sentences = new Queue<string>();
+
+    public Action onDialogFinished;
 
     public void ShowDialogue(Dialogue dialogue)
     {
         visuals.SetActive(true);
+        speakerName = dialogue.name;
 
         sentences.Clear();
 
@@ -58,13 +62,16 @@ public class DialogueBox : MonoBehaviour
         if (sentences.Count == 0)
         {
             visuals.SetActive(false);
+            if (speakerName == "Corruption")
+            {
+                bossAnimation.PlayEndGameSequence();
+            }
             return false;
         }
 
         isDisplaying = true;
         string sentence = sentences.Dequeue();
         StartCoroutine(DisplaySentence(sentence));
-        //dialogueText.text = sentence;
 
         return true;
     }
