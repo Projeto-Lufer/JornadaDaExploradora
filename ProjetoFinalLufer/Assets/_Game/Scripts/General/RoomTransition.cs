@@ -5,7 +5,6 @@ using Cinemachine;
 
 public class RoomTransition : MonoBehaviour
 {
-    [HideInInspector]
     public CinemachineVirtualCamera vcam, currCam;
     public ConcurrentStateMachine stateMachine;
 
