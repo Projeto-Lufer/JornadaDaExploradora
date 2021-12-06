@@ -112,29 +112,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &4470705487827055018
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3008327315822289953}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 150b14060bbf51143a0b920dd6901f20, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyType: {fileID: 0}
-  isLocked: 1
-  lockObject: {fileID: 6500822531244431218}
-  animator: {fileID: 7098268846827740649}
-  sfxDoorOpening: event:/SFX/Objects/sfx-door-opening
-  sfxDoorLocked: event:/SFX/Objects/sfx-door-locked
-  sfxDoorUnlocked: event:/SFX/Objects/sfx-door-unlocked
-  lockedDialogue:
-    name: 
-    sentences:
-    - This door is locked. You need a special key to open it.
 --- !u!1 &7411073889067010091
 GameObject:
   m_ObjectHideFlags: 0
@@ -325,18 +302,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 369339cd5b6439440859e2183bcadd14, type: 3}
---- !u!95 &7098268846827740649 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 6742598883868973942, guid: 369339cd5b6439440859e2183bcadd14,
-    type: 3}
-  m_PrefabInstance: {fileID: 4544299280387999391}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &6500822531244431218 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7288820602343330285, guid: 369339cd5b6439440859e2183bcadd14,
-    type: 3}
-  m_PrefabInstance: {fileID: 4544299280387999391}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5195916898875328881 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8577953203180457966, guid: 369339cd5b6439440859e2183bcadd14,
