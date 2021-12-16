@@ -36,6 +36,9 @@ public abstract class Activator : Interactive
         }
         objectToActivate.Activate();
         objectToActivate.Activate(gameObject);
-        VFX?.SetActive(true);
+        if(VFX != null)
+        {
+            VFX.SetActive(true);
+        }
     }
 }

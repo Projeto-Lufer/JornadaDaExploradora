@@ -17,7 +17,10 @@ public class DeactivateableActivator : Activator
         isActive = false;
         base.objectToActivate.Deactivate();
         base.objectToActivate.Deactivate(gameObject);
-        base.VFX?.SetActive(false);
+        if (VFX != null)
+        {
+            VFX.SetActive(false);
+        }
     }
 
     public bool GetIsActive()
