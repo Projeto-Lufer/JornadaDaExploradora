@@ -11,6 +11,7 @@ public abstract class Activator : Interactive
     protected Material deactivatedMaterial;
     [SerializeField] protected MeshRenderer meshRenderer;
     [SerializeField] protected int materialIndexToChange = 0;
+    [SerializeField] protected GameObject VFX;
 
     protected virtual void Start()
     {
@@ -35,5 +36,6 @@ public abstract class Activator : Interactive
         }
         objectToActivate.Activate();
         objectToActivate.Activate(gameObject);
+        VFX?.SetActive(true);
     }
 }
